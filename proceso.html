@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html class="light" lang="es">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0, viewport-fit=cover" name="viewport"/>
+<title>Proceso · Inmuebles Audiovisuales</title>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script>tailwind.config={darkMode:"class",theme:{extend:{colors:{"gold":"#C9A84C","gold-light":"#E2C289","gold-dark":"#A8883A","charcoal":"#1C1C1E","charcoal-2":"#2A2A2D","crisp":"#FFFFFF","concrete":"#9B9B9F","concrete-lt":"#E8E8EA","surface-warm":"#F9F7F4"},fontFamily:{montserrat:["Montserrat","sans-serif"]}}}}</script>
+<style>
+*{box-sizing:border-box;}
+body{font-family:'Montserrat',sans-serif;}
+.material-symbols-outlined{font-variation-settings:'FILL' 0,'wght' 400,'GRAD' 0,'opsz' 24;}
+.nav-link{position:relative;font-size:12px;letter-spacing:.1em;font-weight:600;text-transform:uppercase;color:#9B9B9F;transition:color .25s;}
+.nav-link::after{content:'';position:absolute;bottom:-4px;left:0;width:0;height:2px;background:#C9A84C;transition:width .3s;}
+.nav-link:hover{color:#1C1C1E;}.nav-link:hover::after{width:100%;}
+.nav-link-active{color:#1C1C1E!important;}.nav-link-active::after{width:100%;}
+.proceso-step{display:flex;gap:24px;padding:24px 0;border-bottom:1px solid #E8E8EA;align-items:flex-start;}
+.proceso-step:last-child{border-bottom:none;}
+.step-num{width:44px;height:44px;min-width:44px;background:#1C1C1E;color:#E2C289;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:16px;font-weight:900;box-shadow:0 4px 12px rgba(28,28,30,.2);}
+footer a:hover{color:#C9A84C;}
+</style>
+</head>
+<body class="bg-crisp text-charcoal font-montserrat">
+
+<header class="bg-white/95 backdrop-blur-md fixed top-0 w-full z-50 border-b border-concrete-lt" style="box-shadow:0 8px 32px rgba(28,28,30,.06);">
+  <nav class="max-w-[1240px] mx-auto flex justify-between items-center px-4 md:px-8 h-[60px] md:h-[72px]">
+    <a href="index.html"><img src="https://res.cloudinary.com/denjzengj/image/upload/v1776758050/Vector_jyok9y.png" alt="Inmuebles Audiovisuales" class="h-11 md:h-14 w-auto" style="max-width:200px;"/></a>
+    <div class="hidden md:flex items-center space-x-8">
+      <a class="nav-link" href="index.html#portfolio">Portfolio</a>
+      <a class="nav-link" href="index.html#paquetes">Paquetes</a>
+      <a class="nav-link nav-link-active" href="proceso.html">Proceso</a>
+      <a class="nav-link" href="catalogo.html">Catálogo</a>
+    </div>
+    <a class="nav-link" style="color:#C9A84C;font-weight:800;" href="https://wa.me/528127174207">Agendar</a>
+  </nav>
+</header>
+
+<main class="pt-[60px] md:pt-[72px]">
+
+<!-- HERO -->
+<section class="bg-charcoal relative overflow-hidden py-14 md:py-24">
+  <div class="absolute inset-0 opacity-5" style="background-image:url('data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%22200%22 height=%22200%22><filter id=%22noise%22><feTurbulence type=%22fractalNoise%22 baseFrequency=%220.9%22 numOctaves=%224%22 stitchTiles=%22stitch%22/><feColorMatrix type=%22saturate%22 values=%220%22/></filter><rect width=%22200%22 height=%22200%22 filter=%22url(%23noise)%22 opacity=%221%22/></svg>');"></div>
+  <div class="absolute top-0 left-0 right-0 h-[2px]" style="background:linear-gradient(90deg,transparent,#C9A84C,transparent);"></div>
+  <div class="relative z-10 max-w-[1240px] mx-auto px-5 md:px-8 text-center">
+    <div class="flex items-center justify-center gap-3 mb-4">
+      <div style="width:24px;height:2px;background:#C9A84C;"></div>
+      <span style="font-size:10px;letter-spacing:.2em;font-weight:700;color:#C9A84C;text-transform:uppercase;">De la llamada a la entrega</span>
+      <div style="width:24px;height:2px;background:#C9A84C;"></div>
+    </div>
+    <h1 class="text-white mb-4 leading-none font-black" style="font-size:clamp(1.9rem,5vw,3.5rem);letter-spacing:-.025em;">Proceso completo</h1>
+    <p class="text-concrete max-w-xl mx-auto text-sm md:text-base leading-relaxed">7 pasos simples, de la primera llamada a tu material listo en 72 horas.</p>
+  </div>
+</section>
+
+<!-- PASOS -->
+<div class="max-w-[900px] mx-auto px-5 md:px-8 py-10 md:py-14">
+
+  <div class="proceso-step">
+    <div class="step-num">1</div>
+    <div>
+      <h3 class="font-bold text-charcoal text-base mb-2">Contáctanos por WhatsApp</h3>
+      <p class="text-sm text-concrete leading-relaxed">Cuéntanos el tipo de propiedad que tienes y el paquete que te interesa. Agendaremos una llamada si requieres más claridad sobre el servicio y el mejor paquete para ti.</p>
+    </div>
+  </div>
+
+  <div class="proceso-step">
+    <div class="step-num">2</div>
+    <div>
+      <h3 class="font-bold text-charcoal text-base mb-2">Formulario de pre-producción</h3>
+      <p class="text-sm text-concrete leading-relaxed">Te enviamos un formulario donde capturas todos los detalles: ubicación, fecha, paquete y orientación del video. Esto nos permite llegar completamente preparados el día de la sesión.</p>
+    </div>
+  </div>
+
+  <div class="proceso-step">
+    <div class="step-num">3</div>
+    <div>
+      <h3 class="font-bold text-charcoal text-base mb-2">Contrato digital</h3>
+      <p class="text-sm text-concrete leading-relaxed">Recibes el contrato por correo para firmarlo vía Adobe Sign. Rápido, seguro e inmediato.</p>
+    </div>
+  </div>
+
+  <div class="proceso-step">
+    <div class="step-num">4</div>
+    <div>
+      <h3 class="font-bold text-charcoal text-base mb-2">Agenda y anticipo</h3>
+      <p class="text-sm text-concrete leading-relaxed">Con el 50% de anticipo tu fecha queda oficialmente reservada en nuestra agenda.</p>
+    </div>
+  </div>
+
+  <div class="proceso-step">
+    <div class="step-num">5</div>
+    <div>
+      <h3 class="font-bold text-charcoal text-base mb-2">Sesión de producción</h3>
+      <p class="text-sm text-concrete leading-relaxed">Llegamos listos. Solo asegúrate de que la propiedad esté limpia, iluminada y con acceso garantizado desde la hora acordada.</p>
+    </div>
+  </div>
+
+  <div class="proceso-step">
+    <div class="step-num">6</div>
+    <div>
+      <h3 class="font-bold text-charcoal text-base mb-2">Revisión del material</h3>
+      <p class="text-sm text-concrete leading-relaxed">Recibes una versión preliminar para revisar. Para proceder con cualquier corrección, se liquida el 50% restante. Incluye hasta 2 rondas de correcciones menores.</p>
+    </div>
+  </div>
+
+  <div class="proceso-step">
+    <div class="step-num">7</div>
+    <div>
+      <h3 class="font-bold text-charcoal text-base mb-2">Entrega final en alta resolución</h3>
+      <p class="text-sm text-concrete leading-relaxed">Con el saldo liquidado y correcciones aplicadas, el material final se entrega en alta resolución vía Google Drive.</p>
+    </div>
+  </div>
+
+  <!-- Aspectos importantes -->
+  <div class="mt-10 bg-surface-warm border border-concrete-lt rounded-2xl p-6 md:p-8">
+    <div class="flex items-center gap-3 mb-5">
+      <span class="material-symbols-outlined text-gold">info</span>
+      <h3 class="text-[11px] font-black uppercase tracking-[.18em] text-charcoal">Aspectos importantes</h3>
+    </div>
+    <div class="space-y-4">
+      <div class="flex gap-3">
+        <span class="material-symbols-outlined text-gold text-base mt-0.5 flex-shrink-0">check_circle</span>
+        <p class="text-sm text-charcoal/80 leading-relaxed"><strong class="text-charcoal font-bold">El día de la sesión:</strong> La propiedad debe estar lista, limpia y con acceso garantizado a nuestra llegada.</p>
+      </div>
+      <div class="flex gap-3">
+        <span class="material-symbols-outlined text-gold text-base mt-0.5 flex-shrink-0">check_circle</span>
+        <p class="text-sm text-charcoal/80 leading-relaxed"><strong class="text-charcoal font-bold">Pagos y revisiones:</strong> El saldo del 50% se liquida contra entrega de la versión preliminar. Tienes derecho a 2 rondas de cambios menores; cualquier cambio estructural se cotiza aparte.</p>
+      </div>
+      <div class="flex gap-3">
+        <span class="material-symbols-outlined text-gold text-base mt-0.5 flex-shrink-0">check_circle</span>
+        <p class="text-sm text-charcoal/80 leading-relaxed"><strong class="text-charcoal font-bold">Tus archivos:</strong> Entregamos únicamente el material final editado (no entregamos videos o fotos en crudo). Tus enlaces de descarga estarán activos por 30 días naturales.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- CTA -->
+  <div class="mt-10 bg-charcoal rounded-2xl py-10 px-6 text-center relative overflow-hidden">
+    <div class="absolute top-0 left-0 right-0 h-[2px]" style="background:linear-gradient(90deg,transparent,#C9A84C,transparent);"></div>
+    <p class="text-[10px] uppercase tracking-[.2em] text-gold font-bold mb-3">¿Listo para empezar?</p>
+    <h3 class="text-white mb-3 font-black" style="font-size:clamp(1.2rem,2.5vw,1.75rem);letter-spacing:-.02em;">Hablemos por WhatsApp</h3>
+    <p class="text-concrete text-sm mb-5 max-w-md mx-auto">Con gusto te asesoramos para encontrar el paquete ideal para tu propiedad.</p>
+    <a class="inline-flex items-center gap-2 bg-gold text-charcoal px-8 py-4 rounded-full font-black uppercase tracking-[.12em] text-[11px] hover:bg-gold-light transition-all shadow-xl" href="https://wa.me/528127174207">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+      WhatsApp · 81 2717 4207
+    </a>
+  </div>
+
+</div>
+</main>
+
+<footer class="bg-charcoal border-t border-charcoal-2 py-12">
+  <div class="max-w-[1240px] mx-auto px-5 md:px-8 flex flex-col md:flex-row justify-between items-center gap-6">
+    <div class="flex flex-col items-center md:items-start">
+      <div class="mb-3"><img src="https://res.cloudinary.com/denjzengj/image/upload/v1776758050/Vector_jyok9y.png" alt="Inmuebles Audiovisuales" class="h-9 w-auto" style="max-width:160px;filter:brightness(0) invert(1);"/></div>
+      <p class="text-[10px] uppercase tracking-[.14em] text-concrete">© 2026 Inmuebles Audiovisuales · Monterrey, NL</p>
+    </div>
+    <div class="flex gap-6 items-center flex-wrap justify-center">
+      <a class="text-[10px] uppercase tracking-[.14em] text-concrete hover:text-gold transition-all" href="index.html">Inicio</a>
+      <a class="text-[10px] uppercase tracking-[.14em] text-concrete hover:text-gold transition-all" href="catalogo.html">Catálogo</a>
+      <a class="text-[10px] uppercase tracking-[.14em] text-concrete hover:text-gold transition-all" href="https://wa.me/528127174207">WhatsApp</a>
+      <a class="text-[10px] uppercase tracking-[.14em] text-concrete hover:text-gold transition-all" href="#">Instagram</a>
+    </div>
+  </div>
+</footer>
+
+<a class="fixed bottom-6 right-5 md:bottom-8 md:right-8 z-[100] bg-[#25D366] text-white rounded-full flex items-center justify-center shadow-2xl transition-transform hover:scale-110 active:scale-95" style="width:52px;height:52px;" href="https://wa.me/528127174207">
+  <svg style="width:26px;height:26px;" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+</a>
+
+</body>
+</html>

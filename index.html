@@ -1,0 +1,795 @@
+<!DOCTYPE html>
+<html class="light" lang="es">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0, viewport-fit=cover" name="viewport"/>
+<title>Inmuebles Audiovisuales | Fotografía y Video de Bienes Raíces · Monterrey</title>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+  tailwind.config = {
+    darkMode: "class",
+    theme: {
+      extend: {
+        colors: {
+          "gold":       "#C9A84C",
+          "gold-light": "#E2C289",
+          "gold-dark":  "#A8883A",
+          "charcoal":   "#1C1C1E",
+          "charcoal-2": "#2A2A2D",
+          "crisp":      "#FFFFFF",
+          "concrete":   "#9B9B9F",
+          "concrete-lt":"#E8E8EA",
+          "surface-warm":"#F9F7F4",
+        },
+        fontFamily: { montserrat: ["Montserrat", "sans-serif"] },
+        fontSize: {
+          "display":    ["64px", {lineHeight:"1.05", letterSpacing:"-0.03em", fontWeight:"800"}],
+          "h1":         ["48px", {lineHeight:"1.1",  letterSpacing:"-0.02em", fontWeight:"700"}],
+          "h2":         ["36px", {lineHeight:"1.2",  letterSpacing:"-0.015em", fontWeight:"700"}],
+          "h3":         ["24px", {lineHeight:"1.3",  fontWeight:"600"}],
+          "label":      ["11px", {lineHeight:"1.0",  letterSpacing:"0.14em",  fontWeight:"700"}],
+          "body-lg":    ["17px", {lineHeight:"1.7",  fontWeight:"400"}],
+          "body":       ["15px", {lineHeight:"1.65", fontWeight:"400"}],
+        }
+      }
+    }
+  }
+</script>
+<style>
+  *{box-sizing:border-box;}
+  body{font-family:'Montserrat',sans-serif;}
+  .material-symbols-outlined{font-variation-settings:'FILL' 0,'wght' 400,'GRAD' 0,'opsz' 24;}
+
+  /* ── NAV ── */
+  /* ── MOBILE ── */
+  @media(max-width:767px){
+    .pkg-card,.pkg-card-featured{padding:2rem 1.5rem;}
+    .addon-card-h{flex:0 0 240px;}
+    section.py-24{padding-top:4rem;padding-bottom:4rem;}
+    .max-w-\[1240px\]{padding-left:1.25rem;padding-right:1.25rem;}
+  }
+  .nav-link{position:relative;font-size:12px;letter-spacing:.1em;font-weight:600;text-transform:uppercase;color:#9B9B9F;transition:color .25s;}
+  .nav-link::after{content:'';position:absolute;bottom:-4px;left:0;width:0;height:2px;background:#C9A84C;transition:width .3s;}
+  .nav-link:hover{color:#1C1C1E;}
+  .nav-link:hover::after{width:100%;}
+
+  /* ── HERO ── */
+  @keyframes fadeUp{from{opacity:0;transform:translateY(30px);}to{opacity:1;transform:translateY(0);}}
+  .hero-anim{animation:fadeUp .9s cubic-bezier(.22,1,.36,1) both;}
+  .hero-anim-2{animation:fadeUp .9s .2s cubic-bezier(.22,1,.36,1) both;}
+  .hero-anim-3{animation:fadeUp .9s .4s cubic-bezier(.22,1,.36,1) both;}
+
+  /* ── PACKAGES TABS ── */
+  .tab-btn{border-bottom:2px solid transparent;padding:.75rem 1.25rem;font-size:11px;letter-spacing:.12em;font-weight:700;text-transform:uppercase;color:#9B9B9F;transition:all .2s;white-space:nowrap;}
+  .tab-btn.active{border-bottom-color:#C9A84C;color:#1C1C1E;}
+  .tab-content{display:none;}
+  .tab-content.active{display:grid;grid-template-columns:repeat(1,1fr);gap:2rem;}
+  @media(min-width:768px){.tab-content.active{grid-template-columns:repeat(3,1fr);}}
+
+  /* ── PORTFOLIO TABS ── */
+  .port-content{display:none;}
+  .port-content.active{display:block;}
+  .port-tab-btn.active{background:#C9A84C;color:#fff;}
+
+  /* ── ADDON SCROLL ── */
+  .addon-scroll{display:flex;gap:16px;overflow-x:auto;padding-bottom:16px;scroll-snap-type:x mandatory;}
+  .addon-scroll::-webkit-scrollbar{height:4px;}
+  .addon-scroll::-webkit-scrollbar-track{background:#F0EEE9;}
+  .addon-scroll::-webkit-scrollbar-thumb{background:#C9A84C;border-radius:2px;}
+  .addon-card-h{flex:0 0 260px;scroll-snap-align:start;}
+
+  /* ── CARDS ── */
+  .pkg-card{background:#fff;border-radius:16px;padding:2.5rem;box-shadow:0 20px 60px rgba(28,28,30,.07);transition:transform .3s,box-shadow .3s;}
+  .pkg-card:hover{transform:translateY(-6px);box-shadow:0 40px 80px rgba(28,28,30,.12);}
+  .pkg-card-featured{background:#fff;border-radius:16px;padding:2.5rem;box-shadow:0 40px 80px rgba(28,28,30,.14);border:2px solid #C9A84C;transform:scale(1.04);z-index:10;position:relative;}
+
+  /* ── GOLD LINE ── */
+  .gold-line{width:40px;height:3px;background:#C9A84C;margin-bottom:1.5rem;}
+
+  /* ── PROCESS CONNECTOR ── */
+  .process-line{position:absolute;top:40px;left:calc(16.66% + 40px);right:calc(16.66% + 40px);height:1px;background:linear-gradient(90deg,#C9A84C,#E2C289,#C9A84C);opacity:.35;}
+
+  /* ── FOOTER ── */
+  footer a:hover{color:#C9A84C;}
+
+  /* ── ANIMATIONS for scroll ── */
+  @keyframes shimmer{0%{background-position:-200% 0;}100%{background-position:200% 0;}}
+  .gold-shimmer{background:linear-gradient(90deg,#C9A84C 0%,#E2C289 40%,#C9A84C 60%,#A8883A 100%);background-size:200% auto;-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
+</style>
+</head>
+<body class="bg-crisp text-charcoal font-montserrat">
+
+<!-- ══════════ HEADER ══════════ -->
+<header class="bg-white/95 backdrop-blur-md fixed top-0 w-full z-50 border-b border-concrete-lt" style="box-shadow:0 8px 32px rgba(28,28,30,.06);">
+  <nav class="max-w-[1240px] mx-auto flex justify-between items-center px-8 h-[72px]">
+
+    <!-- LOGO SVG -->
+    <a href="#" class="flex items-center group">
+      <img src="https://res.cloudinary.com/denjzengj/image/upload/v1776758050/Vector_jyok9y.png" alt="Inmuebles Audiovisuales" class="h-14 w-auto" style="max-width:220px;"/>
+    </a>
+
+    <div class="hidden md:flex items-center space-x-8">
+      <a class="nav-link" href="#portfolio">Portfolio</a>
+      <a class="nav-link" href="#paquetes">Paquetes</a>
+      <a class="nav-link" href="#proceso">Proceso</a>
+      <a class="nav-link" href="catalogo.html">Catálogo</a>
+    </div>
+    <a class="nav-link" style="color:#C9A84C;font-weight:800;" href="https://wa.me/528127174207">Agendar</a>
+  </nav>
+</header>
+
+<main>
+
+<!-- ══════════ HERO ══════════ -->
+<section class="relative h-screen flex items-center overflow-hidden" style="min-height:700px;">
+  <div class="absolute inset-0 z-0">
+    <img alt="Propiedad de lujo en Monterrey" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD1nHsR4YyMlJqqZ9mkOf97civFAAY85lgmSkwhPC7abhjaj9ci5orcEG36MwCDn8jwUa-SUitFQAHXPdW2L9wjDKe635adtxGdroER0xnmg85g17x5zyXuqs7acV7nMgmYVYomy3IXUV4FidTWnhEKKe-GsBsamvGUCiDpswfCrWR4QbK5cI4aUe2NLrpVS10rO8cRRDeQFNi-6WZUjwmAOps-D_nPwyZ3Qd0arF9PhZxnD0jA8GRxkXHWL4DOsf3LW6er7496OBI"/>
+    <div class="absolute inset-0" style="background:linear-gradient(120deg,rgba(28,28,30,.82) 0%,rgba(28,28,30,.55) 60%,rgba(28,28,30,.30) 100%);"></div>
+    <!-- Gold accent line bottom -->
+    <div class="absolute bottom-0 left-0 right-0 h-[3px]" style="background:linear-gradient(90deg,#C9A84C,#E2C289,#C9A84C);"></div>
+  </div>
+
+  <div class="relative z-10 max-w-[1240px] mx-auto px-8 w-full">
+    <div class="max-w-3xl">
+      <div class="hero-anim flex items-center gap-3 mb-8">
+        <div style="width:32px;height:2px;background:#C9A84C;"></div>
+        <span style="font-size:11px;letter-spacing:.2em;font-weight:700;color:#C9A84C;text-transform:uppercase;">Audiovisual Inmobiliario Premium · Monterrey, NL</span>
+      </div>
+      <h1 class="hero-anim-2 text-white mb-6 leading-none" style="font-size:clamp(2.6rem,6vw,4.5rem);font-weight:900;letter-spacing:-.03em;">
+        Haz que tus propiedades<br/>se vendan <span class="gold-shimmer">más rápido.</span>
+      </h1>
+      <p class="hero-anim-3 mb-10" style="font-size:18px;line-height:1.7;color:rgba(255,255,255,.75);max-width:540px;">
+        Fotografía HDR, video cinemático, dron, recorridos virtuales y más. Producción de alto impacto para brokers y desarrollos. <strong style="color:#E2C289;">Entrega garantizada en 72 horas.</strong>
+      </p>
+      <div class="hero-anim-3 flex flex-col sm:flex-row gap-4">
+        <a class="inline-flex items-center justify-center gap-2 bg-gold text-charcoal px-10 py-4 rounded-full font-black uppercase tracking-[.12em] text-[11px] hover:bg-gold-light transition-all duration-300 shadow-xl group" href="https://wa.me/528127174207">
+          Contactar por WhatsApp
+          <span class="material-symbols-outlined text-lg group-hover:translate-x-1 transition-transform">arrow_forward</span>
+        </a>
+        <a class="inline-flex items-center justify-center border border-white/30 text-white px-10 py-4 rounded-full font-black uppercase tracking-[.12em] text-[11px] hover:bg-white/10 backdrop-blur-sm transition-all duration-300" href="#paquetes">
+          Ver Paquetes
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════ STATS BAR ══════════ -->
+<section class="bg-charcoal py-10">
+  <div class="max-w-[1240px] mx-auto px-8">
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+      <div>
+        <div class="text-3xl font-black text-gold mb-1">72 hrs</div>
+        <div class="text-[11px] uppercase tracking-[.14em] text-concrete">Entrega garantizada</div>
+      </div>
+      <div>
+        <div class="text-3xl font-black text-gold mb-1">HDR</div>
+        <div class="text-[11px] uppercase tracking-[.14em] text-concrete">Fotografía profesional</div>
+      </div>
+      <div>
+        <div class="text-3xl font-black text-gold mb-1">4K</div>
+        <div class="text-[11px] uppercase tracking-[.14em] text-concrete">Video cinemático</div>
+      </div>
+      <div>
+        <div class="text-3xl font-black text-gold mb-1">3 MSI</div>
+        <div class="text-[11px] uppercase tracking-[.14em] text-concrete">En paquetes con tarjeta</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════ TRUST BAR ══════════ -->
+<section class="py-16 bg-surface-warm border-b border-concrete-lt">
+  <div class="max-w-[1240px] mx-auto px-8">
+    <p class="text-center text-[10px] uppercase tracking-[.2em] text-concrete font-bold mb-10">Confían en nosotros</p>
+    <div class="flex flex-wrap justify-center items-center gap-10 md:gap-20 opacity-50 hover:opacity-100 transition-opacity duration-500 grayscale hover:grayscale-0">
+      <div class="text-xl font-black tracking-tighter text-charcoal">RE/MAX</div>
+      <div class="text-xl font-black tracking-tighter text-charcoal italic">Sotheby's</div>
+      <div class="text-xl font-black tracking-tighter text-charcoal">KELLER WILLIAMS</div>
+      <div class="text-xl font-black tracking-tighter text-charcoal">COLDWELL BANKER</div>
+      <div class="text-xl font-black tracking-tighter text-charcoal">CENTURY 21</div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════ PORTFOLIO ══════════ -->
+<section class="py-24 bg-crisp" id="portfolio">
+  <div class="max-w-[1240px] mx-auto px-8">
+    <div class="text-center mb-14">
+      <div class="gold-line mx-auto"></div>
+      <h2 class="text-h2 text-charcoal mb-4">Portfolio</h2>
+      <p class="text-body-lg text-concrete max-w-lg mx-auto">Proyectos recientes en Monterrey y área metropolitana.</p>
+    </div>
+
+    <div class="flex flex-wrap gap-2 justify-center mb-10">
+      <button onclick="switchPortfolio('video', this)" class="port-tab-btn active px-5 py-2.5 rounded-full text-[11px] font-bold uppercase tracking-widest transition-all bg-gold text-white">Video Residencial</button>
+      <button onclick="switchPortfolio('terrenos', this)" class="port-tab-btn px-5 py-2.5 rounded-full text-[11px] font-bold uppercase tracking-widest transition-all bg-concrete-lt text-concrete hover:bg-concrete-lt/70">Video Terrenos</button>
+      <button onclick="switchPortfolio('airbnb', this)" class="port-tab-btn px-5 py-2.5 rounded-full text-[11px] font-bold uppercase tracking-widest transition-all bg-concrete-lt text-concrete hover:bg-concrete-lt/70">Video Airbnb</button>
+      <button onclick="switchPortfolio('virtual', this)" class="port-tab-btn px-5 py-2.5 rounded-full text-[11px] font-bold uppercase tracking-widest transition-all bg-concrete-lt text-concrete hover:bg-concrete-lt/70">Recorrido Virtual Inmersivo</button>
+    </div>
+
+    <!-- Video Residencial -->
+    <div class="port-content active" id="port-video">
+      <div class="grid grid-cols-2 md:grid-cols-3 gap-5">
+        <a href="#" class="group block">
+          <div class="overflow-hidden rounded-xl bg-concrete-lt aspect-video mb-3 relative">
+            <img class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCYv67tEF-OR7J32Y49o1ZpZfZ1iemqKmz61W55-dFZa4xPDgfgm18XlDK5mCuORNRVz7aDpRc9F0mNJ8RRrFLAKA4Hf62WlU9U165oyuxq5DBrmTz02aPpXATOpC_q6QeTwYSD9QJM1fChj76-E5VYQrUxSWOlNF6_febHI3Z1Sjnqc68cFY2ysXRehfw7EQL7lQWYglhvDaB19FUlNnn8Sxwv_HcsVC-aAf50D5bTKdMIUoD98rWcgJqNUaYmIMotAiSsYqlsdQQ" alt="Villa San Pedro"/>
+            <div class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity bg-black/25">
+              <div class="w-14 h-14 rounded-full bg-white/95 flex items-center justify-center shadow-lg">
+                <span class="material-symbols-outlined text-gold text-2xl">play_arrow</span>
+              </div>
+            </div>
+          </div>
+          <p class="text-sm font-semibold text-charcoal group-hover:text-gold transition-colors">Villa San Pedro · San Pedro Garza García</p>
+          <p class="text-xs text-concrete mt-0.5">Video Cinemático Premium</p>
+        </a>
+        <a href="#" class="group block">
+          <div class="overflow-hidden rounded-xl bg-concrete-lt aspect-video mb-3 relative">
+            <img class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" src="https://lh3.googleusercontent.com/aida-public/AB6AXuADnW0VsaZsVY6p2TarurIhGQ8FVkGUMTc_Y6w0W9bkQbpfmq6ec3I-pnDJTqoDZuKNbvl3Dq7o5AbP0AMuLXqCXaxlejn-Cq6O4iGqsCTX_HdMQ3vmqFu7hPicFhXZhLzBGWcyaOMmucq6Q4rtiy0AtNH7AGkpHdCSuqOXHjCytlLYRs_L8YJdUbCdGpBg9JGE8fKiFU55qrueRptWaGwpTC5zVGlBcNzaFYgVCps2nFktwkxy3aUWVuDBowlO-tke2EDwkqLosUY" alt="Penthouse Valle Oriente"/>
+            <div class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity bg-black/25">
+              <div class="w-14 h-14 rounded-full bg-white/95 flex items-center justify-center shadow-lg">
+                <span class="material-symbols-outlined text-gold text-2xl">play_arrow</span>
+              </div>
+            </div>
+          </div>
+          <p class="text-sm font-semibold text-charcoal group-hover:text-gold transition-colors">Penthouse Arboleda · Valle Oriente</p>
+          <p class="text-xs text-concrete mt-0.5">Video Cinemático + Recorrido 360°</p>
+        </a>
+        <a href="#" class="group block">
+          <div class="overflow-hidden rounded-xl bg-concrete-lt aspect-video mb-3 relative">
+            <img class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD354LCTLLU78D5h4mHbSPRVcohF0iEOfYk88G-2aYswgV-wqKulklpeDeXO5lb-htfqZ0hyuCT9alzarvqH8NzJ6XqjDLFFdliQGhCB0kPHLtiiE1KVeuOXYnMTjyc73Qa2Sj9V31SEJCiD_jGb9ObBH3ZkI3i8SwbwLAuFmDU3wDtWz-fHbJ8pci-Ek0zI3B60ekwYKz6Z2-g98AXORkewgVTFu9dk3zCle0bbnb5KHtuesneO25csazsVFcg0LOBA6Zz6KBhBy0" alt="Casa Cumbres"/>
+            <div class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity bg-black/25">
+              <div class="w-14 h-14 rounded-full bg-white/95 flex items-center justify-center shadow-lg">
+                <span class="material-symbols-outlined text-gold text-2xl">play_arrow</span>
+              </div>
+            </div>
+          </div>
+          <p class="text-sm font-semibold text-charcoal group-hover:text-gold transition-colors">Casa Cumbres · Monterrey</p>
+          <p class="text-xs text-concrete mt-0.5">Video Cinemático + Fotografía HDR</p>
+        </a>
+      </div>
+    </div>
+
+    <!-- Terrenos -->
+    <div class="port-content" id="port-terrenos">
+      <div class="grid grid-cols-2 md:grid-cols-3 gap-5">
+        <a href="#" class="group block">
+          <div class="overflow-hidden rounded-xl bg-concrete-lt aspect-video mb-3 relative">
+            <img class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCvqRzFoaE74DEsPSzqiTpp7ymcDIgY_WMQQE3VW6MZQ9b1dmTUqeIfpsqv5AKCxcbmn_YAXj_wS4-sFzQLd1yxi2b5fYOd__AgLwrfxCSgVvibQro-wkljBDPmE6-aPBbIhzHMGrGp7K2CWwBda8IYO8iHejSYLfH_7pt5-PHHP4lkspQh680OXhSLG9qdsZhEt4DOaA44fkn9A0RbhgLHw_t-yZDANwIDGT_I4S7AYGKiWxifP8VPx_5OsYSCoRIwGCzcD33NO8E" alt="Vistas de la Sierra"/>
+            <div class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity bg-black/25">
+              <div class="w-14 h-14 rounded-full bg-white/95 flex items-center justify-center shadow-lg">
+                <span class="material-symbols-outlined text-gold text-2xl">play_arrow</span>
+              </div>
+            </div>
+          </div>
+          <p class="text-sm font-semibold text-charcoal group-hover:text-gold transition-colors">Vistas de la Sierra · García, NL</p>
+          <p class="text-xs text-concrete mt-0.5">Paquete Premium Terreno</p>
+        </a>
+        <a href="#" class="group block">
+          <div class="overflow-hidden rounded-xl bg-concrete-lt aspect-video mb-3 relative">
+            <img class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCvqRzFoaE74DEsPSzqiTpp7ymcDIgY_WMQQE3VW6MZQ9b1dmTUqeIfpsqv5AKCxcbmn_YAXj_wS4-sFzQLd1yxi2b5fYOd__AgLwrfxCSgVvibQro-wkljBDPmE6-aPBbIhzHMGrGp7K2CWwBda8IYO8iHejSYLfH_7pt5-PHHP4lkspQh680OXhSLG9qdsZhEt4DOaA44fkn9A0RbhgLHw_t-yZDANwIDGT_I4S7AYGKiWxifP8VPx_5OsYSCoRIwGCzcD33NO8E" alt="Lotes Carretera Laredo"/>
+            <div class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity bg-black/25">
+              <div class="w-14 h-14 rounded-full bg-white/95 flex items-center justify-center shadow-lg">
+                <span class="material-symbols-outlined text-gold text-2xl">play_arrow</span>
+              </div>
+            </div>
+          </div>
+          <p class="text-sm font-semibold text-charcoal group-hover:text-gold transition-colors">Lotes Carretera Laredo · NL</p>
+          <p class="text-xs text-concrete mt-0.5">Video Aéreo + Delimitación</p>
+        </a>
+        <a href="#" class="group block">
+          <div class="overflow-hidden rounded-xl bg-concrete-lt aspect-video mb-3 relative">
+            <img class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCvqRzFoaE74DEsPSzqiTpp7ymcDIgY_WMQQE3VW6MZQ9b1dmTUqeIfpsqv5AKCxcbmn_YAXj_wS4-sFzQLd1yxi2b5fYOd__AgLwrfxCSgVvibQro-wkljBDPmE6-aPBbIhzHMGrGp7K2CWwBda8IYO8iHejSYLfH_7pt5-PHHP4lkspQh680OXhSLG9qdsZhEt4DOaA44fkn9A0RbhgLHw_t-yZDANwIDGT_I4S7AYGKiWxifP8VPx_5OsYSCoRIwGCzcD33NO8E" alt="Fracc Santa Catarina"/>
+            <div class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity bg-black/25">
+              <div class="w-14 h-14 rounded-full bg-white/95 flex items-center justify-center shadow-lg">
+                <span class="material-symbols-outlined text-gold text-2xl">play_arrow</span>
+              </div>
+            </div>
+          </div>
+          <p class="text-sm font-semibold text-charcoal group-hover:text-gold transition-colors">Fracc. Santa Catarina · NL</p>
+          <p class="text-xs text-concrete mt-0.5">Paquete Plus Terreno</p>
+        </a>
+      </div>
+    </div>
+
+    <!-- Recorrido Virtual -->
+    <div class="port-content" id="port-virtual">
+      <div class="grid grid-cols-2 md:grid-cols-3 gap-5">
+        <a href="#" class="group block">
+          <div class="overflow-hidden rounded-xl bg-concrete-lt aspect-video mb-3 relative">
+            <img class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" src="https://lh3.googleusercontent.com/aida-public/AB6AXuADnW0VsaZsVY6p2TarurIhGQ8FVkGUMTc_Y6w0W9bkQbpfmq6ec3I-pnDJTqoDZuKNbvl3Dq7o5AbP0AMuLXqCXaxlejn-Cq6O4iGqsCTX_HdMQ3vmqFu7hPicFhXZhLzBGWcyaOMmucq6Q4rtiy0AtNH7AGkpHdCSuqOXHjCytlLYRs_L8YJdUbCdGpBg9JGE8fKiFU55qrueRptWaGwpTC5zVGlBcNzaFYgVCps2nFktwkxy3aUWVuDBowlO-tke2EDwkqLosUY" alt="Penthouse 360"/>
+            <div class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity bg-black/25">
+              <div class="w-14 h-14 rounded-full bg-white/95 flex items-center justify-center shadow-lg">
+                <span class="material-symbols-outlined text-gold text-2xl">360</span>
+              </div>
+            </div>
+          </div>
+          <p class="text-sm font-semibold text-charcoal group-hover:text-gold transition-colors">Penthouse Arboleda · Valle Oriente</p>
+          <p class="text-xs text-concrete mt-0.5">Recorrido Virtual Inmersivo</p>
+        </a>
+      </div>
+    </div>
+
+    <!-- Airbnb -->
+    <div class="port-content" id="port-airbnb">
+      <div class="grid grid-cols-2 md:grid-cols-3 gap-5">
+        <a href="#" class="group block">
+          <div class="overflow-hidden rounded-xl bg-concrete-lt aspect-video mb-3 relative">
+            <img class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" src="https://lh3.googleusercontent.com/aida-public/AB6AXuADnW0VsaZsVY6p2TarurIhGQ8FVkGUMTc_Y6w0W9bkQbpfmq6ec3I-pnDJTqoDZuKNbvl3Dq7o5AbP0AMuLXqCXaxlejn-Cq6O4iGqsCTX_HdMQ3vmqFu7hPicFhXZhLzBGWcyaOMmucq6Q4rtiy0AtNH7AGkpHdCSuqOXHjCytlLYRs_L8YJdUbCdGpBg9JGE8fKiFU55qrueRptWaGwpTC5zVGlBcNzaFYgVCps2nFktwkxy3aUWVuDBowlO-tke2EDwkqLosUY" alt="Airbnb Valle Oriente"/>
+            <div class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity bg-black/25">
+              <div class="w-14 h-14 rounded-full bg-white/95 flex items-center justify-center shadow-lg">
+                <span class="material-symbols-outlined text-gold text-2xl">play_arrow</span>
+              </div>
+            </div>
+          </div>
+          <p class="text-sm font-semibold text-charcoal group-hover:text-gold transition-colors">Studio Airbnb · Valle Oriente</p>
+          <p class="text-xs text-concrete mt-0.5">Video Cinemático Lifestyle</p>
+        </a>
+        <a href="#" class="group block">
+          <div class="overflow-hidden rounded-xl bg-concrete-lt aspect-video mb-3 relative">
+            <img class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCYv67tEF-OR7J32Y49o1ZpZfZ1iemqKmz61W55-dFZa4xPDgfgm18XlDK5mCuORNRVz7aDpRc9F0mNJ8RRrFLAKA4Hf62WlU9U165oyuxq5DBrmTz02aPpXATOpC_q6QeTwYSD9QJM1fChj76-E5VYQrUxSWOlNF6_febHI3Z1Sjnqc68cFY2ysXRehfw7EQL7lQWYglhvDaB19FUlNnn8Sxwv_HcsVC-aAf50D5bTKdMIUoD98rWcgJqNUaYmIMotAiSsYqlsdQQ" alt="Airbnb San Pedro"/>
+            <div class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity bg-black/25">
+              <div class="w-14 h-14 rounded-full bg-white/95 flex items-center justify-center shadow-lg">
+                <span class="material-symbols-outlined text-gold text-2xl">play_arrow</span>
+              </div>
+            </div>
+          </div>
+          <p class="text-sm font-semibold text-charcoal group-hover:text-gold transition-colors">Departamento Airbnb · San Pedro</p>
+          <p class="text-xs text-concrete mt-0.5">Video Lifestyle + Dron</p>
+        </a>
+        <a href="#" class="group block">
+          <div class="overflow-hidden rounded-xl bg-concrete-lt aspect-video mb-3 relative">
+            <img class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD354LCTLLU78D5h4mHbSPRVcohF0iEOfYk88G-2aYswgV-wqKulklpeDeXO5lb-htfqZ0hyuCT9alzarvqH8NzJ6XqjDLFFdliQGhCB0kPHLtiiE1KVeuOXYnMTjyc73Qa2Sj9V31SEJCiD_jGb9ObBH3ZkI3i8SwbwLAuFmDU3wDtWz-fHbJ8pci-Ek0zI3B60ekwYKz6Z2-g98AXORkewgVTFu9dk3zCle0bbnb5KHtuesneO25csazsVFcg0LOBA6Zz6KBhBy0" alt="Casa Airbnb Monterrey"/>
+            <div class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity bg-black/25">
+              <div class="w-14 h-14 rounded-full bg-white/95 flex items-center justify-center shadow-lg">
+                <span class="material-symbols-outlined text-gold text-2xl">play_arrow</span>
+              </div>
+            </div>
+          </div>
+          <p class="text-sm font-semibold text-charcoal group-hover:text-gold transition-colors">Casa Airbnb · Monterrey Centro</p>
+          <p class="text-xs text-concrete mt-0.5">Paquete Anfitrión Completo</p>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════ PAQUETES ══════════ -->
+<section class="py-24 bg-surface-warm" id="paquetes">
+  <div class="max-w-[1240px] mx-auto px-8">
+    <div class="text-center mb-14">
+      <div class="gold-line mx-auto"></div>
+      <h2 class="text-h2 text-charcoal mb-4">Paquetes</h2>
+      <p class="text-body-lg text-concrete max-w-xl mx-auto">Elige la categoría de tu propiedad y el paquete ideal.</p>
+    </div>
+
+    <!-- Category tabs -->
+    <div class="flex gap-0 border-b border-concrete-lt mb-12 overflow-x-auto">
+      <button onclick="switchTab('residencial', this)" class="tab-btn active">Residencial</button>
+      <button onclick="switchTab('terrenos', this)" class="tab-btn">Terrenos</button>
+    </div>
+
+    <!-- ── RESIDENCIAL ── -->
+    <div class="tab-content active" id="tab-residencial">
+
+      <!-- Esencial $6,500 -->
+      <div class="pkg-card">
+        <span class="inline-flex items-center gap-1.5 text-[9px] font-bold uppercase tracking-[.12em] text-gold border border-gold/40 rounded-full px-2.5 py-1 mb-3"><span class="material-symbols-outlined text-xs">credit_card</span>3 MSI disponible</span>
+        <div class="gold-line"></div>
+        <h3 class="text-h3 text-charcoal mb-2">Esencial Residencial</h3>
+        <div class="flex items-baseline mb-1">
+          <span class="text-[38px] font-black text-charcoal leading-none">$6,500</span>
+          <span class="text-concrete ml-2 text-sm font-medium">MXN</span>
+        </div>
+        <p class="text-[11px] text-gold font-bold mb-8 uppercase tracking-[.08em]">o 3 pagos de $2,167 c/tarjeta</p>
+        <ul class="space-y-4 mb-10">
+          <li class="flex items-start gap-3 text-body text-charcoal/80">
+            <span class="material-symbols-outlined text-gold text-lg mt-0.5">check_circle</span>
+            <span><strong class="text-charcoal font-semibold">Fotografía HDR</strong> · 35–50 imágenes interiores y exteriores</span>
+          </li>
+          <li class="flex items-start gap-3 text-body text-charcoal/80">
+            <span class="material-symbols-outlined text-gold text-lg mt-0.5">check_circle</span>
+            <span><strong class="text-charcoal font-semibold">Video Cinemático</strong> · 30–60 seg, colorización élite</span>
+          </li>
+          <li class="flex items-start gap-3 text-body text-charcoal/80">
+            <span class="material-symbols-outlined text-gold text-lg mt-0.5">check_circle</span>
+            <span><strong class="text-charcoal font-semibold">Tomas con Dron</strong> · Fachada, patios y entorno</span>
+          </li>
+        </ul>
+        <div class="flex items-center gap-2 text-xs text-concrete mb-6 font-medium">
+          <span class="material-symbols-outlined text-base">schedule</span> Entrega en 72 horas
+        </div>
+        <a class="block w-full py-4 border-2 border-charcoal rounded-full text-[11px] font-black uppercase tracking-[.14em] text-charcoal hover:bg-charcoal hover:text-white transition-all text-center" href="https://wa.me/528127174207">Solicitar</a>
+      </div>
+
+      <!-- Plus $7,500 — FEATURED -->
+      <div class="pkg-card-featured">
+        <div class="absolute -top-4 left-1/2 -translate-x-1/2 bg-gold text-charcoal px-5 py-1.5 rounded-full text-[10px] font-black uppercase tracking-[.14em] whitespace-nowrap shadow-lg">Más Popular</div>
+        <span class="inline-flex items-center gap-1.5 text-[9px] font-bold uppercase tracking-[.12em] text-gold border border-gold/40 rounded-full px-2.5 py-1 mb-3"><span class="material-symbols-outlined text-xs">credit_card</span>3 MSI disponible</span>
+        <div style="width:40px;height:3px;background:#C9A84C;margin-bottom:1.5rem;"></div>
+        <h3 class="text-h3 text-charcoal mb-2">Plus Residencial</h3>
+        <div class="flex items-baseline mb-1">
+          <span class="text-[38px] font-black text-charcoal leading-none">$7,500</span>
+          <span class="text-concrete ml-2 text-sm font-medium">MXN</span>
+        </div>
+        <p class="text-[11px] text-gold font-bold mb-4 uppercase tracking-[.08em]">o 3 pagos de $2,500 c/tarjeta</p>
+        <p class="text-[10px] text-concrete uppercase tracking-[.12em] mb-6 border-l-2 border-gold pl-3 font-bold">Todo lo del Esencial, más:</p>
+        <ul class="space-y-4 mb-10">
+          <li class="flex items-start gap-3 text-body text-charcoal/80">
+            <span class="material-symbols-outlined text-gold text-lg mt-0.5">check_circle</span>
+            <span><strong class="text-charcoal font-semibold">Recorrido Virtual Inmersivo</strong> · Navegable 24/7, compatible con cualquier dispositivo</span>
+          </li>
+          <li class="flex items-start gap-3 text-body text-charcoal/80">
+            <span class="material-symbols-outlined text-gold text-lg mt-0.5">check_circle</span>
+            <span><strong class="text-charcoal font-semibold">Narración Profesional</strong> · Voz profesional integrada al video</span>
+          </li>
+          <li class="flex items-start gap-3 text-body text-charcoal/80">
+            <span class="material-symbols-outlined text-gold text-lg mt-0.5">check_circle</span>
+            <span><strong class="text-charcoal font-semibold">Pack Redes Sociales</strong> · Reels y stories optimizados</span>
+          </li>
+          <li class="flex items-start gap-3 text-body text-charcoal/80">
+            <span class="material-symbols-outlined text-gold text-lg mt-0.5">check_circle</span>
+            <span><strong class="text-charcoal font-semibold">Áreas Comunes</strong> · Foto y video (si aplica)</span>
+          </li>
+        </ul>
+        <div class="flex items-center gap-2 text-xs text-concrete mb-6 font-medium">
+          <span class="material-symbols-outlined text-base">schedule</span> Entrega en 72 horas
+        </div>
+        <a class="block w-full py-4 bg-gold rounded-full text-[11px] font-black uppercase tracking-[.14em] text-charcoal hover:bg-gold-light transition-all shadow-xl text-center" href="https://wa.me/528127174207">Solicitar Ahora</a>
+      </div>
+
+      <!-- Premium $9,000 -->
+      <div class="pkg-card">
+        <span class="inline-flex items-center gap-1.5 text-[9px] font-bold uppercase tracking-[.12em] text-gold border border-gold/40 rounded-full px-2.5 py-1 mb-3"><span class="material-symbols-outlined text-xs">credit_card</span>3 MSI disponible</span>
+        <div class="gold-line"></div>
+        <h3 class="text-h3 text-charcoal mb-2">Premium Residencial</h3>
+        <div class="flex items-baseline mb-1">
+          <span class="text-[38px] font-black text-charcoal leading-none">$9,000</span>
+          <span class="text-concrete ml-2 text-sm font-medium">MXN</span>
+        </div>
+        <p class="text-[11px] text-gold font-bold mb-4 uppercase tracking-[.08em]">o 3 pagos de $3,000 c/tarjeta</p>
+        <p class="text-[10px] text-concrete uppercase tracking-[.12em] mb-6 border-l-2 border-gold pl-3 font-bold">Todo lo del Plus, más:</p>
+        <ul class="space-y-4 mb-10">
+          <li class="flex items-start gap-3 text-body text-charcoal/80">
+            <span class="material-symbols-outlined text-gold text-lg mt-0.5">check_circle</span>
+            <span><strong class="text-charcoal font-semibold">Video "Cómo Llegar"</strong> · Animación satelital 20–30 seg</span>
+          </li>
+          <li class="flex items-start gap-3 text-body text-charcoal/80">
+            <span class="material-symbols-outlined text-gold text-lg mt-0.5">check_circle</span>
+            <span><strong class="text-charcoal font-semibold">Folleto Digital PDF</strong> · Interactivo para WhatsApp</span>
+          </li>
+          <li class="flex items-start gap-3 text-body text-charcoal/80">
+            <span class="material-symbols-outlined text-gold text-lg mt-0.5">check_circle</span>
+            <span><strong class="text-charcoal font-semibold">Landing Page</strong> · Página exclusiva de la propiedad</span>
+          </li>
+        </ul>
+        <div class="flex items-center gap-2 text-xs text-concrete mb-6 font-medium">
+          <span class="material-symbols-outlined text-base">schedule</span> Entrega en 72 horas
+        </div>
+        <a class="block w-full py-4 border-2 border-charcoal rounded-full text-[11px] font-black uppercase tracking-[.14em] text-charcoal hover:bg-charcoal hover:text-white transition-all text-center" href="https://wa.me/528127174207">Solicitar</a>
+      </div>
+
+    </div>
+
+    <!-- ── TERRENOS ── -->
+    <div class="tab-content" id="tab-terrenos">
+
+      <!-- Esencial Terreno $4,500 -->
+      <div class="pkg-card">
+        <span class="inline-flex items-center gap-1.5 text-[9px] font-bold uppercase tracking-[.12em] text-gold border border-gold/40 rounded-full px-2.5 py-1 mb-3"><span class="material-symbols-outlined text-xs">credit_card</span>3 MSI disponible</span>
+        <div class="gold-line"></div>
+        <h3 class="text-h3 text-charcoal mb-2">Esencial Terreno</h3>
+        <div class="flex items-baseline mb-1">
+          <span class="text-[38px] font-black text-charcoal leading-none">$4,500</span>
+          <span class="text-concrete ml-2 text-sm font-medium">MXN</span>
+        </div>
+        <p class="text-[11px] text-gold font-bold mb-8 uppercase tracking-[.08em]">o 3 pagos de $1,500 c/tarjeta</p>
+        <ul class="space-y-4 mb-10">
+          <li class="flex items-start gap-3 text-body text-charcoal/80">
+            <span class="material-symbols-outlined text-gold text-lg mt-0.5">check_circle</span>
+            <span><strong class="text-charcoal font-semibold">Video Cinemático Aéreo</strong> · 30–60 seg, vertical u horizontal</span>
+          </li>
+          <li class="flex items-start gap-3 text-body text-charcoal/80">
+            <span class="material-symbols-outlined text-gold text-lg mt-0.5">check_circle</span>
+            <span><strong class="text-charcoal font-semibold">Animación Gráfica</strong> · Perímetro, medidas y señalización</span>
+          </li>
+          <li class="flex items-start gap-3 text-body text-charcoal/80">
+            <span class="material-symbols-outlined text-gold text-lg mt-0.5">check_circle</span>
+            <span><strong class="text-charcoal font-semibold">Fotografía Aérea</strong> · Alta resolución con polígono delimitado</span>
+          </li>
+        </ul>
+        <div class="flex items-center gap-2 text-xs text-concrete mb-6 font-medium">
+          <span class="material-symbols-outlined text-base">schedule</span> Entrega en 72 horas
+        </div>
+        <a class="block w-full py-4 border-2 border-charcoal rounded-full text-[11px] font-black uppercase tracking-[.14em] text-charcoal hover:bg-charcoal hover:text-white transition-all text-center" href="https://wa.me/528127174207">Solicitar</a>
+      </div>
+
+      <!-- Plus Terreno $5,500 — FEATURED -->
+      <div class="pkg-card-featured">
+        <div class="absolute -top-4 left-1/2 -translate-x-1/2 bg-gold text-charcoal px-5 py-1.5 rounded-full text-[10px] font-black uppercase tracking-[.14em] whitespace-nowrap shadow-lg">Más Popular</div>
+        <span class="inline-flex items-center gap-1.5 text-[9px] font-bold uppercase tracking-[.12em] text-gold border border-gold/40 rounded-full px-2.5 py-1 mb-3"><span class="material-symbols-outlined text-xs">credit_card</span>3 MSI disponible</span>
+        <div style="width:40px;height:3px;background:#C9A84C;margin-bottom:1.5rem;"></div>
+        <h3 class="text-h3 text-charcoal mb-2">Plus Terreno</h3>
+        <div class="flex items-baseline mb-1">
+          <span class="text-[38px] font-black text-charcoal leading-none">$5,500</span>
+          <span class="text-concrete ml-2 text-sm font-medium">MXN</span>
+        </div>
+        <p class="text-[11px] text-gold font-bold mb-4 uppercase tracking-[.08em]">o 3 pagos de $1,834 c/tarjeta</p>
+        <p class="text-[10px] text-concrete uppercase tracking-[.12em] mb-6 border-l-2 border-gold pl-3 font-bold">Todo lo del Esencial, más:</p>
+        <ul class="space-y-4 mb-10">
+          <li class="flex items-start gap-3 text-body text-charcoal/80">
+            <span class="material-symbols-outlined text-gold text-lg mt-0.5">check_circle</span>
+            <span><strong class="text-charcoal font-semibold">Visualización de Potencial</strong> · Imagen de lo que se puede construir</span>
+          </li>
+          <li class="flex items-start gap-3 text-body text-charcoal/80">
+            <span class="material-symbols-outlined text-gold text-lg mt-0.5">check_circle</span>
+            <span><strong class="text-charcoal font-semibold">Fotografía 360° Aérea</strong> · Con perímetro y puntos de interés</span>
+          </li>
+          <li class="flex items-start gap-3 text-body text-charcoal/80">
+            <span class="material-symbols-outlined text-gold text-lg mt-0.5">check_circle</span>
+            <span><strong class="text-charcoal font-semibold">Áreas Comunes</strong> · Foto y video a nivel de piso (si aplica)</span>
+          </li>
+        </ul>
+        <div class="flex items-center gap-2 text-xs text-concrete mb-6 font-medium">
+          <span class="material-symbols-outlined text-base">schedule</span> Entrega en 72 horas
+        </div>
+        <a class="block w-full py-4 bg-gold rounded-full text-[11px] font-black uppercase tracking-[.14em] text-charcoal hover:bg-gold-light transition-all shadow-xl text-center" href="https://wa.me/528127174207">Solicitar Ahora</a>
+      </div>
+
+      <!-- Premium Terreno $7,000 -->
+      <div class="pkg-card">
+        <span class="inline-flex items-center gap-1.5 text-[9px] font-bold uppercase tracking-[.12em] text-gold border border-gold/40 rounded-full px-2.5 py-1 mb-3"><span class="material-symbols-outlined text-xs">credit_card</span>3 MSI disponible</span>
+        <div class="gold-line"></div>
+        <h3 class="text-h3 text-charcoal mb-2">Premium Terreno</h3>
+        <div class="flex items-baseline mb-1">
+          <span class="text-[38px] font-black text-charcoal leading-none">$7,000</span>
+          <span class="text-concrete ml-2 text-sm font-medium">MXN</span>
+        </div>
+        <p class="text-[11px] text-gold font-bold mb-4 uppercase tracking-[.08em]">o 3 pagos de $2,500 c/tarjeta</p>
+        <p class="text-[10px] text-concrete uppercase tracking-[.12em] mb-6 border-l-2 border-gold pl-3 font-bold">Todo lo del Plus, más:</p>
+        <ul class="space-y-4 mb-10">
+          <li class="flex items-start gap-3 text-body text-charcoal/80">
+            <span class="material-symbols-outlined text-gold text-lg mt-0.5">check_circle</span>
+            <span><strong class="text-charcoal font-semibold">Video "Cómo Llegar"</strong> · Animación satelital de acceso</span>
+          </li>
+          <li class="flex items-start gap-3 text-body text-charcoal/80">
+            <span class="material-symbols-outlined text-gold text-lg mt-0.5">check_circle</span>
+            <span><strong class="text-charcoal font-semibold">Folleto Digital PDF</strong> · Fotos, IA, 360° y botones directos</span>
+          </li>
+          <li class="flex items-start gap-3 text-body text-charcoal/80">
+            <span class="material-symbols-outlined text-gold text-lg mt-0.5">check_circle</span>
+            <span><strong class="text-charcoal font-semibold">Landing Page</strong> · Página web exclusiva del terreno</span>
+          </li>
+        </ul>
+        <div class="flex items-center gap-2 text-xs text-concrete mb-6 font-medium">
+          <span class="material-symbols-outlined text-base">schedule</span> Entrega en 72 horas
+        </div>
+        <a class="block w-full py-4 border-2 border-charcoal rounded-full text-[11px] font-black uppercase tracking-[.14em] text-charcoal hover:bg-charcoal hover:text-white transition-all text-center" href="https://wa.me/528127174207">Solicitar</a>
+      </div>
+
+    </div>
+
+    <!-- CTA Catálogo -->
+    <div class="mt-14 text-center">
+      <div class="inline-flex items-center gap-3 bg-white border border-concrete-lt rounded-2xl px-8 py-5 shadow-sm hover:border-gold hover:shadow-md transition-all duration-300 group">
+        <span class="material-symbols-outlined text-gold text-xl">table_chart</span>
+        <div class="text-left">
+          <p class="text-[10px] uppercase tracking-[.16em] text-concrete font-bold mb-0.5">Comparativa completa</p>
+          <a href="catalogo.html" class="text-charcoal font-black text-sm group-hover:text-gold transition-colors">Ver todos los servicios incluidos lado a lado →</a>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ══════════ ADD-ONS ══════════ -->
+<section class="py-24 bg-crisp" id="addons">
+  <div class="max-w-[1240px] mx-auto px-8">
+    <div class="flex flex-col md:flex-row md:items-end justify-between mb-4 gap-4">
+      <div>
+        <div class="gold-line"></div>
+        <h2 class="text-h2 text-charcoal mb-3">Servicios Individuales</h2>
+        <p class="text-body-lg text-concrete max-w-lg">Complementa tu paquete o contrata solo lo que necesitas.</p>
+      </div>
+      <div class="flex items-center gap-2 bg-surface-warm px-4 py-2.5 rounded-xl border border-concrete-lt">
+        <span class="material-symbols-outlined text-gold text-base">info</span>
+        <p class="text-xs text-concrete font-semibold">No aplica MSI en servicios individuales</p>
+      </div>
+    </div>
+
+    <div class="addon-scroll mt-10">
+
+      <div class="addon-card-h bg-surface-warm rounded-2xl p-6 border border-concrete-lt hover:border-gold transition-all hover:-translate-y-1 hover:shadow-lg">
+        <span class="material-symbols-outlined text-gold mb-4 block text-2xl">photo_camera</span>
+        <p class="text-[9px] text-concrete uppercase tracking-[.18em] mb-2 font-bold">01</p>
+        <h4 class="font-semibold text-charcoal text-base mb-1 leading-tight">Fotografía Profesional HDR</h4>
+        <p class="text-gold font-black text-xl mb-4">$3,000</p>
+        <p class="text-sm text-concrete leading-relaxed">35 a 50 imágenes en alta resolución. Interiores y exteriores a nivel de piso.</p>
+      </div>
+
+      <div class="addon-card-h bg-surface-warm rounded-2xl p-6 border border-concrete-lt hover:border-gold transition-all hover:-translate-y-1 hover:shadow-lg">
+        <span class="material-symbols-outlined text-gold mb-4 block text-2xl">videocam</span>
+        <p class="text-[9px] text-concrete uppercase tracking-[.18em] mb-2 font-bold">02</p>
+        <h4 class="font-semibold text-charcoal text-base mb-1 leading-tight">Video Cinemático Individual</h4>
+        <p class="text-gold font-black text-xl mb-1">$3,000</p>
+        <p class="text-xs text-concrete mb-4">Clip 30–60 seg, colorización profesional.</p>
+        <p class="text-sm text-concrete leading-relaxed">Música libre de derechos incluida.</p>
+      </div>
+
+      <div class="addon-card-h bg-surface-warm rounded-2xl p-6 border border-concrete-lt hover:border-gold transition-all hover:-translate-y-1 hover:shadow-lg">
+        <span class="material-symbols-outlined text-gold mb-4 block text-2xl">flight</span>
+        <p class="text-[9px] text-concrete uppercase tracking-[.18em] mb-2 font-bold">03</p>
+        <h4 class="font-semibold text-charcoal text-base mb-1 leading-tight">Grabación con Dron</h4>
+        <p class="text-gold font-black text-xl mb-4">$3,000</p>
+        <p class="text-sm text-concrete leading-relaxed">Fachada, patios y entorno. Incluye marcaje de perímetro. Sujeto a clima.</p>
+      </div>
+
+      <div class="addon-card-h bg-surface-warm rounded-2xl p-6 border border-concrete-lt hover:border-gold transition-all hover:-translate-y-1 hover:shadow-lg">
+        <span class="material-symbols-outlined text-gold mb-4 block text-2xl">360</span>
+        <p class="text-[9px] text-concrete uppercase tracking-[.18em] mb-2 font-bold">04</p>
+        <h4 class="font-semibold text-charcoal text-base mb-1 leading-tight">Recorrido Virtual Inmersivo</h4>
+        <p class="text-gold font-black text-xl mb-4">$3,000</p>
+        <p class="text-sm text-concrete leading-relaxed">Escaneo navegable 24/7. Hospedaje en la nube incluido. Compatible con celular, tablet y computadora..</p>
+      </div>
+
+      <div class="addon-card-h bg-surface-warm rounded-2xl p-6 border border-concrete-lt hover:border-gold transition-all hover:-translate-y-1 hover:shadow-lg">
+        <span class="material-symbols-outlined text-gold mb-4 block text-2xl">record_voice_over</span>
+        <p class="text-[9px] text-concrete uppercase tracking-[.18em] mb-2 font-bold">05</p>
+        <h4 class="font-semibold text-charcoal text-base mb-1 leading-tight">Marca Personal del Asesor</h4>
+        <p class="text-gold font-black text-xl mb-4">$1,500</p>
+        <p class="text-sm text-concrete leading-relaxed">Grabación del asesor (intro/cierre) intercalada con las tomas del inmueble.</p>
+      </div>
+
+      <div class="addon-card-h bg-surface-warm rounded-2xl p-6 border border-concrete-lt hover:border-gold transition-all hover:-translate-y-1 hover:shadow-lg">
+        <span class="material-symbols-outlined text-gold mb-4 block text-2xl">auto_awesome</span>
+        <p class="text-[9px] text-concrete uppercase tracking-[.18em] mb-2 font-bold">06</p>
+        <h4 class="font-semibold text-charcoal text-base mb-1 leading-tight">Staging Virtual</h4>
+        <div class="space-y-2 mt-4 mb-4">
+          <div class="flex justify-between text-sm">
+            <span class="text-concrete">1–2 fotos</span>
+            <span class="text-gold font-bold">$900 c/u</span>
+          </div>
+          <div class="flex justify-between text-sm">
+            <span class="text-concrete">3–5 fotos</span>
+            <span class="text-gold font-bold">$800 c/u</span>
+          </div>
+          <div class="flex justify-between text-sm">
+            <span class="text-concrete">6+ fotos</span>
+            <span class="text-gold font-bold">$700 c/u</span>
+          </div>
+        </div>
+        <p class="text-sm text-concrete leading-relaxed">Transforma espacios vacíos en ambientes amueblados y aspiracionales.</p>
+      </div>
+
+      <div class="addon-card-h bg-surface-warm rounded-2xl p-6 border border-concrete-lt hover:border-gold transition-all hover:-translate-y-1 hover:shadow-lg">
+        <span class="material-symbols-outlined text-gold mb-4 block text-2xl">construction</span>
+        <p class="text-[9px] text-concrete uppercase tracking-[.18em] mb-2 font-bold">07</p>
+        <h4 class="font-semibold text-charcoal text-base mb-1 leading-tight">Avance de Obra</h4>
+        <p class="text-gold font-black text-xl mb-1">$3,500</p>
+        <p class="text-xs text-concrete mb-4">por visita</p>
+        <p class="text-sm text-concrete leading-relaxed">Cobertura mensual con dron. Ángulos estandarizados para reportes e inversores.</p>
+      </div>
+
+      <div class="addon-card-h bg-surface-warm rounded-2xl p-6 border border-concrete-lt hover:border-gold transition-all hover:-translate-y-1 hover:shadow-lg">
+        <span class="material-symbols-outlined text-gold mb-4 block text-2xl">architecture</span>
+        <p class="text-[9px] text-concrete uppercase tracking-[.18em] mb-2 font-bold">08</p>
+        <h4 class="font-semibold text-charcoal text-base mb-1 leading-tight">Plano 3D + 2D</h4>
+        <p class="text-gold font-black text-xl mb-4">$3,500</p>
+        <p class="text-sm text-concrete leading-relaxed">Levantamiento digital con plano 2D y recorrido visual 3D. PDF y JPG.</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ══════════ PROCESO ══════════ -->
+<section class="py-24 bg-surface-warm" id="proceso">
+  <div class="max-w-[1240px] mx-auto px-8">
+    <div class="text-center mb-20">
+      <div class="gold-line mx-auto"></div>
+      <h2 class="text-h2 text-charcoal mb-4">Nuestro Proceso</h2>
+      <p class="text-body-lg text-concrete max-w-xl mx-auto">Eficiencia y calidad en cada etapa, desde la primera llamada hasta la entrega final.</p>
+    </div>
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-10 relative">
+      <div class="process-line hidden md:block"></div>
+      <div class="flex flex-col items-center text-center group relative z-10">
+        <div class="w-20 h-20 rounded-full bg-white border-2 border-concrete-lt flex items-center justify-center mb-8 transition-all duration-300 group-hover:bg-charcoal group-hover:border-gold group-hover:scale-110 shadow-md">
+          <span class="material-symbols-outlined text-3xl text-concrete group-hover:text-gold transition-colors">calendar_month</span>
+        </div>
+        <h4 class="text-h3 text-charcoal mb-3">1. Agenda</h4>
+        <p class="text-body text-concrete">Coordinamos fecha y hora con precisión. Llegamos puntual, listos para comenzar desde el primer minuto.</p>
+      </div>
+      <div class="flex flex-col items-center text-center group relative z-10">
+        <div class="w-20 h-20 rounded-full bg-white border-2 border-concrete-lt flex items-center justify-center mb-8 transition-all duration-300 group-hover:bg-charcoal group-hover:border-gold group-hover:scale-110 shadow-md">
+          <span class="material-symbols-outlined text-3xl text-concrete group-hover:text-gold transition-colors">videocam</span>
+        </div>
+        <h4 class="text-h3 text-charcoal mb-3">2. Producción</h4>
+        <p class="text-body text-concrete">Trabajamos con orden, discreción y respeto a la propiedad. Sin demoras, sin improvisaciones.</p>
+      </div>
+      <div class="flex flex-col items-center text-center group relative z-10">
+        <div class="w-20 h-20 rounded-full bg-white border-2 border-concrete-lt flex items-center justify-center mb-8 transition-all duration-300 group-hover:bg-charcoal group-hover:border-gold group-hover:scale-110 shadow-md">
+          <span class="material-symbols-outlined text-3xl text-concrete group-hover:text-gold transition-colors">task_alt</span>
+        </div>
+        <h4 class="text-h3 text-charcoal mb-3">3. Entrega</h4>
+        <p class="text-body text-concrete">Material entregado en menos de 72 horas. Siempre. Sin excusas y sin necesidad de recordatorios.</p>
+      </div>
+    </div>
+    <div class="text-center mt-12">
+      <a href="proceso.html" class="inline-flex items-center gap-2 border-2 border-charcoal text-charcoal px-8 py-3.5 rounded-full font-black uppercase tracking-[.12em] text-[11px] hover:bg-charcoal hover:text-white transition-all">
+        Ver proceso completo
+        <span class="material-symbols-outlined text-base">arrow_forward</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════ CTA ══════════ -->
+<section class="py-28 bg-charcoal relative overflow-hidden">
+  <!-- Gold grain texture overlay -->
+  <div class="absolute inset-0 opacity-5" style="background-image:url('data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%22200%22 height=%22200%22><filter id=%22noise%22><feTurbulence type=%22fractalNoise%22 baseFrequency=%220.9%22 numOctaves=%224%22 stitchTiles=%22stitch%22/><feColorMatrix type=%22saturate%22 values=%220%22/></filter><rect width=%22200%22 height=%22200%22 filter=%22url(%23noise)%22 opacity=%221%22/></svg>');"></div>
+  <div class="absolute top-0 left-0 right-0 h-[2px]" style="background:linear-gradient(90deg,transparent,#C9A84C,transparent);"></div>
+  <div class="relative z-10 max-w-[1240px] mx-auto px-8 text-center">
+    <p class="text-[10px] uppercase tracking-[.22em] text-gold font-bold mb-6">¿Listo para más ventas?</p>
+    <h2 class="text-white mb-6 leading-none font-black" style="font-size:clamp(2rem,5vw,3.5rem);letter-spacing:-.025em;">
+      Lleva tu marketing inmobiliario<br/>al siguiente nivel.
+    </h2>
+    <p class="text-body-lg text-concrete mb-12 max-w-2xl mx-auto">No permitas que una mala imagen detenga una venta millonaria. <strong class="text-gold">Entrega garantizada en 72 horas.</strong></p>
+    <a class="inline-flex items-center justify-center gap-3 bg-gold text-charcoal px-12 py-5 rounded-full font-black uppercase tracking-[.14em] text-[12px] hover:bg-gold-light transition-all duration-300 shadow-2xl" href="https://wa.me/528127174207">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+      Comenzar Proyecto Ahora
+    </a>
+  </div>
+</section>
+
+</main>
+
+<!-- ══════════ FOOTER ══════════ -->
+<footer class="bg-charcoal border-t border-charcoal-2 py-16">
+  <div class="max-w-[1240px] mx-auto px-8 flex flex-col md:flex-row justify-between items-center gap-8">
+    <div class="flex flex-col items-center md:items-start">
+      <!-- Logo in footer -->
+      <div class="mb-3">
+        <img src="https://res.cloudinary.com/denjzengj/image/upload/v1776758050/Vector_jyok9y.png" alt="Inmuebles Audiovisuales" class="h-10 w-auto" style="max-width:180px;filter:brightness(0) invert(1);"/>
+      </div>
+      <p class="text-[10px] uppercase tracking-[.14em] text-concrete">© 2026 Inmuebles Audiovisuales · Monterrey, NL</p>
+      <p class="text-[10px] text-concrete mt-1">Todos los precios en MXN · 3 MSI con tarjeta de crédito solo en paquetes</p>
+    </div>
+    <div class="flex gap-8">
+      <a class="text-[10px] uppercase tracking-[.14em] text-concrete hover:text-gold transition-all duration-300" href="#">WhatsApp</a>
+      <a class="text-[10px] uppercase tracking-[.14em] text-concrete hover:text-gold transition-all duration-300" href="#">Instagram</a>
+      <a class="text-[10px] uppercase tracking-[.14em] text-concrete hover:text-gold transition-all duration-300" href="#">LinkedIn</a>
+    </div>
+  </div>
+</footer>
+
+<!-- WhatsApp FAB -->
+<a class="fixed bottom-8 right-8 z-[100] w-16 h-16 bg-[#25D366] text-white rounded-full flex items-center justify-center shadow-2xl transition-transform hover:scale-110 active:scale-95 group" href="https://wa.me/528127174207">
+  <svg class="w-8 h-8 fill-current" viewBox="0 0 24 24">
+    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+  </svg>
+  <span class="absolute right-full mr-4 bg-white text-charcoal px-4 py-2 rounded-lg text-[10px] font-black whitespace-nowrap shadow-xl opacity-0 group-hover:opacity-100 transition-opacity uppercase tracking-widest pointer-events-none">Chat con nosotros</span>
+</a>
+
+<script>
+  function switchTab(tab, btn) {
+    document.querySelectorAll('.tab-content').forEach(el => el.classList.remove('active'));
+    document.querySelectorAll('.tab-btn').forEach(el => el.classList.remove('active'));
+    document.getElementById('tab-' + tab).classList.add('active');
+    btn.classList.add('active');
+  }
+  function switchPortfolio(tab, btn) {
+    document.querySelectorAll('.port-content').forEach(el => el.classList.remove('active'));
+    document.querySelectorAll('.port-tab-btn').forEach(el => {
+      el.classList.remove('active', 'bg-gold', 'text-white');
+      el.classList.add('bg-concrete-lt', 'text-concrete');
+    });
+    document.getElementById('port-' + tab).classList.add('active');
+    btn.classList.add('active');
+    btn.classList.remove('bg-concrete-lt', 'text-concrete');
+  }
+</script>
+</body>
+</html>
