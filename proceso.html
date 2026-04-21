@@ -2,6 +2,7 @@
 <html class="light" lang="es">
 <head>
 <meta charset="utf-8"/>
+<meta name="color-scheme" content="light"/>
 <meta content="width=device-width, initial-scale=1.0, viewport-fit=cover" name="viewport"/>
 <title>Proceso · Inmuebles Audiovisuales</title>
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet"/>
@@ -10,7 +11,7 @@
 <script>tailwind.config={darkMode:"class",theme:{extend:{colors:{"gold":"#C9A84C","gold-light":"#E2C289","gold-dark":"#A8883A","charcoal":"#1C1C1E","charcoal-2":"#2A2A2D","crisp":"#FFFFFF","concrete":"#9B9B9F","concrete-lt":"#E8E8EA","surface-warm":"#F9F7F4"},fontFamily:{montserrat:["Montserrat","sans-serif"]}}}}</script>
 <style>
 *{box-sizing:border-box;}
-body{font-family:'Montserrat',sans-serif;}
+body{font-family:'Montserrat',sans-serif;color-scheme:light;background-color:#FAFAFA;}
 .material-symbols-outlined{font-variation-settings:'FILL' 0,'wght' 400,'GRAD' 0,'opsz' 24;}
 .nav-link{position:relative;font-size:12px;letter-spacing:.1em;font-weight:600;text-transform:uppercase;color:#9B9B9F;transition:color .25s;}
 .nav-link::after{content:'';position:absolute;bottom:-4px;left:0;width:0;height:2px;background:#C9A84C;transition:width .3s;}
@@ -28,10 +29,10 @@ footer a:hover{color:#C9A84C;}
   <nav class="max-w-[1240px] mx-auto flex justify-between items-center px-4 md:px-8 h-[60px] md:h-[72px]">
     <a href="index.html"><img src="https://res.cloudinary.com/denjzengj/image/upload/v1776758050/Vector_jyok9y.png" alt="Inmuebles Audiovisuales" class="h-11 md:h-14 w-auto" style="max-width:200px;"/></a>
     <div class="hidden md:flex items-center space-x-8">
-      <a class="nav-link" href="index.html#portfolio">Portfolio</a>
-      <a class="nav-link" href="index.html#paquetes">Paquetes</a>
+      <a class="nav-link" href="index.html">Inicio</a>
+      <a class="nav-link" href="index.html#portafolio">Portafolio</a>
+      <a class="nav-link" href="catalogo.html">Paquetes</a>
       <a class="nav-link nav-link-active" href="proceso.html">Proceso</a>
-      <a class="nav-link" href="catalogo.html">Catálogo</a>
     </div>
     <a class="nav-link" style="color:#C9A84C;font-weight:800;" href="https://wa.me/528127174207">Agendar</a>
   </nav>
@@ -50,12 +51,12 @@ footer a:hover{color:#C9A84C;}
       <div style="width:24px;height:2px;background:#C9A84C;"></div>
     </div>
     <h1 class="text-white mb-4 leading-none font-black" style="font-size:clamp(1.9rem,5vw,3.5rem);letter-spacing:-.025em;">Proceso completo</h1>
-    <p class="text-concrete max-w-xl mx-auto text-sm md:text-base leading-relaxed">7 pasos simples, de la primera llamada a tu material listo en 72 horas.</p>
+    <p class="text-concrete max-w-xl mx-auto text-sm md:text-base leading-relaxed">7 pasos simples, de la primera llamada a tu material listo en 3 días hábiles.</p>
   </div>
 </section>
 
 <!-- PASOS -->
-<div class="max-w-[900px] mx-auto px-5 md:px-8 py-10 md:py-14">
+<div class="max-w-[900px] mx-auto px-5 md:px-8 py-10 md:py-14" style="background-color:#FAFAFA;">
 
   <div class="proceso-step">
     <div class="step-num">1</div>
@@ -109,7 +110,7 @@ footer a:hover{color:#C9A84C;}
     <div class="step-num">7</div>
     <div>
       <h3 class="font-bold text-charcoal text-base mb-2">Entrega final en alta resolución</h3>
-      <p class="text-sm text-concrete leading-relaxed">Con el saldo liquidado y correcciones aplicadas, el material final se entrega en alta resolución vía Google Drive.</p>
+      <p class="text-sm text-concrete leading-relaxed">Con el saldo liquidado y correcciones aplicadas, el material final se entrega en alta resolución en carpetas organizadas vía Google Drive, en un plazo máximo de <strong class="text-charcoal">3 días hábiles</strong> a partir de la sesión.</p>
     </div>
   </div>
 
