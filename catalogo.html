@@ -207,6 +207,11 @@
   /* ── MAS POPULAR BADGE ── */
   .plus-col-wrap{position:relative;display:inline-block;width:100%;}
   .mas-popular-badge{position:absolute;top:-28px;left:0;right:0;background:#C9A84C;color:#1C1C1E;text-align:center;padding:5px 0;font-size:9px;font-weight:900;letter-spacing:.14em;text-transform:uppercase;border-radius:6px 6px 0 0;}
+
+  .table-outer{position:relative;padding-top:26px;}
+  .mas-pop{position:absolute;top:0;background:#C9A84C;color:#1C1C1E;font-size:9px;font-weight:900;letter-spacing:.14em;text-transform:uppercase;padding:5px 10px;border-radius:6px 6px 0 0;text-align:center;}
+  @media(min-width:768px){.mas-pop{left:56%;width:22%;}}
+  @media(max-width:767px){.mas-pop{left:190px;width:85px;padding:4px 4px;}}
   footer a:hover{color:#C9A84C;}
 </style>
 </head>
@@ -336,10 +341,10 @@
 
     <!-- DESKTOP: Tabla comparativa -->
     <p class="scroll-hint items-center gap-1.5 text-[11px] text-concrete font-semibold mb-3"><span class="material-symbols-outlined text-sm text-gold" style="vertical-align:middle;">swipe_right</span> Desliza para comparar los 3 paquetes</p>
-    <div class="table-wrap overflow-x-auto -mx-4 md:mx-0 px-4 md:px-0" style="padding-top:28px;position:relative;">
-      <div class="mas-popular-badge" style="position:absolute;top:0;left:calc(34% + (66%/3));width:calc(66%/3);border-radius:6px 6px 0 0;">Más Popular</div>
+    <div class="table-wrap overflow-x-auto -mx-4 md:mx-0 px-4 md:px-0" >
       <table class="pricing-table">
         <thead>
+          <tr><td style="background:transparent;border:none;"></td><td style="background:transparent;border:none;"></td><td style="background:#C9A84C;color:#1C1C1E;font-size:9px;font-weight:900;letter-spacing:.14em;text-transform:uppercase;text-align:center;padding:5px 8px;border-radius:6px 6px 0 0;border:none;">Más Popular</td><td style="background:transparent;border:none;"></td></tr>
           <tr>
             <th style="width:34%;">Servicio</th>
             <th>Esencial<br/><span style="font-size:9px;font-weight:600;letter-spacing:.08em;color:rgba(201,168,76,.7);text-transform:uppercase;">3 MSI disponible</span></th>
@@ -375,7 +380,7 @@
           <tr class="feature-row"><td>Landing Page</td><td><span class="dash">—</span></td><td class="cell-plus"><span class="dash">—</span></td><td><span class="check"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3" stroke="white" stroke-width="1.8" fill="none" stroke-linecap="round"/></svg></span></td></tr>
         </tbody>
       </table>
-    </div><!-- /table-wrap residencial -->
+    </div></div><!-- /table-wrap residencial -->
 
     <p class="text-center text-xs italic text-gold-dark font-semibold mt-6 max-w-md mx-auto leading-relaxed">El paquete Plus ofrece la mejor relación entre valor y alcance comercial.</p>
 
@@ -507,10 +512,10 @@
 
     <!-- DESKTOP: Tabla comparativa -->
     <p class="scroll-hint items-center gap-1.5 text-[11px] text-concrete font-semibold mb-3"><span class="material-symbols-outlined text-sm text-gold" style="vertical-align:middle;">swipe_right</span> Desliza para comparar los 3 paquetes</p>
-    <div class="table-wrap overflow-x-auto -mx-4 md:mx-0 px-4 md:px-0" style="padding-top:28px;position:relative;">
-      <div class="mas-popular-badge" style="position:absolute;top:0;left:calc(34% + (66%/3));width:calc(66%/3);border-radius:6px 6px 0 0;">Más Popular</div>
+    <div class="table-wrap overflow-x-auto -mx-4 md:mx-0 px-4 md:px-0" >
       <table class="pricing-table">
         <thead>
+          <tr><td style="background:transparent;border:none;"></td><td style="background:transparent;border:none;"></td><td style="background:#C9A84C;color:#1C1C1E;font-size:9px;font-weight:900;letter-spacing:.14em;text-transform:uppercase;text-align:center;padding:5px 8px;border-radius:6px 6px 0 0;border:none;">Más Popular</td><td style="background:transparent;border:none;"></td></tr>
           <tr>
             <th style="width:34%;">Servicio</th>
             <th>Esencial<br/><span style="font-size:9px;font-weight:600;letter-spacing:.08em;color:rgba(201,168,76,.7);text-transform:uppercase;">3 MSI disponible</span></th>
@@ -545,7 +550,7 @@
           <tr class="feature-row"><td>Landing Page</td><td><span class="dash">—</span></td><td class="cell-plus"><span class="dash">—</span></td><td><span class="check"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3" stroke="white" stroke-width="1.8" fill="none" stroke-linecap="round"/></svg></span></td></tr>
         </tbody>
       </table>
-    </div><!-- /table-wrap terrenos -->
+    </div></div><!-- /table-wrap terrenos -->
 
     <p class="text-center text-xs italic text-gold-dark font-semibold mt-6 max-w-md mx-auto leading-relaxed">El paquete Plus incluye renderizado de potencial con IA y fotografía 360° aérea para maximizar el interés del comprador.</p>
 
