@@ -251,8 +251,8 @@
 
     <div class="flex flex-wrap gap-2 justify-center mb-10">
       <button onclick="switchPortfolio('video', this)" class="port-tab-btn active px-5 py-2.5 rounded-full text-[11px] font-bold uppercase tracking-widest transition-all bg-gold text-white">Video Residencial</button>
-      <button onclick="switchPortfolio('terrenos', this)" class="port-tab-btn px-5 py-2.5 rounded-full text-[11px] font-bold uppercase tracking-widest transition-all bg-concrete-lt text-concrete hover:bg-concrete-lt/70">Video Terrenos</button>
-      <button onclick="switchPortfolio('virtual', this)" class="port-tab-btn px-5 py-2.5 rounded-full text-[11px] font-bold uppercase tracking-widest transition-all bg-concrete-lt text-concrete hover:bg-concrete-lt/70">Recorrido Virtual Inmersivo</button>
+      <button onclick="switchPortfolio('terrenos', this)" class="port-tab-btn px-5 py-2.5 rounded-full text-[11px] font-bold uppercase tracking-widest transition-all border border-gold text-gold hover:bg-gold/10">Video Terrenos</button>
+      <button onclick="switchPortfolio('virtual', this)" class="port-tab-btn px-5 py-2.5 rounded-full text-[11px] font-bold uppercase tracking-widest transition-all border border-gold text-gold hover:bg-gold/10">Recorrido Virtual Inmersivo</button>
     </div>
 
     <!-- Video Residencial -->
@@ -489,11 +489,11 @@
     document.querySelectorAll('.port-content').forEach(el => el.classList.remove('active'));
     document.querySelectorAll('.port-tab-btn').forEach(el => {
       el.classList.remove('active', 'bg-gold', 'text-white');
-      el.classList.add('bg-concrete-lt', 'text-concrete');
+      el.classList.add('border', 'border-gold', 'text-gold', 'hover:bg-gold/10');
     });
     document.getElementById('port-' + tab).classList.add('active');
     btn.classList.add('active');
-    btn.classList.remove('bg-concrete-lt', 'text-concrete');
+    btn.classList.remove('border', 'border-gold', 'text-gold', 'hover:bg-gold/10');
   }
 </script>
 </body>
