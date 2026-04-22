@@ -67,6 +67,9 @@ body{font-family:'Montserrat',sans-serif;-webkit-font-smoothing:antialiased;}
 @media(min-width:768px){
   #port-video, #port-terrenos, #port-virtual { grid-template-columns: repeat(2,1fr); }
 }
+@media(max-width:639px){
+  .port-tab-btn, .pkg-tab-btn { padding: 8px 12px; font-size: 10px; }
+}
 </style>
 </head>
 <body class="bg-[#FAFAFA] text-[#1C1C1E] font-mont">
@@ -119,11 +122,8 @@ body{font-family:'Montserrat',sans-serif;-webkit-font-smoothing:antialiased;}
       <h1 class="h-a2 text-white font-black mb-3" style="font-size:clamp(1.8rem,5vw,3.8rem);letter-spacing:-.03em;line-height:1.05">
         Transformamos tus propiedades en experiencias de venta.
       </h1>
-      <p class="h-a2 mb-3" style="font-size:clamp(14px,1.8vw,18px);line-height:1.6;color:rgba(255,255,255,.75);max-width:520px">
-        Haz que tu propiedad valga más desde el primer vistazo con fotografía, video cinemático y grabación aérea.
-      </p>
       <p class="h-a2 mb-9" style="font-size:clamp(14px,1.8vw,17px);line-height:1.7;color:rgba(255,255,255,.6);max-width:520px">
-        Destaca, genera más interesados y vende antes que la competencia. <strong style="color:#E2C289">Entrega en 3 días hábiles.</strong>
+        Mientras otros publican fotos de celular, tú ya estás cerrando tratos. <strong style="color:#E2C289">Entrega en 3 días hábiles.</strong>
       </p>
       <div class="h-a3 flex flex-wrap gap-3">
         <a href="https://wa.me/528127174207" class="btn-gold">
@@ -140,9 +140,9 @@ body{font-family:'Montserrat',sans-serif;-webkit-font-smoothing:antialiased;}
 <section class="py-9" style="background:#1C1C1E">
   <div class="max-w-[1240px] mx-auto px-6 md:px-8 grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
     <div><div class="font-black mb-1" style="font-size:clamp(18px,3vw,26px);letter-spacing:-.02em;color:#C9A84C">3 días hábiles</div><div class="font-bold uppercase" style="font-size:10px;letter-spacing:.14em;color:#9B9B9F">Entrega garantizada</div></div>
-    <div><div class="font-black mb-1" style="font-size:clamp(18px,3vw,26px);letter-spacing:-.02em;color:#C9A84C">Más interesados</div><div class="font-bold uppercase" style="font-size:10px;letter-spacing:.14em;color:#9B9B9F">Desde el primer día</div></div>
-    <div><div class="font-black mb-1" style="font-size:clamp(18px,3vw,26px);letter-spacing:-.02em;color:#C9A84C">Cierra más rápido</div><div class="font-bold uppercase" style="font-size:10px;letter-spacing:.14em;color:#9B9B9F">Con fotografía y video profesional</div></div>
-    <div><div class="font-black mb-1" style="font-size:clamp(18px,3vw,26px);letter-spacing:-.02em;color:#C9A84C">3 MSI</div><div class="font-bold uppercase" style="font-size:10px;letter-spacing:.14em;color:#9B9B9F">Con tarjeta de crédito</div></div>
+    <div><div class="font-black mb-1" style="font-size:clamp(18px,3vw,26px);letter-spacing:-.02em;color:#C9A84C">+73% más visitas</div><div class="font-bold uppercase" style="font-size:10px;letter-spacing:.14em;color:#9B9B9F">Propiedades con foto profesional</div></div>
+    <div><div class="font-black mb-1" style="font-size:clamp(18px,3vw,26px);letter-spacing:-.02em;color:#C9A84C">3x más consultas</div><div class="font-bold uppercase" style="font-size:10px;letter-spacing:.14em;color:#9B9B9F">vs. foto de celular</div></div>
+    <div><div class="font-black mb-1" style="font-size:clamp(18px,3vw,26px);letter-spacing:-.02em;color:#C9A84C">100% listo</div><div class="font-bold uppercase" style="font-size:10px;letter-spacing:.14em;color:#9B9B9F">Para portales y redes sociales</div></div>
   </div>
 </section>
 
@@ -168,11 +168,11 @@ body{font-family:'Montserrat',sans-serif;-webkit-font-smoothing:antialiased;}
       <h2 class="font-bold mb-4" style="font-size:clamp(24px,4vw,36px);letter-spacing:-.015em;color:#1C1C1E">Portafolio</h2>
       <p style="font-size:16px;line-height:1.7;color:#9B9B9F;max-width:480px;margin:0 auto">Proyectos recientes en Monterrey y área metropolitana.</p>
     </div>
-    <div class="flex justify-center mb-10">
-      <div class="flex gap-1 bg-[#F9F7F4] rounded-full p-1 border border-[#E8E8EA]" style="flex-wrap:wrap">
-        <button class="port-tab-btn active" onclick="switchPort('video',this)">Video Residencial</button>
-        <button class="port-tab-btn" onclick="switchPort('terrenos',this)">Video Terrenos</button>
-        <button class="port-tab-btn" onclick="switchPort('virtual',this)">Recorrido Virtual Inmersivo</button>
+    <div class="flex justify-center mb-10" style="overflow-x:auto;-webkit-overflow-scrolling:touch;padding-bottom:2px">
+      <div class="flex gap-1 bg-[#F9F7F4] rounded-full p-1 border border-[#E8E8EA]" style="flex-wrap:nowrap;flex-shrink:0">
+        <button class="port-tab-btn active" onclick="switchPort('video',this)">Residencial</button>
+        <button class="port-tab-btn" onclick="switchPort('terrenos',this)">Terrenos</button>
+        <button class="port-tab-btn" onclick="switchPort('virtual',this)">Recorrido Inmersivo</button>
       </div>
     </div>
     <div id="port-video" style="display:grid;gap:20px"><div><div class="rounded-xl overflow-hidden" style="aspect-ratio:16/9;background:#111"><iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="Villa San Pedro" style="width:100%;height:100%;border:none" allowfullscreen></iframe></div><p class="font-semibold mt-3 mb-1" style="font-size:14px;color:#1C1C1E">Villa San Pedro</p><p style="font-size:12px;color:#9B9B9F">Video Cinemático Premium</p></div><div><div class="rounded-xl overflow-hidden" style="aspect-ratio:16/9;background:#111"><iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="Penthouse Valle Oriente" style="width:100%;height:100%;border:none" allowfullscreen></iframe></div><p class="font-semibold mt-3 mb-1" style="font-size:14px;color:#1C1C1E">Penthouse Valle Oriente</p><p style="font-size:12px;color:#9B9B9F">Video Cinemático + Fotografía HDR</p></div></div>
@@ -212,7 +212,7 @@ body{font-family:'Montserrat',sans-serif;-webkit-font-smoothing:antialiased;}
       <div class="flex gap-1 bg-white rounded-full p-1 border border-[#E8E8EA]">
         <button class="pkg-tab-btn active" onclick="switchPkg('residencial',this)">Residencial</button>
         <button class="pkg-tab-btn" onclick="switchPkg('terrenos',this)">Terrenos</button>
-        <button class="pkg-tab-btn" onclick="switchPkg('carta',this)">Servicios Individuales</button>
+        <button class="pkg-tab-btn" onclick="switchPkg('carta',this)">Individuales</button>
       </div>
     </div>
 
