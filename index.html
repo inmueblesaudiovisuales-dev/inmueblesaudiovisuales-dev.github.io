@@ -57,6 +57,16 @@ body{font-family:'Montserrat',sans-serif;-webkit-font-smoothing:antialiased;}
 /* Gold check */
 .gcheck{display:inline-flex;align-items:center;justify-content:center;width:20px;height:20px;background:#C9A84C;border-radius:50%;flex-shrink:0;margin-top:2px;}
 /* Tooltip */
+#pkg-residencial, #pkg-terrenos { grid-template-columns: 1fr; }
+#pkg-carta { grid-template-columns: repeat(2,1fr); }
+#port-video, #port-terrenos, #port-virtual { grid-template-columns: 1fr; }
+@media(min-width:1024px){
+  #pkg-residencial, #pkg-terrenos { grid-template-columns: repeat(3,1fr); }
+  #pkg-carta { grid-template-columns: repeat(4,1fr); }
+}
+@media(min-width:768px){
+  #port-video, #port-terrenos, #port-virtual { grid-template-columns: repeat(2,1fr); }
+}
 </style>
 </head>
 <body class="bg-[#FAFAFA] text-[#1C1C1E] font-mont">
@@ -107,12 +117,12 @@ body{font-family:'Montserrat',sans-serif;-webkit-font-smoothing:antialiased;}
         <span style="font-size:11px;letter-spacing:.2em;font-weight:700;color:#C9A84C;text-transform:uppercase">Fotografía, Video y Dron para Propiedades · Monterrey, NL</span>
       </div>
       <h1 class="h-a2 text-white font-black mb-3" style="font-size:clamp(1.8rem,5vw,3.8rem);letter-spacing:-.03em;line-height:1.05">
-        Haz que tu propiedad valga más desde el primer vistazo con fotografía, video cinemático y grabación aérea.
-      </h1>
-      <p class="h-a2 mb-3" style="font-size:clamp(14px,1.8vw,18px);line-height:1.5;color:rgba(255,255,255,.6);max-width:520px;font-style:italic">
         Transformamos tus propiedades en experiencias de venta.
+      </h1>
+      <p class="h-a2 mb-3" style="font-size:clamp(14px,1.8vw,18px);line-height:1.6;color:rgba(255,255,255,.75);max-width:520px">
+        Haz que tu propiedad valga más desde el primer vistazo con fotografía, video cinemático y grabación aérea.
       </p>
-      <p class="h-a2 mb-9" style="font-size:clamp(14px,1.8vw,17px);line-height:1.7;color:rgba(255,255,255,.75);max-width:520px">
+      <p class="h-a2 mb-9" style="font-size:clamp(14px,1.8vw,17px);line-height:1.7;color:rgba(255,255,255,.6);max-width:520px">
         Destaca, genera más interesados y vende antes que la competencia. <strong style="color:#E2C289">Entrega en 3 días hábiles.</strong>
       </p>
       <div class="h-a3 flex flex-wrap gap-3">
@@ -165,7 +175,7 @@ body{font-family:'Montserrat',sans-serif;-webkit-font-smoothing:antialiased;}
         <button class="port-tab-btn" onclick="switchPort('virtual',this)">Recorrido Virtual Inmersivo</button>
       </div>
     </div>
-    <div id="port-video" style="display:grid;grid-template-columns:repeat(2,1fr);gap:20px"><div><div class="rounded-xl overflow-hidden" style="aspect-ratio:16/9;background:#111"><iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="Villa San Pedro" style="width:100%;height:100%;border:none" allowfullscreen></iframe></div><p class="font-semibold mt-3 mb-1" style="font-size:14px;color:#1C1C1E">Villa San Pedro</p><p style="font-size:12px;color:#9B9B9F">Video Cinemático Premium</p></div><div><div class="rounded-xl overflow-hidden" style="aspect-ratio:16/9;background:#111"><iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="Penthouse Valle Oriente" style="width:100%;height:100%;border:none" allowfullscreen></iframe></div><p class="font-semibold mt-3 mb-1" style="font-size:14px;color:#1C1C1E">Penthouse Valle Oriente</p><p style="font-size:12px;color:#9B9B9F">Video Cinemático + Fotografía HDR</p></div></div>
+    <div id="port-video" style="display:grid;gap:20px"><div><div class="rounded-xl overflow-hidden" style="aspect-ratio:16/9;background:#111"><iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="Villa San Pedro" style="width:100%;height:100%;border:none" allowfullscreen></iframe></div><p class="font-semibold mt-3 mb-1" style="font-size:14px;color:#1C1C1E">Villa San Pedro</p><p style="font-size:12px;color:#9B9B9F">Video Cinemático Premium</p></div><div><div class="rounded-xl overflow-hidden" style="aspect-ratio:16/9;background:#111"><iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="Penthouse Valle Oriente" style="width:100%;height:100%;border:none" allowfullscreen></iframe></div><p class="font-semibold mt-3 mb-1" style="font-size:14px;color:#1C1C1E">Penthouse Valle Oriente</p><p style="font-size:12px;color:#9B9B9F">Video Cinemático + Fotografía HDR</p></div></div>
     <div id="port-terrenos" class="port-panel" style="display:none" data-grid="grid grid-cols-1 md:grid-cols-3 gap-5"><div><div class="rounded-xl overflow-hidden" style="aspect-ratio:16/9;background:#111"><iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="Vistas de la Sierra" style="width:100%;height:100%;border:none" allowfullscreen></iframe></div><p class="font-semibold mt-3 mb-1" style="font-size:14px;color:#1C1C1E">Vistas de la Sierra · García</p><p style="font-size:12px;color:#9B9B9F">Paquete Premium Terreno</p></div><div><div class="rounded-xl overflow-hidden" style="aspect-ratio:16/9;background:#111"><iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="Lotes Carretera Laredo" style="width:100%;height:100%;border:none" allowfullscreen></iframe></div><p class="font-semibold mt-3 mb-1" style="font-size:14px;color:#1C1C1E">Lotes Carretera Laredo</p><p style="font-size:12px;color:#9B9B9F">Video Aéreo + Delimitación</p></div></div>
     <div id="port-virtual" class="port-panel" style="display:none" data-grid="grid grid-cols-1 md:grid-cols-3 gap-5"><div><div class="rounded-xl overflow-hidden" style="aspect-ratio:16/9;background:#111"><iframe src="https://app.cloudpano.com/tours/placeholder1" title="Penthouse Arboleda" style="width:100%;height:100%;border:none" allowfullscreen></iframe></div><p class="font-semibold mt-3 mb-1" style="font-size:14px;color:#1C1C1E">Penthouse Arboleda · Valle Oriente</p><p style="font-size:12px;color:#9B9B9F">Recorrido Virtual Inmersivo</p></div><div><div class="rounded-xl overflow-hidden" style="aspect-ratio:16/9;background:#111"><iframe src="https://app.cloudpano.com/tours/placeholder2" title="Casa San Pedro" style="width:100%;height:100%;border:none" allowfullscreen></iframe></div><p class="font-semibold mt-3 mb-1" style="font-size:14px;color:#1C1C1E">Casa San Pedro Garza García</p><p style="font-size:12px;color:#9B9B9F">Recorrido Virtual Inmersivo</p></div></div>
   </div>
@@ -207,7 +217,7 @@ body{font-family:'Montserrat',sans-serif;-webkit-font-smoothing:antialiased;}
     </div>
 
     <!-- RESIDENCIAL -->
-    <div id="pkg-residencial" style="display:grid;grid-template-columns:repeat(3,1fr);gap:20px;align-items:stretch;padding-top:24px">
+    <div id="pkg-residencial" style="display:grid;gap:20px;align-items:stretch;padding-top:24px">
       <div style="grid-column:1/-1;margin-bottom:16px">
         <p class="font-black text-[#1C1C1E] mb-1" style="font-size:16px">Casas, departamentos, Airbnbs y quintas</p>
         <p style="font-size:14px;color:#9B9B9F;line-height:1.6">Ideal para propiedades que necesitan verse bien y empezar a generar interés desde el primer día. Para propiedades residenciales en venta o renta.</p>
@@ -275,7 +285,7 @@ body{font-family:'Montserrat',sans-serif;-webkit-font-smoothing:antialiased;}
     </div><!-- /residencial -->
 
     <!-- TERRENOS -->
-    <div id="pkg-terrenos" style="display:none;grid-template-columns:repeat(3,1fr);gap:20px;align-items:stretch;padding-top:24px">
+    <div id="pkg-terrenos" style="display:none;gap:20px;align-items:stretch;padding-top:24px">
       <div class="col-span-full mb-4">
         <p class="font-black text-[#1C1C1E] mb-1" style="font-size:16px">Lotes, terrenos y desarrollos en preventa</p>
         <p style="font-size:14px;color:#9B9B9F;line-height:1.6">Contenido visual diseñado para resaltar ubicación, dimensiones y entorno del terreno, elevando su percepción de valor desde el primer vistazo.</p>
@@ -348,7 +358,7 @@ body{font-family:'Montserrat',sans-serif;-webkit-font-smoothing:antialiased;}
     </div><!-- /terrenos -->
 
     <!-- SERVICIOS INDIVIDUALES -->
-    <div id="pkg-carta" style="display:none;grid-template-columns:repeat(4,1fr);gap:20px;align-items:stretch">
+    <div id="pkg-carta" style="display:none;gap:20px;align-items:stretch">
       <div class="col-span-full mb-2">
         <p class="font-black text-[#1C1C1E] mb-2" style="font-size:20px">Servicios a la carta</p>
         <p style="font-size:14px;color:#9B9B9F;line-height:1.7">¿No necesitas el paquete completo? Elige solo lo que tu propiedad necesita y empieza a vender más rápido desde hoy.</p>
@@ -391,7 +401,11 @@ body{font-family:'Montserrat',sans-serif;-webkit-font-smoothing:antialiased;}
           <span class="material-symbols-outlined flex-shrink-0" style="font-size:22px;color:#C9A84C">expand_more</span>
         </button>
         <div class="acc-body">
-          <p class="pb-5" style="font-size:14px;line-height:1.7;color:#9B9B9F">El proceso es sencillo: nos contactas por <a href="https://wa.me/528127174207" style="color:#C9A84C;font-weight:700;text-decoration:none">WhatsApp</a>, eliges tu paquete, te enviamos un formulario de pre-producción con todos los detalles, firmas el contrato de forma digital, pagas el 50% de anticipo para apartar tu fecha, hacemos la sesión, y al recibir tu versión preliminar liquidas el saldo restante. En máximo 3 días hábiles recibes tu material completo en alta resolución vía Google Drive.</p>
+          <ol style="font-size:14px;line-height:1.9;color:#9B9B9F;padding-left:18px;margin-bottom:16px">
+  <li>Contáctanos por <a href="https://wa.me/528127174207" style="color:#C9A84C;font-weight:700;text-decoration:none">WhatsApp</a> y elige tu paquete.</li>
+  <li>Agendamos tu sesión y hacemos la producción.</li>
+  <li>En máximo 3 días hábiles recibes tu material en Google Drive.</li>
+</ol>
         </div>
       </div>
 
@@ -446,7 +460,7 @@ body{font-family:'Montserrat',sans-serif;-webkit-font-smoothing:antialiased;}
           <span class="material-symbols-outlined flex-shrink-0" style="font-size:22px;color:#C9A84C">expand_more</span>
         </button>
         <div class="acc-body">
-          <p class="pb-5" style="font-size:14px;line-height:1.7;color:#9B9B9F">Procesamos los pagos a través de Clip. Te enviamos un enlace de pago y desde ahí puedes elegir pagar en hasta 3 mensualidades sin intereses con tu tarjeta de crédito. Disponible solo en paquetes.</p>
+          <p class="pb-5" style="font-size:14px;line-height:1.7;color:#9B9B9F">Procesamos los pagos a través de la plataforma de pagos Clip. Te enviamos un enlace de pago y desde ahí puedes elegir pagar en hasta 3 mensualidades sin intereses con tu tarjeta de crédito. Disponible solo en paquetes.</p>
         </div>
       </div>
 
@@ -468,7 +482,7 @@ body{font-family:'Montserrat',sans-serif;-webkit-font-smoothing:antialiased;}
           <span class="material-symbols-outlined flex-shrink-0" style="font-size:22px;color:#C9A84C">expand_more</span>
         </button>
         <div class="acc-body">
-          <p class="pb-5" style="font-size:14px;line-height:1.7;color:#9B9B9F">Las fotos de celular sirven para mostrar la propiedad. Las nuestras se usan para maximizar su valor percibido y destacarla entre las demás opciones del mercado — la diferencia se nota desde el primer vistazo y puede justificar un precio de venta más alto.</p>
+          <p class="pb-5" style="font-size:14px;line-height:1.7;color:#9B9B9F">Las fotos de celular sirven para mostrar la propiedad. Las nuestras se usan para maximizar su valor percibido y destacarla entre las demás opciones del mercado — la diferencia se nota desde el primer vistazo y hace que tu propiedad se venda más rápido.</p>
         </div>
       </div>
 
@@ -594,9 +608,7 @@ function switchPkg(tab,btn){
   if(target){
     target.style.display='grid';
     target.style.gap='20px';
-    target.style.alignItems='stretch';if(tab!=='carta'){target.style.paddingTop='24px';}else{target.style.paddingTop='0';}
-    if(tab==='carta'){target.style.gridTemplateColumns='repeat(4,1fr)';}
-    else{target.style.gridTemplateColumns='repeat(3,1fr)';}
+    if(tab!=='carta'){target.style.paddingTop='24px';}else{target.style.paddingTop='0';}
   }
   btn.classList.add('active');
 }
@@ -607,7 +619,7 @@ function switchPort(tab,btn){
   });
   document.querySelectorAll('.port-tab-btn').forEach(function(b){b.classList.remove('active');});
   var target=document.getElementById('port-'+tab);
-  if(target){ target.style.display='grid'; target.style.gridTemplateColumns='repeat(2,1fr)'; target.style.gap='20px'; }
+  if(target){ target.style.display='grid'; target.style.gap='20px'; }
   btn.classList.add('active');
 }
 function toggleFaq(btn){
@@ -622,7 +634,23 @@ function toggleFaq(btn){
   });
   if(!isOpen){ body.classList.add('open'); icon.textContent='expand_less'; }
 }
-function toggleAcc(btn){var body=btn.nextElementSibling;var icon=btn.querySelector('.material-symbols-outlined');var isOpen=body.classList.contains('open');body.classList.toggle('open',!isOpen);icon.textContent=isOpen?'expand_more':'expand_less';}
+function toggleAcc(btn){
+  var body = btn.nextElementSibling;
+  var icon = btn.querySelector('.material-symbols-outlined');
+  var isOpen = body.classList.contains('open');
+  var activePanel = btn.closest('[id^="pkg-"]');
+  if(activePanel){
+    activePanel.querySelectorAll('.acc-body.open').forEach(function(b){
+      b.classList.remove('open');
+      var prevBtn = b.previousElementSibling;
+      if(prevBtn){ var ic = prevBtn.querySelector('.material-symbols-outlined'); if(ic) ic.textContent='expand_more'; }
+    });
+  }
+  if(!isOpen){
+    body.classList.add('open');
+    icon.textContent='expand_less';
+  }
+}
 
 </script>
 </body>
