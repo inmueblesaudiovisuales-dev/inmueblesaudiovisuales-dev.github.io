@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="es-MX">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
@@ -31,13 +31,13 @@ body{font-family:'Montserrat',sans-serif;-webkit-font-smoothing:antialiased;}
 .acc-body.open{max-height:900px;}
 /* Tabs */
 .pkg-tab-btn{padding:10px 20px;border-radius:9999px;font-size:11px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;border:none;background:transparent;color:#9B9B9F;cursor:pointer;transition:all .25s;white-space:nowrap;font-family:'Montserrat',sans-serif;}
-.pkg-tab-btn.active{background:#1C1C1E;color:#fff;}
-.port-tab-btn{padding:9px 18px;border-radius:9999px;font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;border:1px solid #C9A84C;background:transparent;color:#C9A84C;cursor:pointer;transition:all .2s;white-space:nowrap;font-family:'Montserrat',sans-serif;}
+.pkg-tab-btn.active{background:#C9A84C;color:#1C1C1E;}
+.port-tab-btn{padding:10px 20px;border-radius:9999px;font-size:11px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;border:none;background:transparent;color:#9B9B9F;cursor:pointer;transition:all .25s;white-space:nowrap;font-family:'Montserrat',sans-serif;}
 .port-tab-btn.active{background:#C9A84C;color:#fff;}
-.pkg-panel{display:none;}
-.pkg-panel.active{display:grid;}
-.port-panel{display:none;}
-.port-panel.active{display:grid;}
+
+
+
+
 /* Card hover */
 .svc-card{transition:all .3s cubic-bezier(.22,1,.36,1);}
 .svc-card:hover{transform:translateY(-4px);box-shadow:0 20px 60px rgba(28,28,30,.12)!important;}
@@ -57,55 +57,46 @@ body{font-family:'Montserrat',sans-serif;-webkit-font-smoothing:antialiased;}
 /* Gold check */
 .gcheck{display:inline-flex;align-items:center;justify-content:center;width:20px;height:20px;background:#C9A84C;border-radius:50%;flex-shrink:0;margin-top:2px;}
 /* Tooltip */
-.info-btn{display:inline-flex;align-items:center;justify-content:center;width:18px;height:18px;border-radius:50%;background:#E8E8EA;color:#9B9B9F;font-size:10px;font-weight:900;border:none;cursor:pointer;flex-shrink:0;transition:background .2s;font-family:'Montserrat',sans-serif;line-height:1;}
-.info-btn:hover{background:#C9A84C;color:#fff;}
-.tooltip-box{display:none;position:absolute;left:0;right:0;top:calc(100% + 6px);background:#1C1C1E;color:#E8E8EA;font-size:12px;line-height:1.6;padding:10px 14px;border-radius:10px;border:1px solid rgba(201,168,76,.3);z-index:50;box-shadow:0 8px 24px rgba(0,0,0,.25);}
-.tooltip-box::before{content:'';position:absolute;top:-5px;left:20px;width:9px;height:9px;background:#1C1C1E;border-left:1px solid rgba(201,168,76,.3);border-top:1px solid rgba(201,168,76,.3);transform:rotate(45deg);}
-.tooltip-box.open{display:block;}
-.tooltip-wrap{position:relative;display:inline-flex;align-items:center;}
 </style>
 </head>
 <body class="bg-[#FAFAFA] text-[#1C1C1E] font-mont">
 
 <!-- HEADER -->
-<header class="sticky top-0 z-50 bg-white/95 backdrop-blur-md border-b border-[#E8E8EA]" style="box-shadow:0 8px 32px rgba(28,28,30,.06)">
+<header id="site-header" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300" style="background:transparent">
   <nav class="max-w-[1240px] mx-auto px-6 md:px-8 h-[68px] flex justify-between items-center">
     <a href="#" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;">
-      <img src="https://res.cloudinary.com/denjzengj/image/upload/v1776758050/Vector_jyok9y.png" alt="Inmuebles Audiovisuales" style="height:44px;width:auto;max-width:180px">
+      <img id="header-logo" src="https://res.cloudinary.com/denjzengj/image/upload/v1776758050/Vector_jyok9y.png" alt="Inmuebles Audiovisuales" style="height:44px;width:auto;max-width:180px;filter:brightness(0) invert(1);transition:filter .3s">
     </a>
     <div class="hidden md:flex items-center gap-7">
-      <a href="#portafolio" onclick="navTo('portafolio');return false;" class="nav-lnk">Portafolio</a>
-      <a href="#paquetes"   onclick="navTo('paquetes');return false;"   class="nav-lnk">Paquetes</a>
-      <a href="#servicios"  onclick="navTo('servicios');return false;"  class="nav-lnk">Servicios</a>
-      <a href="#contacto"   onclick="navTo('contacto');return false;"   class="nav-lnk">Contacto</a>
+      <a href="#portafolio" onclick="navTo('portafolio');return false;" class="nav-lnk" id="nl-port" style="color:rgba(255,255,255,.8)">Portafolio</a>
+      <a href="#paquetes"   onclick="navTo('paquetes');return false;"   class="nav-lnk" id="nl-paq"  style="color:rgba(255,255,255,.8)">Paquetes</a>
       <a href="https://wa.me/528127174207" class="btn-gold btn-gold-sm">
         <svg width="14" height="14" viewBox="0 0 24 24" fill="#1C1C1E"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
         Agendar
       </a>
     </div>
     <button id="ham-btn" onclick="toggleMob()" class="md:hidden flex flex-col gap-[5px] p-2 bg-transparent border-none cursor-pointer">
-      <span id="h1" class="block w-6 h-[2px] bg-[#1C1C1E] transition-all duration-300"></span>
-      <span id="h2" class="block w-6 h-[2px] bg-[#1C1C1E] transition-all duration-300"></span>
-      <span id="h3" class="block w-6 h-[2px] bg-[#1C1C1E] transition-all duration-300"></span>
+      <span id="h1" class="block w-6 h-[2px] transition-all duration-300" style="background:#fff"></span>
+      <span id="h2" class="block w-6 h-[2px] transition-all duration-300" style="background:#fff"></span>
+      <span id="h3" class="block w-6 h-[2px] transition-all duration-300" style="background:#fff"></span>
     </button>
   </nav>
 </header>
 
 <!-- Mobile Drawer -->
-<div id="mob-drawer" class="fixed top-[68px] left-0 right-0 bottom-0 bg-white z-40 flex flex-col p-10 gap-2 md:hidden">
-  <button onclick="navTo('portafolio')" class="text-left text-2xl font-black text-[#1C1C1E] py-4 border-b border-[#E8E8EA] bg-transparent border-x-0 border-t-0 cursor-pointer font-mont">Portafolio</button>
-  <button onclick="navTo('paquetes')"   class="text-left text-2xl font-black text-[#1C1C1E] py-4 border-b border-[#E8E8EA] bg-transparent border-x-0 border-t-0 cursor-pointer font-mont">Paquetes</button>
-  <button onclick="navTo('servicios')"  class="text-left text-2xl font-black text-[#1C1C1E] py-4 border-b border-[#E8E8EA] bg-transparent border-x-0 border-t-0 cursor-pointer font-mont">Servicios</button>
-  <button onclick="navTo('contacto')"   class="text-left text-2xl font-black text-[#1C1C1E] py-4 border-b border-[#E8E8EA] bg-transparent border-x-0 border-t-0 cursor-pointer font-mont">Contacto</button>
+<div id="mob-drawer" class="fixed top-0 left-0 right-0 bottom-0 z-40 flex flex-col p-10 pt-24 gap-2 md:hidden" style="background:#1C1C1E;transform:translateX(100%);transition:transform .35s cubic-bezier(.22,1,.36,1)">
+  <button onclick="navTo('portafolio')" class="text-left text-2xl font-black py-4 border-b bg-transparent border-x-0 border-t-0 cursor-pointer font-mont" style="color:#fff;border-color:rgba(255,255,255,.1)">Portafolio</button>
+  <button onclick="navTo('paquetes')"   class="text-left text-2xl font-black py-4 border-b bg-transparent border-x-0 border-t-0 cursor-pointer font-mont" style="color:#fff;border-color:rgba(255,255,255,.1)">Paquetes</button>
+  <button onclick="navTo('contacto')"   class="text-left text-2xl font-black py-4 border-b bg-transparent border-x-0 border-t-0 cursor-pointer font-mont" style="color:#fff;border-color:rgba(255,255,255,.1)">Contacto</button>
   <div class="mt-8"><a href="https://wa.me/528127174207" class="btn-gold btn-gold-lg" style="width:100%">Agendar por WhatsApp</a></div>
 </div>
 
 <main>
 
 <!-- HERO -->
-<section class="relative flex items-center overflow-hidden" style="min-height:calc(100svh - 68px)">
+<section class="relative flex items-center overflow-hidden" style="min-height:100svh">
   <div class="absolute inset-0 z-0">
-    <img src="https://images.unsplash.com/photo-1613490493576-7fde63acd811?auto=format&fit=crop&w=2000&q=80" alt="Propiedad de lujo" class="w-full h-full object-cover">
+    <img src="https://images.unsplash.com/photo-1613490493576-7fde63acd811?auto=format&fit=crop&w=2000&q=80" alt="Fotografía inmobiliaria profesional en Monterrey" class="w-full h-full object-cover">
     <div class="absolute inset-0" style="background:linear-gradient(120deg,rgba(28,28,30,.85) 0%,rgba(28,28,30,.55) 60%,rgba(28,28,30,.3) 100%)"></div>
     <div class="absolute bottom-0 left-0 right-0 h-[3px]" style="background:linear-gradient(90deg,#C9A84C,#E2C289,#C9A84C)"></div>
   </div>
@@ -113,13 +104,16 @@ body{font-family:'Montserrat',sans-serif;-webkit-font-smoothing:antialiased;}
     <div style="max-width:760px">
       <div class="h-a1 flex items-center gap-3 mb-6">
         <div style="width:28px;height:2px;background:#C9A84C"></div>
-        <span style="font-size:11px;letter-spacing:.2em;font-weight:700;color:#C9A84C;text-transform:uppercase">Audiovisual Inmobiliario Premium · Monterrey, NL</span>
+        <span style="font-size:11px;letter-spacing:.2em;font-weight:700;color:#C9A84C;text-transform:uppercase">Fotografía, Video y Dron para Propiedades · Monterrey, NL</span>
       </div>
-      <h1 class="h-a2 text-white font-black mb-5" style="font-size:clamp(2rem,6vw,4.2rem);letter-spacing:-.03em;line-height:1.05">
-        Transformamos tus propiedades en experiencias de venta.
+      <h1 class="h-a2 text-white font-black mb-3" style="font-size:clamp(1.8rem,5vw,3.8rem);letter-spacing:-.03em;line-height:1.05">
+        Haz que tu propiedad valga más desde el primer vistazo con fotografía, video cinemático y grabación aérea.
       </h1>
-      <p class="h-a2 mb-9" style="font-size:clamp(15px,2vw,18px);line-height:1.7;color:rgba(255,255,255,.75);max-width:520px">
-        Foto, video y dron para asesores en Monterrey. Destaca, justifica el precio y fortalece tu marca. <strong style="color:#E2C289">Entrega en 3 días hábiles.</strong>
+      <p class="h-a2 mb-3" style="font-size:clamp(14px,1.8vw,18px);line-height:1.5;color:rgba(255,255,255,.6);max-width:520px;font-style:italic">
+        Transformamos tus propiedades en experiencias de venta.
+      </p>
+      <p class="h-a2 mb-9" style="font-size:clamp(14px,1.8vw,17px);line-height:1.7;color:rgba(255,255,255,.75);max-width:520px">
+        Destaca, genera más interesados y vende antes que la competencia. <strong style="color:#E2C289">Entrega en 3 días hábiles.</strong>
       </p>
       <div class="h-a3 flex flex-wrap gap-3">
         <a href="https://wa.me/528127174207" class="btn-gold">
@@ -137,7 +131,7 @@ body{font-family:'Montserrat',sans-serif;-webkit-font-smoothing:antialiased;}
   <div class="max-w-[1240px] mx-auto px-6 md:px-8 grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
     <div><div class="font-black mb-1" style="font-size:clamp(18px,3vw,26px);letter-spacing:-.02em;color:#C9A84C">3 días hábiles</div><div class="font-bold uppercase" style="font-size:10px;letter-spacing:.14em;color:#9B9B9F">Entrega garantizada</div></div>
     <div><div class="font-black mb-1" style="font-size:clamp(18px,3vw,26px);letter-spacing:-.02em;color:#C9A84C">Más interesados</div><div class="font-bold uppercase" style="font-size:10px;letter-spacing:.14em;color:#9B9B9F">Desde el primer día</div></div>
-    <div><div class="font-black mb-1" style="font-size:clamp(18px,3vw,26px);letter-spacing:-.02em;color:#C9A84C">Cierra más rápido</div><div class="font-bold uppercase" style="font-size:10px;letter-spacing:.14em;color:#9B9B9F">Con video profesional</div></div>
+    <div><div class="font-black mb-1" style="font-size:clamp(18px,3vw,26px);letter-spacing:-.02em;color:#C9A84C">Cierra más rápido</div><div class="font-bold uppercase" style="font-size:10px;letter-spacing:.14em;color:#9B9B9F">Con fotografía y video profesional</div></div>
     <div><div class="font-black mb-1" style="font-size:clamp(18px,3vw,26px);letter-spacing:-.02em;color:#C9A84C">3 MSI</div><div class="font-bold uppercase" style="font-size:10px;letter-spacing:.14em;color:#9B9B9F">Con tarjeta de crédito</div></div>
   </div>
 </section>
@@ -164,26 +158,16 @@ body{font-family:'Montserrat',sans-serif;-webkit-font-smoothing:antialiased;}
       <h2 class="font-bold mb-4" style="font-size:clamp(24px,4vw,36px);letter-spacing:-.015em;color:#1C1C1E">Portafolio</h2>
       <p style="font-size:16px;line-height:1.7;color:#9B9B9F;max-width:480px;margin:0 auto">Proyectos recientes en Monterrey y área metropolitana.</p>
     </div>
-    <div class="flex flex-wrap gap-2 justify-center mb-10">
-      <button class="port-tab-btn active" onclick="switchPort('video',this)">Video Residencial</button>
-      <button class="port-tab-btn" onclick="switchPort('terrenos',this)">Video Terrenos</button>
-      <button class="port-tab-btn" onclick="switchPort('virtual',this)">Recorrido Virtual Inmersivo</button>
+    <div class="flex justify-center mb-10">
+      <div class="flex gap-1 bg-[#F9F7F4] rounded-full p-1 border border-[#E8E8EA]" style="flex-wrap:wrap">
+        <button class="port-tab-btn active" onclick="switchPort('video',this)">Video Residencial</button>
+        <button class="port-tab-btn" onclick="switchPort('terrenos',this)">Video Terrenos</button>
+        <button class="port-tab-btn" onclick="switchPort('virtual',this)">Recorrido Virtual Inmersivo</button>
+      </div>
     </div>
-    <div id="port-video" class="port-panel active grid grid-cols-1 md:grid-cols-3 gap-5">
-      <div><div class="rounded-xl overflow-hidden" style="aspect-ratio:16/9;background:#111"><iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="Villa San Pedro" style="width:100%;height:100%;border:none" allowfullscreen></iframe></div><p class="font-semibold mt-3 mb-1" style="font-size:14px;color:#1C1C1E">Villa San Pedro</p><p style="font-size:12px;color:#9B9B9F">Video Cinemático Premium</p></div>
-      <div><div class="rounded-xl overflow-hidden" style="aspect-ratio:16/9;background:#111"><iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="Penthouse Valle Oriente" style="width:100%;height:100%;border:none" allowfullscreen></iframe></div><p class="font-semibold mt-3 mb-1" style="font-size:14px;color:#1C1C1E">Penthouse Valle Oriente</p><p style="font-size:12px;color:#9B9B9F">Video Cinemático + Fotografía HDR</p></div>
-      <div><div class="rounded-xl overflow-hidden" style="aspect-ratio:16/9;background:#111"><iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="Casa Cumbres" style="width:100%;height:100%;border:none" allowfullscreen></iframe></div><p class="font-semibold mt-3 mb-1" style="font-size:14px;color:#1C1C1E">Casa Cumbres · Monterrey</p><p style="font-size:12px;color:#9B9B9F">Video Cinemático + Fotografía HDR</p></div>
-    </div>
-    <div id="port-terrenos" class="port-panel grid grid-cols-1 md:grid-cols-3 gap-5">
-      <div><div class="rounded-xl overflow-hidden" style="aspect-ratio:16/9;background:#111"><iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="Vistas de la Sierra" style="width:100%;height:100%;border:none" allowfullscreen></iframe></div><p class="font-semibold mt-3 mb-1" style="font-size:14px;color:#1C1C1E">Vistas de la Sierra · García</p><p style="font-size:12px;color:#9B9B9F">Paquete Premium Terreno</p></div>
-      <div><div class="rounded-xl overflow-hidden" style="aspect-ratio:16/9;background:#111"><iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="Lotes Carretera Laredo" style="width:100%;height:100%;border:none" allowfullscreen></iframe></div><p class="font-semibold mt-3 mb-1" style="font-size:14px;color:#1C1C1E">Lotes Carretera Laredo</p><p style="font-size:12px;color:#9B9B9F">Video Aéreo + Delimitación</p></div>
-      <div><div class="rounded-xl overflow-hidden" style="aspect-ratio:16/9;background:#111"><iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="Fracc Santa Catarina" style="width:100%;height:100%;border:none" allowfullscreen></iframe></div><p class="font-semibold mt-3 mb-1" style="font-size:14px;color:#1C1C1E">Fracc. Santa Catarina</p><p style="font-size:12px;color:#9B9B9F">Paquete Plus Terreno</p></div>
-    </div>
-    <div id="port-virtual" class="port-panel grid grid-cols-1 md:grid-cols-3 gap-5">
-      <div><div class="rounded-xl overflow-hidden" style="aspect-ratio:16/9;background:#111"><iframe src="https://app.cloudpano.com/tours/placeholder1" title="Penthouse Arboleda" style="width:100%;height:100%;border:none" allowfullscreen></iframe></div><p class="font-semibold mt-3 mb-1" style="font-size:14px;color:#1C1C1E">Penthouse Arboleda · Valle Oriente</p><p style="font-size:12px;color:#9B9B9F">Recorrido Virtual Inmersivo</p></div>
-      <div><div class="rounded-xl overflow-hidden" style="aspect-ratio:16/9;background:#111"><iframe src="https://app.cloudpano.com/tours/placeholder2" title="Casa San Pedro" style="width:100%;height:100%;border:none" allowfullscreen></iframe></div><p class="font-semibold mt-3 mb-1" style="font-size:14px;color:#1C1C1E">Casa San Pedro Garza García</p><p style="font-size:12px;color:#9B9B9F">Recorrido Virtual Inmersivo</p></div>
-      <div><div class="rounded-xl overflow-hidden" style="aspect-ratio:16/9;background:#111"><iframe src="https://app.cloudpano.com/tours/placeholder3" title="Depto Zona Valle" style="width:100%;height:100%;border:none" allowfullscreen></iframe></div><p class="font-semibold mt-3 mb-1" style="font-size:14px;color:#1C1C1E">Departamento Zona Valle</p><p style="font-size:12px;color:#9B9B9F">Recorrido Virtual Inmersivo</p></div>
-    </div>
+    <div id="port-video" style="display:grid;grid-template-columns:repeat(2,1fr);gap:20px"><div><div class="rounded-xl overflow-hidden" style="aspect-ratio:16/9;background:#111"><iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="Villa San Pedro" style="width:100%;height:100%;border:none" allowfullscreen></iframe></div><p class="font-semibold mt-3 mb-1" style="font-size:14px;color:#1C1C1E">Villa San Pedro</p><p style="font-size:12px;color:#9B9B9F">Video Cinemático Premium</p></div><div><div class="rounded-xl overflow-hidden" style="aspect-ratio:16/9;background:#111"><iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="Penthouse Valle Oriente" style="width:100%;height:100%;border:none" allowfullscreen></iframe></div><p class="font-semibold mt-3 mb-1" style="font-size:14px;color:#1C1C1E">Penthouse Valle Oriente</p><p style="font-size:12px;color:#9B9B9F">Video Cinemático + Fotografía HDR</p></div></div>
+    <div id="port-terrenos" class="port-panel" style="display:none" data-grid="grid grid-cols-1 md:grid-cols-3 gap-5"><div><div class="rounded-xl overflow-hidden" style="aspect-ratio:16/9;background:#111"><iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="Vistas de la Sierra" style="width:100%;height:100%;border:none" allowfullscreen></iframe></div><p class="font-semibold mt-3 mb-1" style="font-size:14px;color:#1C1C1E">Vistas de la Sierra · García</p><p style="font-size:12px;color:#9B9B9F">Paquete Premium Terreno</p></div><div><div class="rounded-xl overflow-hidden" style="aspect-ratio:16/9;background:#111"><iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="Lotes Carretera Laredo" style="width:100%;height:100%;border:none" allowfullscreen></iframe></div><p class="font-semibold mt-3 mb-1" style="font-size:14px;color:#1C1C1E">Lotes Carretera Laredo</p><p style="font-size:12px;color:#9B9B9F">Video Aéreo + Delimitación</p></div></div>
+    <div id="port-virtual" class="port-panel" style="display:none" data-grid="grid grid-cols-1 md:grid-cols-3 gap-5"><div><div class="rounded-xl overflow-hidden" style="aspect-ratio:16/9;background:#111"><iframe src="https://app.cloudpano.com/tours/placeholder1" title="Penthouse Arboleda" style="width:100%;height:100%;border:none" allowfullscreen></iframe></div><p class="font-semibold mt-3 mb-1" style="font-size:14px;color:#1C1C1E">Penthouse Arboleda · Valle Oriente</p><p style="font-size:12px;color:#9B9B9F">Recorrido Virtual Inmersivo</p></div><div><div class="rounded-xl overflow-hidden" style="aspect-ratio:16/9;background:#111"><iframe src="https://app.cloudpano.com/tours/placeholder2" title="Casa San Pedro" style="width:100%;height:100%;border:none" allowfullscreen></iframe></div><p class="font-semibold mt-3 mb-1" style="font-size:14px;color:#1C1C1E">Casa San Pedro Garza García</p><p style="font-size:12px;color:#9B9B9F">Recorrido Virtual Inmersivo</p></div></div>
   </div>
 </section>
 
@@ -223,15 +207,15 @@ body{font-family:'Montserrat',sans-serif;-webkit-font-smoothing:antialiased;}
     </div>
 
     <!-- RESIDENCIAL -->
-    <div id="pkg-residencial" class="pkg-panel active grid grid-cols-1 sm:grid-cols-3 gap-5 items-start">
-      <div class="col-span-full mb-4">
+    <div id="pkg-residencial" style="display:grid;grid-template-columns:repeat(3,1fr);gap:20px;align-items:stretch;padding-top:24px">
+      <div style="grid-column:1/-1;margin-bottom:16px">
         <p class="font-black text-[#1C1C1E] mb-1" style="font-size:16px">Casas, departamentos, Airbnbs y quintas</p>
         <p style="font-size:14px;color:#9B9B9F;line-height:1.6">Ideal para propiedades que necesitan verse bien y empezar a generar interés desde el primer día. Para propiedades residenciales en venta o renta.</p>
       </div>
 
       <!-- Esencial -->
-      <div class="bg-white rounded-2xl border-2 border-[#E8E8EA] overflow-hidden" style="box-shadow:0 6px 24px rgba(28,28,30,.06)">
-        <div class="p-5 pb-4">
+      <div class="bg-white rounded-2xl border-2 border-[#E8E8EA] overflow-hidden" style="box-shadow:0 6px 24px rgba(28,28,30,.06);display:flex;flex-direction:column">
+        <div class="p-5 pb-4" style="flex:1">
           <div class="inline-block border border-[#C9A84C]/50 text-[#C9A84C] rounded-full mb-3 font-bold uppercase" style="font-size:9px;letter-spacing:.1em;padding:2px 10px">3 MSI disponible</div>
           <h3 class="font-black mb-1" style="font-size:20px;color:#1C1C1E">Esencial</h3>
           <p class="mb-3" style="font-size:12px;line-height:1.5;color:#9B9B9F">Lo esencial para destacar y vender más rápido.</p>
@@ -240,21 +224,20 @@ body{font-family:'Montserrat',sans-serif;-webkit-font-smoothing:antialiased;}
         </div>
         <div class="px-5 pb-4"><a href="https://wa.me/528127174207?text=Hola%2C%20me%20interesa%20el%20Paquete%20Esencial%20Residencial%20%246%2C500" class="btn-gold" style="width:100%;justify-content:center;font-size:11px"><svg width="14" height="14" viewBox="0 0 24 24" fill="#1C1C1E"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>Solicitar · WhatsApp</a></div>
         <button onclick="toggleAcc(this)" class="w-full flex items-center justify-between px-5 py-3 bg-transparent border-t border-[#E8E8EA] cursor-pointer font-bold uppercase font-mont" style="font-size:11px;letter-spacing:.1em;color:#9B9B9F">Ver qué incluye <span class="material-symbols-outlined" style="font-size:20px">expand_more</span></button>
-        <div class="acc-body">
-          <ul class="px-5 pb-5 flex flex-col gap-3 mt-2" style="list-style:none">
-            <li class="flex gap-3 items-center"><span class="gcheck"><svg viewBox="0 0 12 12" width="10" height="10"><polyline points="2,6 5,9 10,3" stroke="#fff" stroke-width="1.8" fill="none" stroke-linecap="round"/></svg></span><span style="font-size:13px;font-weight:600;color:#1C1C1E">Fotografía HDR</span><span class="tooltip-wrap"><button class="info-btn" onclick="toggleTip(this)">i</button><div class="tooltip-box">35 a 50 imágenes en alta resolución con técnica HDR: múltiples exposiciones combinadas para luminosidad perfecta, colores reales y detalles impecables. Listas para portales inmobiliarios.</div></span></li>
-            <li class="flex gap-3 items-center"><span class="gcheck"><svg viewBox="0 0 12 12" width="10" height="10"><polyline points="2,6 5,9 10,3" stroke="#fff" stroke-width="1.8" fill="none" stroke-linecap="round"/></svg></span><span style="font-size:13px;font-weight:600;color:#1C1C1E">Video Cinemático</span><span class="tooltip-wrap"><button class="info-btn" onclick="toggleTip(this)">i</button><div class="tooltip-box">Clip de 30 a 60 segundos con movimientos de cámara fluidos, colorización profesional y montaje dinámico. Filmado con equipo cinematográfico profesional. Música libre de derechos incluida.</div></span></li>
-            <li class="flex gap-3 items-center"><span class="gcheck"><svg viewBox="0 0 12 12" width="10" height="10"><polyline points="2,6 5,9 10,3" stroke="#fff" stroke-width="1.8" fill="none" stroke-linecap="round"/></svg></span><span style="font-size:13px;font-weight:600;color:#1C1C1E">Video y Fotografía Aérea con Dron</span><span class="tooltip-wrap"><button class="info-btn" onclick="toggleTip(this)">i</button><div class="tooltip-box">Tomas aéreas de fachada, patios y entorno que muestran ubicación, accesos, calles y referencias cercanas. Se integra al video cinemático. Sujeto a condiciones climáticas y restricciones de vuelo.</div></span></li>
-            <li class="flex gap-3 items-center"><span class="gcheck"><svg viewBox="0 0 12 12" width="10" height="10"><polyline points="2,6 5,9 10,3" stroke="#fff" stroke-width="1.8" fill="none" stroke-linecap="round"/></svg></span><span style="font-size:13px;font-weight:600;color:#1C1C1E">Grabación de Amenidades</span><span class="tooltip-wrap"><button class="info-btn" onclick="toggleTip(this)">i</button><div class="tooltip-box">Cobertura completa de alberca, gimnasio, salones, jardines y todos los espacios compartidos. Documentamos todo lo que forma parte del valor de la propiedad.</div></span></li>
-          </ul>
-        </div>
+        <div class="acc-body"><ul class="px-5 pb-5 flex flex-col gap-3 mt-2" style="list-style:none">
+          <li class="flex gap-3 items-start"><span class="gcheck"><svg viewBox="0 0 12 12" width="10" height="10"><polyline points="2,6 5,9 10,3" stroke="#fff" stroke-width="1.8" fill="none" stroke-linecap="round"/></svg></span><div><span style="font-size:13px;font-weight:600;color:#1C1C1E">Fotografía HDR</span><p style="font-size:11px;color:#9B9B9F;margin:3px 0 0;line-height:1.5">35 a 50 imágenes en alta resolución con técnica HDR: múltiples exposiciones combinadas para luminosidad perfecta, colores reales y detalles impecables.</p></div></li>
+          <li class="flex gap-3 items-start"><span class="gcheck"><svg viewBox="0 0 12 12" width="10" height="10"><polyline points="2,6 5,9 10,3" stroke="#fff" stroke-width="1.8" fill="none" stroke-linecap="round"/></svg></span><div><span style="font-size:13px;font-weight:600;color:#1C1C1E">Video Cinemático</span><p style="font-size:11px;color:#9B9B9F;margin:3px 0 0;line-height:1.5">Clip de 30 a 60 segundos con movimientos de cámara fluidos, colorización profesional y montaje dinámico. Música libre de derechos incluida.</p></div></li>
+          <li class="flex gap-3 items-start"><span class="gcheck"><svg viewBox="0 0 12 12" width="10" height="10"><polyline points="2,6 5,9 10,3" stroke="#fff" stroke-width="1.8" fill="none" stroke-linecap="round"/></svg></span><div><span style="font-size:13px;font-weight:600;color:#1C1C1E">Video y Fotografía Aérea con Dron</span><p style="font-size:11px;color:#9B9B9F;margin:3px 0 0;line-height:1.5">Tomas aéreas de fachada, patios y entorno que muestran ubicación, accesos, calles y referencias cercanas. Se integra al video cinemático.</p></div></li>
+          <li class="flex gap-3 items-start"><span class="gcheck"><svg viewBox="0 0 12 12" width="10" height="10"><polyline points="2,6 5,9 10,3" stroke="#fff" stroke-width="1.8" fill="none" stroke-linecap="round"/></svg></span><div><span style="font-size:13px;font-weight:600;color:#1C1C1E">Grabación de Amenidades</span><p style="font-size:11px;color:#9B9B9F;margin:3px 0 0;line-height:1.5">Cobertura completa de alberca, gimnasio, salones, jardines y todos los espacios compartidos. Documentamos todo lo que forma parte del valor de la propiedad.</p></div></li>
+        </ul></div>
       </div>
 
       <!-- Plus -->
-      <div class="bg-white rounded-2xl border-2 border-[#C9A84C] overflow-hidden relative" style="box-shadow:0 20px 60px rgba(201,168,76,.15)">
-        <div class="absolute top-0 left-0 right-0 h-[3px]" style="background:#C9A84C"></div>
-        <div class="p-5 pb-4 pt-7">
-          <span class="inline-block rounded-full font-black uppercase mb-3" style="font-size:9px;letter-spacing:.12em;padding:4px 12px;background:#C9A84C;color:#1C1C1E">Recomendado</span>
+      <div class="bg-white rounded-2xl border-2 border-[#C9A84C] relative" style="box-shadow:0 20px 60px rgba(201,168,76,.15);display:flex;flex-direction:column">
+        <div style="position:absolute;top:-14px;left:0;right:0;text-align:center;z-index:2">
+          <span style="display:inline-block;background:#C9A84C;color:#1C1C1E;border-radius:9999px;font-size:9px;font-weight:900;letter-spacing:.12em;text-transform:uppercase;padding:5px 14px;box-shadow:0 4px 12px rgba(201,168,76,.4)">Recomendado</span>
+        </div>
+        <div class="p-5 pb-4" style="flex:1">
           <div class="inline-block border border-[#C9A84C]/50 text-[#C9A84C] rounded-full mb-3 font-bold uppercase" style="font-size:9px;letter-spacing:.1em;padding:2px 10px">3 MSI disponible</div>
           <h3 class="font-black mb-1" style="font-size:20px;color:#1C1C1E">Plus</h3>
           <p class="mb-3" style="font-size:12px;line-height:1.5;color:#9B9B9F">Más herramientas para presentar, compartir y cerrar.</p>
@@ -263,19 +246,17 @@ body{font-family:'Montserrat',sans-serif;-webkit-font-smoothing:antialiased;}
         </div>
         <div class="px-5 pb-4"><a href="https://wa.me/528127174207?text=Hola%2C%20me%20interesa%20el%20Paquete%20Plus%20Residencial%20%247%2C500" class="btn-gold" style="width:100%;justify-content:center;font-size:11px"><svg width="14" height="14" viewBox="0 0 24 24" fill="#1C1C1E"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>Solicitar · WhatsApp</a></div>
         <button onclick="toggleAcc(this)" class="w-full flex items-center justify-between px-5 py-3 bg-transparent border-t border-[#E8E8EA] cursor-pointer font-bold uppercase font-mont" style="font-size:11px;letter-spacing:.1em;color:#9B9B9F">Ver qué incluye <span class="material-symbols-outlined" style="font-size:20px">expand_more</span></button>
-        <div class="acc-body">
-          <ul class="px-5 pb-5 flex flex-col gap-3 mt-2" style="list-style:none">
-            <li class="flex gap-3 items-center"><span class="gcheck"><svg viewBox="0 0 12 12" width="10" height="10"><polyline points="2,6 5,9 10,3" stroke="#fff" stroke-width="1.8" fill="none" stroke-linecap="round"/></svg></span><span style="font-size:13px;font-weight:600;color:#9B9B9F;font-style:italic">Todo lo del Esencial, más:</span></li>
-            <li class="flex gap-3 items-center"><span class="gcheck"><svg viewBox="0 0 12 12" width="10" height="10"><polyline points="2,6 5,9 10,3" stroke="#fff" stroke-width="1.8" fill="none" stroke-linecap="round"/></svg></span><span style="font-size:13px;font-weight:600;color:#1C1C1E">Recorrido Virtual Inmersivo</span><span class="tooltip-wrap"><button class="info-btn" onclick="toggleTip(this)">i</button><div class="tooltip-box">Escaneo navegable 24/7 con hospedaje en la nube incluido. El comprador recorre cada espacio desde cualquier dispositivo como si estuviera físicamente ahí.</div></span></li>
-            <li class="flex gap-3 items-center"><span class="gcheck"><svg viewBox="0 0 12 12" width="10" height="10"><polyline points="2,6 5,9 10,3" stroke="#fff" stroke-width="1.8" fill="none" stroke-linecap="round"/></svg></span><span style="font-size:13px;font-weight:600;color:#1C1C1E">Narración Profesional</span><span class="tooltip-wrap"><button class="info-btn" onclick="toggleTip(this)">i</button><div class="tooltip-box">Locución en off integrada al video cinemático, generada con voz natural. Comunica los puntos clave de la propiedad de forma persuasiva y profesional.</div></span></li>
-            <li class="flex gap-3 items-center"><span class="gcheck"><svg viewBox="0 0 12 12" width="10" height="10"><polyline points="2,6 5,9 10,3" stroke="#fff" stroke-width="1.8" fill="none" stroke-linecap="round"/></svg></span><span style="font-size:13px;font-weight:600;color:#1C1C1E">Contenido para Redes Sociales</span><span class="tooltip-wrap"><button class="info-btn" onclick="toggleTip(this)">i</button><div class="tooltip-box">Adaptaciones en formatos optimizados para Instagram Reels, Facebook y WhatsApp: proporciones correctas, duración ideal y cortes pensados para captar atención. Entrega de 3 videos cortos en formato vertical 9:16.</div></span></li>
-          </ul>
-        </div>
+        <div class="acc-body"><ul class="px-5 pb-5 flex flex-col gap-3 mt-2" style="list-style:none">
+          <li class="flex gap-3 items-start"><span class="gcheck"><svg viewBox="0 0 12 12" width="10" height="10"><polyline points="2,6 5,9 10,3" stroke="#fff" stroke-width="1.8" fill="none" stroke-linecap="round"/></svg></span><span style="font-size:13px;font-weight:600;color:#9B9B9F;font-style:italic">Todo lo del Esencial, más:</span></li>
+          <li class="flex gap-3 items-start"><span class="gcheck"><svg viewBox="0 0 12 12" width="10" height="10"><polyline points="2,6 5,9 10,3" stroke="#fff" stroke-width="1.8" fill="none" stroke-linecap="round"/></svg></span><div><span style="font-size:13px;font-weight:600;color:#1C1C1E">Recorrido Virtual Inmersivo</span><p style="font-size:11px;color:#9B9B9F;margin:3px 0 0;line-height:1.5">Escaneo navegable 24/7 con hospedaje en la nube incluido. El comprador recorre cada espacio desde cualquier dispositivo como si estuviera físicamente ahí.</p></div></li>
+          <li class="flex gap-3 items-start"><span class="gcheck"><svg viewBox="0 0 12 12" width="10" height="10"><polyline points="2,6 5,9 10,3" stroke="#fff" stroke-width="1.8" fill="none" stroke-linecap="round"/></svg></span><div><span style="font-size:13px;font-weight:600;color:#1C1C1E">Narración Profesional</span><p style="font-size:11px;color:#9B9B9F;margin:3px 0 0;line-height:1.5">Locución en off integrada al video cinemático, generada con voz natural. Comunica los puntos clave de la propiedad de forma persuasiva y profesional.</p></div></li>
+          <li class="flex gap-3 items-start"><span class="gcheck"><svg viewBox="0 0 12 12" width="10" height="10"><polyline points="2,6 5,9 10,3" stroke="#fff" stroke-width="1.8" fill="none" stroke-linecap="round"/></svg></span><div><span style="font-size:13px;font-weight:600;color:#1C1C1E">Contenido para Redes Sociales</span><p style="font-size:11px;color:#9B9B9F;margin:3px 0 0;line-height:1.5">Adaptaciones en formatos optimizados para Instagram Reels, Facebook y WhatsApp. Entrega de 3 videos cortos en formato vertical 9:16.</p></div></li>
+        </ul></div>
       </div>
 
       <!-- Premium -->
-      <div class="bg-white rounded-2xl border-2 border-[#E8E8EA] overflow-hidden" style="box-shadow:0 6px 24px rgba(28,28,30,.06)">
-        <div class="p-5 pb-4">
+      <div class="bg-white rounded-2xl border-2 border-[#E8E8EA] overflow-hidden" style="box-shadow:0 6px 24px rgba(28,28,30,.06);display:flex;flex-direction:column">
+        <div class="p-5 pb-4" style="flex:1">
           <div class="inline-block border border-[#C9A84C]/50 text-[#C9A84C] rounded-full mb-3 font-bold uppercase" style="font-size:9px;letter-spacing:.1em;padding:2px 10px">3 MSI disponible</div>
           <h3 class="font-black mb-1" style="font-size:20px;color:#1C1C1E">Premium</h3>
           <p class="mb-3" style="font-size:12px;line-height:1.5;color:#9B9B9F">Presencia completa: tu propiedad con página propia y todo el arsenal visual.</p>
@@ -284,28 +265,25 @@ body{font-family:'Montserrat',sans-serif;-webkit-font-smoothing:antialiased;}
         </div>
         <div class="px-5 pb-4"><a href="https://wa.me/528127174207?text=Hola%2C%20me%20interesa%20el%20Paquete%20Premium%20Residencial%20%249%2C000" class="btn-gold" style="width:100%;justify-content:center;font-size:11px"><svg width="14" height="14" viewBox="0 0 24 24" fill="#1C1C1E"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>Solicitar · WhatsApp</a></div>
         <button onclick="toggleAcc(this)" class="w-full flex items-center justify-between px-5 py-3 bg-transparent border-t border-[#E8E8EA] cursor-pointer font-bold uppercase font-mont" style="font-size:11px;letter-spacing:.1em;color:#9B9B9F">Ver qué incluye <span class="material-symbols-outlined" style="font-size:20px">expand_more</span></button>
-        <div class="acc-body">
-          <ul class="px-5 pb-5 flex flex-col gap-3 mt-2" style="list-style:none">
-            <li class="flex gap-3 items-center"><span class="gcheck"><svg viewBox="0 0 12 12" width="10" height="10"><polyline points="2,6 5,9 10,3" stroke="#fff" stroke-width="1.8" fill="none" stroke-linecap="round"/></svg></span><span style="font-size:13px;font-weight:600;color:#9B9B9F;font-style:italic">Todo lo del Plus, más:</span></li>
-            <li class="flex gap-3 items-center"><span class="gcheck"><svg viewBox="0 0 12 12" width="10" height="10"><polyline points="2,6 5,9 10,3" stroke="#fff" stroke-width="1.8" fill="none" stroke-linecap="round"/></svg></span><span style="font-size:13px;font-weight:600;color:#1C1C1E">Planos 3D + 2D</span><span class="tooltip-wrap"><button class="info-btn" onclick="toggleTip(this)">i</button><div class="tooltip-box">Levantamiento digital de la propiedad con plano 2D y recorrido visual 3D. Entrega en PDF y JPG.</div></span></li>
-            <li class="flex gap-3 items-center"><span class="gcheck"><svg viewBox="0 0 12 12" width="10" height="10"><polyline points="2,6 5,9 10,3" stroke="#fff" stroke-width="1.8" fill="none" stroke-linecap="round"/></svg></span><span style="font-size:13px;font-weight:600;color:#1C1C1E">Video Cómo Llegar</span><span class="tooltip-wrap"><button class="info-btn" onclick="toggleTip(this)">i</button><div class="tooltip-box">Animación satelital de 20 a 30 segundos con indicaciones visuales desde puntos de referencia clave hasta la propiedad. Elimina fricciones logísticas en las visitas.</div></span></li>
-            <li class="flex gap-3 items-center"><span class="gcheck"><svg viewBox="0 0 12 12" width="10" height="10"><polyline points="2,6 5,9 10,3" stroke="#fff" stroke-width="1.8" fill="none" stroke-linecap="round"/></svg></span><span style="font-size:13px;font-weight:600;color:#1C1C1E">Folleto Digital PDF</span><span class="tooltip-wrap"><button class="info-btn" onclick="toggleTip(this)">i</button><div class="tooltip-box">Material de presentación digital e imprimible con fotografías principales, características de la propiedad y datos de contacto. Ideal para enviar por WhatsApp o correo.</div></span></li>
-            <li class="flex gap-3 items-center"><span class="gcheck"><svg viewBox="0 0 12 12" width="10" height="10"><polyline points="2,6 5,9 10,3" stroke="#fff" stroke-width="1.8" fill="none" stroke-linecap="round"/></svg></span><span style="font-size:13px;font-weight:600;color:#1C1C1E">Landing Page</span><span class="tooltip-wrap"><button class="info-btn" onclick="toggleTip(this)">i</button><div class="tooltip-box">Página web exclusiva para la propiedad con galería, video cinemático, recorrido virtual y formulario de contacto. Herramienta de ventas independiente de los portales.</div></span></li>
-          </ul>
-        </div>
+        <div class="acc-body"><ul class="px-5 pb-5 flex flex-col gap-3 mt-2" style="list-style:none">
+          <li class="flex gap-3 items-start"><span class="gcheck"><svg viewBox="0 0 12 12" width="10" height="10"><polyline points="2,6 5,9 10,3" stroke="#fff" stroke-width="1.8" fill="none" stroke-linecap="round"/></svg></span><span style="font-size:13px;font-weight:600;color:#9B9B9F;font-style:italic">Todo lo del Plus, más:</span></li>
+          <li class="flex gap-3 items-start"><span class="gcheck"><svg viewBox="0 0 12 12" width="10" height="10"><polyline points="2,6 5,9 10,3" stroke="#fff" stroke-width="1.8" fill="none" stroke-linecap="round"/></svg></span><div><span style="font-size:13px;font-weight:600;color:#1C1C1E">Video Cómo Llegar</span><p style="font-size:11px;color:#9B9B9F;margin:3px 0 0;line-height:1.5">Animación satelital de 20 a 30 segundos con indicaciones visuales desde puntos de referencia clave hasta la propiedad. Elimina fricciones logísticas en las visitas.</p></div></li>
+          <li class="flex gap-3 items-start"><span class="gcheck"><svg viewBox="0 0 12 12" width="10" height="10"><polyline points="2,6 5,9 10,3" stroke="#fff" stroke-width="1.8" fill="none" stroke-linecap="round"/></svg></span><div><span style="font-size:13px;font-weight:600;color:#1C1C1E">Folleto Digital PDF</span><p style="font-size:11px;color:#9B9B9F;margin:3px 0 0;line-height:1.5">Material de presentación digital e imprimible con fotografías principales, características de la propiedad y datos de contacto. Ideal para enviar por WhatsApp o correo.</p></div></li>
+          <li class="flex gap-3 items-start"><span class="gcheck"><svg viewBox="0 0 12 12" width="10" height="10"><polyline points="2,6 5,9 10,3" stroke="#fff" stroke-width="1.8" fill="none" stroke-linecap="round"/></svg></span><div><span style="font-size:13px;font-weight:600;color:#1C1C1E">Landing Page</span><p style="font-size:11px;color:#9B9B9F;margin:3px 0 0;line-height:1.5">Página web exclusiva para la propiedad con galería, video cinemático, recorrido virtual y formulario de contacto. Herramienta de ventas independiente de los portales.</p></div></li>
+        </ul></div>
       </div>
     </div><!-- /residencial -->
 
     <!-- TERRENOS -->
-    <div id="pkg-terrenos" class="pkg-panel grid grid-cols-1 sm:grid-cols-3 gap-5 items-start">
+    <div id="pkg-terrenos" style="display:none;grid-template-columns:repeat(3,1fr);gap:20px;align-items:stretch;padding-top:24px">
       <div class="col-span-full mb-4">
         <p class="font-black text-[#1C1C1E] mb-1" style="font-size:16px">Lotes, terrenos y desarrollos en preventa</p>
         <p style="font-size:14px;color:#9B9B9F;line-height:1.6">Contenido visual diseñado para resaltar ubicación, dimensiones y entorno del terreno, elevando su percepción de valor desde el primer vistazo.</p>
       </div>
 
       <!-- T Esencial -->
-      <div class="bg-white rounded-2xl border-2 border-[#E8E8EA] overflow-hidden" style="box-shadow:0 6px 24px rgba(28,28,30,.06)">
-        <div class="p-5 pb-4">
+      <div class="bg-white rounded-2xl border-2 border-[#E8E8EA] overflow-hidden" style="box-shadow:0 6px 24px rgba(28,28,30,.06);display:flex;flex-direction:column">
+        <div class="p-5 pb-4" style="flex:1">
           <div class="inline-block border border-[#C9A84C]/50 text-[#C9A84C] rounded-full mb-3 font-bold uppercase" style="font-size:9px;letter-spacing:.1em;padding:2px 10px">3 MSI disponible</div>
           <h3 class="font-black mb-1" style="font-size:20px;color:#1C1C1E">Esencial</h3>
           <p class="mb-3" style="font-size:12px;line-height:1.5;color:#9B9B9F">Video aéreo y delimitación clara para que el comprador entienda el potencial.</p>
@@ -316,19 +294,20 @@ body{font-family:'Montserrat',sans-serif;-webkit-font-smoothing:antialiased;}
         <button onclick="toggleAcc(this)" class="w-full flex items-center justify-between px-5 py-3 bg-transparent border-t border-[#E8E8EA] cursor-pointer font-bold uppercase font-mont" style="font-size:11px;letter-spacing:.1em;color:#9B9B9F">Ver qué incluye <span class="material-symbols-outlined" style="font-size:20px">expand_more</span></button>
         <div class="acc-body">
           <ul class="px-5 pb-5 flex flex-col gap-3 mt-2" style="list-style:none">
-            <li class="flex gap-3 items-center"><span class="gcheck"><svg viewBox="0 0 12 12" width="10" height="10"><polyline points="2,6 5,9 10,3" stroke="#fff" stroke-width="1.8" fill="none" stroke-linecap="round"/></svg></span><span style="font-size:13px;font-weight:600;color:#1C1C1E">Video Cinemático Aéreo</span><span class="tooltip-wrap"><button class="info-btn" onclick="toggleTip(this)">i</button><div class="tooltip-box">Clip de 30 a 60 segundos filmado con dron, mostrando el terreno desde el aire con movimientos fluidos y colorización profesional. Música libre de derechos incluida.</div></span></li>
-            <li class="flex gap-3 items-center"><span class="gcheck"><svg viewBox="0 0 12 12" width="10" height="10"><polyline points="2,6 5,9 10,3" stroke="#fff" stroke-width="1.8" fill="none" stroke-linecap="round"/></svg></span><span style="font-size:13px;font-weight:600;color:#1C1C1E">Animación Gráfica de Perímetro</span><span class="tooltip-wrap"><button class="info-btn" onclick="toggleTip(this)">i</button><div class="tooltip-box">Usando tracking 3D avanzado, anclamos con precisión los límites del terreno sobre el video aéreo en movimiento. El perímetro, medidas y señalización se mantienen fijos sin importar el ángulo de la cámara.</div></span></li>
-            <li class="flex gap-3 items-center"><span class="gcheck"><svg viewBox="0 0 12 12" width="10" height="10"><polyline points="2,6 5,9 10,3" stroke="#fff" stroke-width="1.8" fill="none" stroke-linecap="round"/></svg></span><span style="font-size:13px;font-weight:600;color:#1C1C1E">Fotografía Aérea con Delimitado</span><span class="tooltip-wrap"><button class="info-btn" onclick="toggleTip(this)">i</button><div class="tooltip-box">Imágenes de alta resolución tomadas con dron, con el perímetro del terreno marcado. Ideales para portales inmobiliarios y presentaciones a compradores.</div></span></li>
-            <li class="flex gap-3 items-center"><span class="gcheck"><svg viewBox="0 0 12 12" width="10" height="10"><polyline points="2,6 5,9 10,3" stroke="#fff" stroke-width="1.8" fill="none" stroke-linecap="round"/></svg></span><span style="font-size:13px;font-weight:600;color:#1C1C1E">Grabación de Amenidades</span><span class="tooltip-wrap"><button class="info-btn" onclick="toggleTip(this)">i</button><div class="tooltip-box">Cobertura de amenidades del fraccionamiento: accesos, jardines, áreas verdes y espacios compartidos que forman parte del valor del terreno.</div></span></li>
+            <li class="flex gap-3 items-start"><span class="gcheck"><svg viewBox="0 0 12 12" width="10" height="10"><polyline points="2,6 5,9 10,3" stroke="#fff" stroke-width="1.8" fill="none" stroke-linecap="round"/></svg></span><div><span style="font-size:13px;font-weight:600;color:#1C1C1E">Video Cinemático Aéreo</span><p style="font-size:11px;color:#9B9B9F;margin:3px 0 0;line-height:1.5">Clip de 30 a 60 segundos filmado con dron, mostrando el terreno desde el aire con movimientos fluidos y colorización profesional. Música libre de derechos incluida.</p></div></li>
+            <li class="flex gap-3 items-start"><span class="gcheck"><svg viewBox="0 0 12 12" width="10" height="10"><polyline points="2,6 5,9 10,3" stroke="#fff" stroke-width="1.8" fill="none" stroke-linecap="round"/></svg></span><div><span style="font-size:13px;font-weight:600;color:#1C1C1E">Animación Gráfica de Perímetro</span><p style="font-size:11px;color:#9B9B9F;margin:3px 0 0;line-height:1.5">Usando tracking 3D avanzado, anclamos con precisión los límites del terreno sobre el video aéreo en movimiento. El perímetro, medidas y señalización se mantienen fijos sin importar el ángulo de la cámara.</p></div></li>
+            <li class="flex gap-3 items-start"><span class="gcheck"><svg viewBox="0 0 12 12" width="10" height="10"><polyline points="2,6 5,9 10,3" stroke="#fff" stroke-width="1.8" fill="none" stroke-linecap="round"/></svg></span><div><span style="font-size:13px;font-weight:600;color:#1C1C1E">Fotografía Aérea con Delimitado</span><p style="font-size:11px;color:#9B9B9F;margin:3px 0 0;line-height:1.5">Imágenes de alta resolución tomadas con dron, con el perímetro del terreno marcado. Ideales para portales inmobiliarios y presentaciones a compradores.</p></div></li>
+            <li class="flex gap-3 items-start"><span class="gcheck"><svg viewBox="0 0 12 12" width="10" height="10"><polyline points="2,6 5,9 10,3" stroke="#fff" stroke-width="1.8" fill="none" stroke-linecap="round"/></svg></span><div><span style="font-size:13px;font-weight:600;color:#1C1C1E">Grabación de Amenidades</span><p style="font-size:11px;color:#9B9B9F;margin:3px 0 0;line-height:1.5">Cobertura de amenidades del fraccionamiento: accesos, jardines, áreas verdes y espacios compartidos que forman parte del valor del terreno.</p></div></li>
           </ul>
         </div>
       </div>
 
       <!-- T Plus -->
-      <div class="bg-white rounded-2xl border-2 border-[#C9A84C] overflow-hidden relative" style="box-shadow:0 20px 60px rgba(201,168,76,.15)">
-        <div class="absolute top-0 left-0 right-0 h-[3px]" style="background:#C9A84C"></div>
-        <div class="p-5 pb-4 pt-7">
-          <span class="inline-block rounded-full font-black uppercase mb-3" style="font-size:9px;letter-spacing:.12em;padding:4px 12px;background:#C9A84C;color:#1C1C1E">Recomendado</span>
+      <div class="bg-white rounded-2xl border-2 border-[#C9A84C] relative" style="box-shadow:0 20px 60px rgba(201,168,76,.15);display:flex;flex-direction:column">
+        <div style="position:absolute;top:-14px;left:0;right:0;text-align:center;z-index:2">
+          <span style="display:inline-block;background:#C9A84C;color:#1C1C1E;border-radius:9999px;font-size:9px;font-weight:900;letter-spacing:.12em;text-transform:uppercase;padding:5px 14px;box-shadow:0 4px 12px rgba(201,168,76,.4)">Recomendado</span>
+        </div>
+        <div class="p-5 pb-4" style="flex:1">
           <div class="inline-block border border-[#C9A84C]/50 text-[#C9A84C] rounded-full mb-3 font-bold uppercase" style="font-size:9px;letter-spacing:.1em;padding:2px 10px">3 MSI disponible</div>
           <h3 class="font-black mb-1" style="font-size:20px;color:#1C1C1E">Plus</h3>
           <p class="mb-3" style="font-size:12px;line-height:1.5;color:#9B9B9F">Visualización del potencial del terreno más recorrido virtual desde el aire.</p>
@@ -339,16 +318,16 @@ body{font-family:'Montserrat',sans-serif;-webkit-font-smoothing:antialiased;}
         <button onclick="toggleAcc(this)" class="w-full flex items-center justify-between px-5 py-3 bg-transparent border-t border-[#E8E8EA] cursor-pointer font-bold uppercase font-mont" style="font-size:11px;letter-spacing:.1em;color:#9B9B9F">Ver qué incluye <span class="material-symbols-outlined" style="font-size:20px">expand_more</span></button>
         <div class="acc-body">
           <ul class="px-5 pb-5 flex flex-col gap-3 mt-2" style="list-style:none">
-            <li class="flex gap-3 items-center"><span class="gcheck"><svg viewBox="0 0 12 12" width="10" height="10"><polyline points="2,6 5,9 10,3" stroke="#fff" stroke-width="1.8" fill="none" stroke-linecap="round"/></svg></span><span style="font-size:13px;font-weight:600;color:#9B9B9F;font-style:italic">Todo lo del Esencial, más:</span></li>
-            <li class="flex gap-3 items-center"><span class="gcheck"><svg viewBox="0 0 12 12" width="10" height="10"><polyline points="2,6 5,9 10,3" stroke="#fff" stroke-width="1.8" fill="none" stroke-linecap="round"/></svg></span><span style="font-size:13px;font-weight:600;color:#1C1C1E">Visualización de Potencial</span><span class="tooltip-wrap"><button class="info-btn" onclick="toggleTip(this)">i</button><div class="tooltip-box">Render que muestra cómo podría lucir el terreno con una construcción. La imagen se integra al video cinemático aéreo, creando una transición visual que conecta el terreno real con su potencial edificable.</div></span></li>
-            <li class="flex gap-3 items-center"><span class="gcheck"><svg viewBox="0 0 12 12" width="10" height="10"><polyline points="2,6 5,9 10,3" stroke="#fff" stroke-width="1.8" fill="none" stroke-linecap="round"/></svg></span><span style="font-size:13px;font-weight:600;color:#1C1C1E">Recorrido Virtual Inmersivo Aéreo</span><span class="tooltip-wrap"><button class="info-btn" onclick="toggleTip(this)">i</button><div class="tooltip-box">Vista panorámica interactiva desde el aire. El comprador puede explorar el entorno del terreno — accesos, vialidades y puntos de referencia — desde cualquier dispositivo.</div></span></li>
+            <li class="flex gap-3 items-start"><span class="gcheck"><svg viewBox="0 0 12 12" width="10" height="10"><polyline points="2,6 5,9 10,3" stroke="#fff" stroke-width="1.8" fill="none" stroke-linecap="round"/></svg></span><span style="font-size:13px;font-weight:600;color:#9B9B9F;font-style:italic">Todo lo del Esencial, más:</span></li>
+            <li class="flex gap-3 items-start"><span class="gcheck"><svg viewBox="0 0 12 12" width="10" height="10"><polyline points="2,6 5,9 10,3" stroke="#fff" stroke-width="1.8" fill="none" stroke-linecap="round"/></svg></span><div><span style="font-size:13px;font-weight:600;color:#1C1C1E">Visualización de Potencial</span><p style="font-size:11px;color:#9B9B9F;margin:3px 0 0;line-height:1.5">Render que muestra cómo podría lucir el terreno con una construcción. La imagen se integra al video cinemático aéreo, creando una transición visual que conecta el terreno real con su potencial edificable.</p></div></li>
+            <li class="flex gap-3 items-start"><span class="gcheck"><svg viewBox="0 0 12 12" width="10" height="10"><polyline points="2,6 5,9 10,3" stroke="#fff" stroke-width="1.8" fill="none" stroke-linecap="round"/></svg></span><div><span style="font-size:13px;font-weight:600;color:#1C1C1E">Recorrido Virtual Inmersivo Aéreo</span><p style="font-size:11px;color:#9B9B9F;margin:3px 0 0;line-height:1.5">Vista panorámica interactiva desde el aire. El comprador puede explorar el entorno del terreno — accesos, vialidades y puntos de referencia — desde cualquier dispositivo.</p></div></li>
           </ul>
         </div>
       </div>
 
       <!-- T Premium -->
-      <div class="bg-white rounded-2xl border-2 border-[#E8E8EA] overflow-hidden" style="box-shadow:0 6px 24px rgba(28,28,30,.06)">
-        <div class="p-5 pb-4">
+      <div class="bg-white rounded-2xl border-2 border-[#E8E8EA] overflow-hidden" style="box-shadow:0 6px 24px rgba(28,28,30,.06);display:flex;flex-direction:column">
+        <div class="p-5 pb-4" style="flex:1">
           <div class="inline-block border border-[#C9A84C]/50 text-[#C9A84C] rounded-full mb-3 font-bold uppercase" style="font-size:9px;letter-spacing:.1em;padding:2px 10px">3 MSI disponible</div>
           <h3 class="font-black mb-1" style="font-size:20px;color:#1C1C1E">Premium</h3>
           <p class="mb-3" style="font-size:12px;line-height:1.5;color:#9B9B9F">Todo lo necesario para cerrar terrenos de alto valor sin reuniones presenciales.</p>
@@ -359,41 +338,177 @@ body{font-family:'Montserrat',sans-serif;-webkit-font-smoothing:antialiased;}
         <button onclick="toggleAcc(this)" class="w-full flex items-center justify-between px-5 py-3 bg-transparent border-t border-[#E8E8EA] cursor-pointer font-bold uppercase font-mont" style="font-size:11px;letter-spacing:.1em;color:#9B9B9F">Ver qué incluye <span class="material-symbols-outlined" style="font-size:20px">expand_more</span></button>
         <div class="acc-body">
           <ul class="px-5 pb-5 flex flex-col gap-3 mt-2" style="list-style:none">
-            <li class="flex gap-3 items-center"><span class="gcheck"><svg viewBox="0 0 12 12" width="10" height="10"><polyline points="2,6 5,9 10,3" stroke="#fff" stroke-width="1.8" fill="none" stroke-linecap="round"/></svg></span><span style="font-size:13px;font-weight:600;color:#9B9B9F;font-style:italic">Todo lo del Plus, más:</span></li>
-            <li class="flex gap-3 items-center"><span class="gcheck"><svg viewBox="0 0 12 12" width="10" height="10"><polyline points="2,6 5,9 10,3" stroke="#fff" stroke-width="1.8" fill="none" stroke-linecap="round"/></svg></span><span style="font-size:13px;font-weight:600;color:#1C1C1E">Video Cómo Llegar</span><span class="tooltip-wrap"><button class="info-btn" onclick="toggleTip(this)">i</button><div class="tooltip-box">Animación satelital de 20 a 30 segundos mostrando la ruta desde puntos de referencia clave hasta el terreno. Reduce fricciones en las visitas presenciales.</div></span></li>
-            <li class="flex gap-3 items-center"><span class="gcheck"><svg viewBox="0 0 12 12" width="10" height="10"><polyline points="2,6 5,9 10,3" stroke="#fff" stroke-width="1.8" fill="none" stroke-linecap="round"/></svg></span><span style="font-size:13px;font-weight:600;color:#1C1C1E">Folleto Digital PDF</span><span class="tooltip-wrap"><button class="info-btn" onclick="toggleTip(this)">i</button><div class="tooltip-box">Material de presentación con fotografías aéreas, visualización de potencial, delimitado y datos de contacto. Listo para enviar por WhatsApp o correo.</div></span></li>
-            <li class="flex gap-3 items-center"><span class="gcheck"><svg viewBox="0 0 12 12" width="10" height="10"><polyline points="2,6 5,9 10,3" stroke="#fff" stroke-width="1.8" fill="none" stroke-linecap="round"/></svg></span><span style="font-size:13px;font-weight:600;color:#1C1C1E">Landing Page</span><span class="tooltip-wrap"><button class="info-btn" onclick="toggleTip(this)">i</button><div class="tooltip-box">Página web exclusiva del terreno con galería aérea, visualización de potencial, recorrido virtual y formulario de contacto. Herramienta de ventas independiente de los portales.</div></span></li>
+            <li class="flex gap-3 items-start"><span class="gcheck"><svg viewBox="0 0 12 12" width="10" height="10"><polyline points="2,6 5,9 10,3" stroke="#fff" stroke-width="1.8" fill="none" stroke-linecap="round"/></svg></span><span style="font-size:13px;font-weight:600;color:#9B9B9F;font-style:italic">Todo lo del Plus, más:</span></li>
+            <li class="flex gap-3 items-start"><span class="gcheck"><svg viewBox="0 0 12 12" width="10" height="10"><polyline points="2,6 5,9 10,3" stroke="#fff" stroke-width="1.8" fill="none" stroke-linecap="round"/></svg></span><div><span style="font-size:13px;font-weight:600;color:#1C1C1E">Video Cómo Llegar</span><p style="font-size:11px;color:#9B9B9F;margin:3px 0 0;line-height:1.5">Animación satelital de 20 a 30 segundos mostrando la ruta desde puntos de referencia clave hasta el terreno. Reduce fricciones en las visitas presenciales.</p></div></li>
+            <li class="flex gap-3 items-start"><span class="gcheck"><svg viewBox="0 0 12 12" width="10" height="10"><polyline points="2,6 5,9 10,3" stroke="#fff" stroke-width="1.8" fill="none" stroke-linecap="round"/></svg></span><div><span style="font-size:13px;font-weight:600;color:#1C1C1E">Folleto Digital PDF</span><p style="font-size:11px;color:#9B9B9F;margin:3px 0 0;line-height:1.5">Material de presentación con fotografías aéreas, visualización de potencial, delimitado y datos de contacto. Listo para enviar por WhatsApp o correo.</p></div></li>
+            <li class="flex gap-3 items-start"><span class="gcheck"><svg viewBox="0 0 12 12" width="10" height="10"><polyline points="2,6 5,9 10,3" stroke="#fff" stroke-width="1.8" fill="none" stroke-linecap="round"/></svg></span><div><span style="font-size:13px;font-weight:600;color:#1C1C1E">Landing Page</span><p style="font-size:11px;color:#9B9B9F;margin:3px 0 0;line-height:1.5">Página web exclusiva del terreno con galería aérea, visualización de potencial, recorrido virtual y formulario de contacto. Herramienta de ventas independiente de los portales.</p></div></li>
           </ul>
         </div>
       </div>
     </div><!-- /terrenos -->
 
     <!-- SERVICIOS INDIVIDUALES -->
-    <div id="pkg-carta" class="pkg-panel grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 items-start">
+    <div id="pkg-carta" style="display:none;grid-template-columns:repeat(4,1fr);gap:20px;align-items:stretch">
       <div class="col-span-full mb-2">
+        <p class="font-black text-[#1C1C1E] mb-2" style="font-size:20px">Servicios a la carta</p>
         <p style="font-size:14px;color:#9B9B9F;line-height:1.7">¿No necesitas el paquete completo? Elige solo lo que tu propiedad necesita y empieza a vender más rápido desde hoy.</p>
         <p class="mt-2" style="font-size:12px;color:#9B9B9F"><strong style="color:#1C1C1E">Sin MSI.</strong> Todos los precios en MXN.</p>
       </div>
       <!-- 8 servicios individuales con descripciones exactas del catálogo -->
-      <div class="bg-white rounded-2xl border-2 border-[#E8E8EA] overflow-hidden" style="box-shadow:0 6px 24px rgba(28,28,30,.06)"><div class="p-5 pb-4"><h3 class="font-black mb-2" style="font-size:17px;color:#1C1C1E">Fotografía Profesional HDR</h3><p style="font-size:13px;line-height:1.6;color:#9B9B9F">35 a 50 imágenes en alta resolución. Interiores y exteriores a nivel de piso.</p><div class="font-black mt-3" style="font-size:26px;letter-spacing:-.025em;color:#1C1C1E">$3,000</div></div><div class="px-5 pb-5"><a href="https://wa.me/528127174207?text=Hola%2C%20me%20interesa%20Fotograf%C3%ADa%20HDR%20(%243%2C000)" class="btn-gold" style="width:100%;justify-content:center;font-size:11px">Solicitar</a></div></div>
+      <div class="bg-white rounded-2xl border-2 border-[#E8E8EA] overflow-hidden" style="box-shadow:0 6px 24px rgba(28,28,30,.06);display:flex;flex-direction:column"><div class="p-5 pb-4" style="flex:1"><h3 class="font-black mb-2" style="font-size:17px;color:#1C1C1E">Fotografía Profesional HDR</h3><p style="font-size:13px;line-height:1.6;color:#9B9B9F">35 a 50 imágenes en alta resolución. Interiores y exteriores a nivel de piso.</p></div><div class="px-5 py-2"><div class="font-black mt-3" style="font-size:26px;letter-spacing:-.025em;color:#1C1C1E">$3,000</div></div><div class="px-5 pb-5"><a href="https://wa.me/528127174207?text=Hola%2C%20me%20interesa%20Fotograf%C3%ADa%20HDR%20(%243%2C000)" class="btn-gold" style="width:100%;justify-content:center;font-size:11px">Solicitar</a></div></div>
 
-      <div class="bg-white rounded-2xl border-2 border-[#E8E8EA] overflow-hidden" style="box-shadow:0 6px 24px rgba(28,28,30,.06)"><div class="p-5 pb-4"><h3 class="font-black mb-2" style="font-size:17px;color:#1C1C1E">Video Cinemático Individual</h3><p style="font-size:13px;line-height:1.6;color:#9B9B9F">Clip de 30 a 60 seg con colorización profesional. Agrega tomas aéreas con dron por $1,500 adicionales.</p><div class="font-black mt-3" style="font-size:26px;letter-spacing:-.025em;color:#1C1C1E">$3,000</div></div><div class="px-5 pb-5"><a href="https://wa.me/528127174207?text=Hola%2C%20me%20interesa%20Video%20Cinem%C3%A1tico%20(%243%2C000)" class="btn-gold" style="width:100%;justify-content:center;font-size:11px">Solicitar</a></div></div>
+      <div class="bg-white rounded-2xl border-2 border-[#E8E8EA] overflow-hidden" style="box-shadow:0 6px 24px rgba(28,28,30,.06);display:flex;flex-direction:column"><div class="p-5 pb-4" style="flex:1"><h3 class="font-black mb-2" style="font-size:17px;color:#1C1C1E">Video Cinemático Individual</h3><p style="font-size:13px;line-height:1.6;color:#9B9B9F">Clip de 30 a 60 seg con colorización profesional. Agrega tomas aéreas con dron por $1,500 adicionales.</p></div><div class="px-5 py-2"><div class="font-black mt-3" style="font-size:26px;letter-spacing:-.025em;color:#1C1C1E">$3,000</div></div><div class="px-5 pb-5"><a href="https://wa.me/528127174207?text=Hola%2C%20me%20interesa%20Video%20Cinem%C3%A1tico%20(%243%2C000)" class="btn-gold" style="width:100%;justify-content:center;font-size:11px">Solicitar</a></div></div>
 
-      <div class="bg-white rounded-2xl border-2 border-[#E8E8EA] overflow-hidden" style="box-shadow:0 6px 24px rgba(28,28,30,.06)"><div class="p-5 pb-4"><h3 class="font-black mb-2" style="font-size:17px;color:#1C1C1E">Grabación de Video con Dron</h3><p style="font-size:13px;line-height:1.6;color:#9B9B9F">Fachada, patios y entorno. Incluye marcaje de perímetro y fotografías aéreas. <span style="color:#A8883A;font-weight:600">Solo propiedades residenciales.</span></p><div class="font-black mt-3" style="font-size:26px;letter-spacing:-.025em;color:#1C1C1E">$3,000</div></div><div class="px-5 pb-5"><a href="https://wa.me/528127174207?text=Hola%2C%20me%20interesa%20Dron%20(%243%2C000)" class="btn-gold" style="width:100%;justify-content:center;font-size:11px">Solicitar</a></div></div>
+      <div class="bg-white rounded-2xl border-2 border-[#E8E8EA] overflow-hidden" style="box-shadow:0 6px 24px rgba(28,28,30,.06);display:flex;flex-direction:column"><div class="p-5 pb-4" style="flex:1"><h3 class="font-black mb-2" style="font-size:17px;color:#1C1C1E">Grabación de Video con Dron</h3><p style="font-size:13px;line-height:1.6;color:#9B9B9F">Fachada, patios y entorno. Incluye marcaje de perímetro y fotografías aéreas. <span style="color:#9B9B9F;font-weight:600">Solo propiedades residenciales.</span></p></div><div class="px-5 py-2"><div class="font-black mt-3" style="font-size:26px;letter-spacing:-.025em;color:#1C1C1E">$3,000</div></div><div class="px-5 pb-5"><a href="https://wa.me/528127174207?text=Hola%2C%20me%20interesa%20Dron%20(%243%2C000)" class="btn-gold" style="width:100%;justify-content:center;font-size:11px">Solicitar</a></div></div>
 
-      <div class="bg-white rounded-2xl border-2 border-[#E8E8EA] overflow-hidden" style="box-shadow:0 6px 24px rgba(28,28,30,.06)"><div class="p-5 pb-4"><h3 class="font-black mb-2" style="font-size:17px;color:#1C1C1E">Recorrido Virtual Inmersivo</h3><p style="font-size:13px;line-height:1.6;color:#9B9B9F">Escaneo navegable 24/7. Hospedaje en la nube incluido. Compatible con celular, tablet y computadora.</p><div class="font-black mt-3" style="font-size:26px;letter-spacing:-.025em;color:#1C1C1E">$3,000</div></div><div class="px-5 pb-5"><a href="https://wa.me/528127174207?text=Hola%2C%20me%20interesa%20Recorrido%20Virtual%20Inmersivo%20(%243%2C000)" class="btn-gold" style="width:100%;justify-content:center;font-size:11px">Solicitar</a></div></div>
+      <div class="bg-white rounded-2xl border-2 border-[#E8E8EA] overflow-hidden" style="box-shadow:0 6px 24px rgba(28,28,30,.06);display:flex;flex-direction:column"><div class="p-5 pb-4" style="flex:1"><h3 class="font-black mb-2" style="font-size:17px;color:#1C1C1E">Recorrido Virtual Inmersivo</h3><p style="font-size:13px;line-height:1.6;color:#9B9B9F">Escaneo navegable 24/7. Hospedaje en la nube incluido. Compatible con celular, tablet y computadora.</p></div><div class="px-5 py-2"><div class="font-black mt-3" style="font-size:26px;letter-spacing:-.025em;color:#1C1C1E">$3,000</div></div><div class="px-5 pb-5"><a href="https://wa.me/528127174207?text=Hola%2C%20me%20interesa%20Recorrido%20Virtual%20Inmersivo%20(%243%2C000)" class="btn-gold" style="width:100%;justify-content:center;font-size:11px">Solicitar</a></div></div>
 
-      <div class="bg-white rounded-2xl border-2 border-[#E8E8EA] overflow-hidden" style="box-shadow:0 6px 24px rgba(28,28,30,.06)"><div class="p-5 pb-4"><h3 class="font-black mb-2" style="font-size:17px;color:#1C1C1E">Marca Personal del Asesor</h3><p style="font-size:13px;line-height:1.6;color:#9B9B9F">Grabamos tu aparición en cámara para integrarla al video del inmueble. No solo promocionas la propiedad, te posicionas tú.</p><div class="font-black mt-3" style="font-size:26px;letter-spacing:-.025em;color:#1C1C1E">$1,500</div></div><div class="px-5 pb-5"><a href="https://wa.me/528127174207?text=Hola%2C%20me%20interesa%20Marca%20Personal%20(%241%2C500)" class="btn-gold" style="width:100%;justify-content:center;font-size:11px">Solicitar</a></div></div>
+      <div class="bg-white rounded-2xl border-2 border-[#E8E8EA] overflow-hidden" style="box-shadow:0 6px 24px rgba(28,28,30,.06);display:flex;flex-direction:column"><div class="p-5 pb-4" style="flex:1"><h3 class="font-black mb-2" style="font-size:17px;color:#1C1C1E">Marca Personal del Asesor</h3><p style="font-size:13px;line-height:1.6;color:#9B9B9F">Grabamos tu aparición en cámara para integrarla al video del inmueble. No solo promocionas la propiedad, te posicionas tú.</p></div><div class="px-5 py-2"><div class="font-black mt-3" style="font-size:26px;letter-spacing:-.025em;color:#1C1C1E">$1,500</div></div><div class="px-5 pb-5"><a href="https://wa.me/528127174207?text=Hola%2C%20me%20interesa%20Marca%20Personal%20(%241%2C500)" class="btn-gold" style="width:100%;justify-content:center;font-size:11px">Solicitar</a></div></div>
 
-      <div class="bg-white rounded-2xl border-2 border-[#E8E8EA] overflow-hidden" style="box-shadow:0 6px 24px rgba(28,28,30,.06)"><div class="p-5 pb-4"><h3 class="font-black mb-2" style="font-size:17px;color:#1C1C1E">Staging Virtual</h3><p style="font-size:13px;line-height:1.6;color:#9B9B9F">Transforma espacios vacíos en ambientes amueblados y aspiracionales. 1–2 fotos $900 c/u · 3–5 fotos $800 c/u · 6+ fotos $700 c/u</p><div class="font-black mt-3" style="font-size:26px;letter-spacing:-.025em;color:#1C1C1E">desde $700</div></div><div class="px-5 pb-5"><a href="https://wa.me/528127174207?text=Hola%2C%20me%20interesa%20Staging%20Virtual" class="btn-gold" style="width:100%;justify-content:center;font-size:11px">Solicitar</a></div></div>
+      <div class="bg-white rounded-2xl border-2 border-[#E8E8EA] overflow-hidden" style="box-shadow:0 6px 24px rgba(28,28,30,.06);display:flex;flex-direction:column"><div class="p-5 pb-4" style="flex:1"><h3 class="font-black mb-2" style="font-size:17px;color:#1C1C1E">Staging Virtual</h3><p style="font-size:13px;line-height:1.6;color:#9B9B9F">Transforma espacios vacíos en ambientes amueblados y aspiracionales. 1–2 fotos $900 c/u · 3–5 fotos $800 c/u · 6+ fotos $700 c/u</p></div><div class="px-5 py-2"><div class="font-black mt-3" style="font-size:26px;letter-spacing:-.025em;color:#1C1C1E">desde $700</div></div><div class="px-5 pb-5"><a href="https://wa.me/528127174207?text=Hola%2C%20me%20interesa%20Staging%20Virtual" class="btn-gold" style="width:100%;justify-content:center;font-size:11px">Solicitar</a></div></div>
 
-      <div class="bg-white rounded-2xl border-2 border-[#E8E8EA] overflow-hidden" style="box-shadow:0 6px 24px rgba(28,28,30,.06)"><div class="p-5 pb-4"><h3 class="font-black mb-2" style="font-size:17px;color:#1C1C1E">Avance de Obra</h3><p style="font-size:13px;line-height:1.6;color:#9B9B9F">Cobertura con dron en visitas periódicas. Ángulos estandarizados para reportes de avance e inversores.</p><div class="font-black mt-3" style="font-size:26px;letter-spacing:-.025em;color:#1C1C1E">$3,500</div><div style="font-size:11px;color:#9B9B9F;margin-top:4px">Por visita</div></div><div class="px-5 pb-5"><a href="https://wa.me/528127174207?text=Hola%2C%20me%20interesa%20Avance%20de%20Obra%20(%243%2C500%2Fvisita)" class="btn-gold" style="width:100%;justify-content:center;font-size:11px">Solicitar</a></div></div>
+      <div class="bg-white rounded-2xl border-2 border-[#E8E8EA] overflow-hidden" style="box-shadow:0 6px 24px rgba(28,28,30,.06);display:flex;flex-direction:column"><div class="p-5 pb-4" style="flex:1"><h3 class="font-black mb-2" style="font-size:17px;color:#1C1C1E">Avance de Obra</h3><p style="font-size:13px;line-height:1.6;color:#9B9B9F">Cobertura con dron en visitas periódicas. Ángulos estandarizados para reportes de avance e inversores.</p></div><div class="px-5 py-2"><div class="font-black mt-3" style="font-size:26px;letter-spacing:-.025em;color:#1C1C1E">$3,500</div><div style="font-size:11px;color:#9B9B9F;margin-top:4px">Por visita</div></div><div class="px-5 pb-5"><a href="https://wa.me/528127174207?text=Hola%2C%20me%20interesa%20Avance%20de%20Obra%20(%243%2C500%2Fvisita)" class="btn-gold" style="width:100%;justify-content:center;font-size:11px">Solicitar</a></div></div>
 
-      <div class="bg-white rounded-2xl border-2 border-[#E8E8EA] overflow-hidden" style="box-shadow:0 6px 24px rgba(28,28,30,.06)"><div class="p-5 pb-4"><h3 class="font-black mb-2" style="font-size:17px;color:#1C1C1E">Plano 3D + 2D</h3><p style="font-size:13px;line-height:1.6;color:#9B9B9F">Levantamiento digital de la propiedad con plano 2D y recorrido visual 3D. Entrega en PDF y JPG.</p><div class="font-black mt-3" style="font-size:26px;letter-spacing:-.025em;color:#1C1C1E">$3,500</div></div><div class="px-5 pb-5"><a href="https://wa.me/528127174207?text=Hola%2C%20me%20interesa%20Plano%203D%20%2B%202D%20(%243%2C500)" class="btn-gold" style="width:100%;justify-content:center;font-size:11px">Solicitar</a></div></div>
+      <div class="bg-white rounded-2xl border-2 border-[#E8E8EA] overflow-hidden" style="box-shadow:0 6px 24px rgba(28,28,30,.06);display:flex;flex-direction:column"><div class="p-5 pb-4" style="flex:1"><h3 class="font-black mb-2" style="font-size:17px;color:#1C1C1E">Plano 3D + 2D</h3><p style="font-size:13px;line-height:1.6;color:#9B9B9F">Levantamiento digital de la propiedad con plano 2D y recorrido visual 3D. Entrega en PDF y JPG.</p></div><div class="px-5 py-2"><div class="font-black mt-3" style="font-size:26px;letter-spacing:-.025em;color:#1C1C1E">$3,500</div></div><div class="px-5 pb-5"><a href="https://wa.me/528127174207?text=Hola%2C%20me%20interesa%20Plano%203D%20%2B%202D%20(%243%2C500)" class="btn-gold" style="width:100%;justify-content:center;font-size:11px">Solicitar</a></div></div>
     </div><!-- /carta -->
 
   </div>
 </section>
+
+<!-- PREGUNTAS FRECUENTES -->
+<section id="faq" class="py-20 md:py-24 bg-white">
+  <div class="max-w-[760px] mx-auto px-6 md:px-8">
+    <div class="text-center mb-12">
+      <div style="width:40px;height:3px;background:#C9A84C;margin:0 auto 20px"></div>
+      <h2 class="font-bold mb-4" style="font-size:clamp(24px,4vw,36px);letter-spacing:-.015em;color:#1C1C1E">Preguntas Frecuentes</h2>
+    </div>
+    <div class="flex flex-col gap-0">
+
+      <!-- Q11 -->
+      <div class="border-b border-[#E8E8EA]">
+        <button onclick="toggleFaq(this)" class="w-full flex items-center justify-between py-5 bg-transparent border-none cursor-pointer text-left font-mont">
+          <span class="font-bold text-[#1C1C1E] pr-4" style="font-size:15px">¿Cómo reservo una sesión?</span>
+          <span class="material-symbols-outlined flex-shrink-0" style="font-size:22px;color:#C9A84C">expand_more</span>
+        </button>
+        <div class="acc-body">
+          <p class="pb-5" style="font-size:14px;line-height:1.7;color:#9B9B9F">El proceso es sencillo: nos contactas por <a href="https://wa.me/528127174207" style="color:#C9A84C;font-weight:700;text-decoration:none">WhatsApp</a>, eliges tu paquete, te enviamos un formulario de pre-producción con todos los detalles, firmas el contrato de forma digital, pagas el 50% de anticipo para apartar tu fecha, hacemos la sesión, y al recibir tu versión preliminar liquidas el saldo restante. En máximo 3 días hábiles recibes tu material completo en alta resolución vía Google Drive.</p>
+        </div>
+      </div>
+
+      <!-- Q1 -->
+      <div class="border-b border-[#E8E8EA]">
+        <button onclick="toggleFaq(this)" class="w-full flex items-center justify-between py-5 bg-transparent border-none cursor-pointer text-left font-mont">
+          <span class="font-bold text-[#1C1C1E] pr-4" style="font-size:15px">¿Cuánto dura la sesión?</span>
+          <span class="material-symbols-outlined flex-shrink-0" style="font-size:22px;color:#C9A84C">expand_more</span>
+        </button>
+        <div class="acc-body">
+          <p class="pb-5" style="font-size:14px;line-height:1.7;color:#9B9B9F">Por lo general entre una y una hora y media, dependiendo del tamaño de la propiedad y los servicios contratados.</p>
+        </div>
+      </div>
+
+      <!-- Q2 -->
+      <div class="border-b border-[#E8E8EA]">
+        <button onclick="toggleFaq(this)" class="w-full flex items-center justify-between py-5 bg-transparent border-none cursor-pointer text-left font-mont">
+          <span class="font-bold text-[#1C1C1E] pr-4" style="font-size:15px">¿Qué necesito preparar antes de la sesión?</span>
+          <span class="material-symbols-outlined flex-shrink-0" style="font-size:22px;color:#C9A84C">expand_more</span>
+        </button>
+        <div class="acc-body">
+          <p class="pb-5" style="font-size:14px;line-height:1.7;color:#9B9B9F">Solo asegúrate de que la propiedad esté limpia, iluminada y con acceso garantizado desde la hora acordada. Antes de la sesión te enviamos un formulario de pre-producción para capturar todos los detalles y llegar completamente preparados.</p>
+        </div>
+      </div>
+
+      <!-- Q3 -->
+      <div class="border-b border-[#E8E8EA]">
+        <button onclick="toggleFaq(this)" class="w-full flex items-center justify-between py-5 bg-transparent border-none cursor-pointer text-left font-mont">
+          <span class="font-bold text-[#1C1C1E] pr-4" style="font-size:15px">¿Qué pasa si hay mal clima para el dron?</span>
+          <span class="material-symbols-outlined flex-shrink-0" style="font-size:22px;color:#C9A84C">expand_more</span>
+        </button>
+        <div class="acc-body">
+          <p class="pb-5" style="font-size:14px;line-height:1.7;color:#9B9B9F">Si las condiciones no permiten volar, reagendamos la sesión de dron sin costo adicional. Si la propiedad tiene urgencia, podemos grabar el resto del material primero y hacer la sesión aérea en una fecha separada.</p>
+        </div>
+      </div>
+
+      <!-- Q4 -->
+      <div class="border-b border-[#E8E8EA]">
+        <button onclick="toggleFaq(this)" class="w-full flex items-center justify-between py-5 bg-transparent border-none cursor-pointer text-left font-mont">
+          <span class="font-bold text-[#1C1C1E] pr-4" style="font-size:15px">¿En cuánto tiempo recibo mi material?</span>
+          <span class="material-symbols-outlined flex-shrink-0" style="font-size:22px;color:#C9A84C">expand_more</span>
+        </button>
+        <div class="acc-body">
+          <p class="pb-5" style="font-size:14px;line-height:1.7;color:#9B9B9F">Máximo 3 días hábiles a partir de la sesión. El material se entrega en alta resolución en carpetas organizadas vía Google Drive. Los enlaces de descarga permanecen activos por 30 días naturales.</p>
+        </div>
+      </div>
+
+      <!-- Q5 -->
+      <div class="border-b border-[#E8E8EA]">
+        <button onclick="toggleFaq(this)" class="w-full flex items-center justify-between py-5 bg-transparent border-none cursor-pointer text-left font-mont">
+          <span class="font-bold text-[#1C1C1E] pr-4" style="font-size:15px">¿Cómo funciona el pago en 3 MSI?</span>
+          <span class="material-symbols-outlined flex-shrink-0" style="font-size:22px;color:#C9A84C">expand_more</span>
+        </button>
+        <div class="acc-body">
+          <p class="pb-5" style="font-size:14px;line-height:1.7;color:#9B9B9F">Procesamos los pagos a través de Clip. Te enviamos un enlace de pago y desde ahí puedes elegir pagar en hasta 3 mensualidades sin intereses con tu tarjeta de crédito. Disponible solo en paquetes.</p>
+        </div>
+      </div>
+
+      <!-- Q6 -->
+      <div class="border-b border-[#E8E8EA]">
+        <button onclick="toggleFaq(this)" class="w-full flex items-center justify-between py-5 bg-transparent border-none cursor-pointer text-left font-mont">
+          <span class="font-bold text-[#1C1C1E] pr-4" style="font-size:15px">¿Puedo pedir cambios al material?</span>
+          <span class="material-symbols-outlined flex-shrink-0" style="font-size:22px;color:#C9A84C">expand_more</span>
+        </button>
+        <div class="acc-body">
+          <p class="pb-5" style="font-size:14px;line-height:1.7;color:#9B9B9F">Sí. Recibes una versión preliminar para revisar antes de la entrega final. Incluye hasta 2 rondas de correcciones menores. Cambios estructurales se cotizan por separado. Entregamos únicamente el material final editado — no entregamos archivos en crudo.</p>
+        </div>
+      </div>
+
+      <!-- Q7 -->
+      <div class="border-b border-[#E8E8EA]">
+        <button onclick="toggleFaq(this)" class="w-full flex items-center justify-between py-5 bg-transparent border-none cursor-pointer text-left font-mont">
+          <span class="font-bold text-[#1C1C1E] pr-4" style="font-size:15px">¿Vale la pena si ya tengo fotos con celular?</span>
+          <span class="material-symbols-outlined flex-shrink-0" style="font-size:22px;color:#C9A84C">expand_more</span>
+        </button>
+        <div class="acc-body">
+          <p class="pb-5" style="font-size:14px;line-height:1.7;color:#9B9B9F">Las fotos de celular sirven para mostrar la propiedad. Las nuestras se usan para maximizar su valor percibido y destacarla entre las demás opciones del mercado — la diferencia se nota desde el primer vistazo y puede justificar un precio de venta más alto.</p>
+        </div>
+      </div>
+
+      <!-- Q8 -->
+      <div class="border-b border-[#E8E8EA]">
+        <button onclick="toggleFaq(this)" class="w-full flex items-center justify-between py-5 bg-transparent border-none cursor-pointer text-left font-mont">
+          <span class="font-bold text-[#1C1C1E] pr-4" style="font-size:15px">¿Trabajan fuera de Monterrey?</span>
+          <span class="material-symbols-outlined flex-shrink-0" style="font-size:22px;color:#C9A84C">expand_more</span>
+        </button>
+        <div class="acc-body">
+          <p class="pb-5" style="font-size:14px;line-height:1.7;color:#9B9B9F">Sí, trabajamos en Monterrey, zona metropolitana y municipios aledaños de Nuevo León — incluyendo San Pedro Garza García, Santa Catarina, García, Apodaca, Escobedo y más. Para propiedades fuera del área puede aplicar un costo adicional por traslado.</p>
+        </div>
+      </div>
+
+      <!-- Q9 -->
+      <div class="border-b border-[#E8E8EA]">
+        <button onclick="toggleFaq(this)" class="w-full flex items-center justify-between py-5 bg-transparent border-none cursor-pointer text-left font-mont">
+          <span class="font-bold text-[#1C1C1E] pr-4" style="font-size:15px">¿Puedo contratar solo un servicio sin tomar un paquete?</span>
+          <span class="material-symbols-outlined flex-shrink-0" style="font-size:22px;color:#C9A84C">expand_more</span>
+        </button>
+        <div class="acc-body">
+          <p class="pb-5" style="font-size:14px;line-height:1.7;color:#9B9B9F">Sí, contamos con servicios individuales a la carta. Puedes contratar solo fotografía, solo video cinemático, solo grabación aérea con dron, o cualquier combinación, sin necesidad de tomar un paquete completo.</p>
+        </div>
+      </div>
+
+      <!-- Q10 -->
+      <div>
+        <button onclick="toggleFaq(this)" class="w-full flex items-center justify-between py-5 bg-transparent border-none cursor-pointer text-left font-mont">
+          <span class="font-bold text-[#1C1C1E] pr-4" style="font-size:15px">¿Cuánto cuesta la fotografía inmobiliaria en Monterrey?</span>
+          <span class="material-symbols-outlined flex-shrink-0" style="font-size:22px;color:#C9A84C">expand_more</span>
+        </button>
+        <div class="acc-body">
+          <p class="pb-5" style="font-size:14px;line-height:1.7;color:#9B9B9F">El servicio de fotografía individual tiene un costo de $3,000 MXN. Un paquete completo residencial comienza en $6,500 e incluye fotografía, video cinemático y tomas aéreas con dron. Disponible en 3 MSI con tarjeta de crédito.</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
 
 <!-- CTA -->
 <section id="contacto" class="py-24 relative overflow-hidden" style="background:#1C1C1E">
@@ -435,25 +550,80 @@ body{font-family:'Montserrat',sans-serif;-webkit-font-smoothing:antialiased;}
 </a>
 
 <script>
+// Header scroll behavior
+window.addEventListener('scroll', function(){
+  var header = document.getElementById('site-header');
+  var logo = document.getElementById('header-logo');
+  var h1 = document.getElementById('h1');
+  var h2 = document.getElementById('h2');
+  var h3 = document.getElementById('h3');
+  var scrolled = window.scrollY > 60;
+  if(scrolled){
+    header.style.background = 'rgba(255,255,255,0.96)';
+    header.style.boxShadow = '0 8px 32px rgba(28,28,30,.08)';
+    header.style.backdropFilter = 'blur(12px)';
+    logo.style.filter = 'none';
+    if(h1) h1.style.background = '#1C1C1E';
+    if(h2) h2.style.background = '#1C1C1E';
+    if(h3) h3.style.background = '#1C1C1E';
+    var nls = document.querySelectorAll('.nav-lnk');
+    nls.forEach(function(n){ n.style.color = '#9B9B9F'; });
+  } else {
+    header.style.background = 'transparent';
+    header.style.boxShadow = 'none';
+    header.style.backdropFilter = 'none';
+    logo.style.filter = 'brightness(0) invert(1)';
+    if(h1) h1.style.background = '#fff';
+    if(h2) h2.style.background = '#fff';
+    if(h3) h3.style.background = '#fff';
+    var nls = document.querySelectorAll('.nav-lnk');
+    nls.forEach(function(n){ n.style.color = 'rgba(255,255,255,.8)'; });
+  }
+});
+
 function navTo(id){var el=document.getElementById(id);if(el)window.scrollTo({top:el.offsetTop-72,behavior:'smooth'});var d=document.getElementById('mob-drawer');if(d.classList.contains('open'))toggleMob();}
 var mobOpen=false;
 function toggleMob(){mobOpen=!mobOpen;document.getElementById('mob-drawer').classList.toggle('open',mobOpen);document.getElementById('h1').style.transform=mobOpen?'rotate(45deg) translate(5px,5px)':'';document.getElementById('h2').style.opacity=mobOpen?'0':'1';document.getElementById('h3').style.transform=mobOpen?'rotate(-45deg) translate(5px,-5px)':'';}
-function switchPkg(tab,btn){document.querySelectorAll('.pkg-panel').forEach(function(el){el.classList.remove('active');});document.querySelectorAll('.pkg-tab-btn').forEach(function(el){el.classList.remove('active');});document.getElementById('pkg-'+tab).classList.add('active');btn.classList.add('active');}
-function switchPort(tab,btn){document.querySelectorAll('.port-panel').forEach(function(el){el.classList.remove('active');});document.querySelectorAll('.port-tab-btn').forEach(function(el){el.classList.remove('active');});document.getElementById('port-'+tab).classList.add('active');btn.classList.add('active');}
-function toggleAcc(btn){var body=btn.nextElementSibling;var icon=btn.querySelector('.material-symbols-outlined');var isOpen=body.classList.contains('open');body.classList.toggle('open',!isOpen);icon.textContent=isOpen?'expand_more':'expand_less';}
-function toggleTip(btn){
-  var box=btn.nextElementSibling;
-  var isOpen=box.classList.contains('open');
-  // Close all open tooltips
-  document.querySelectorAll('.tooltip-box.open').forEach(function(t){t.classList.remove('open');});
-  if(!isOpen){box.classList.add('open');}
-}
-// Close tooltips when clicking outside
-document.addEventListener('click',function(e){
-  if(!e.target.classList.contains('info-btn')){
-    document.querySelectorAll('.tooltip-box.open').forEach(function(t){t.classList.remove('open');});
+function switchPkg(tab,btn){
+  ['pkg-residencial','pkg-terrenos','pkg-carta'].forEach(function(id){
+    var el=document.getElementById(id);
+    if(el) el.style.display='none';
+  });
+  document.querySelectorAll('.pkg-tab-btn').forEach(function(b){b.classList.remove('active');});
+  var target=document.getElementById('pkg-'+tab);
+  if(target){
+    target.style.display='grid';
+    target.style.gap='20px';
+    target.style.alignItems='stretch';if(tab!=='carta'){target.style.paddingTop='24px';}else{target.style.paddingTop='0';}
+    if(tab==='carta'){target.style.gridTemplateColumns='repeat(4,1fr)';}
+    else{target.style.gridTemplateColumns='repeat(3,1fr)';}
   }
-});
+  btn.classList.add('active');
+}
+function switchPort(tab,btn){
+  ['port-video','port-terrenos','port-virtual'].forEach(function(id){
+    var el=document.getElementById(id);
+    if(el) el.style.display='none';
+  });
+  document.querySelectorAll('.port-tab-btn').forEach(function(b){b.classList.remove('active');});
+  var target=document.getElementById('port-'+tab);
+  if(target){ target.style.display='grid'; target.style.gridTemplateColumns='repeat(2,1fr)'; target.style.gap='20px'; }
+  btn.classList.add('active');
+}
+function toggleFaq(btn){
+  var body = btn.nextElementSibling;
+  var icon = btn.querySelector('.material-symbols-outlined');
+  var isOpen = body.classList.contains('open');
+  // Close all other FAQs
+  document.querySelectorAll('#faq .acc-body.open').forEach(function(b){
+    b.classList.remove('open');
+    var prevBtn = b.previousElementSibling;
+    if(prevBtn) { var ic = prevBtn.querySelector('.material-symbols-outlined'); if(ic) ic.textContent='expand_more'; }
+  });
+  if(!isOpen){ body.classList.add('open'); icon.textContent='expand_less'; }
+}
+function toggleAcc(btn){var body=btn.nextElementSibling;var icon=btn.querySelector('.material-symbols-outlined');var isOpen=body.classList.contains('open');body.classList.toggle('open',!isOpen);icon.textContent=isOpen?'expand_more':'expand_less';}
+
 </script>
 </body>
 </html>
