@@ -41,6 +41,17 @@ body{font-family:'Montserrat',sans-serif;-webkit-font-smoothing:antialiased;}
 /* Card hover */
 .svc-card{transition:all .3s cubic-bezier(.22,1,.36,1);}
 .svc-card:hover{transform:translateY(-4px);box-shadow:0 20px 60px rgba(28,28,30,.12)!important;}
+/* Scroll fade-up */
+.reveal{opacity:0;transform:translateY(28px);transition:opacity .7s cubic-bezier(.22,1,.36,1),transform .7s cubic-bezier(.22,1,.36,1);}
+.reveal.visible{opacity:1;transform:none;}
+.reveal-delay-1{transition-delay:.1s;}
+.reveal-delay-2{transition-delay:.2s;}
+.reveal-delay-3{transition-delay:.3s;}
+.reveal-delay-4{transition-delay:.4s;}
+.reveal-delay-5{transition-delay:.5s;}
+/* Gold bar animated */
+.gold-bar{width:0;height:3px;background:#C9A84C;margin:0 auto 20px;transition:width .65s cubic-bezier(.22,1,.36,1);}
+.gold-bar.visible{width:40px;}
 /* Mobile drawer */
 #mob-drawer{transform:translateX(100%);transition:transform .35s cubic-bezier(.22,1,.36,1);}
 #mob-drawer.open{transform:translateX(0);}
@@ -137,12 +148,12 @@ body{font-family:'Montserrat',sans-serif;-webkit-font-smoothing:antialiased;}
 </section>
 
 <!-- STATS -->
-<section class="py-9" style="background:#1C1C1E">
+<section id="stats-section" class="py-9" style="background:#1C1C1E">
   <div class="max-w-[1240px] mx-auto px-6 md:px-8 grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
-    <div><div class="font-black mb-1" style="font-size:clamp(18px,3vw,26px);letter-spacing:-.02em;color:#C9A84C">3 días hábiles</div><div class="font-bold uppercase" style="font-size:10px;letter-spacing:.14em;color:#9B9B9F">Entrega garantizada</div></div>
-    <div><div class="font-black mb-1" style="font-size:clamp(18px,3vw,26px);letter-spacing:-.02em;color:#C9A84C">+73% más visitas</div><div class="font-bold uppercase" style="font-size:10px;letter-spacing:.14em;color:#9B9B9F">Propiedades con foto profesional</div></div>
-    <div><div class="font-black mb-1" style="font-size:clamp(18px,3vw,26px);letter-spacing:-.02em;color:#C9A84C">3x más leads</div><div class="font-bold uppercase" style="font-size:10px;letter-spacing:.14em;color:#9B9B9F">vs. foto de celular</div></div>
-    <div><div class="font-black mb-1" style="font-size:clamp(18px,3vw,26px);letter-spacing:-.02em;color:#C9A84C">100% listo</div><div class="font-bold uppercase" style="font-size:10px;letter-spacing:.14em;color:#9B9B9F">Para portales y redes sociales</div></div>
+    <div class="reveal reveal-delay-1"><div class="font-black mb-1" style="font-size:clamp(18px,3vw,26px);letter-spacing:-.02em;color:#C9A84C"><span class="stat-num" data-target="3" data-suffix=" días hábiles">3 días hábiles</span></div><div class="font-bold uppercase" style="font-size:10px;letter-spacing:.14em;color:#9B9B9F">Entrega garantizada</div></div>
+    <div class="reveal reveal-delay-2"><div class="font-black mb-1" style="font-size:clamp(18px,3vw,26px);letter-spacing:-.02em;color:#C9A84C">+<span class="stat-num" data-target="73" data-suffix="% más visitas">73% más visitas</span></div><div class="font-bold uppercase" style="font-size:10px;letter-spacing:.14em;color:#9B9B9F">Propiedades con foto profesional</div></div>
+    <div class="reveal reveal-delay-3"><div class="font-black mb-1" style="font-size:clamp(18px,3vw,26px);letter-spacing:-.02em;color:#C9A84C"><span class="stat-num" data-target="3" data-suffix="x más leads">3x más leads</span></div><div class="font-bold uppercase" style="font-size:10px;letter-spacing:.14em;color:#9B9B9F">vs. foto de celular</div></div>
+    <div class="reveal reveal-delay-4"><div class="font-black mb-1" style="font-size:clamp(18px,3vw,26px);letter-spacing:-.02em;color:#C9A84C"><span class="stat-num" data-target="100" data-suffix="% listo">100% listo</span></div><div class="font-bold uppercase" style="font-size:10px;letter-spacing:.14em;color:#9B9B9F">Para portales y redes sociales</div></div>
   </div>
 </section>
 
@@ -163,8 +174,8 @@ body{font-family:'Montserrat',sans-serif;-webkit-font-smoothing:antialiased;}
 <!-- PORTAFOLIO -->
 <section id="portafolio" class="py-20 md:py-24 bg-white">
   <div class="max-w-[1240px] mx-auto px-6 md:px-8">
-    <div class="text-center mb-12">
-      <div style="width:40px;height:3px;background:#C9A84C;margin:0 auto 20px"></div>
+    <div class="text-center mb-12 reveal">
+      <div class="gold-bar"></div>
       <h2 class="font-bold mb-4" style="font-size:clamp(24px,4vw,36px);letter-spacing:-.015em;color:#1C1C1E">Portafolio</h2>
       <p style="font-size:16px;line-height:1.7;color:#9B9B9F;max-width:480px;margin:0 auto">Proyectos recientes en Monterrey y área metropolitana.</p>
     </div>
@@ -184,18 +195,18 @@ body{font-family:'Montserrat',sans-serif;-webkit-font-smoothing:antialiased;}
 <!-- SERVICIOS (antes "Por qué elegirnos") -->
 <section id="servicios" class="py-20 md:py-24" style="background:#F9F7F4">
   <div class="max-w-[1240px] mx-auto px-6 md:px-8">
-    <div class="text-center mb-14">
-      <div style="width:40px;height:3px;background:#C9A84C;margin:0 auto 20px"></div>
+    <div class="text-center mb-14 reveal">
+      <div class="gold-bar"></div>
       <h2 class="font-bold mb-4" style="font-size:clamp(24px,4vw,36px);letter-spacing:-.015em;color:#1C1C1E">Servicios</h2>
       <p style="font-size:16px;line-height:1.7;color:#9B9B9F;max-width:600px;margin:0 auto">Producción visual completa para propiedades residenciales y terrenos en Monterrey. Diseñada para que tu propiedad se vea irresistible y se venda más rápido.</p>
     </div>
     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-      <div class="svc-card bg-white rounded-2xl p-6" style="box-shadow:0 6px 20px rgba(28,28,30,.05)"><span class="material-symbols-outlined block mb-4" style="font-size:28px;color:#C9A84C">photo_camera</span><h3 class="font-black mb-2" style="font-size:15px;color:#1C1C1E">Fotografía HDR</h3><p style="font-size:13px;line-height:1.6;color:#9B9B9F">35 a 50 imágenes en alta resolución con técnica HDR: múltiples exposiciones combinadas para luminosidad perfecta, colores reales y detalles impecables.</p></div>
-      <div class="svc-card bg-white rounded-2xl p-6" style="box-shadow:0 6px 20px rgba(28,28,30,.05)"><span class="material-symbols-outlined block mb-4" style="font-size:28px;color:#C9A84C">videocam</span><h3 class="font-black mb-2" style="font-size:15px;color:#1C1C1E">Video Cinemático</h3><p style="font-size:13px;line-height:1.6;color:#9B9B9F">Clip de 30 a 60 segundos con movimientos de cámara fluidos, colorización profesional y montaje dinámico. Música libre de derechos incluida.</p></div>
-      <div class="svc-card bg-white rounded-2xl p-6" style="box-shadow:0 6px 20px rgba(28,28,30,.05)"><span class="material-symbols-outlined block mb-4" style="font-size:28px;color:#C9A84C"> drone</span><h3 class="font-black mb-2" style="font-size:15px;color:#1C1C1E">Video y Fotografía Aérea con Dron</h3><p style="font-size:13px;line-height:1.6;color:#9B9B9F">Tomas aéreas de fachada, patios y entorno que muestran ubicación, accesos, calles y referencias cercanas. Incluye fotografía aérea de alta resolución.</p></div>
-      <div class="svc-card bg-white rounded-2xl p-6" style="box-shadow:0 6px 20px rgba(28,28,30,.05)"><span class="material-symbols-outlined block mb-4" style="font-size:28px;color:#C9A84C"> 360</span><h3 class="font-black mb-2" style="font-size:15px;color:#1C1C1E">Recorrido Virtual Inmersivo</h3><p style="font-size:13px;line-height:1.6;color:#9B9B9F">Escaneo navegable 24/7 con hospedaje en la nube incluido. El comprador recorre cada espacio desde cualquier dispositivo como si estuviera ahí.</p></div>
-      <div class="svc-card bg-white rounded-2xl p-6" style="box-shadow:0 6px 20px rgba(28,28,30,.05)"><span class="material-symbols-outlined block mb-4" style="font-size:28px;color:#C9A84C">smartphone</span><h3 class="font-black mb-2" style="font-size:15px;color:#1C1C1E">Contenido para Redes Sociales</h3><p style="font-size:13px;line-height:1.6;color:#9B9B9F">Adaptaciones optimizadas para Instagram Reels, Facebook y WhatsApp. Proporciones correctas, duración ideal y cortes pensados para captar atención.</p></div>
-      <div class="svc-card bg-white rounded-2xl p-6" style="box-shadow:0 6px 20px rgba(28,28,30,.05)"><span class="material-symbols-outlined block mb-4" style="font-size:28px;color:#C9A84C">picture_as_pdf</span><h3 class="font-black mb-2" style="font-size:15px;color:#1C1C1E">Folleto Digital + Página de Propiedad</h3><p style="font-size:13px;line-height:1.6;color:#9B9B9F">Página web exclusiva para la propiedad con galería, video y formulario de contacto, más folleto PDF listo para enviar por WhatsApp.</p></div>
+      <div class="svc-card bg-white rounded-2xl p-6 reveal reveal-delay-1" style="box-shadow:0 6px 20px rgba(28,28,30,.05)"><span class="material-symbols-outlined block mb-4" style="font-size:28px;color:#C9A84C">photo_camera</span><h3 class="font-black mb-2" style="font-size:15px;color:#1C1C1E">Fotografía HDR</h3><p style="font-size:13px;line-height:1.6;color:#9B9B9F">35 a 50 imágenes en alta resolución con técnica HDR: múltiples exposiciones combinadas para luminosidad perfecta, colores reales y detalles impecables.</p></div>
+      <div class="svc-card bg-white rounded-2xl p-6 reveal reveal-delay-2" style="box-shadow:0 6px 20px rgba(28,28,30,.05)"><span class="material-symbols-outlined block mb-4" style="font-size:28px;color:#C9A84C">videocam</span><h3 class="font-black mb-2" style="font-size:15px;color:#1C1C1E">Video Cinemático</h3><p style="font-size:13px;line-height:1.6;color:#9B9B9F">Clip de 30 a 60 segundos con movimientos de cámara fluidos, colorización profesional y montaje dinámico. Música libre de derechos incluida.</p></div>
+      <div class="svc-card bg-white rounded-2xl p-6 reveal reveal-delay-3" style="box-shadow:0 6px 20px rgba(28,28,30,.05)"><span class="material-symbols-outlined block mb-4" style="font-size:28px;color:#C9A84C"> drone</span><h3 class="font-black mb-2" style="font-size:15px;color:#1C1C1E">Video y Fotografía Aérea con Dron</h3><p style="font-size:13px;line-height:1.6;color:#9B9B9F">Tomas aéreas de fachada, patios y entorno que muestran ubicación, accesos, calles y referencias cercanas. Incluye fotografía aérea de alta resolución.</p></div>
+      <div class="svc-card bg-white rounded-2xl p-6 reveal reveal-delay-4" style="box-shadow:0 6px 20px rgba(28,28,30,.05)"><span class="material-symbols-outlined block mb-4" style="font-size:28px;color:#C9A84C"> 360</span><h3 class="font-black mb-2" style="font-size:15px;color:#1C1C1E">Recorrido Virtual Inmersivo</h3><p style="font-size:13px;line-height:1.6;color:#9B9B9F">Escaneo navegable 24/7 con hospedaje en la nube incluido. El comprador recorre cada espacio desde cualquier dispositivo como si estuviera ahí.</p></div>
+      <div class="svc-card bg-white rounded-2xl p-6 reveal reveal-delay-5" style="box-shadow:0 6px 20px rgba(28,28,30,.05)"><span class="material-symbols-outlined block mb-4" style="font-size:28px;color:#C9A84C">smartphone</span><h3 class="font-black mb-2" style="font-size:15px;color:#1C1C1E">Contenido para Redes Sociales</h3><p style="font-size:13px;line-height:1.6;color:#9B9B9F">Adaptaciones optimizadas para Instagram Reels, Facebook y WhatsApp. Proporciones correctas, duración ideal y cortes pensados para captar atención.</p></div>
+      <div class="svc-card bg-white rounded-2xl p-6 reveal reveal-delay-5" style="box-shadow:0 6px 20px rgba(28,28,30,.05)"><span class="material-symbols-outlined block mb-4" style="font-size:28px;color:#C9A84C">picture_as_pdf</span><h3 class="font-black mb-2" style="font-size:15px;color:#1C1C1E">Folleto Digital + Página de Propiedad</h3><p style="font-size:13px;line-height:1.6;color:#9B9B9F">Página web exclusiva para la propiedad con galería, video y formulario de contacto, más folleto PDF listo para enviar por WhatsApp.</p></div>
     </div>
   </div>
 </section>
@@ -203,8 +214,8 @@ body{font-family:'Montserrat',sans-serif;-webkit-font-smoothing:antialiased;}
 <!-- PAQUETES -->
 <section id="paquetes" class="py-20 md:py-24" style="background:#F9F7F4">
   <div class="max-w-[1240px] mx-auto px-6 md:px-8">
-    <div class="text-center mb-12">
-      <div style="width:40px;height:3px;background:#C9A84C;margin:0 auto 20px"></div>
+    <div class="text-center mb-12 reveal">
+      <div class="gold-bar"></div>
       <h2 class="font-bold mb-4" style="font-size:clamp(24px,4vw,36px);letter-spacing:-.015em;color:#1C1C1E">Paquetes</h2>
       <p style="font-size:clamp(16px,2.5vw,22px);letter-spacing:-.01em;color:#9B9B9F;line-height:1.4">Elige el nivel de impacto que tu propiedad merece.</p>
     </div>
@@ -712,6 +723,61 @@ function toggleAcc(btn){
     icon.textContent='expand_less';
   }
 }
+
+// ── 1. SCROLL REVEAL (fade-up) ──────────────────────────────────────────────
+var revealObserver = new IntersectionObserver(function(entries){
+  entries.forEach(function(entry){
+    if(entry.isIntersecting){
+      entry.target.classList.add('visible');
+      var bar = entry.target.querySelector('.gold-bar');
+      if(bar) bar.classList.add('visible');
+      revealObserver.unobserve(entry.target);
+    }
+  });
+},{threshold:0.12});
+document.querySelectorAll('.reveal').forEach(function(el){revealObserver.observe(el);});
+
+// ── 2. GOLD BAR REVEAL standalone ───────────────────────────────────────────
+var barObserver = new IntersectionObserver(function(entries){
+  entries.forEach(function(entry){
+    if(entry.isIntersecting){ entry.target.classList.add('visible'); barObserver.unobserve(entry.target); }
+  });
+},{threshold:0.5});
+document.querySelectorAll('.gold-bar').forEach(function(el){ if(!el.closest('.reveal')) barObserver.observe(el); });
+
+// ── 3. STAT COUNTERS ────────────────────────────────────────────────────────
+function animateCounter(el){
+  var target = parseInt(el.getAttribute('data-target'));
+  var suffix = el.getAttribute('data-suffix');
+  var duration = 1200;
+  var start = null;
+  function step(ts){
+    if(!start) start = ts;
+    var progress = Math.min((ts - start) / duration, 1);
+    var ease = 1 - Math.pow(1 - progress, 3);
+    el.textContent = Math.round(ease * target) + suffix;
+    if(progress < 1) requestAnimationFrame(step);
+  }
+  requestAnimationFrame(step);
+}
+var counterObserver = new IntersectionObserver(function(entries){
+  entries.forEach(function(entry){
+    if(entry.isIntersecting){
+      entry.target.querySelectorAll('.stat-num').forEach(animateCounter);
+      counterObserver.unobserve(entry.target);
+    }
+  });
+},{threshold:0.4});
+var statsSection = document.querySelector('#stats-section');
+if(statsSection) counterObserver.observe(statsSection);
+
+// ── 4. PARALLAX HERO ────────────────────────────────────────────────────────
+var heroImg = document.querySelector('section[style*="min-height"] img');
+window.addEventListener('scroll', function(){
+  if(!heroImg) return;
+  heroImg.style.transform = 'translateY(' + (window.scrollY * 0.3) + 'px)';
+},{passive:true});
+
 
 </script>
 </body>
