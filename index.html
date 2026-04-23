@@ -289,14 +289,14 @@ body{font-family:'Montserrat',sans-serif;-webkit-font-smoothing:antialiased;}
     </div>
 
     <!-- RESIDENCIAL -->
-    <div id="pkg-residencial" style="display:grid;gap:20px;align-items:stretch;padding-top:24px">
+    <div id="pkg-residencial" style="display:grid;gap:20px;align-items:start;padding-top:24px">
       <div style="grid-column:1/-1;margin-bottom:16px">
         <p class="font-black text-[#1C1C1E] mb-1" style="font-size:16px">Casas, departamentos, Airbnbs y quintas</p>
         <p style="font-size:14px;color:#9B9B9F;line-height:1.6">Ideal para propiedades que necesitan verse bien y empezar a generar interés desde el primer día. Para propiedades residenciales en venta o renta.</p>
       </div>
 
       <!-- Esencial -->
-      <div class="bg-white rounded-2xl border-2 border-[#E8E8EA] overflow-hidden reveal reveal-delay-1 pkg-card-hover" style="box-shadow:0 6px 24px rgba(28,28,30,.06);display:flex;flex-direction:column">
+      <div class="bg-white rounded-2xl border-2 border-[#E8E8EA] reveal reveal-delay-1 pkg-card-hover" style="box-shadow:0 6px 24px rgba(28,28,30,.06);display:flex;flex-direction:column">
         <div class="p-5 pb-4" style="flex:1">
           <div class="inline-block border border-[#C9A84C]/50 text-[#C9A84C] rounded-full mb-3 font-bold uppercase" style="font-size:9px;letter-spacing:.1em;padding:2px 10px">3 MSI disponible</div>
           <h3 class="font-black mb-1" style="font-size:20px;color:#1C1C1E">Esencial</h3>
@@ -337,7 +337,7 @@ body{font-family:'Montserrat',sans-serif;-webkit-font-smoothing:antialiased;}
       </div>
 
       <!-- Premium -->
-      <div class="bg-white rounded-2xl border-2 border-[#E8E8EA] overflow-hidden reveal reveal-delay-3 pkg-card-hover" style="box-shadow:0 6px 24px rgba(28,28,30,.06);display:flex;flex-direction:column">
+      <div class="bg-white rounded-2xl border-2 border-[#E8E8EA] reveal reveal-delay-3 pkg-card-hover" style="box-shadow:0 6px 24px rgba(28,28,30,.06);display:flex;flex-direction:column">
         <div class="p-5 pb-4" style="flex:1">
           <div class="inline-block border border-[#C9A84C]/50 text-[#C9A84C] rounded-full mb-3 font-bold uppercase" style="font-size:9px;letter-spacing:.1em;padding:2px 10px">3 MSI disponible</div>
           <h3 class="font-black mb-1" style="font-size:20px;color:#1C1C1E">Premium</h3>
@@ -357,14 +357,14 @@ body{font-family:'Montserrat',sans-serif;-webkit-font-smoothing:antialiased;}
     </div><!-- /residencial -->
 
     <!-- TERRENOS -->
-    <div id="pkg-terrenos" style="display:none;gap:20px;align-items:stretch;padding-top:24px">
+    <div id="pkg-terrenos" style="display:none;gap:20px;align-items:start;padding-top:24px">
       <div class="col-span-full mb-4">
         <p class="font-black text-[#1C1C1E] mb-1" style="font-size:16px">Lotes, terrenos y desarrollos en preventa</p>
         <p style="font-size:14px;color:#9B9B9F;line-height:1.6">Contenido visual diseñado para resaltar ubicación, dimensiones y entorno del terreno, elevando su percepción de valor desde el primer vistazo.</p>
       </div>
 
       <!-- T Esencial -->
-      <div class="bg-white rounded-2xl border-2 border-[#E8E8EA] overflow-hidden pkg-card-hover" style="box-shadow:0 6px 24px rgba(28,28,30,.06);display:flex;flex-direction:column">
+      <div class="bg-white rounded-2xl border-2 border-[#E8E8EA] pkg-card-hover" style="box-shadow:0 6px 24px rgba(28,28,30,.06);display:flex;flex-direction:column">
         <div class="p-5 pb-4" style="flex:1">
           <div class="inline-block border border-[#C9A84C]/50 text-[#C9A84C] rounded-full mb-3 font-bold uppercase" style="font-size:9px;letter-spacing:.1em;padding:2px 10px">3 MSI disponible</div>
           <h3 class="font-black mb-1" style="font-size:20px;color:#1C1C1E">Esencial</h3>
@@ -409,7 +409,7 @@ body{font-family:'Montserrat',sans-serif;-webkit-font-smoothing:antialiased;}
       </div>
 
       <!-- T Premium -->
-      <div class="bg-white rounded-2xl border-2 border-[#E8E8EA] overflow-hidden pkg-card-hover" style="box-shadow:0 6px 24px rgba(28,28,30,.06);display:flex;flex-direction:column">
+      <div class="bg-white rounded-2xl border-2 border-[#E8E8EA] pkg-card-hover" style="box-shadow:0 6px 24px rgba(28,28,30,.06);display:flex;flex-direction:column">
         <div class="p-5 pb-4" style="flex:1">
           <div class="inline-block border border-[#C9A84C]/50 text-[#C9A84C] rounded-full mb-3 font-bold uppercase" style="font-size:9px;letter-spacing:.1em;padding:2px 10px">3 MSI disponible</div>
           <h3 class="font-black mb-1" style="font-size:20px;color:#1C1C1E">Premium</h3>
@@ -807,7 +807,6 @@ function toggleAcc(btn){
   var body = btn.nextElementSibling;
   var icon = btn.querySelector('.material-symbols-outlined');
   var isOpen = body.classList.contains('open');
-  // Close ALL accordions in ALL pkg panels
   document.querySelectorAll('[id^="pkg-"] .acc-body.open').forEach(function(b){
     b.classList.remove('open');
     var prevBtn = b.previousElementSibling;
