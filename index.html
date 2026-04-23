@@ -42,16 +42,51 @@ body{font-family:'Montserrat',sans-serif;-webkit-font-smoothing:antialiased;}
 .svc-card{transition:all .3s cubic-bezier(.22,1,.36,1);}
 .svc-card:hover{transform:translateY(-4px);box-shadow:0 20px 60px rgba(28,28,30,.12)!important;}
 /* Scroll fade-up */
-.reveal{opacity:0;transform:translateY(28px);transition:opacity .7s cubic-bezier(.22,1,.36,1),transform .7s cubic-bezier(.22,1,.36,1);}
+.reveal{opacity:0;transform:translateY(36px);transition:opacity .9s cubic-bezier(.16,1,.3,1),transform .9s cubic-bezier(.16,1,.3,1);}
 .reveal.visible{opacity:1;transform:none;}
-.reveal-delay-1{transition-delay:.1s;}
-.reveal-delay-2{transition-delay:.2s;}
-.reveal-delay-3{transition-delay:.3s;}
-.reveal-delay-4{transition-delay:.4s;}
-.reveal-delay-5{transition-delay:.5s;}
+.reveal-delay-1{transition-delay:.15s;}
+.reveal-delay-2{transition-delay:.35s;}
+.reveal-delay-3{transition-delay:.55s;}
+.reveal-delay-4{transition-delay:.38s;}
+.reveal-delay-5{transition-delay:.48s;}
 /* Gold bar animated */
-.gold-bar{width:0;height:3px;background:#C9A84C;margin:0 auto 20px;transition:width .65s cubic-bezier(.22,1,.36,1);}
+.gold-bar{width:0;height:3px;background:#C9A84C;margin:0 auto 20px;transition:width .9s cubic-bezier(.16,1,.3,1);}
 .gold-bar.visible{width:40px;}
+/* Ticker */
+@keyframes ticker{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+.ticker-track{display:flex;width:max-content;animation:ticker 22s linear infinite;}
+.ticker-track:hover{animation-play-state:paused;}
+/* Step number bounce */
+@keyframes stepBounce{0%{transform:scale(0);opacity:0}60%{transform:scale(1.2)}80%{transform:scale(.92)}100%{transform:scale(1);opacity:1}}
+.step-num{opacity:0;}
+.step-num.visible{animation:stepBounce .7s cubic-bezier(.16,1,.3,1) both;}
+.step-num.visible.delay-1{animation-delay:.15s;}
+.step-num.visible.delay-2{animation-delay:.35s;}
+.step-num.visible.delay-3{animation-delay:.55s;}
+/* FAB pop-in */
+@keyframes fabPop{0%{opacity:0;transform:scale(0) translateY(16px)}70%{transform:scale(1.12) translateY(-2px)}100%{opacity:1;transform:scale(1) translateY(0)}}
+.fab-hidden{opacity:0;pointer-events:none;}
+.fab-visible{animation:fabPop .6s cubic-bezier(.16,1,.3,1) both;}
+/* WhatsApp pulse */
+@keyframes waPulse{0%,100%{box-shadow:0 16px 40px rgba(37,211,102,.4)}50%{box-shadow:0 16px 40px rgba(37,211,102,.4),0 0 0 10px rgba(37,211,102,.12)}}
+.wa-fab-pulse{animation:waPulse 2.4s ease-in-out infinite;}
+/* Accordion list item stagger */
+@keyframes listIn{from{opacity:0;transform:translateX(-10px)}to{opacity:1;transform:none}}
+.acc-body.open li{animation:listIn .45s cubic-bezier(.16,1,.3,1) both;}
+.acc-body.open li:nth-child(1){animation-delay:.05s;}
+.acc-body.open li:nth-child(2){animation-delay:.13s;}
+.acc-body.open li:nth-child(3){animation-delay:.21s;}
+.acc-body.open li:nth-child(4){animation-delay:.29s;}
+.acc-body.open li:nth-child(5){animation-delay:.37s;}
+.acc-body.open li:nth-child(6){animation-delay:.45s;}
+/* CTA gold line expand */
+.cta-line{width:0;transition:width 1s cubic-bezier(.16,1,.3,1);}
+.cta-line.visible{width:100%;}
+/* Package card hover glow */
+.pkg-card-hover{transition:box-shadow .35s cubic-bezier(.16,1,.3,1),transform .35s cubic-bezier(.16,1,.3,1),border-color .35s;}
+.pkg-card-hover:hover{transform:translateY(-4px);box-shadow:0 24px 56px rgba(201,168,76,.18)!important;border-color:#C9A84C!important;}
+/* Nav blur transition */
+#site-header{transition:background .4s ease,box-shadow .4s ease,backdrop-filter .4s ease;}
 /* Mobile drawer */
 #mob-drawer{transform:translateX(100%);transition:transform .35s cubic-bezier(.22,1,.36,1);}
 #mob-drawer.open{transform:translateX(0);}
@@ -158,15 +193,21 @@ body{font-family:'Montserrat',sans-serif;-webkit-font-smoothing:antialiased;}
 </section>
 
 <!-- TRUST BAR -->
-<section class="py-14 border-b border-[#E8E8EA]" style="background:#F9F7F4"
-  <div class="max-w-[1240px] mx-auto px-6 md:px-8">
-    <p class="text-center font-bold uppercase mb-8" style="font-size:10px;letter-spacing:.2em;color:#9B9B9F">Confían en nosotros</p>
-    <div class="flex flex-wrap justify-center items-center gap-x-12 gap-y-5" style="opacity:.5">
-      <span class="font-black" style="font-size:clamp(14px,2.5vw,20px);color:#1C1C1E">RE/MAX</span>
-      <span class="font-black italic" style="font-size:clamp(14px,2.5vw,20px);color:#1C1C1E">Sotheby's</span>
-      <span class="font-black" style="font-size:clamp(14px,2.5vw,20px);color:#1C1C1E">KELLER WILLIAMS</span>
-      <span class="font-black" style="font-size:clamp(14px,2.5vw,20px);color:#1C1C1E">COLDWELL BANKER</span>
-      <span class="font-black" style="font-size:clamp(14px,2.5vw,20px);color:#1C1C1E">CENTURY 21</span>
+<section class="py-10 border-b border-[#E8E8EA] overflow-hidden" style="background:#F9F7F4">
+  <p class="text-center font-bold uppercase mb-7" style="font-size:10px;letter-spacing:.2em;color:#9B9B9F">Confían en nosotros</p>
+  <div style="overflow:hidden;mask-image:linear-gradient(90deg,transparent,black 12%,black 88%,transparent);-webkit-mask-image:linear-gradient(90deg,transparent,black 12%,black 88%,transparent)">
+    <div class="ticker-track" style="gap:64px;align-items:center;opacity:.5">
+      <span class="font-black flex-shrink-0" style="font-size:clamp(14px,2.5vw,20px);color:#1C1C1E">RE/MAX</span>
+      <span class="font-black italic flex-shrink-0" style="font-size:clamp(14px,2.5vw,20px);color:#1C1C1E">Sotheby's</span>
+      <span class="font-black flex-shrink-0" style="font-size:clamp(14px,2.5vw,20px);color:#1C1C1E">KELLER WILLIAMS</span>
+      <span class="font-black flex-shrink-0" style="font-size:clamp(14px,2.5vw,20px);color:#1C1C1E">COLDWELL BANKER</span>
+      <span class="font-black flex-shrink-0" style="font-size:clamp(14px,2.5vw,20px);color:#1C1C1E">CENTURY 21</span>
+      <!-- duplicate for seamless loop -->
+      <span class="font-black flex-shrink-0" style="font-size:clamp(14px,2.5vw,20px);color:#1C1C1E">RE/MAX</span>
+      <span class="font-black italic flex-shrink-0" style="font-size:clamp(14px,2.5vw,20px);color:#1C1C1E">Sotheby's</span>
+      <span class="font-black flex-shrink-0" style="font-size:clamp(14px,2.5vw,20px);color:#1C1C1E">KELLER WILLIAMS</span>
+      <span class="font-black flex-shrink-0" style="font-size:clamp(14px,2.5vw,20px);color:#1C1C1E">COLDWELL BANKER</span>
+      <span class="font-black flex-shrink-0" style="font-size:clamp(14px,2.5vw,20px);color:#1C1C1E">CENTURY 21</span>
     </div>
   </div>
 </section>
@@ -236,7 +277,7 @@ body{font-family:'Montserrat',sans-serif;-webkit-font-smoothing:antialiased;}
       </div>
 
       <!-- Esencial -->
-      <div class="bg-white rounded-2xl border-2 border-[#E8E8EA] overflow-hidden" style="box-shadow:0 6px 24px rgba(28,28,30,.06);display:flex;flex-direction:column">
+      <div class="bg-white rounded-2xl border-2 border-[#E8E8EA] overflow-hidden reveal reveal-delay-1 pkg-card-hover" style="box-shadow:0 6px 24px rgba(28,28,30,.06);display:flex;flex-direction:column">
         <div class="p-5 pb-4" style="flex:1">
           <div class="inline-block border border-[#C9A84C]/50 text-[#C9A84C] rounded-full mb-3 font-bold uppercase" style="font-size:9px;letter-spacing:.1em;padding:2px 10px">3 MSI disponible</div>
           <h3 class="font-black mb-1" style="font-size:20px;color:#1C1C1E">Esencial</h3>
@@ -255,7 +296,7 @@ body{font-family:'Montserrat',sans-serif;-webkit-font-smoothing:antialiased;}
       </div>
 
       <!-- Plus -->
-      <div class="bg-white rounded-2xl border-2 border-[#C9A84C] relative" style="box-shadow:0 20px 60px rgba(201,168,76,.15);display:flex;flex-direction:column">
+      <div class="bg-white rounded-2xl border-2 border-[#C9A84C] relative reveal reveal-delay-2 pkg-card-hover" style="box-shadow:0 20px 60px rgba(201,168,76,.15);display:flex;flex-direction:column">
         <div style="position:absolute;top:-14px;left:0;right:0;text-align:center;z-index:2">
           <span style="display:inline-block;background:#C9A84C;color:#1C1C1E;border-radius:9999px;font-size:9px;font-weight:900;letter-spacing:.12em;text-transform:uppercase;padding:5px 14px;box-shadow:0 4px 12px rgba(201,168,76,.4)">Recomendado</span>
         </div>
@@ -277,7 +318,7 @@ body{font-family:'Montserrat',sans-serif;-webkit-font-smoothing:antialiased;}
       </div>
 
       <!-- Premium -->
-      <div class="bg-white rounded-2xl border-2 border-[#E8E8EA] overflow-hidden" style="box-shadow:0 6px 24px rgba(28,28,30,.06);display:flex;flex-direction:column">
+      <div class="bg-white rounded-2xl border-2 border-[#E8E8EA] overflow-hidden reveal reveal-delay-3 pkg-card-hover" style="box-shadow:0 6px 24px rgba(28,28,30,.06);display:flex;flex-direction:column">
         <div class="p-5 pb-4" style="flex:1">
           <div class="inline-block border border-[#C9A84C]/50 text-[#C9A84C] rounded-full mb-3 font-bold uppercase" style="font-size:9px;letter-spacing:.1em;padding:2px 10px">3 MSI disponible</div>
           <h3 class="font-black mb-1" style="font-size:20px;color:#1C1C1E">Premium</h3>
@@ -400,36 +441,36 @@ body{font-family:'Montserrat',sans-serif;-webkit-font-smoothing:antialiased;}
 
 <!-- PREGUNTAS FRECUENTES -->
 <!-- CÓMO FUNCIONA -->
-<section class="relative overflow-hidden py-24 md:py-32" style="background:#F9F7F4">
+<section id="como-funciona" class="relative overflow-hidden py-24 md:py-32" style="background:#F9F7F4">
 
   <div class="max-w-[1240px] mx-auto px-6 md:px-8 relative z-10">
 
     <!-- Header -->
-    <div class="mb-16 md:mb-20">
+    <div class="mb-16 md:mb-20 reveal">
       <p class="font-bold uppercase mb-4" style="font-size:10px;letter-spacing:.22em;color:#C9A84C">Simple y sin complicaciones</p>
       <h2 class="font-black" style="font-size:clamp(2rem,5vw,3.4rem);letter-spacing:-.03em;line-height:1.05;color:#1C1C1E">Cómo funciona</h2>
     </div>
 
     <!-- Steps -->
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6 steps-grid">
 
       <!-- Paso 1 -->
-      <div class="relative bg-white rounded-2xl p-5" style="box-shadow:0 6px 32px rgba(28,28,30,.06)">
-        <div class="flex items-center justify-center font-black mb-4" style="width:40px;height:40px;border-radius:50%;background:#C9A84C;color:#1C1C1E;font-size:15px;letter-spacing:-.02em">01</div>
+      <div class="relative bg-white rounded-2xl p-5 reveal reveal-delay-1" style="box-shadow:0 6px 32px rgba(28,28,30,.06)">
+        <div class="flex items-center justify-center font-black mb-4 step-num delay-1" style="width:40px;height:40px;border-radius:50%;background:#C9A84C;color:#1C1C1E;font-size:15px;letter-spacing:-.02em">01</div>
         <h3 class="font-black mb-2" style="font-size:15px;color:#1C1C1E;letter-spacing:-.01em">Cuéntanos tu propiedad</h3>
         <p style="font-size:13px;line-height:1.7;color:#9B9B9F">Dinos el tipo de propiedad y el paquete que te interesa. Agendamos una llamada si necesitas más claridad sobre el servicio o el mejor paquete para ti.</p>
       </div>
 
       <!-- Paso 2 -->
-      <div class="relative bg-white rounded-2xl p-5" style="box-shadow:0 6px 32px rgba(28,28,30,.06)">
-        <div class="flex items-center justify-center font-black mb-4" style="width:40px;height:40px;border-radius:50%;background:#C9A84C;color:#1C1C1E;font-size:15px;letter-spacing:-.02em">02</div>
+      <div class="relative bg-white rounded-2xl p-5 reveal reveal-delay-2" style="box-shadow:0 6px 32px rgba(28,28,30,.06)">
+        <div class="flex items-center justify-center font-black mb-4 step-num delay-2" style="width:40px;height:40px;border-radius:50%;background:#C9A84C;color:#1C1C1E;font-size:15px;letter-spacing:-.02em">02</div>
         <h3 class="font-black mb-2" style="font-size:15px;color:#1C1C1E;letter-spacing:-.01em">Producción en sitio</h3>
         <p style="font-size:13px;line-height:1.7;color:#9B9B9F">Llegamos el día acordado con equipo de cámara e iluminación profesional. Solo necesitamos que la propiedad esté limpia y con acceso listo. Nosotros nos encargamos de capturar la mejor luz y hacer el video cinemático.</p>
       </div>
 
       <!-- Paso 3 -->
-      <div class="relative bg-white rounded-2xl p-5" style="box-shadow:0 6px 32px rgba(28,28,30,.06)">
-        <div class="flex items-center justify-center font-black mb-4" style="width:40px;height:40px;border-radius:50%;background:#C9A84C;color:#1C1C1E;font-size:15px;letter-spacing:-.02em">03</div>
+      <div class="relative bg-white rounded-2xl p-5 reveal reveal-delay-3" style="box-shadow:0 6px 32px rgba(28,28,30,.06)">
+        <div class="flex items-center justify-center font-black mb-4 step-num delay-3" style="width:40px;height:40px;border-radius:50%;background:#C9A84C;color:#1C1C1E;font-size:15px;letter-spacing:-.02em">03</div>
         <h3 class="font-black mb-2" style="font-size:15px;color:#1C1C1E;letter-spacing:-.01em">Entrega en 3 días hábiles</h3>
         <p style="font-size:13px;line-height:1.7;color:#9B9B9F">Recibes un enlace de Google Drive con todo tu material editado, en alta resolución y optimizado. Listo para subirlo a portales y enviárselo a tus clientes.</p>
       </div>
@@ -440,7 +481,7 @@ body{font-family:'Montserrat',sans-serif;-webkit-font-smoothing:antialiased;}
 
 <section id="faq" class="py-20 md:py-24" style="background:#F9F7F4">
   <div class="max-w-[760px] mx-auto px-6 md:px-8">
-    <button onclick="toggleFaqSection(this)" class="w-full flex items-center justify-between bg-white rounded-2xl px-8 py-7 border border-[#E8E8EA] cursor-pointer text-left font-mont" style="box-shadow:0 6px 24px rgba(28,28,30,.06);transition:box-shadow .25s">
+    <button onclick="toggleFaqSection(this)" class="w-full flex items-center justify-between bg-white rounded-2xl px-8 py-7 border border-[#E8E8EA] cursor-pointer text-left font-mont reveal" style="box-shadow:0 6px 24px rgba(28,28,30,.06);transition:box-shadow .25s">
       <div class="flex items-center gap-5">
         <div style="width:3px;height:40px;background:#C9A84C;border-radius:9999px;flex-shrink:0"></div>
         <h2 class="font-bold" style="font-size:clamp(20px,3vw,28px);letter-spacing:-.015em;color:#1C1C1E">Preguntas Frecuentes</h2>
@@ -585,14 +626,14 @@ body{font-family:'Montserrat',sans-serif;-webkit-font-smoothing:antialiased;}
 
 <!-- CTA -->
 <section id="contacto" class="py-24 relative overflow-hidden" style="background:#1C1C1E">
-  <div class="absolute top-0 left-0 right-0 h-[2px]" style="background:linear-gradient(90deg,transparent,#C9A84C,transparent)"></div>
+  <div id="cta-line" class="cta-line absolute top-0 left-0 h-[2px]" style="background:linear-gradient(90deg,transparent,#C9A84C,transparent)"></div>
   <div class="absolute" style="top:-80px;right:-80px;width:320px;height:320px;border-radius:50%;border:1px solid rgba(201,168,76,.12)"></div>
   <div class="absolute" style="bottom:-120px;left:-80px;width:400px;height:400px;border-radius:50%;border:1px solid rgba(201,168,76,.07)"></div>
-  <div class="max-w-[1240px] mx-auto px-6 md:px-8 relative z-10 text-center">
+  <div class="max-w-[1240px] mx-auto px-6 md:px-8 relative z-10 text-center reveal">
     <p class="font-bold uppercase mb-5" style="font-size:10px;letter-spacing:.22em;color:#C9A84C">¿Listo para más ventas?</p>
     <h2 class="text-white font-black mb-5" style="font-size:clamp(1.8rem,5vw,3.2rem);letter-spacing:-.025em;line-height:1.05">Lleva tu marketing inmobiliario<br>al siguiente nivel.</h2>
-    <p class="mx-auto mb-10" style="font-size:16px;line-height:1.7;color:#9B9B9F;max-width:560px">No permitas que una mala imagen detenga una venta millonaria. <strong style="color:#C9A84C">Entrega garantizada en 3 días hábiles.</strong></p>
-    <a href="https://wa.me/528127174207" class="btn-gold btn-gold-lg">
+    <p class="mx-auto mb-10 reveal reveal-delay-1" style="font-size:16px;line-height:1.7;color:#9B9B9F;max-width:560px">No permitas que una mala imagen detenga una venta millonaria. <strong style="color:#C9A84C">Entrega garantizada en 3 días hábiles.</strong></p>
+    <a href="https://wa.me/528127174207" class="btn-gold btn-gold-lg reveal reveal-delay-2">
       <svg width="18" height="18" viewBox="0 0 24 24" fill="#1C1C1E"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
       Comenzar Proyecto Ahora
     </a>
@@ -603,7 +644,7 @@ body{font-family:'Montserrat',sans-serif;-webkit-font-smoothing:antialiased;}
 
 <!-- FOOTER -->
 <footer class="py-14 border-t border-[#2A2A2D]" style="background:#1C1C1E">
-  <div class="max-w-[1240px] mx-auto px-6 md:px-8 flex flex-col md:flex-row justify-between items-center gap-6">
+  <div class="max-w-[1240px] mx-auto px-6 md:px-8 flex flex-col md:flex-row justify-between items-center gap-6 reveal">
     <div class="flex flex-col items-center md:items-start gap-3">
       <img src="https://res.cloudinary.com/denjzengj/image/upload/v1776758050/Vector_jyok9y.png" alt="Inmuebles Audiovisuales" style="height:36px;width:auto;max-width:160px;filter:brightness(0) invert(1)">
       <p style="font-size:10px;letter-spacing:.12em;color:#9B9B9F;text-transform:uppercase;font-weight:500">© 2026 Inmuebles Audiovisuales · Monterrey, NL</p>
@@ -618,7 +659,7 @@ body{font-family:'Montserrat',sans-serif;-webkit-font-smoothing:antialiased;}
 </footer>
 
 <!-- WhatsApp FAB -->
-<a href="https://wa.me/528127174207" style="position:fixed;bottom:28px;right:24px;z-index:100;width:56px;height:56px;background:#25D366;border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:0 16px 40px rgba(37,211,102,.4);text-decoration:none;transition:transform .2s" onmouseover="this.style.transform='scale(1.1)'" onmouseout="this.style.transform='scale(1)'">
+<a id="wa-fab" href="https://wa.me/528127174207" class="fab-hidden" style="position:fixed;bottom:28px;right:24px;z-index:100;width:56px;height:56px;background:#25D366;border-radius:50%;display:flex;align-items:center;justify-content:center;text-decoration:none;transition:transform .2s" onmouseover="this.style.transform='scale(1.1)'" onmouseout="this.style.transform='scale(1)'">
   <svg width="26" height="26" viewBox="0 0 24 24" fill="#fff"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
 </a>
 
@@ -632,9 +673,10 @@ window.addEventListener('scroll', function(){
   var h3 = document.getElementById('h3');
   var scrolled = window.scrollY > 60;
   if(scrolled){
-    header.style.background = 'rgba(255,255,255,0.96)';
+    header.style.background = 'rgba(255,255,255,0.92)';
     header.style.boxShadow = '0 8px 32px rgba(28,28,30,.08)';
-    header.style.backdropFilter = 'blur(12px)';
+    header.style.backdropFilter = 'blur(16px)';
+    header.style.webkitBackdropFilter = 'blur(16px)';
     logo.style.filter = 'none';
     if(h1) h1.style.background = '#1C1C1E';
     if(h2) h2.style.background = '#1C1C1E';
@@ -645,6 +687,7 @@ window.addEventListener('scroll', function(){
     header.style.background = 'transparent';
     header.style.boxShadow = 'none';
     header.style.backdropFilter = 'none';
+    header.style.webkitBackdropFilter = 'none';
     logo.style.filter = 'brightness(0) invert(1)';
     if(h1) h1.style.background = '#fff';
     if(h2) h2.style.background = '#fff';
@@ -737,6 +780,17 @@ var revealObserver = new IntersectionObserver(function(entries){
 },{threshold:0.12});
 document.querySelectorAll('.reveal').forEach(function(el){revealObserver.observe(el);});
 
+// ── STEP NUMBER BOUNCE ───────────────────────────────────────────────────────
+var stepObserver = new IntersectionObserver(function(entries){
+  entries.forEach(function(entry){
+    if(entry.isIntersecting){
+      entry.target.classList.add('visible');
+      stepObserver.unobserve(entry.target);
+    }
+  });
+},{threshold:0.5});
+document.querySelectorAll('.step-num').forEach(function(el){ stepObserver.observe(el); });
+
 // ── 2. GOLD BAR REVEAL standalone ───────────────────────────────────────────
 var barObserver = new IntersectionObserver(function(entries){
   entries.forEach(function(entry){
@@ -749,12 +803,12 @@ document.querySelectorAll('.gold-bar').forEach(function(el){ if(!el.closest('.re
 function animateCounter(el){
   var target = parseInt(el.getAttribute('data-target'));
   var suffix = el.getAttribute('data-suffix');
-  var duration = 1200;
+  var duration = 1800;
   var start = null;
   function step(ts){
     if(!start) start = ts;
     var progress = Math.min((ts - start) / duration, 1);
-    var ease = 1 - Math.pow(1 - progress, 3);
+    var ease = 1 - Math.pow(1 - progress, 5);
     el.textContent = Math.round(ease * target) + suffix;
     if(progress < 1) requestAnimationFrame(step);
   }
@@ -775,9 +829,28 @@ if(statsSection) counterObserver.observe(statsSection);
 var heroImg = document.querySelector('section[style*="min-height"] img');
 window.addEventListener('scroll', function(){
   if(!heroImg) return;
-  heroImg.style.transform = 'translateY(' + (window.scrollY * 0.3) + 'px)';
+  heroImg.style.transform = 'translateY(' + (window.scrollY * 0.18) + 'px)';
 },{passive:true});
 
+// ── 5. FAB POP-IN after scroll ───────────────────────────────────────────────
+var fab = document.getElementById('wa-fab');
+var fabShown = false;
+window.addEventListener('scroll', function(){
+  if(!fabShown && window.scrollY > 300){
+    fabShown = true;
+    fab.classList.remove('fab-hidden');
+    fab.classList.add('fab-visible','wa-fab-pulse');
+  }
+},{passive:true});
+
+// ── 6. CTA LINE EXPAND ───────────────────────────────────────────────────────
+var ctaLine = document.getElementById('cta-line');
+if(ctaLine){
+  var ctaObserver = new IntersectionObserver(function(entries){
+    if(entries[0].isIntersecting){ ctaLine.classList.add('visible'); ctaObserver.disconnect(); }
+  },{threshold:0.3});
+  ctaObserver.observe(document.getElementById('contacto'));
+}
 
 </script>
 </body>
