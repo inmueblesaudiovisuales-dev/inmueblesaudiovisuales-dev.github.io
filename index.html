@@ -32,7 +32,7 @@ body{font-family:'Montserrat',sans-serif;-webkit-font-smoothing:antialiased;}
 /* Tabs */
 .pkg-tab-btn{padding:10px 20px;border-radius:9999px;font-size:11px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;border:none;background:transparent;color:#9B9B9F;cursor:pointer;transition:all .25s;white-space:nowrap;font-family:'Montserrat',sans-serif;}
 .pkg-tab-btn.active{background:#C9A84C;color:#1C1C1E;}
-.port-tab-btn{padding:10px 20px;border-radius:9999px;font-size:11px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;border:none;background:transparent;color:#9B9B9F;cursor:pointer;transition:all .25s;white-space:nowrap;font-family:'Montserrat',sans-serif;}
+.port-tab-btn{padding:10px 12px;border-radius:9999px;font-size:11px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;border:none;background:transparent;color:#9B9B9F;cursor:pointer;transition:all .25s;font-family:'Montserrat',sans-serif;text-align:center;}
 .port-tab-btn.active{background:#C9A84C;color:#fff;}
 
 
@@ -57,11 +57,11 @@ body{font-family:'Montserrat',sans-serif;-webkit-font-smoothing:antialiased;}
 /* Gold check */
 .gcheck{display:inline-flex;align-items:center;justify-content:center;width:20px;height:20px;background:#C9A84C;border-radius:50%;flex-shrink:0;margin-top:2px;}
 /* Tooltip */
-#pkg-residencial, #pkg-terrenos { grid-template-columns: 1fr; }
+#pkg-residencial, #pkg-terrenos { grid-template-columns: 1fr; align-items: start; }
 #pkg-carta { grid-template-columns: repeat(2,1fr); }
 #port-video, #port-terrenos, #port-virtual { grid-template-columns: 1fr; }
 @media(min-width:1024px){
-  #pkg-residencial, #pkg-terrenos { grid-template-columns: repeat(3,1fr); }
+  #pkg-residencial, #pkg-terrenos { grid-template-columns: repeat(3,1fr); align-items: start; }
   #pkg-carta { grid-template-columns: repeat(4,1fr); }
 }
 @media(min-width:768px){
@@ -123,7 +123,7 @@ body{font-family:'Montserrat',sans-serif;-webkit-font-smoothing:antialiased;}
         Transformamos tus propiedades en experiencias de venta.
       </h1>
       <p class="h-a2 mb-9" style="font-size:clamp(14px,1.8vw,17px);line-height:1.7;color:rgba(255,255,255,.6);max-width:520px">
-        Mientras otros publican fotos de celular, tú ya estás cerrando tratos. <strong style="color:#E2C289">Entrega en 3 días hábiles.</strong>
+        Mientras otros publican fotos de celular, tú cierras tratos. <strong style="color:#E2C289">Entrega en 3 días hábiles.</strong>
       </p>
       <div class="h-a3 flex flex-wrap gap-3">
         <a href="https://wa.me/528127174207" class="btn-gold">
@@ -141,13 +141,13 @@ body{font-family:'Montserrat',sans-serif;-webkit-font-smoothing:antialiased;}
   <div class="max-w-[1240px] mx-auto px-6 md:px-8 grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
     <div><div class="font-black mb-1" style="font-size:clamp(18px,3vw,26px);letter-spacing:-.02em;color:#C9A84C">3 días hábiles</div><div class="font-bold uppercase" style="font-size:10px;letter-spacing:.14em;color:#9B9B9F">Entrega garantizada</div></div>
     <div><div class="font-black mb-1" style="font-size:clamp(18px,3vw,26px);letter-spacing:-.02em;color:#C9A84C">+73% más visitas</div><div class="font-bold uppercase" style="font-size:10px;letter-spacing:.14em;color:#9B9B9F">Propiedades con foto profesional</div></div>
-    <div><div class="font-black mb-1" style="font-size:clamp(18px,3vw,26px);letter-spacing:-.02em;color:#C9A84C">3x más consultas</div><div class="font-bold uppercase" style="font-size:10px;letter-spacing:.14em;color:#9B9B9F">vs. foto de celular</div></div>
+    <div><div class="font-black mb-1" style="font-size:clamp(18px,3vw,26px);letter-spacing:-.02em;color:#C9A84C">3x más leads</div><div class="font-bold uppercase" style="font-size:10px;letter-spacing:.14em;color:#9B9B9F">vs. foto de celular</div></div>
     <div><div class="font-black mb-1" style="font-size:clamp(18px,3vw,26px);letter-spacing:-.02em;color:#C9A84C">100% listo</div><div class="font-bold uppercase" style="font-size:10px;letter-spacing:.14em;color:#9B9B9F">Para portales y redes sociales</div></div>
   </div>
 </section>
 
 <!-- TRUST BAR -->
-<section class="py-14 border-b border-[#E8E8EA]" style="background:#F9F7F4">
+<section class="py-14 border-b border-[#E8E8EA]" style="background:#F9F7F4"
   <div class="max-w-[1240px] mx-auto px-6 md:px-8">
     <p class="text-center font-bold uppercase mb-8" style="font-size:10px;letter-spacing:.2em;color:#9B9B9F">Confían en nosotros</p>
     <div class="flex flex-wrap justify-center items-center gap-x-12 gap-y-5" style="opacity:.5">
@@ -168,11 +168,11 @@ body{font-family:'Montserrat',sans-serif;-webkit-font-smoothing:antialiased;}
       <h2 class="font-bold mb-4" style="font-size:clamp(24px,4vw,36px);letter-spacing:-.015em;color:#1C1C1E">Portafolio</h2>
       <p style="font-size:16px;line-height:1.7;color:#9B9B9F;max-width:480px;margin:0 auto">Proyectos recientes en Monterrey y área metropolitana.</p>
     </div>
-    <div class="flex justify-center mb-10" style="overflow-x:auto;-webkit-overflow-scrolling:touch;padding-bottom:2px">
-      <div class="flex gap-1 bg-[#F9F7F4] rounded-full p-1 border border-[#E8E8EA]" style="flex-wrap:nowrap;flex-shrink:0">
-        <button class="port-tab-btn active" onclick="switchPort('video',this)">Residencial</button>
-        <button class="port-tab-btn" onclick="switchPort('terrenos',this)">Terrenos</button>
-        <button class="port-tab-btn" onclick="switchPort('virtual',this)">Recorrido 360</button>
+    <div class="flex justify-center mb-10 px-0">
+      <div class="flex gap-1 bg-[#F9F7F4] rounded-full p-1 border border-[#E8E8EA] w-full max-w-sm">
+        <button class="port-tab-btn active flex-1" onclick="switchPort('video',this)">Video<br>Residencial</button>
+        <button class="port-tab-btn flex-1" onclick="switchPort('terrenos',this)">Video<br>Terrenos</button>
+        <button class="port-tab-btn flex-1" onclick="switchPort('virtual',this)">Recorrido<br>Inmersivo</button>
       </div>
     </div>
     <div id="port-video" style="display:grid;gap:20px"><div><div class="rounded-xl overflow-hidden" style="aspect-ratio:16/9;background:#111"><iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="Villa San Pedro" style="width:100%;height:100%;border:none" allowfullscreen></iframe></div><p class="font-semibold mt-3 mb-1" style="font-size:14px;color:#1C1C1E">Villa San Pedro</p><p style="font-size:12px;color:#9B9B9F">Video Cinemático Premium</p></div><div><div class="rounded-xl overflow-hidden" style="aspect-ratio:16/9;background:#111"><iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="Penthouse Valle Oriente" style="width:100%;height:100%;border:none" allowfullscreen></iframe></div><p class="font-semibold mt-3 mb-1" style="font-size:14px;color:#1C1C1E">Penthouse Valle Oriente</p><p style="font-size:12px;color:#9B9B9F">Video Cinemático + Fotografía HDR</p></div></div>
@@ -230,8 +230,8 @@ body{font-family:'Montserrat',sans-serif;-webkit-font-smoothing:antialiased;}
           <div class="inline-block border border-[#C9A84C]/50 text-[#C9A84C] rounded-full mb-3 font-bold uppercase" style="font-size:9px;letter-spacing:.1em;padding:2px 10px">3 MSI disponible</div>
           <h3 class="font-black mb-1" style="font-size:20px;color:#1C1C1E">Esencial</h3>
           <p class="mb-3" style="font-size:12px;line-height:1.5;color:#9B9B9F">Lo esencial para destacar y vender más rápido.</p>
-          <div class="font-black" style="font-size:clamp(24px,4vw,30px);letter-spacing:-.025em;color:#1C1C1E">$6,500</div>
-          <div class="mt-1" style="font-size:11px;color:#9B9B9F">3 pagos de $2,167</div>
+          <div class="font-black" style="font-size:clamp(24px,4vw,30px);letter-spacing:-.025em;color:#1C1C1E">$6,500 MXN</div>
+          <div class="mt-1" style="font-size:11px;color:#9B9B9F">3 pagos de $2,167 MXN</div>
         </div>
         <div class="px-5 pb-4"><a href="https://wa.me/528127174207?text=Hola%2C%20me%20interesa%20el%20Paquete%20Esencial%20Residencial%20%246%2C500" class="btn-gold" style="width:100%;justify-content:center;font-size:11px"><svg width="14" height="14" viewBox="0 0 24 24" fill="#1C1C1E"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>Solicitar · WhatsApp</a></div>
         <button onclick="toggleAcc(this)" class="w-full flex items-center justify-between px-5 py-3 bg-transparent border-t border-[#E8E8EA] cursor-pointer font-bold uppercase font-mont" style="font-size:11px;letter-spacing:.1em;color:#9B9B9F">Ver qué incluye <span class="material-symbols-outlined" style="font-size:20px">expand_more</span></button>
@@ -252,8 +252,8 @@ body{font-family:'Montserrat',sans-serif;-webkit-font-smoothing:antialiased;}
           <div class="inline-block border border-[#C9A84C]/50 text-[#C9A84C] rounded-full mb-3 font-bold uppercase" style="font-size:9px;letter-spacing:.1em;padding:2px 10px">3 MSI disponible</div>
           <h3 class="font-black mb-1" style="font-size:20px;color:#1C1C1E">Plus</h3>
           <p class="mb-3" style="font-size:12px;line-height:1.5;color:#9B9B9F">Más herramientas para presentar, compartir y cerrar.</p>
-          <div class="font-black" style="font-size:clamp(24px,4vw,30px);letter-spacing:-.025em;color:#1C1C1E">$7,500</div>
-          <div class="mt-1" style="font-size:11px;color:#9B9B9F">3 pagos de $2,500</div>
+          <div class="font-black" style="font-size:clamp(24px,4vw,30px);letter-spacing:-.025em;color:#1C1C1E">$7,500 MXN</div>
+          <div class="mt-1" style="font-size:11px;color:#9B9B9F">3 pagos de $2,500 MXN</div>
         </div>
         <div class="px-5 pb-4"><a href="https://wa.me/528127174207?text=Hola%2C%20me%20interesa%20el%20Paquete%20Plus%20Residencial%20%247%2C500" class="btn-gold" style="width:100%;justify-content:center;font-size:11px"><svg width="14" height="14" viewBox="0 0 24 24" fill="#1C1C1E"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>Solicitar · WhatsApp</a></div>
         <button onclick="toggleAcc(this)" class="w-full flex items-center justify-between px-5 py-3 bg-transparent border-t border-[#E8E8EA] cursor-pointer font-bold uppercase font-mont" style="font-size:11px;letter-spacing:.1em;color:#9B9B9F">Ver qué incluye <span class="material-symbols-outlined" style="font-size:20px">expand_more</span></button>
@@ -271,8 +271,8 @@ body{font-family:'Montserrat',sans-serif;-webkit-font-smoothing:antialiased;}
           <div class="inline-block border border-[#C9A84C]/50 text-[#C9A84C] rounded-full mb-3 font-bold uppercase" style="font-size:9px;letter-spacing:.1em;padding:2px 10px">3 MSI disponible</div>
           <h3 class="font-black mb-1" style="font-size:20px;color:#1C1C1E">Premium</h3>
           <p class="mb-3" style="font-size:12px;line-height:1.5;color:#9B9B9F">Presencia completa: tu propiedad con página propia y todo el arsenal visual.</p>
-          <div class="font-black" style="font-size:clamp(24px,4vw,30px);letter-spacing:-.025em;color:#1C1C1E">$9,000</div>
-          <div class="mt-1" style="font-size:11px;color:#9B9B9F">3 pagos de $3,000</div>
+          <div class="font-black" style="font-size:clamp(24px,4vw,30px);letter-spacing:-.025em;color:#1C1C1E">$9,000 MXN</div>
+          <div class="mt-1" style="font-size:11px;color:#9B9B9F">3 pagos de $3,000 MXN</div>
         </div>
         <div class="px-5 pb-4"><a href="https://wa.me/528127174207?text=Hola%2C%20me%20interesa%20el%20Paquete%20Premium%20Residencial%20%249%2C000" class="btn-gold" style="width:100%;justify-content:center;font-size:11px"><svg width="14" height="14" viewBox="0 0 24 24" fill="#1C1C1E"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>Solicitar · WhatsApp</a></div>
         <button onclick="toggleAcc(this)" class="w-full flex items-center justify-between px-5 py-3 bg-transparent border-t border-[#E8E8EA] cursor-pointer font-bold uppercase font-mont" style="font-size:11px;letter-spacing:.1em;color:#9B9B9F">Ver qué incluye <span class="material-symbols-outlined" style="font-size:20px">expand_more</span></button>
@@ -298,8 +298,8 @@ body{font-family:'Montserrat',sans-serif;-webkit-font-smoothing:antialiased;}
           <div class="inline-block border border-[#C9A84C]/50 text-[#C9A84C] rounded-full mb-3 font-bold uppercase" style="font-size:9px;letter-spacing:.1em;padding:2px 10px">3 MSI disponible</div>
           <h3 class="font-black mb-1" style="font-size:20px;color:#1C1C1E">Esencial</h3>
           <p class="mb-3" style="font-size:12px;line-height:1.5;color:#9B9B9F">Video aéreo y delimitación clara para que el comprador entienda el potencial.</p>
-          <div class="font-black" style="font-size:clamp(24px,4vw,30px);letter-spacing:-.025em;color:#1C1C1E">$4,500</div>
-          <div class="mt-1" style="font-size:11px;color:#9B9B9F">3 pagos de $1,500</div>
+          <div class="font-black" style="font-size:clamp(24px,4vw,30px);letter-spacing:-.025em;color:#1C1C1E">$4,500 MXN</div>
+          <div class="mt-1" style="font-size:11px;color:#9B9B9F">3 pagos de $1,500 MXN</div>
         </div>
         <div class="px-5 pb-4"><a href="https://wa.me/528127174207?text=Hola%2C%20me%20interesa%20el%20Paquete%20Esencial%20Terreno%20%244%2C500" class="btn-gold" style="width:100%;justify-content:center;font-size:11px"><svg width="14" height="14" viewBox="0 0 24 24" fill="#1C1C1E"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>Solicitar · WhatsApp</a></div>
         <button onclick="toggleAcc(this)" class="w-full flex items-center justify-between px-5 py-3 bg-transparent border-t border-[#E8E8EA] cursor-pointer font-bold uppercase font-mont" style="font-size:11px;letter-spacing:.1em;color:#9B9B9F">Ver qué incluye <span class="material-symbols-outlined" style="font-size:20px">expand_more</span></button>
@@ -322,8 +322,8 @@ body{font-family:'Montserrat',sans-serif;-webkit-font-smoothing:antialiased;}
           <div class="inline-block border border-[#C9A84C]/50 text-[#C9A84C] rounded-full mb-3 font-bold uppercase" style="font-size:9px;letter-spacing:.1em;padding:2px 10px">3 MSI disponible</div>
           <h3 class="font-black mb-1" style="font-size:20px;color:#1C1C1E">Plus</h3>
           <p class="mb-3" style="font-size:12px;line-height:1.5;color:#9B9B9F">Visualización del potencial del terreno más recorrido virtual desde el aire.</p>
-          <div class="font-black" style="font-size:clamp(24px,4vw,30px);letter-spacing:-.025em;color:#1C1C1E">$5,500</div>
-          <div class="mt-1" style="font-size:11px;color:#9B9B9F">3 pagos de $1,833</div>
+          <div class="font-black" style="font-size:clamp(24px,4vw,30px);letter-spacing:-.025em;color:#1C1C1E">$5,500 MXN</div>
+          <div class="mt-1" style="font-size:11px;color:#9B9B9F">3 pagos de $1,833 MXN</div>
         </div>
         <div class="px-5 pb-4"><a href="https://wa.me/528127174207?text=Hola%2C%20me%20interesa%20el%20Paquete%20Plus%20Terreno%20%245%2C500" class="btn-gold" style="width:100%;justify-content:center;font-size:11px"><svg width="14" height="14" viewBox="0 0 24 24" fill="#1C1C1E"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>Solicitar · WhatsApp</a></div>
         <button onclick="toggleAcc(this)" class="w-full flex items-center justify-between px-5 py-3 bg-transparent border-t border-[#E8E8EA] cursor-pointer font-bold uppercase font-mont" style="font-size:11px;letter-spacing:.1em;color:#9B9B9F">Ver qué incluye <span class="material-symbols-outlined" style="font-size:20px">expand_more</span></button>
@@ -343,8 +343,8 @@ body{font-family:'Montserrat',sans-serif;-webkit-font-smoothing:antialiased;}
           <div class="inline-block border border-[#C9A84C]/50 text-[#C9A84C] rounded-full mb-3 font-bold uppercase" style="font-size:9px;letter-spacing:.1em;padding:2px 10px">3 MSI disponible</div>
           <h3 class="font-black mb-1" style="font-size:20px;color:#1C1C1E">Premium</h3>
           <p class="mb-3" style="font-size:12px;line-height:1.5;color:#9B9B9F">Todo lo necesario para cerrar terrenos de alto valor sin reuniones presenciales.</p>
-          <div class="font-black" style="font-size:clamp(24px,4vw,30px);letter-spacing:-.025em;color:#1C1C1E">$7,000</div>
-          <div class="mt-1" style="font-size:11px;color:#9B9B9F">3 pagos de $2,333</div>
+          <div class="font-black" style="font-size:clamp(24px,4vw,30px);letter-spacing:-.025em;color:#1C1C1E">$7,000 MXN</div>
+          <div class="mt-1" style="font-size:11px;color:#9B9B9F">3 pagos de $2,333 MXN</div>
         </div>
         <div class="px-5 pb-4"><a href="https://wa.me/528127174207?text=Hola%2C%20me%20interesa%20el%20Paquete%20Premium%20Terreno%20%247%2C000" class="btn-gold" style="width:100%;justify-content:center;font-size:11px"><svg width="14" height="14" viewBox="0 0 24 24" fill="#1C1C1E"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>Solicitar · WhatsApp</a></div>
         <button onclick="toggleAcc(this)" class="w-full flex items-center justify-between px-5 py-3 bg-transparent border-t border-[#E8E8EA] cursor-pointer font-bold uppercase font-mont" style="font-size:11px;letter-spacing:.1em;color:#9B9B9F">Ver qué incluye <span class="material-symbols-outlined" style="font-size:20px">expand_more</span></button>
@@ -367,27 +367,66 @@ body{font-family:'Montserrat',sans-serif;-webkit-font-smoothing:antialiased;}
         <p class="mt-2" style="font-size:12px;color:#9B9B9F">Todos los precios en MXN.</p>
       </div>
       <!-- 8 servicios individuales con descripciones exactas del catálogo -->
-      <div class="bg-white rounded-2xl border-2 border-[#E8E8EA] overflow-hidden" style="box-shadow:0 6px 24px rgba(28,28,30,.06);display:flex;flex-direction:column"><div class="p-5 pb-4" style="flex:1"><span class="material-symbols-outlined block mb-3" style="font-size:26px;color:#C9A84C">photo_camera</span><h3 class="font-black mb-2" style="font-size:17px;color:#1C1C1E">Fotografía Profesional HDR</h3><p style="font-size:13px;line-height:1.6;color:#9B9B9F">35 a 50 imágenes en alta resolución. Interiores y exteriores a nivel de piso.</p></div><div class="px-5 py-2"><div class="font-black mt-3" style="font-size:26px;letter-spacing:-.025em;color:#1C1C1E">$3,000</div></div><div class="px-5 pb-5"><a href="https://wa.me/528127174207?text=Hola%2C%20me%20interesa%20Fotograf%C3%ADa%20HDR%20(%243%2C000)" class="btn-gold" style="width:100%;justify-content:center;font-size:11px">Solicitar</a></div></div>
+      <div class="bg-white rounded-2xl border-2 border-[#E8E8EA] overflow-hidden" style="box-shadow:0 6px 24px rgba(28,28,30,.06);display:flex;flex-direction:column"><div class="p-5 pb-4" style="flex:1"><span class="material-symbols-outlined block mb-3" style="font-size:26px;color:#C9A84C">photo_camera</span><h3 class="font-black mb-2" style="font-size:17px;color:#1C1C1E">Fotografía Profesional HDR</h3><p style="font-size:13px;line-height:1.6;color:#9B9B9F">35 a 50 imágenes en alta resolución. Interiores y exteriores a nivel de piso.</p></div><div class="px-5 py-2"><div class="font-black mt-3" style="font-size:26px;letter-spacing:-.025em;color:#1C1C1E">$3,000 MXN</div></div><div class="px-5 pb-5"><a href="https://wa.me/528127174207?text=Hola%2C%20me%20interesa%20Fotograf%C3%ADa%20HDR%20(%243%2C000)" class="btn-gold" style="width:100%;justify-content:center;font-size:11px">Solicitar</a></div></div>
 
-      <div class="bg-white rounded-2xl border-2 border-[#E8E8EA] overflow-hidden" style="box-shadow:0 6px 24px rgba(28,28,30,.06);display:flex;flex-direction:column"><div class="p-5 pb-4" style="flex:1"><span class="material-symbols-outlined block mb-3" style="font-size:26px;color:#C9A84C">videocam</span><h3 class="font-black mb-2" style="font-size:17px;color:#1C1C1E">Video Cinemático Individual</h3><p style="font-size:13px;line-height:1.6;color:#9B9B9F">Clip de 30 a 60 seg con colorización profesional. Agrega tomas aéreas con dron por $1,500 adicionales.</p></div><div class="px-5 py-2"><div class="font-black mt-3" style="font-size:26px;letter-spacing:-.025em;color:#1C1C1E">$3,000</div></div><div class="px-5 pb-5"><a href="https://wa.me/528127174207?text=Hola%2C%20me%20interesa%20Video%20Cinem%C3%A1tico%20(%243%2C000)" class="btn-gold" style="width:100%;justify-content:center;font-size:11px">Solicitar</a></div></div>
+      <div class="bg-white rounded-2xl border-2 border-[#E8E8EA] overflow-hidden" style="box-shadow:0 6px 24px rgba(28,28,30,.06);display:flex;flex-direction:column"><div class="p-5 pb-4" style="flex:1"><span class="material-symbols-outlined block mb-3" style="font-size:26px;color:#C9A84C">videocam</span><h3 class="font-black mb-2" style="font-size:17px;color:#1C1C1E">Video Cinemático Individual</h3><p style="font-size:13px;line-height:1.6;color:#9B9B9F">Clip de 30 a 60 seg con colorización profesional. Agrega tomas aéreas con dron por $1,500 adicionales.</p></div><div class="px-5 py-2"><div class="font-black mt-3" style="font-size:26px;letter-spacing:-.025em;color:#1C1C1E">$3,000 MXN</div></div><div class="px-5 pb-5"><a href="https://wa.me/528127174207?text=Hola%2C%20me%20interesa%20Video%20Cinem%C3%A1tico%20(%243%2C000)" class="btn-gold" style="width:100%;justify-content:center;font-size:11px">Solicitar</a></div></div>
 
-      <div class="bg-white rounded-2xl border-2 border-[#E8E8EA] overflow-hidden" style="box-shadow:0 6px 24px rgba(28,28,30,.06);display:flex;flex-direction:column"><div class="p-5 pb-4" style="flex:1"><span class="material-symbols-outlined block mb-3" style="font-size:26px;color:#C9A84C"> drone</span><h3 class="font-black mb-2" style="font-size:17px;color:#1C1C1E">Grabación de Video con Dron</h3><p style="font-size:13px;line-height:1.6;color:#9B9B9F">Fachada, patios y entorno. Incluye marcaje de perímetro y fotografías aéreas. <span style="color:#9B9B9F;font-weight:600">Solo propiedades residenciales.</span></p></div><div class="px-5 py-2"><div class="font-black mt-3" style="font-size:26px;letter-spacing:-.025em;color:#1C1C1E">$3,000</div></div><div class="px-5 pb-5"><a href="https://wa.me/528127174207?text=Hola%2C%20me%20interesa%20Dron%20(%243%2C000)" class="btn-gold" style="width:100%;justify-content:center;font-size:11px">Solicitar</a></div></div>
+      <div class="bg-white rounded-2xl border-2 border-[#E8E8EA] overflow-hidden" style="box-shadow:0 6px 24px rgba(28,28,30,.06);display:flex;flex-direction:column"><div class="p-5 pb-4" style="flex:1"><span class="material-symbols-outlined block mb-3" style="font-size:26px;color:#C9A84C"> drone</span><h3 class="font-black mb-2" style="font-size:17px;color:#1C1C1E">Grabación de Video con Dron</h3><p style="font-size:13px;line-height:1.6;color:#9B9B9F">Fachada, patios y entorno. Incluye marcaje de perímetro y fotografías aéreas. <span style="color:#9B9B9F;font-weight:600">Solo propiedades residenciales.</span></p></div><div class="px-5 py-2"><div class="font-black mt-3" style="font-size:26px;letter-spacing:-.025em;color:#1C1C1E">$3,000 MXN</div></div><div class="px-5 pb-5"><a href="https://wa.me/528127174207?text=Hola%2C%20me%20interesa%20Dron%20(%243%2C000)" class="btn-gold" style="width:100%;justify-content:center;font-size:11px">Solicitar</a></div></div>
 
-      <div class="bg-white rounded-2xl border-2 border-[#E8E8EA] overflow-hidden" style="box-shadow:0 6px 24px rgba(28,28,30,.06);display:flex;flex-direction:column"><div class="p-5 pb-4" style="flex:1"><span class="material-symbols-outlined block mb-3" style="font-size:26px;color:#C9A84C"> 360</span><h3 class="font-black mb-2" style="font-size:17px;color:#1C1C1E">Recorrido Virtual Inmersivo</h3><p style="font-size:13px;line-height:1.6;color:#9B9B9F">Escaneo navegable 24/7. Hospedaje en la nube incluido. Compatible con celular, tablet y computadora.</p></div><div class="px-5 py-2"><div class="font-black mt-3" style="font-size:26px;letter-spacing:-.025em;color:#1C1C1E">$3,000</div></div><div class="px-5 pb-5"><a href="https://wa.me/528127174207?text=Hola%2C%20me%20interesa%20Recorrido%20Virtual%20Inmersivo%20(%243%2C000)" class="btn-gold" style="width:100%;justify-content:center;font-size:11px">Solicitar</a></div></div>
+      <div class="bg-white rounded-2xl border-2 border-[#E8E8EA] overflow-hidden" style="box-shadow:0 6px 24px rgba(28,28,30,.06);display:flex;flex-direction:column"><div class="p-5 pb-4" style="flex:1"><span class="material-symbols-outlined block mb-3" style="font-size:26px;color:#C9A84C"> 360</span><h3 class="font-black mb-2" style="font-size:17px;color:#1C1C1E">Recorrido Virtual Inmersivo</h3><p style="font-size:13px;line-height:1.6;color:#9B9B9F">Escaneo navegable 24/7. Hospedaje en la nube incluido. Compatible con celular, tablet y computadora.</p></div><div class="px-5 py-2"><div class="font-black mt-3" style="font-size:26px;letter-spacing:-.025em;color:#1C1C1E">$3,000 MXN</div></div><div class="px-5 pb-5"><a href="https://wa.me/528127174207?text=Hola%2C%20me%20interesa%20Recorrido%20Virtual%20Inmersivo%20(%243%2C000)" class="btn-gold" style="width:100%;justify-content:center;font-size:11px">Solicitar</a></div></div>
 
-      <div class="bg-white rounded-2xl border-2 border-[#E8E8EA] overflow-hidden" style="box-shadow:0 6px 24px rgba(28,28,30,.06);display:flex;flex-direction:column"><div class="p-5 pb-4" style="flex:1"><span class="material-symbols-outlined block mb-3" style="font-size:26px;color:#C9A84C">person_play</span><h3 class="font-black mb-2" style="font-size:17px;color:#1C1C1E">Marca Personal del Asesor</h3><p style="font-size:13px;line-height:1.6;color:#9B9B9F">Grabamos tu aparición en cámara para integrarla al video del inmueble. No solo promocionas la propiedad, te posicionas tú.</p></div><div class="px-5 py-2"><div class="font-black mt-3" style="font-size:26px;letter-spacing:-.025em;color:#1C1C1E">$1,500</div></div><div class="px-5 pb-5"><a href="https://wa.me/528127174207?text=Hola%2C%20me%20interesa%20Marca%20Personal%20(%241%2C500)" class="btn-gold" style="width:100%;justify-content:center;font-size:11px">Solicitar</a></div></div>
+      <div class="bg-white rounded-2xl border-2 border-[#E8E8EA] overflow-hidden" style="box-shadow:0 6px 24px rgba(28,28,30,.06);display:flex;flex-direction:column"><div class="p-5 pb-4" style="flex:1"><span class="material-symbols-outlined block mb-3" style="font-size:26px;color:#C9A84C">person_play</span><h3 class="font-black mb-2" style="font-size:17px;color:#1C1C1E">Marca Personal del Asesor</h3><p style="font-size:13px;line-height:1.6;color:#9B9B9F">Grabamos tu aparición en cámara para integrarla al video del inmueble. No solo promocionas la propiedad, te posicionas tú.</p></div><div class="px-5 py-2"><div class="font-black mt-3" style="font-size:26px;letter-spacing:-.025em;color:#1C1C1E">$1,500 MXN</div></div><div class="px-5 pb-5"><a href="https://wa.me/528127174207?text=Hola%2C%20me%20interesa%20Marca%20Personal%20(%241%2C500)" class="btn-gold" style="width:100%;justify-content:center;font-size:11px">Solicitar</a></div></div>
 
-      <div class="bg-white rounded-2xl border-2 border-[#E8E8EA] overflow-hidden" style="box-shadow:0 6px 24px rgba(28,28,30,.06);display:flex;flex-direction:column"><div class="p-5 pb-4" style="flex:1"><span class="material-symbols-outlined block mb-3" style="font-size:26px;color:#C9A84C">chair</span><h3 class="font-black mb-2" style="font-size:17px;color:#1C1C1E">Staging Virtual</h3><p style="font-size:13px;line-height:1.6;color:#9B9B9F">Transforma espacios vacíos en ambientes amueblados y aspiracionales. 1–2 fotos $900 c/u · 3–5 fotos $800 c/u · 6+ fotos $700 c/u</p></div><div class="px-5 py-2"><div class="font-black mt-3" style="font-size:26px;letter-spacing:-.025em;color:#1C1C1E">desde $700</div></div><div class="px-5 pb-5"><a href="https://wa.me/528127174207?text=Hola%2C%20me%20interesa%20Staging%20Virtual" class="btn-gold" style="width:100%;justify-content:center;font-size:11px">Solicitar</a></div></div>
+      <div class="bg-white rounded-2xl border-2 border-[#E8E8EA] overflow-hidden" style="box-shadow:0 6px 24px rgba(28,28,30,.06);display:flex;flex-direction:column"><div class="p-5 pb-4" style="flex:1"><span class="material-symbols-outlined block mb-3" style="font-size:26px;color:#C9A84C">chair</span><h3 class="font-black mb-2" style="font-size:17px;color:#1C1C1E">Staging Virtual</h3><p style="font-size:13px;line-height:1.6;color:#9B9B9F">Transforma espacios vacíos en ambientes amueblados y aspiracionales. 1–2 fotos $900 c/u · 3–5 fotos $800 c/u · 6+ fotos $700 c/u</p></div><div class="px-5 py-2"><div class="font-black mt-3" style="font-size:26px;letter-spacing:-.025em;color:#1C1C1E">desde $700 MXN</div></div><div class="px-5 pb-5"><a href="https://wa.me/528127174207?text=Hola%2C%20me%20interesa%20Staging%20Virtual" class="btn-gold" style="width:100%;justify-content:center;font-size:11px">Solicitar</a></div></div>
 
-      <div class="bg-white rounded-2xl border-2 border-[#E8E8EA] overflow-hidden" style="box-shadow:0 6px 24px rgba(28,28,30,.06);display:flex;flex-direction:column"><div class="p-5 pb-4" style="flex:1"><span class="material-symbols-outlined block mb-3" style="font-size:26px;color:#C9A84C">construction</span><h3 class="font-black mb-2" style="font-size:17px;color:#1C1C1E">Avance de Obra</h3><p style="font-size:13px;line-height:1.6;color:#9B9B9F">Cobertura con dron en visitas periódicas. Ángulos estandarizados para reportes de avance e inversores.</p></div><div class="px-5 py-2"><div class="font-black mt-3" style="font-size:26px;letter-spacing:-.025em;color:#1C1C1E">$3,500</div><div style="font-size:11px;color:#9B9B9F;margin-top:4px">Por visita</div></div><div class="px-5 pb-5"><a href="https://wa.me/528127174207?text=Hola%2C%20me%20interesa%20Avance%20de%20Obra%20(%243%2C500%2Fvisita)" class="btn-gold" style="width:100%;justify-content:center;font-size:11px">Solicitar</a></div></div>
+      <div class="bg-white rounded-2xl border-2 border-[#E8E8EA] overflow-hidden" style="box-shadow:0 6px 24px rgba(28,28,30,.06);display:flex;flex-direction:column"><div class="p-5 pb-4" style="flex:1"><span class="material-symbols-outlined block mb-3" style="font-size:26px;color:#C9A84C">construction</span><h3 class="font-black mb-2" style="font-size:17px;color:#1C1C1E">Avance de Obra</h3><p style="font-size:13px;line-height:1.6;color:#9B9B9F">Cobertura con dron en visitas periódicas. Ángulos estandarizados para reportes de avance e inversores.</p></div><div class="px-5 py-2"><div class="font-black mt-3" style="font-size:26px;letter-spacing:-.025em;color:#1C1C1E">$3,500 MXN</div><div style="font-size:11px;color:#9B9B9F;margin-top:4px">Por visita</div></div><div class="px-5 pb-5"><a href="https://wa.me/528127174207?text=Hola%2C%20me%20interesa%20Avance%20de%20Obra%20(%243%2C500%2Fvisita)" class="btn-gold" style="width:100%;justify-content:center;font-size:11px">Solicitar</a></div></div>
 
-      <div class="bg-white rounded-2xl border-2 border-[#E8E8EA] overflow-hidden" style="box-shadow:0 6px 24px rgba(28,28,30,.06);display:flex;flex-direction:column"><div class="p-5 pb-4" style="flex:1"><span class="material-symbols-outlined block mb-3" style="font-size:26px;color:#C9A84C">straighten</span><h3 class="font-black mb-2" style="font-size:17px;color:#1C1C1E">Plano 3D + 2D</h3><p style="font-size:13px;line-height:1.6;color:#9B9B9F">Levantamiento digital de la propiedad con plano 2D y recorrido visual 3D. Entrega en PDF y JPG.</p></div><div class="px-5 py-2"><div class="font-black mt-3" style="font-size:26px;letter-spacing:-.025em;color:#1C1C1E">$3,500</div></div><div class="px-5 pb-5"><a href="https://wa.me/528127174207?text=Hola%2C%20me%20interesa%20Plano%203D%20%2B%202D%20(%243%2C500)" class="btn-gold" style="width:100%;justify-content:center;font-size:11px">Solicitar</a></div></div>
+      <div class="bg-white rounded-2xl border-2 border-[#E8E8EA] overflow-hidden" style="box-shadow:0 6px 24px rgba(28,28,30,.06);display:flex;flex-direction:column"><div class="p-5 pb-4" style="flex:1"><span class="material-symbols-outlined block mb-3" style="font-size:26px;color:#C9A84C">straighten</span><h3 class="font-black mb-2" style="font-size:17px;color:#1C1C1E">Plano 3D + 2D</h3><p style="font-size:13px;line-height:1.6;color:#9B9B9F">Levantamiento digital de la propiedad con plano 2D y recorrido visual 3D. Entrega en PDF y JPG.</p></div><div class="px-5 py-2"><div class="font-black mt-3" style="font-size:26px;letter-spacing:-.025em;color:#1C1C1E">$3,500 MXN</div></div><div class="px-5 pb-5"><a href="https://wa.me/528127174207?text=Hola%2C%20me%20interesa%20Plano%203D%20%2B%202D%20(%243%2C500)" class="btn-gold" style="width:100%;justify-content:center;font-size:11px">Solicitar</a></div></div>
     </div><!-- /carta -->
 
   </div>
 </section>
 
 <!-- PREGUNTAS FRECUENTES -->
+<!-- CÓMO FUNCIONA -->
+<section class="relative overflow-hidden py-24 md:py-32" style="background:#F9F7F4">
+
+  <div class="max-w-[1240px] mx-auto px-6 md:px-8 relative z-10">
+
+    <!-- Header -->
+    <div class="mb-16 md:mb-20">
+      <p class="font-bold uppercase mb-4" style="font-size:10px;letter-spacing:.22em;color:#C9A84C">Simple y sin complicaciones</p>
+      <h2 class="font-black" style="font-size:clamp(2rem,5vw,3.4rem);letter-spacing:-.03em;line-height:1.05;color:#1C1C1E">Cómo funciona</h2>
+    </div>
+
+    <!-- Steps -->
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+
+      <!-- Paso 1 -->
+      <div class="relative bg-white rounded-2xl p-5" style="box-shadow:0 6px 32px rgba(28,28,30,.06)">
+        <div class="flex items-center justify-center font-black mb-4" style="width:40px;height:40px;border-radius:50%;background:#C9A84C;color:#1C1C1E;font-size:15px;letter-spacing:-.02em">01</div>
+        <h3 class="font-black mb-2" style="font-size:15px;color:#1C1C1E;letter-spacing:-.01em">Cuéntanos tu propiedad</h3>
+        <p style="font-size:13px;line-height:1.7;color:#9B9B9F">Dinos el tipo de propiedad y el paquete que te interesa. Agendamos una llamada si necesitas más claridad sobre el servicio o el mejor paquete para ti.</p>
+      </div>
+
+      <!-- Paso 2 -->
+      <div class="relative bg-white rounded-2xl p-5" style="box-shadow:0 6px 32px rgba(28,28,30,.06)">
+        <div class="flex items-center justify-center font-black mb-4" style="width:40px;height:40px;border-radius:50%;background:#C9A84C;color:#1C1C1E;font-size:15px;letter-spacing:-.02em">02</div>
+        <h3 class="font-black mb-2" style="font-size:15px;color:#1C1C1E;letter-spacing:-.01em">Producción en sitio</h3>
+        <p style="font-size:13px;line-height:1.7;color:#9B9B9F">Llegamos el día acordado con equipo de cámara e iluminación profesional. Solo necesitamos que la propiedad esté limpia y con acceso listo. Nosotros nos encargamos de capturar la mejor luz y hacer el video cinemático.</p>
+      </div>
+
+      <!-- Paso 3 -->
+      <div class="relative bg-white rounded-2xl p-5" style="box-shadow:0 6px 32px rgba(28,28,30,.06)">
+        <div class="flex items-center justify-center font-black mb-4" style="width:40px;height:40px;border-radius:50%;background:#C9A84C;color:#1C1C1E;font-size:15px;letter-spacing:-.02em">03</div>
+        <h3 class="font-black mb-2" style="font-size:15px;color:#1C1C1E;letter-spacing:-.01em">Entrega en 3 días hábiles</h3>
+        <p style="font-size:13px;line-height:1.7;color:#9B9B9F">Recibes un enlace de Google Drive con todo tu material editado, en alta resolución y optimizado. Listo para subirlo a portales y enviárselo a tus clientes.</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
 <section id="faq" class="py-20 md:py-24" style="background:#F9F7F4">
   <div class="max-w-[760px] mx-auto px-6 md:px-8">
     <button onclick="toggleFaqSection(this)" class="w-full flex items-center justify-between bg-white rounded-2xl px-8 py-7 border border-[#E8E8EA] cursor-pointer text-left font-mont" style="box-shadow:0 6px 24px rgba(28,28,30,.06);transition:box-shadow .25s">
@@ -617,7 +656,7 @@ function switchPkg(tab,btn){
   if(target){
     target.style.display='grid';
     target.style.gap='20px';
-    if(tab!=='carta'){target.style.paddingTop='24px';}else{target.style.paddingTop='0';}
+    if(tab!=='carta'){target.style.paddingTop='24px';target.style.alignItems='start';}else{target.style.paddingTop='0';target.style.alignItems='';}
   }
   btn.classList.add('active');
 }
@@ -662,14 +701,12 @@ function toggleAcc(btn){
   var body = btn.nextElementSibling;
   var icon = btn.querySelector('.material-symbols-outlined');
   var isOpen = body.classList.contains('open');
-  var activePanel = btn.closest('[id^="pkg-"]');
-  if(activePanel){
-    activePanel.querySelectorAll('.acc-body.open').forEach(function(b){
-      b.classList.remove('open');
-      var prevBtn = b.previousElementSibling;
-      if(prevBtn){ var ic = prevBtn.querySelector('.material-symbols-outlined'); if(ic) ic.textContent='expand_more'; }
-    });
-  }
+  // Close ALL accordions in ALL pkg panels
+  document.querySelectorAll('[id^="pkg-"] .acc-body.open').forEach(function(b){
+    b.classList.remove('open');
+    var prevBtn = b.previousElementSibling;
+    if(prevBtn){ var ic = prevBtn.querySelector('.material-symbols-outlined'); if(ic) ic.textContent='expand_more'; }
+  });
   if(!isOpen){
     body.classList.add('open');
     icon.textContent='expand_less';
