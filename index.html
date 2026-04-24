@@ -89,9 +89,27 @@ body{font-family:'Montserrat',sans-serif;-webkit-font-smoothing:antialiased;}
 .pkg-card-hover:hover{transform:translateY(-4px);box-shadow:0 24px 56px rgba(201,168,76,.18)!important;border-color:#C9A84C!important;}
 /* Nav blur transition */
 #site-header{transition:background .4s ease,box-shadow .4s ease,backdrop-filter .4s ease;}
-/* Mobile drawer */
-#mob-drawer{transform:translateX(100%);transition:transform .35s cubic-bezier(.22,1,.36,1);}
-#mob-drawer.open{transform:translateX(0);}
+/* Mobile drawer - sistema unificado (solo clase .open controla todo) */
+#mob-drawer{
+  position:fixed;top:0;left:0;right:0;bottom:0;
+  width:100%;height:100%;
+  background:#1C1C1E;
+  z-index:99999;
+  display:flex;flex-direction:column;
+  padding:80px 40px 40px;
+  box-sizing:border-box;
+  overflow-y:auto;
+  transform:translateX(100%);
+  visibility:hidden;
+  transition:transform .35s cubic-bezier(.22,1,.36,1), visibility 0s linear .35s;
+  -webkit-overflow-scrolling:touch;
+}
+#mob-drawer.open{
+  transform:translateX(0);
+  visibility:visible;
+  transition:transform .35s cubic-bezier(.22,1,.36,1), visibility 0s linear 0s;
+}
+body.mob-open{overflow:hidden;}
 /* Nav */
 .nav-lnk{font-size:11px;letter-spacing:.1em;font-weight:700;text-transform:uppercase;color:#9B9B9F;text-decoration:none;transition:color .2s;}
 .nav-lnk:hover{color:#1C1C1E;}
@@ -120,36 +138,77 @@ body{font-family:'Montserrat',sans-serif;-webkit-font-smoothing:antialiased;}
 }
 </style>
 <style>
-#mob-drawer { display: none !important; }
-#mob-drawer.mob-open { display: flex !important; flex-direction: column !important; position: fixed !important; top: 0 !important; left: 0 !important; right: 0 !important; bottom: 0 !important; z-index: 99999 !important; background: #1C1C1E !important; padding: 80px 40px 40px !important; }
+/* ── HAMBURGER BUTTON ── */
+#ham-btn{
+  display:flex;flex-direction:column;gap:5px;
+  padding:8px;background:transparent;border:none;cursor:pointer;
+  position:relative;z-index:100000;
+  -webkit-tap-highlight-color:transparent;
+  touch-action:manipulation;
+}
+#ham-btn span{
+  background:#fff;width:24px;height:2px;display:block;
+  transition:transform .3s cubic-bezier(.22,1,.36,1), opacity .3s, background .3s;
+  transform-origin:center;
+  pointer-events:none; /* evita que el span intercepte el tap */
+}
+#ham-btn.open span:nth-child(1){transform:translateY(7px) rotate(45deg);background:#fff !important;}
+#ham-btn.open span:nth-child(2){opacity:0;}
+#ham-btn.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg);background:#fff !important;}
+@media (min-width:768px){#ham-btn{display:none !important;}}
+
+/* ── DRAWER LINKS ── */
+.drawer-link{
+  text-align:left;font-size:24px;font-weight:900;padding:16px 0;
+  border:none;border-bottom:1px solid rgba(255,255,255,.1);
+  background:transparent;cursor:pointer;color:#fff;
+  font-family:'Montserrat',sans-serif;width:100%;
+  letter-spacing:-.01em;
+  -webkit-tap-highlight-color:transparent;
+  transition:color .2s;
+}
+.drawer-link:active,.drawer-link:hover{color:#C9A84C;}
 </style>
 <script>
-var mobOpen = false;
-function toggleMob() {
-  mobOpen = !mobOpen;
+function openDrawer(){
   var drawer = document.getElementById('mob-drawer');
-  console.log('toggleMob fired, mobOpen='+mobOpen+', drawer='+drawer+', drawer style='+( drawer ? drawer.getAttribute('style') : 'N/A'));
-  var h1 = document.getElementById('h1');
-  var h2 = document.getElementById('h2');
-  var h3 = document.getElementById('h3');
-  if (drawer) {
-    var newStyle = mobOpen
-        ? 'position:fixed;top:0;left:0;width:100%;height:100%;background:#1C1C1E;z-index:99999;display:flex;flex-direction:column;padding:80px 40px 40px;box-sizing:border-box;'
-        : 'display:none;';
-    drawer.setAttribute('style', newStyle);
-    console.log('Set drawer style to: '+newStyle);
-    console.log('Drawer style after set: '+drawer.getAttribute('style'));
-  }
-  if (h1) h1.style.transform = mobOpen ? 'rotate(45deg) translate(5px,5px)' : '';
-  if (h2) h2.style.opacity = mobOpen ? '0' : '1';
-  if (h3) h3.style.transform = mobOpen ? 'rotate(-45deg) translate(5px,-5px)' : '';
-  document.body.style.overflow = mobOpen ? 'hidden' : '';
+  var btn = document.getElementById('ham-btn');
+  if(!drawer || !btn) return;
+  drawer.classList.add('open');
+  btn.classList.add('open');
+  btn.setAttribute('aria-expanded','true');
+  btn.setAttribute('aria-label','Cerrar menú');
+  document.body.classList.add('mob-open');
 }
-function navTo(id) {
+function closeDrawer(){
+  var drawer = document.getElementById('mob-drawer');
+  var btn = document.getElementById('ham-btn');
+  if(!drawer || !btn) return;
+  drawer.classList.remove('open');
+  btn.classList.remove('open');
+  btn.setAttribute('aria-expanded','false');
+  btn.setAttribute('aria-label','Abrir menú');
+  document.body.classList.remove('mob-open');
+}
+function toggleMob(){
+  var drawer = document.getElementById('mob-drawer');
+  if(!drawer) return;
+  if(drawer.classList.contains('open')) closeDrawer();
+  else openDrawer();
+}
+function navTo(id){
+  closeDrawer();
   var el = document.getElementById(id);
-  if (el) window.scrollTo({ top: el.offsetTop - 72, behavior: 'smooth' });
-  if (mobOpen) toggleMob();
+  if(!el) return;
+  // pequeño delay para que el body recupere scroll antes de hacer smooth scroll
+  setTimeout(function(){
+    window.scrollTo({ top: el.offsetTop - 72, behavior: 'smooth' });
+  }, 60);
 }
+// ESC cierra el menú
+document.addEventListener('keydown', function(e){
+  if(e.key === 'Escape') closeDrawer();
+});
 </script>
 </head>
 <body class="bg-[#FAFAFA] text-[#1C1C1E] font-mont">
@@ -160,24 +219,25 @@ function navTo(id) {
     <a href="#" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;">
       <img id="header-logo" src="logo.svg" alt="Inmuebles Audiovisuales" style="height:44px;width:auto;max-width:180px;filter:brightness(0) invert(1);transition:filter .3s">
     </a>
-    <div class="hidden md:flex items-center gap-7">
-      <a href="#portafolio" onclick="navTo('portafolio');return false;" class="nav-lnk" id="nl-port" style="color:rgba(255,255,255,.8)">Portafolio</a>
-      <a href="#paquetes"   onclick="navTo('paquetes');return false;"   class="nav-lnk" id="nl-paq"  style="color:rgba(255,255,255,.8)">Paquetes</a>
+    <div class="hidden md:flex items-center gap-6">
+      <a href="#servicios"    onclick="navTo('servicios');return false;"    class="nav-lnk" style="color:rgba(255,255,255,.8)">Servicios</a>
+      <a href="#paquetes"     onclick="navTo('paquetes');return false;"     class="nav-lnk" style="color:rgba(255,255,255,.8)">Paquetes</a>
+      <a href="#como-funciona" onclick="navTo('como-funciona');return false;" class="nav-lnk" style="color:rgba(255,255,255,.8)">Cómo funciona</a>
+      <a href="#faq"          onclick="navTo('faq');return false;"          class="nav-lnk" style="color:rgba(255,255,255,.8)">FAQ</a>
+      <a href="#portafolio"   onclick="navTo('portafolio');return false;"   class="nav-lnk" style="color:rgba(255,255,255,.8)">Portafolio</a>
+      <a href="#contacto"     onclick="navTo('contacto');return false;"     class="nav-lnk" style="color:rgba(255,255,255,.8)">Contacto</a>
       <a href="https://wa.me/528127174207" class="btn-gold btn-gold-sm">
         <svg width="14" height="14" viewBox="0 0 24 24" fill="#1C1C1E"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
         Agendar
       </a>
     </div>
-    <button id="ham-btn" onclick="toggleMob()" class="md:hidden flex flex-col gap-[5px] p-2 bg-transparent border-none cursor-pointer">
-      <span id="h1" class="block w-6 h-[2px] transition-all duration-300" style="background:#fff"></span>
-      <span id="h2" class="block w-6 h-[2px] transition-all duration-300" style="background:#fff"></span>
-      <span id="h3" class="block w-6 h-[2px] transition-all duration-300" style="background:#fff"></span>
+    <button type="button" id="ham-btn" class="md:hidden" aria-label="Abrir menú" aria-expanded="false" aria-controls="mob-drawer" onclick="toggleMob()">
+      <span id="h1"></span>
+      <span id="h2"></span>
+      <span id="h3"></span>
     </button>
   </nav>
 </header>
-
-
-</div>
 
 <main>
 
@@ -937,14 +997,16 @@ if(ctaLine){
 }
 
 </script>
-<!-- Mobile Drawer -->
-<div id="mob-drawer" style="position:fixed;top:0;left:0;right:0;bottom:0;background:#1C1C1E;z-index:9999;padding:80px 40px 40px;flex-direction:column;gap:0;">
-  <button onclick="navTo('servicios')" class="text-left text-2xl font-black py-4 border-b bg-transparent border-x-0 border-t-0 cursor-pointer font-mont" style="color:#fff;border-color:rgba(255,255,255,.1)">Servicios</button>
-  <button onclick="navTo('paquetes')" class="text-left text-2xl font-black py-4 border-b bg-transparent border-x-0 border-t-0 cursor-pointer font-mont" style="color:#fff;border-color:rgba(255,255,255,.1)">Paquetes</button>
-  <button onclick="navTo('como-funciona')" class="text-left text-2xl font-black py-4 border-b bg-transparent border-x-0 border-t-0 cursor-pointer font-mont" style="color:#fff;border-color:rgba(255,255,255,.1)">Cómo funciona</button>
-  <button onclick="navTo('faq')" class="text-left text-2xl font-black py-4 border-b bg-transparent border-x-0 border-t-0 cursor-pointer font-mont" style="color:#fff;border-color:rgba(255,255,255,.1)">Preguntas frecuentes</button>
-  <button onclick="navTo('portafolio')" class="text-left text-2xl font-black py-4 border-b bg-transparent border-x-0 border-t-0 cursor-pointer font-mont" style="color:#fff;border-color:rgba(255,255,255,.1)">Portafolio</button>
-  <button onclick="navTo('contacto')" class="text-left text-2xl font-black py-4 border-b bg-transparent border-x-0 border-t-0 cursor-pointer font-mont" style="color:#fff;border-color:rgba(255,255,255,.1)">Contacto</button>
-  <div class="mt-8"><a href="https://wa.me/528127174207" class="btn-gold btn-gold-lg" style="width:100%">Agendar por WhatsApp</a></div>
+<!-- Mobile Drawer (controlado por clase .open vía JS) -->
+<div id="mob-drawer" aria-label="Menú móvil" role="dialog" aria-modal="true">
+  <button type="button" id="drawer-close" onclick="closeDrawer()" aria-label="Cerrar menú" style="position:absolute;top:20px;right:20px;background:transparent;border:none;color:#fff;font-size:28px;cursor:pointer;padding:8px;line-height:1">&times;</button>
+  <button onclick="navTo('servicios')" class="drawer-link">Servicios</button>
+  <button onclick="navTo('paquetes')" class="drawer-link">Paquetes</button>
+  <button onclick="navTo('como-funciona')" class="drawer-link">Cómo funciona</button>
+  <button onclick="navTo('faq')" class="drawer-link">Preguntas frecuentes</button>
+  <button onclick="navTo('portafolio')" class="drawer-link">Portafolio</button>
+  <button onclick="navTo('contacto')" class="drawer-link">Contacto</button>
+  <div style="margin-top:32px"><a href="https://wa.me/528127174207" class="btn-gold btn-gold-lg" style="width:100%;display:inline-flex">Agendar por WhatsApp</a></div>
+</div>
 </body>
 </html>
