@@ -119,6 +119,38 @@ body{font-family:'Montserrat',sans-serif;-webkit-font-smoothing:antialiased;}
   .port-tab-btn, .pkg-tab-btn { padding: 8px 8px; font-size: 9px; letter-spacing:.08em; }
 }
 </style>
+<style>
+#mob-drawer { display: none !important; }
+#mob-drawer.mob-open { display: flex !important; flex-direction: column !important; position: fixed !important; top: 0 !important; left: 0 !important; right: 0 !important; bottom: 0 !important; z-index: 99999 !important; background: #1C1C1E !important; padding: 80px 40px 40px !important; }
+</style>
+<script>
+var mobOpen = false;
+function toggleMob() {
+  mobOpen = !mobOpen;
+  var drawer = document.getElementById('mob-drawer');
+  console.log('toggleMob fired, mobOpen='+mobOpen+', drawer='+drawer+', drawer style='+( drawer ? drawer.getAttribute('style') : 'N/A'));
+  var h1 = document.getElementById('h1');
+  var h2 = document.getElementById('h2');
+  var h3 = document.getElementById('h3');
+  if (drawer) {
+    var newStyle = mobOpen
+        ? 'position:fixed;top:0;left:0;width:100%;height:100%;background:#1C1C1E;z-index:99999;display:flex;flex-direction:column;padding:80px 40px 40px;box-sizing:border-box;'
+        : 'display:none;';
+    drawer.setAttribute('style', newStyle);
+    console.log('Set drawer style to: '+newStyle);
+    console.log('Drawer style after set: '+drawer.getAttribute('style'));
+  }
+  if (h1) h1.style.transform = mobOpen ? 'rotate(45deg) translate(5px,5px)' : '';
+  if (h2) h2.style.opacity = mobOpen ? '0' : '1';
+  if (h3) h3.style.transform = mobOpen ? 'rotate(-45deg) translate(5px,-5px)' : '';
+  document.body.style.overflow = mobOpen ? 'hidden' : '';
+}
+function navTo(id) {
+  var el = document.getElementById(id);
+  if (el) window.scrollTo({ top: el.offsetTop - 72, behavior: 'smooth' });
+  if (mobOpen) toggleMob();
+}
+</script>
 </head>
 <body class="bg-[#FAFAFA] text-[#1C1C1E] font-mont">
 
@@ -144,12 +176,7 @@ body{font-family:'Montserrat',sans-serif;-webkit-font-smoothing:antialiased;}
   </nav>
 </header>
 
-<!-- Mobile Drawer -->
-<div id="mob-drawer" class="fixed top-0 left-0 right-0 bottom-0 z-40 flex flex-col p-10 pt-24 gap-2 md:hidden" style="background:#1C1C1E;transform:translateX(100%);transition:transform .35s cubic-bezier(.22,1,.36,1)">
-  <button onclick="navTo('portafolio')" class="text-left text-2xl font-black py-4 border-b bg-transparent border-x-0 border-t-0 cursor-pointer font-mont" style="color:#fff;border-color:rgba(255,255,255,.1)">Portafolio</button>
-  <button onclick="navTo('paquetes')"   class="text-left text-2xl font-black py-4 border-b bg-transparent border-x-0 border-t-0 cursor-pointer font-mont" style="color:#fff;border-color:rgba(255,255,255,.1)">Paquetes</button>
-  <button onclick="navTo('contacto')"   class="text-left text-2xl font-black py-4 border-b bg-transparent border-x-0 border-t-0 cursor-pointer font-mont" style="color:#fff;border-color:rgba(255,255,255,.1)">Contacto</button>
-  <div class="mt-8"><a href="https://wa.me/528127174207" class="btn-gold btn-gold-lg" style="width:100%">Agendar por WhatsApp</a></div>
+
 </div>
 
 <main>
@@ -190,8 +217,8 @@ body{font-family:'Montserrat',sans-serif;-webkit-font-smoothing:antialiased;}
   <div class="max-w-[1240px] mx-auto px-6 md:px-8 grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
     <div class="reveal reveal-delay-1"><div class="font-black mb-1" style="font-size:clamp(18px,3vw,26px);letter-spacing:-.02em;color:#C9A84C">+<span class="stat-num" data-target="350" data-suffix="">350</span> propiedades</div><div style="font-size:10px;letter-spacing:.14em;color:#9B9B9F;text-transform:uppercase;">Transformadas en contenido que vende</div></div>
     <div class="reveal reveal-delay-2"><div class="font-black mb-1" style="font-size:clamp(18px,3vw,26px);letter-spacing:-.02em;color:#C9A84C"><span class="stat-num" data-target="72" data-suffix=" horas">72 horas</span></div><div style="font-size:10px;letter-spacing:.14em;color:#9B9B9F;text-transform:uppercase;">Material listo para publicar</div></div>
-    <div class="reveal reveal-delay-3"><div class="font-black mb-1" style="font-size:clamp(18px,3vw,26px);letter-spacing:-.02em;color:#C9A84C"><span class="stat-num" data-target="60" data-suffix="%">60%</span> del tiempo</div><div style="font-size:10px;letter-spacing:.14em;color:#9B9B9F;text-transform:uppercase;">El comprador lo pasa viendo imágenes</div></div>
-    <div class="reveal reveal-delay-4"><div class="font-black mb-1" style="font-size:clamp(18px,3vw,26px);letter-spacing:-.02em;color:#C9A84C">+<span class="stat-num" data-target="2" data-suffix=".8%">2.8%</span> precio final</div><div style="font-size:10px;letter-spacing:.14em;color:#9B9B9F;text-transform:uppercase;">Propiedades con foto profesional se venden más caras</div></div>
+    <div class="reveal reveal-delay-3"><div class="font-black mb-1" style="font-size:clamp(18px,3vw,26px);letter-spacing:-.02em;color:#C9A84C"><span class="stat-num" data-target="60" data-suffix="%" data-start="0">0%</span> del tiempo</div><div style="font-size:10px;letter-spacing:.14em;color:#9B9B9F;text-transform:uppercase;">El comprador lo pasa viendo imágenes</div></div>
+    <div class="reveal reveal-delay-4"><div class="font-black mb-1" style="font-size:clamp(18px,3vw,26px);letter-spacing:-.02em;color:#C9A84C">Desde <span class="stat-num" data-target="2020" data-suffix="" data-start="2029">2029</span></div><div style="font-size:10px;letter-spacing:.14em;color:#9B9B9F;text-transform:uppercase;">Produciendo contenido que vende propiedades en Monterrey</div></div>
   </div>
 </section>
 
@@ -744,9 +771,8 @@ window.addEventListener('scroll', function(){
   }
 });
 
-function navTo(id){var el=document.getElementById(id);if(el)window.scrollTo({top:el.offsetTop-72,behavior:'smooth'});var d=document.getElementById('mob-drawer');if(d.classList.contains('open'))toggleMob();}
-var mobOpen=false;
-function toggleMob(){mobOpen=!mobOpen;document.getElementById('mob-drawer').classList.toggle('open',mobOpen);document.getElementById('h1').style.transform=mobOpen?'rotate(45deg) translate(5px,5px)':'';document.getElementById('h2').style.opacity=mobOpen?'0':'1';document.getElementById('h3').style.transform=mobOpen?'rotate(-45deg) translate(5px,-5px)':'';}
+// navTo defined in <head>
+// toggleMob defined in <head>
 function switchPkg(tab,btn){
   ['pkg-residencial','pkg-terrenos','pkg-carta'].forEach(function(id){
     var el=document.getElementById(id);
@@ -831,6 +857,8 @@ var revealObserver = new IntersectionObserver(function(entries){
 },{threshold:0.12});
 document.querySelectorAll('.reveal').forEach(function(el){revealObserver.observe(el);});
 
+
+
 // ── STEP NUMBER BOUNCE ───────────────────────────────────────────────────────
 var stepObserver = new IntersectionObserver(function(entries){
   entries.forEach(function(entry){
@@ -853,14 +881,15 @@ document.querySelectorAll('.gold-bar').forEach(function(el){ if(!el.closest('.re
 // ── 3. STAT COUNTERS ────────────────────────────────────────────────────────
 function animateCounter(el){
   var target = parseInt(el.getAttribute('data-target'));
-  var suffix = el.getAttribute('data-suffix');
+  var from = parseInt(el.getAttribute('data-start') || '0');
+  var suffix = el.getAttribute('data-suffix') || '';
   var duration = 1800;
-  var start = null;
+  var startTs = null;
   function step(ts){
-    if(!start) start = ts;
-    var progress = Math.min((ts - start) / duration, 1);
+    if(!startTs) startTs = ts;
+    var progress = Math.min((ts - startTs) / duration, 1);
     var ease = 1 - Math.pow(1 - progress, 5);
-    el.textContent = Math.round(ease * target) + suffix;
+    el.textContent = Math.round(from + ease * (target - from)) + suffix;
     if(progress < 1) requestAnimationFrame(step);
   }
   requestAnimationFrame(step);
@@ -868,7 +897,9 @@ function animateCounter(el){
 var counterObserver = new IntersectionObserver(function(entries){
   entries.forEach(function(entry){
     if(entry.isIntersecting){
-      entry.target.querySelectorAll('.stat-num').forEach(animateCounter);
+      setTimeout(function(){
+        entry.target.querySelectorAll('.stat-num').forEach(animateCounter);
+      }, 300);
       counterObserver.unobserve(entry.target);
     }
   });
@@ -906,5 +937,14 @@ if(ctaLine){
 }
 
 </script>
+<!-- Mobile Drawer -->
+<div id="mob-drawer" style="position:fixed;top:0;left:0;right:0;bottom:0;background:#1C1C1E;z-index:9999;padding:80px 40px 40px;flex-direction:column;gap:0;">
+  <button onclick="navTo('servicios')" class="text-left text-2xl font-black py-4 border-b bg-transparent border-x-0 border-t-0 cursor-pointer font-mont" style="color:#fff;border-color:rgba(255,255,255,.1)">Servicios</button>
+  <button onclick="navTo('paquetes')" class="text-left text-2xl font-black py-4 border-b bg-transparent border-x-0 border-t-0 cursor-pointer font-mont" style="color:#fff;border-color:rgba(255,255,255,.1)">Paquetes</button>
+  <button onclick="navTo('como-funciona')" class="text-left text-2xl font-black py-4 border-b bg-transparent border-x-0 border-t-0 cursor-pointer font-mont" style="color:#fff;border-color:rgba(255,255,255,.1)">Cómo funciona</button>
+  <button onclick="navTo('faq')" class="text-left text-2xl font-black py-4 border-b bg-transparent border-x-0 border-t-0 cursor-pointer font-mont" style="color:#fff;border-color:rgba(255,255,255,.1)">Preguntas frecuentes</button>
+  <button onclick="navTo('portafolio')" class="text-left text-2xl font-black py-4 border-b bg-transparent border-x-0 border-t-0 cursor-pointer font-mont" style="color:#fff;border-color:rgba(255,255,255,.1)">Portafolio</button>
+  <button onclick="navTo('contacto')" class="text-left text-2xl font-black py-4 border-b bg-transparent border-x-0 border-t-0 cursor-pointer font-mont" style="color:#fff;border-color:rgba(255,255,255,.1)">Contacto</button>
+  <div class="mt-8"><a href="https://wa.me/528127174207" class="btn-gold btn-gold-lg" style="width:100%">Agendar por WhatsApp</a></div>
 </body>
 </html>
