@@ -22,12 +22,12 @@ tailwind.config={theme:{extend:{colors:{gold:"#C9A84C",goldL:"#E2C289",charcoal:
 *{box-sizing:border-box;}
 body{font-family:'Montserrat',sans-serif;-webkit-font-smoothing:antialiased;}
 .material-symbols-outlined{font-variation-settings:'FILL' 0,'wght' 400,'GRAD' 0,'opsz' 24;line-height:1;}
-@keyframes fadeUp{from{opacity:0;transform:translateY(24px);}to{opacity:1;transform:none;}}
-.h-a1{animation:fadeUp .9s cubic-bezier(.22,1,.36,1) both;}
-.h-a2{animation:fadeUp .9s .18s cubic-bezier(.22,1,.36,1) both;}
-.h-a3{animation:fadeUp .9s .34s cubic-bezier(.22,1,.36,1) both;}
+@keyframes fadeUp{from{opacity:0;transform:translateY(10px);}to{opacity:1;transform:none;}}
+.h-a1{animation:fadeUp .3s cubic-bezier(.22,1,.36,1) both;}
+.h-a2{animation:fadeUp .3s .05s cubic-bezier(.22,1,.36,1) both;}
+.h-a3{animation:fadeUp .3s .10s cubic-bezier(.22,1,.36,1) both;}
 /* Accordion */
-.acc-body{max-height:0;overflow:hidden;transition:max-height .45s cubic-bezier(.22,1,.36,1);}
+.acc-body{max-height:0;overflow:hidden;transition:max-height .3s cubic-bezier(.22,1,.36,1);}
 .acc-body.open{max-height:2000px;}
 /* Tabs */
 .pkg-tab-btn{padding:10px 12px;border-radius:9999px;font-size:11px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;border:none;background:transparent;color:#9B9B9F;cursor:pointer;transition:all .25s;font-family:'Montserrat',sans-serif;text-align:center;}
@@ -41,54 +41,92 @@ body{font-family:'Montserrat',sans-serif;-webkit-font-smoothing:antialiased;}
 /* Card hover */
 .svc-card{transition:all .3s cubic-bezier(.22,1,.36,1);}
 .svc-card:hover{transform:translateY(-4px);box-shadow:0 20px 60px rgba(28,28,30,.12)!important;}
+/* Stagger para cards hijos de reveal-group */
+.reveal-group .reveal-child{opacity:0;transform:translateY(10px);transition:opacity .2s cubic-bezier(.16,1,.3,1),transform .2s cubic-bezier(.16,1,.3,1);}
+.reveal-group.visible .reveal-child:nth-child(1){opacity:1;transform:none;transition-delay:.02s;}
+.reveal-group.visible .reveal-child:nth-child(2){opacity:1;transform:none;transition-delay:.06s;}
+.reveal-group.visible .reveal-child:nth-child(3){opacity:1;transform:none;transition-delay:.10s;}
+.reveal-group.visible .reveal-child:nth-child(4){opacity:1;transform:none;transition-delay:.14s;}
+.reveal-group.visible .reveal-child:nth-child(5){opacity:1;transform:none;transition-delay:.18s;}
+.reveal-group.visible .reveal-child:nth-child(6){opacity:1;transform:none;transition-delay:.22s;}
+.reveal-group.visible .reveal-child:nth-child(7){opacity:1;transform:none;transition-delay:.26s;}
+.reveal-group.visible .reveal-child:nth-child(8){opacity:1;transform:none;transition-delay:.30s;}
+/* Tab-switch fade */
+@keyframes tabFadeIn{from{opacity:0;transform:translateY(6px);}to{opacity:1;transform:none;}}
+.tab-in{animation:tabFadeIn .18s cubic-bezier(.16,1,.3,1) both;}
 /* Scroll fade-up */
-.reveal{opacity:0;transform:translateY(36px);transition:opacity .9s cubic-bezier(.16,1,.3,1),transform .9s cubic-bezier(.16,1,.3,1);}
+.reveal{opacity:0;transform:translateY(10px);transition:opacity .22s cubic-bezier(.16,1,.3,1),transform .22s cubic-bezier(.16,1,.3,1);}
 .reveal.visible{opacity:1;transform:none;}
-.reveal-delay-1{transition-delay:.15s;}
-.reveal-delay-2{transition-delay:.35s;}
-.reveal-delay-3{transition-delay:.55s;}
-.reveal-delay-4{transition-delay:.38s;}
-.reveal-delay-5{transition-delay:.48s;}
+/* Stagger delays */
+.reveal.visible.reveal-delay-1{transition-delay:.04s;}
+.reveal.visible.reveal-delay-2{transition-delay:.08s;}
+.reveal.visible.reveal-delay-3{transition-delay:.12s;}
+.reveal.visible.reveal-delay-4{transition-delay:.16s;}
+.reveal.visible.reveal-delay-5{transition-delay:.20s;}
 /* Gold bar animated */
-.gold-bar{width:0;height:3px;background:#C9A84C;margin:0 auto 20px;transition:width .9s cubic-bezier(.16,1,.3,1);}
+.gold-bar{width:0;height:3px;background:#C9A84C;margin:0 auto 20px;transition:width .25s cubic-bezier(.16,1,.3,1);}
 .gold-bar.visible{width:40px;}
 /* Ticker */
 @keyframes ticker{from{transform:translateX(0)}to{transform:translateX(-50%)}}
 .ticker-track{display:flex;width:max-content;animation:ticker 22s linear infinite;}
 .ticker-track:hover{animation-play-state:paused;}
 /* Step number bounce */
-@keyframes stepBounce{0%{transform:scale(0);opacity:0}60%{transform:scale(1.2)}80%{transform:scale(.92)}100%{transform:scale(1);opacity:1}}
+@keyframes stepBounce{0%{transform:scale(0);opacity:0}55%{transform:scale(1.1)}80%{transform:scale(.96)}100%{transform:scale(1);opacity:1}}
 .step-num{opacity:0;}
-.step-num.visible{animation:stepBounce .7s cubic-bezier(.16,1,.3,1) both;}
-.step-num.visible.delay-1{animation-delay:.15s;}
-.step-num.visible.delay-2{animation-delay:.35s;}
-.step-num.visible.delay-3{animation-delay:.55s;}
-.step-num.visible.delay-4{animation-delay:.75s;}
-/* Ken Burns hero */
-@keyframes kenBurns{0%{opacity:0;transform:scale(1);}5%{opacity:1;}100%{opacity:1;transform:scale(1.08);}}
+.step-num.visible{animation:stepBounce .25s cubic-bezier(.16,1,.3,1) both;}
+.step-num.visible.delay-1{animation-delay:.02s;}
+.step-num.visible.delay-2{animation-delay:.07s;}
+.step-num.visible.delay-3{animation-delay:.12s;}
+.step-num.visible.delay-4{animation-delay:.17s;}
+/* Ken Burns — desktop: zoom from lower-right (typical facade anchor)
+   Mobile portrait: zoom from upper-center to keep architectural subject framed */
+@keyframes kenBurnsDesk{0%{opacity:0;transform:scale(1);}5%{opacity:1;}100%{opacity:1;transform:scale(1.08);}}
+@keyframes kenBurnsMob{0%{opacity:0;transform:scale(1);}5%{opacity:1;}100%{opacity:1;transform:scale(1.1);}}
+#hero-img{
+  animation:kenBurnsDesk 16s cubic-bezier(.16,1,.3,1) forwards;
+  transform-origin:65% 60%;
+}
+@media(max-width:639px){
+  #hero-img{
+    animation-name:kenBurnsMob;
+    animation-duration:14s;
+    transform-origin:50% 35%;
+  }
+}
+/* Hero parallax */
+#hero-bg{will-change:transform;}
+/* Gold pulse gradient — scroll cue */
+@keyframes goldPulse{0%,100%{opacity:.5;}50%{opacity:.92;}}
+#hero-scroll-cue{
+  position:absolute;bottom:0;left:0;right:0;height:130px;
+  background:linear-gradient(to top,rgba(201,168,76,.3) 0%,rgba(201,168,76,.08) 55%,transparent 100%);
+  animation:goldPulse 3.2s ease-in-out infinite;
+  pointer-events:none;z-index:2;
+}
+@media(max-width:639px){#hero-scroll-cue{height:96px;}}
 @keyframes fabPop{0%{opacity:0;transform:scale(0) translateY(16px)}70%{transform:scale(1.12) translateY(-2px)}100%{opacity:1;transform:scale(1) translateY(0)}}
 .fab-hidden{opacity:0;pointer-events:none;}
-.fab-visible{animation:fabPop .6s cubic-bezier(.16,1,.3,1) both;}
+.fab-visible{animation:fabPop .35s cubic-bezier(.16,1,.3,1) both;}
 /* WhatsApp pulse */
 @keyframes waPulse{0%,100%{box-shadow:0 16px 40px rgba(37,211,102,.4)}50%{box-shadow:0 16px 40px rgba(37,211,102,.4),0 0 0 10px rgba(37,211,102,.12)}}
 .wa-fab-pulse{animation:waPulse 2.4s ease-in-out infinite;}
 /* Accordion list item stagger - solo en paquetes */
 @keyframes listIn{from{opacity:0;transform:translateX(-10px)}to{opacity:1;transform:none}}
-[id^="pkg-"] .acc-body.open li{animation:listIn .45s cubic-bezier(.16,1,.3,1) both;}
-[id^="pkg-"] .acc-body.open li:nth-child(1){animation-delay:.05s;}
-[id^="pkg-"] .acc-body.open li:nth-child(2){animation-delay:.13s;}
-[id^="pkg-"] .acc-body.open li:nth-child(3){animation-delay:.21s;}
-[id^="pkg-"] .acc-body.open li:nth-child(4){animation-delay:.29s;}
-[id^="pkg-"] .acc-body.open li:nth-child(5){animation-delay:.37s;}
-[id^="pkg-"] .acc-body.open li:nth-child(6){animation-delay:.45s;}
+[id^="pkg-"] .acc-body.open li{animation:listIn .3s cubic-bezier(.16,1,.3,1) both;}
+[id^="pkg-"] .acc-body.open li:nth-child(1){animation-delay:.03s;}
+[id^="pkg-"] .acc-body.open li:nth-child(2){animation-delay:.08s;}
+[id^="pkg-"] .acc-body.open li:nth-child(3){animation-delay:.13s;}
+[id^="pkg-"] .acc-body.open li:nth-child(4){animation-delay:.18s;}
+[id^="pkg-"] .acc-body.open li:nth-child(5){animation-delay:.23s;}
+[id^="pkg-"] .acc-body.open li:nth-child(6){animation-delay:.28s;}
 /* CTA gold line expand */
-.cta-line{width:0;transition:width 1s cubic-bezier(.16,1,.3,1);}
+.cta-line{width:0;transition:width .6s cubic-bezier(.16,1,.3,1);}
 .cta-line.visible{width:100%;}
 /* Package card hover glow */
 .pkg-card-hover{transition:box-shadow .35s cubic-bezier(.16,1,.3,1),transform .35s cubic-bezier(.16,1,.3,1),border-color .35s;}
 .pkg-card-hover:hover{transform:translateY(-4px);box-shadow:0 24px 56px rgba(201,168,76,.18)!important;border-color:#C9A84C!important;}
 /* Nav blur transition */
-#site-header{transition:background .4s ease,box-shadow .4s ease,backdrop-filter .4s ease;}
+#site-header{transition:background .2s ease,box-shadow .2s ease,backdrop-filter .2s ease;}
 /* Mobile drawer - sistema unificado (solo clase .open controla todo) */
 #mob-drawer{
   position:fixed;top:0;left:0;right:0;bottom:0;
@@ -243,11 +281,12 @@ document.addEventListener('keydown', function(e){
 
 <!-- HERO -->
 <section id="hero" class="relative flex items-center overflow-hidden" style="min-height:100svh">
-  <div id="hero-bg" class="absolute inset-0 z-0" style="will-change:opacity,transform;">
-    <img id="hero-img" src="fotografia-inmobiliaria-monterrey.webp" alt="Fotografía inmobiliaria profesional en Monterrey" class="w-full h-full object-cover" style="animation:kenBurns 16s cubic-bezier(.16,1,.3,1) forwards;transform-origin:center center;">
+  <div id="hero-bg" class="absolute inset-0 z-0" style="will-change:transform;overflow:hidden;">
+    <img id="hero-img" src="fotografia-inmobiliaria-monterrey.webp" alt="Fotografía inmobiliaria profesional en Monterrey" class="w-full h-full object-cover" style="position:absolute;inset:0;width:100%;height:115%;">
     <div class="absolute inset-0" style="background:linear-gradient(120deg,rgba(28,28,30,.85) 0%,rgba(28,28,30,.55) 60%,rgba(28,28,30,.3) 100%)"></div>
     <div id="hero-darken" class="absolute inset-0" style="background:#1C1C1E;opacity:0;pointer-events:none;"></div>
-    <div class="absolute bottom-0 left-0 right-0 h-[3px]" style="background:linear-gradient(90deg,#C9A84C,#E2C289,#C9A84C)"></div>
+    <div id="hero-scroll-cue"></div>
+    <div class="absolute bottom-0 left-0 right-0 h-[3px]" style="background:linear-gradient(90deg,#C9A84C,#E2C289,#C9A84C);z-index:3;"></div>
   </div>
   <div class="relative z-10 max-w-[1240px] mx-auto px-6 md:px-8 w-full py-16">
     <div style="max-width:760px">
@@ -275,9 +314,9 @@ document.addEventListener('keydown', function(e){
 <!-- STATS -->
 <section id="stats-section" class="py-9" style="background:#1C1C1E">
   <div class="max-w-[1240px] mx-auto px-6 md:px-8 grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
-    <div class="reveal reveal-delay-1"><div class="font-black mb-1" style="font-size:clamp(18px,3vw,26px);letter-spacing:-.02em;color:#C9A84C">+<span class="stat-num" data-target="350" data-suffix="">350</span> propiedades</div><div style="font-size:10px;letter-spacing:.14em;color:#9B9B9F;text-transform:uppercase;">Transformadas en contenido que vende</div></div>
-    <div class="reveal reveal-delay-2"><div class="font-black mb-1" style="font-size:clamp(18px,3vw,26px);letter-spacing:-.02em;color:#C9A84C"><span class="stat-num" data-target="72" data-suffix=" horas">72 horas</span></div><div style="font-size:10px;letter-spacing:.14em;color:#9B9B9F;text-transform:uppercase;">Material listo para publicar</div></div>
-    <div class="reveal reveal-delay-3"><div class="font-black mb-1" style="font-size:clamp(18px,3vw,26px);letter-spacing:-.02em;color:#C9A84C"><span class="stat-num" data-target="60" data-suffix="%" data-start="0">0%</span> del tiempo</div><div style="font-size:10px;letter-spacing:.14em;color:#9B9B9F;text-transform:uppercase;">El comprador lo pasa viendo imágenes</div></div>
+    <div class="reveal reveal-delay-1"><div class="font-black mb-1" style="font-size:clamp(18px,3vw,26px);letter-spacing:-.02em;color:#C9A84C">+<span class="stat-num" data-target="350" data-suffix="">350</span> inmuebles capturados</div><div style="font-size:10px;letter-spacing:.14em;color:#9B9B9F;text-transform:uppercase;">Transformadas en contenido que vende</div></div>
+    <div class="reveal reveal-delay-2"><div class="font-black mb-1" style="font-size:clamp(18px,3vw,26px);letter-spacing:-.02em;color:#C9A84C"><span class="stat-num" data-target="72" data-suffix=" horas">72 horas</span></div><div style="font-size:10px;letter-spacing:.14em;color:#9B9B9F;text-transform:uppercase;">Material entregado en 72 hrs</div></div>
+    <div class="reveal reveal-delay-3"><div class="font-black mb-1" style="font-size:clamp(18px,3vw,26px);letter-spacing:-.02em;color:#C9A84C">Equipo profesional</div><div style="font-size:10px;letter-spacing:.14em;color:#9B9B9F;text-transform:uppercase;">Desde la captura hasta la edición, todo con equipo de nivel cinematográfico</div></div>
     <div class="reveal reveal-delay-4"><div class="font-black mb-1" style="font-size:clamp(18px,3vw,26px);letter-spacing:-.02em;color:#C9A84C">Desde <span class="stat-num" data-target="2020" data-suffix="" data-start="2029">2029</span></div><div style="font-size:10px;letter-spacing:.14em;color:#9B9B9F;text-transform:uppercase;">Produciendo contenido que vende propiedades en Monterrey</div></div>
   </div>
 </section>
@@ -347,13 +386,12 @@ document.addEventListener('keydown', function(e){
       <h2 class="font-bold mb-4" style="font-size:clamp(24px,4vw,36px);letter-spacing:-.015em;color:#1C1C1E">¿Qué hacemos?</h2>
       <p style="font-size:16px;line-height:1.7;color:#9B9B9F;max-width:600px;margin:0 auto">Creamos contenido estratégico que muestra el valor real de cada propiedad y conecta con compradores potenciales.<br><br>Desde el video cinemático hasta el recorrido virtual, cada pieza está pensada para que tu inmueble destaque en un mercado saturado.</p>
     </div>
-    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-      <div class="svc-card bg-white rounded-2xl p-6 reveal reveal-delay-1" style="box-shadow:0 6px 20px rgba(28,28,30,.05)"><span class="material-symbols-outlined block mb-4" style="font-size:28px;color:#C9A84C">photo_camera</span><h3 class="font-black mb-2" style="font-size:15px;color:#1C1C1E">Fotografía Profesional</h3><p style="font-size:13px;line-height:1.6;color:#9B9B9F">35 a 50 imágenes en alta resolución con técnica HDR: múltiples exposiciones combinadas para luminosidad perfecta, colores reales y detalles impecables.</p></div>
-      <div class="svc-card bg-white rounded-2xl p-6 reveal reveal-delay-2" style="box-shadow:0 6px 20px rgba(28,28,30,.05)"><span class="material-symbols-outlined block mb-4" style="font-size:28px;color:#C9A84C">videocam</span><h3 class="font-black mb-2" style="font-size:15px;color:#1C1C1E">Video Cinemático</h3><p style="font-size:13px;line-height:1.6;color:#9B9B9F">Clip de 30 a 60 segundos con movimientos de cámara fluidos, colorización profesional y montaje dinámico. Música libre de derechos incluida.</p></div>
-      <div class="svc-card bg-white rounded-2xl p-6 reveal reveal-delay-3" style="box-shadow:0 6px 20px rgba(28,28,30,.05)"><span class="material-symbols-outlined block mb-4" style="font-size:28px;color:#C9A84C"> drone</span><h3 class="font-black mb-2" style="font-size:15px;color:#1C1C1E">Video y Fotografía Aérea con Drone</h3><p style="font-size:13px;line-height:1.6;color:#9B9B9F">Tomas aéreas de fachada, patios y entorno que muestran ubicación, accesos, calles y referencias cercanas. Incluye fotografía aérea de alta resolución.</p></div>
-      <div class="svc-card bg-white rounded-2xl p-6 reveal reveal-delay-4" style="box-shadow:0 6px 20px rgba(28,28,30,.05)"><span class="material-symbols-outlined block mb-4" style="font-size:28px;color:#C9A84C"> 360</span><h3 class="font-black mb-2" style="font-size:15px;color:#1C1C1E">Recorrido Virtual Inmersivo</h3><p style="font-size:13px;line-height:1.6;color:#9B9B9F">Escaneo navegable 24/7 con hospedaje en la nube incluido. El comprador recorre cada espacio desde cualquier dispositivo como si estuviera ahí.</p></div>
-      <div class="svc-card bg-white rounded-2xl p-6 reveal reveal-delay-5" style="box-shadow:0 6px 20px rgba(28,28,30,.05)"><span class="material-symbols-outlined block mb-4" style="font-size:28px;color:#C9A84C">smartphone</span><h3 class="font-black mb-2" style="font-size:15px;color:#1C1C1E">Contenido para Redes Sociales</h3><p style="font-size:13px;line-height:1.6;color:#9B9B9F">Adaptaciones optimizadas para Instagram Reels, Facebook y WhatsApp. Proporciones correctas, duración ideal y cortes pensados para captar atención.</p></div>
-      <div class="svc-card bg-white rounded-2xl p-6 reveal reveal-delay-5" style="box-shadow:0 6px 20px rgba(28,28,30,.05)"><span class="material-symbols-outlined block mb-4" style="font-size:28px;color:#C9A84C">picture_as_pdf</span><h3 class="font-black mb-2" style="font-size:15px;color:#1C1C1E">Folleto Digital + Página de Propiedad</h3><p style="font-size:13px;line-height:1.6;color:#9B9B9F">Página web exclusiva para la propiedad con galería, video y formulario de contacto, más folleto PDF listo para enviar por WhatsApp.</p></div>
+    <div class="flex flex-wrap justify-center gap-6">
+      <div class="svc-card bg-white rounded-2xl p-6 reveal reveal-delay-1" style="box-shadow:0 6px 20px rgba(28,28,30,.05);width:100%;max-width:340px"><span class="material-symbols-outlined block mb-4" style="font-size:28px;color:#C9A84C">photo_camera</span><h3 class="font-black mb-2" style="font-size:15px;color:#1C1C1E">Fotografía Profesional</h3><p style="font-size:13px;line-height:1.6;color:#9B9B9F">35 a 50 imágenes en alta resolución con técnica HDR: múltiples exposiciones combinadas para luminosidad perfecta, colores reales y detalles impecables.</p></div>
+      <div class="svc-card bg-white rounded-2xl p-6 reveal reveal-delay-2" style="box-shadow:0 6px 20px rgba(28,28,30,.05);width:100%;max-width:340px"><span class="material-symbols-outlined block mb-4" style="font-size:28px;color:#C9A84C">videocam</span><h3 class="font-black mb-2" style="font-size:15px;color:#1C1C1E">Video Cinemático</h3><p style="font-size:13px;line-height:1.6;color:#9B9B9F">Clip de 30 a 60 segundos con movimientos de cámara fluidos, colorización profesional y montaje dinámico. Música libre de derechos incluida.</p></div>
+      <div class="svc-card bg-white rounded-2xl p-6 reveal reveal-delay-3" style="box-shadow:0 6px 20px rgba(28,28,30,.05);width:100%;max-width:340px"><span class="material-symbols-outlined block mb-4" style="font-size:28px;color:#C9A84C"> drone</span><h3 class="font-black mb-2" style="font-size:15px;color:#1C1C1E">Video y Fotografía Aérea con Drone</h3><p style="font-size:13px;line-height:1.6;color:#9B9B9F">Tomas aéreas de fachada, patios y entorno que muestran ubicación, accesos, calles y referencias cercanas. Incluye fotografía aérea de alta resolución.</p></div>
+      <div class="svc-card bg-white rounded-2xl p-6 reveal reveal-delay-4" style="box-shadow:0 6px 20px rgba(28,28,30,.05);width:100%;max-width:340px"><span class="material-symbols-outlined block mb-4" style="font-size:28px;color:#C9A84C"> 360</span><h3 class="font-black mb-2" style="font-size:15px;color:#1C1C1E">Recorrido Virtual Inmersivo</h3><p style="font-size:13px;line-height:1.6;color:#9B9B9F">Escaneo navegable 24/7 con hospedaje en la nube incluido. El comprador recorre cada espacio desde cualquier dispositivo como si estuviera ahí.</p><a href="https://app.cloudpano.com/group/RI9t58XNh" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:5px;margin-top:12px;font-size:12px;font-weight:700;color:#C9A84C;text-decoration:none;letter-spacing:.01em" onmouseover="this.style.opacity='.75'" onmouseout="this.style.opacity='1'"><span class="material-symbols-outlined" style="font-size:14px">open_in_new</span>Ver ejemplo real</a></div>
+      <div class="svc-card bg-white rounded-2xl p-6 reveal reveal-delay-5" style="box-shadow:0 6px 20px rgba(28,28,30,.05);width:100%;max-width:340px"><span class="material-symbols-outlined block mb-4" style="font-size:28px;color:#C9A84C">smartphone</span><h3 class="font-black mb-2" style="font-size:15px;color:#1C1C1E">Contenido para Redes Sociales</h3><p style="font-size:13px;line-height:1.6;color:#9B9B9F">Adaptaciones optimizadas para Instagram Reels, Facebook y WhatsApp. Proporciones correctas, duración ideal y cortes pensados para captar atención.</p></div>
     </div>
   </div>
 </section>
@@ -417,7 +455,7 @@ document.addEventListener('keydown', function(e){
         <button onclick="toggleAcc(this)" class="w-full flex items-center justify-between px-5 py-3 bg-transparent border-t border-[#E8E8EA] cursor-pointer font-bold uppercase font-mont" style="font-size:11px;letter-spacing:.1em;color:#9B9B9F">Ver qué incluye <span class="material-symbols-outlined" style="font-size:20px">expand_more</span></button>
         <div class="acc-body"><ul class="px-5 pb-5 flex flex-col gap-3 mt-2" style="list-style:none">
           <li class="flex gap-3 items-start"><span class="gcheck"><svg viewBox="0 0 12 12" width="10" height="10"><polyline points="2,6 5,9 10,3" stroke="#fff" stroke-width="1.8" fill="none" stroke-linecap="round"/></svg></span><span style="font-size:13px;font-weight:600;color:#9B9B9F;font-style:italic">Todo lo del Esencial, más:</span></li>
-          <li class="flex gap-3 items-start"><span class="gcheck"><svg viewBox="0 0 12 12" width="10" height="10"><polyline points="2,6 5,9 10,3" stroke="#fff" stroke-width="1.8" fill="none" stroke-linecap="round"/></svg></span><div><span style="font-size:13px;font-weight:600;color:#1C1C1E">Recorrido Virtual Inmersivo</span><p style="font-size:11px;color:#9B9B9F;margin:3px 0 0;line-height:1.5">Escaneo navegable 24/7 con hospedaje en la nube incluido. El comprador recorre cada espacio desde cualquier dispositivo como si estuviera físicamente ahí.</p></div></li>
+          <li class="flex gap-3 items-start"><span class="gcheck"><svg viewBox="0 0 12 12" width="10" height="10"><polyline points="2,6 5,9 10,3" stroke="#fff" stroke-width="1.8" fill="none" stroke-linecap="round"/></svg></span><div><span style="font-size:13px;font-weight:600;color:#1C1C1E">Recorrido Virtual Inmersivo</span><p style="font-size:11px;color:#9B9B9F;margin:3px 0 0;line-height:1.5">Escaneo navegable 24/7 con hospedaje en la nube incluido. El comprador recorre cada espacio desde cualquier dispositivo como si estuviera físicamente ahí.</p><a href="https://app.cloudpano.com/group/RI9t58XNh" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:4px;margin-top:5px;font-size:11px;font-weight:700;color:#C9A84C;text-decoration:none" onmouseover="this.style.opacity='.75'" onmouseout="this.style.opacity='1'"><span class="material-symbols-outlined" style="font-size:12px">open_in_new</span>Ver ejemplo real</a></div></li>
           <li class="flex gap-3 items-start"><span class="gcheck"><svg viewBox="0 0 12 12" width="10" height="10"><polyline points="2,6 5,9 10,3" stroke="#fff" stroke-width="1.8" fill="none" stroke-linecap="round"/></svg></span><div><span style="font-size:13px;font-weight:600;color:#1C1C1E">Narración Profesional con Inteligencia Artificial</span><p style="font-size:11px;color:#9B9B9F;margin:3px 0 0;line-height:1.5">Locución en off integrada al video cinemático, generada con voz natural. Comunica los puntos clave de la propiedad de forma persuasiva y profesional.</p></div></li>
           <li class="flex gap-3 items-start"><span class="gcheck"><svg viewBox="0 0 12 12" width="10" height="10"><polyline points="2,6 5,9 10,3" stroke="#fff" stroke-width="1.8" fill="none" stroke-linecap="round"/></svg></span><div><span style="font-size:13px;font-weight:600;color:#1C1C1E">Contenido para Redes Sociales</span><p style="font-size:11px;color:#9B9B9F;margin:3px 0 0;line-height:1.5">Adaptaciones en formatos optimizados para Instagram Reels, Facebook y WhatsApp. Entrega de 3 videos cortos en formato vertical 9:16.</p></div></li>
         </ul></div>
@@ -489,7 +527,7 @@ document.addEventListener('keydown', function(e){
           <ul class="px-5 pb-5 flex flex-col gap-3 mt-2" style="list-style:none">
             <li class="flex gap-3 items-start"><span class="gcheck"><svg viewBox="0 0 12 12" width="10" height="10"><polyline points="2,6 5,9 10,3" stroke="#fff" stroke-width="1.8" fill="none" stroke-linecap="round"/></svg></span><span style="font-size:13px;font-weight:600;color:#9B9B9F;font-style:italic">Todo lo del Esencial, más:</span></li>
             <li class="flex gap-3 items-start"><span class="gcheck"><svg viewBox="0 0 12 12" width="10" height="10"><polyline points="2,6 5,9 10,3" stroke="#fff" stroke-width="1.8" fill="none" stroke-linecap="round"/></svg></span><div><span style="font-size:13px;font-weight:600;color:#1C1C1E">Visualización de Potencial con Inteligencia Artificial</span><p style="font-size:11px;color:#9B9B9F;margin:3px 0 0;line-height:1.5">Render que muestra cómo podría lucir el terreno con una construcción. La imagen se integra al video cinemático aéreo, creando una transición visual que conecta el terreno real con su potencial edificable.</p></div></li>
-            <li class="flex gap-3 items-start"><span class="gcheck"><svg viewBox="0 0 12 12" width="10" height="10"><polyline points="2,6 5,9 10,3" stroke="#fff" stroke-width="1.8" fill="none" stroke-linecap="round"/></svg></span><div><span style="font-size:13px;font-weight:600;color:#1C1C1E">Recorrido Virtual Inmersivo Aéreo</span><p style="font-size:11px;color:#9B9B9F;margin:3px 0 0;line-height:1.5">Vista panorámica interactiva desde el aire. El comprador puede explorar el entorno del terreno: accesos, vialidades y puntos de referencia, desde cualquier dispositivo.</p></div></li>
+            <li class="flex gap-3 items-start"><span class="gcheck"><svg viewBox="0 0 12 12" width="10" height="10"><polyline points="2,6 5,9 10,3" stroke="#fff" stroke-width="1.8" fill="none" stroke-linecap="round"/></svg></span><div><span style="font-size:13px;font-weight:600;color:#1C1C1E">Recorrido Virtual Inmersivo Aéreo</span><p style="font-size:11px;color:#9B9B9F;margin:3px 0 0;line-height:1.5">Vista panorámica interactiva desde el aire. El comprador puede explorar el entorno del terreno: accesos, vialidades y puntos de referencia, desde cualquier dispositivo.</p><a href="https://app.cloudpano.com/group/RI9t58XNh" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:4px;margin-top:5px;font-size:11px;font-weight:700;color:#C9A84C;text-decoration:none" onmouseover="this.style.opacity='.75'" onmouseout="this.style.opacity='1'"><span class="material-symbols-outlined" style="font-size:12px">open_in_new</span>Ver ejemplo real</a></div></li>
             <li class="flex gap-3 items-start"><span class="gcheck"><svg viewBox="0 0 12 12" width="10" height="10"><polyline points="2,6 5,9 10,3" stroke="#fff" stroke-width="1.8" fill="none" stroke-linecap="round"/></svg></span><div><span style="font-size:13px;font-weight:600;color:#1C1C1E">Narración Profesional con Inteligencia Artificial</span><p style="font-size:11px;color:#9B9B9F;margin:3px 0 0;line-height:1.5">Locución en off integrada al video cinemático, generada con voz natural. Comunica los puntos clave del terreno de forma persuasiva y profesional.</p></div></li>
           </ul>
         </div>
@@ -531,7 +569,7 @@ document.addEventListener('keydown', function(e){
 
       <div class="bg-white rounded-2xl border-2 border-[#E8E8EA] overflow-hidden pkg-card-hover" style="box-shadow:0 6px 24px rgba(28,28,30,.06);display:flex;flex-direction:column"><div class="p-5 pb-4" style="flex:1"><span class="material-symbols-outlined block mb-3" style="font-size:26px;color:#C9A84C"> drone</span><h3 class="font-black mb-2" style="font-size:17px;color:#1C1C1E">Grabación de Video con Drone</h3><p style="font-size:13px;line-height:1.6;color:#9B9B9F">Fachada, patios y entorno. Incluye marcaje de perímetro y fotografías aéreas. <span style="color:#9B9B9F;font-weight:600">Solo propiedades residenciales.</span></p></div><div class="px-5 py-2"><div class="font-black mt-3" style="font-size:26px;letter-spacing:-.025em;color:#1C1C1E">$3,000 MXN</div></div><div class="px-5 pb-5"><a href="https://wa.me/528127174207?text=Hola%2C%20me%20interesa%20Drone%20(%243%2C000)" class="btn-gold" style="width:100%;justify-content:center;font-size:11px">Solicitar</a></div></div>
 
-      <div class="bg-white rounded-2xl border-2 border-[#E8E8EA] overflow-hidden pkg-card-hover" style="box-shadow:0 6px 24px rgba(28,28,30,.06);display:flex;flex-direction:column"><div class="p-5 pb-4" style="flex:1"><span class="material-symbols-outlined block mb-3" style="font-size:26px;color:#C9A84C"> 360</span><h3 class="font-black mb-2" style="font-size:17px;color:#1C1C1E">Recorrido Virtual Inmersivo</h3><p style="font-size:13px;line-height:1.6;color:#9B9B9F">Escaneo navegable 24/7. Hospedaje en la nube incluido. Compatible con celular, tablet y computadora.</p></div><div class="px-5 py-2"><div class="font-black mt-3" style="font-size:26px;letter-spacing:-.025em;color:#1C1C1E">$3,000 MXN</div></div><div class="px-5 pb-5"><a href="https://wa.me/528127174207?text=Hola%2C%20me%20interesa%20Recorrido%20Virtual%20Inmersivo%20(%243%2C000)" class="btn-gold" style="width:100%;justify-content:center;font-size:11px">Solicitar</a></div></div>
+      <div class="bg-white rounded-2xl border-2 border-[#E8E8EA] overflow-hidden pkg-card-hover" style="box-shadow:0 6px 24px rgba(28,28,30,.06);display:flex;flex-direction:column"><div class="p-5 pb-4" style="flex:1"><span class="material-symbols-outlined block mb-3" style="font-size:26px;color:#C9A84C"> 360</span><h3 class="font-black mb-2" style="font-size:17px;color:#1C1C1E">Recorrido Virtual Inmersivo</h3><p style="font-size:13px;line-height:1.6;color:#9B9B9F">Escaneo navegable 24/7. Hospedaje en la nube incluido. Compatible con celular, tablet y computadora.</p><a href="https://app.cloudpano.com/group/RI9t58XNh" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:4px;margin-top:10px;font-size:12px;font-weight:700;color:#C9A84C;text-decoration:none" onmouseover="this.style.opacity='.75'" onmouseout="this.style.opacity='1'"><span class="material-symbols-outlined" style="font-size:13px">open_in_new</span>Ver ejemplo real</a></div><div class="px-5 py-2"><div class="font-black mt-3" style="font-size:26px;letter-spacing:-.025em;color:#1C1C1E">$3,000 MXN</div></div><div class="px-5 pb-5"><a href="https://wa.me/528127174207?text=Hola%2C%20me%20interesa%20Recorrido%20Virtual%20Inmersivo%20(%243%2C000)" class="btn-gold" style="width:100%;justify-content:center;font-size:11px">Solicitar</a></div></div>
 
       <div class="bg-white rounded-2xl border-2 border-[#E8E8EA] overflow-hidden pkg-card-hover" style="box-shadow:0 6px 24px rgba(28,28,30,.06);display:flex;flex-direction:column"><div class="p-5 pb-4" style="flex:1"><span class="material-symbols-outlined block mb-3" style="font-size:26px;color:#C9A84C">person_play</span><h3 class="font-black mb-2" style="font-size:17px;color:#1C1C1E">Marca Personal del Asesor</h3><p style="font-size:13px;line-height:1.6;color:#9B9B9F">Grabamos tu aparición en cámara para integrarla al video del inmueble. No solo promocionas la propiedad, te posicionas tú.</p></div><div class="px-5 py-2"><div class="font-black mt-3" style="font-size:26px;letter-spacing:-.025em;color:#1C1C1E">$1,500 MXN</div></div><div class="px-5 pb-5"><a href="https://wa.me/528127174207?text=Hola%2C%20me%20interesa%20Marca%20Personal%20(%241%2C500)" class="btn-gold" style="width:100%;justify-content:center;font-size:11px">Solicitar</a></div></div>
 
@@ -604,7 +642,7 @@ document.addEventListener('keydown', function(e){
         <span class="material-symbols-outlined" id="faq-section-icon" style="font-size:26px;color:#C9A84C;transition:transform .3s">expand_more</span>
       </div>
     </button>
-    <div id="faq-section-body" style="max-height:0;overflow:hidden;transition:max-height .5s cubic-bezier(.22,1,.36,1)">
+    <div id="faq-section-body" style="max-height:0;overflow:hidden;transition:max-height .3s cubic-bezier(.22,1,.36,1)">
       <div class="flex flex-col gap-0 mt-4 bg-white rounded-2xl border border-[#E8E8EA] px-6 md:px-8" style="box-shadow:0 6px 24px rgba(28,28,30,.06)">
       <!-- Q11 -->
       <div class="border-b border-[#E8E8EA]">
@@ -844,6 +882,18 @@ function switchPkg(tab,btn){
     target.style.display='grid';
     target.style.gap='20px';
     if(tab!=='carta'){target.style.paddingTop='24px';target.style.alignItems='start';}else{target.style.paddingTop='0';target.style.alignItems='';}
+    // Anima cada card hijo con stagger
+    var cards=target.children;
+    Array.prototype.forEach.call(cards,function(card,i){
+      card.style.opacity='0';card.style.transform='translateY(12px)';
+      card.style.transition='none';
+      requestAnimationFrame(function(){
+        requestAnimationFrame(function(){
+          card.style.transition='opacity .2s cubic-bezier(.16,1,.3,1) '+(i*40)+'ms, transform .2s cubic-bezier(.16,1,.3,1) '+(i*40)+'ms';
+          card.style.opacity='1';card.style.transform='none';
+        });
+      });
+    });
   }
   btn.classList.add('active');
 }
@@ -854,7 +904,20 @@ function switchPort(tab,btn){
   });
   document.querySelectorAll('.port-tab-btn').forEach(function(b){b.classList.remove('active');});
   var target=document.getElementById('port-'+tab);
-  if(target){ target.style.display='grid'; target.style.gap='20px'; }
+  if(target){
+    target.style.display='grid'; target.style.gap='20px';
+    var cards=target.children;
+    Array.prototype.forEach.call(cards,function(card,i){
+      card.style.opacity='0';card.style.transform='translateY(10px)';
+      card.style.transition='none';
+      requestAnimationFrame(function(){
+        requestAnimationFrame(function(){
+          card.style.transition='opacity .2s cubic-bezier(.16,1,.3,1) '+(i*50)+'ms, transform .2s cubic-bezier(.16,1,.3,1) '+(i*50)+'ms';
+          card.style.opacity='1';card.style.transform='none';
+        });
+      });
+    });
+  }
   btn.classList.add('active');
 }
 function toggleFaqSection(btn){
@@ -905,75 +968,93 @@ function toggleAcc(btn){
 }
 
 // ── 1. SCROLL REVEAL (fade-up) ──────────────────────────────────────────────
-var revealObserver = new IntersectionObserver(function(entries){
+// threshold:0 + rootMargin asegura que el elemento empieza a animar
+// en cuanto entra ~40px al viewport. Nunca bloquea el scroll.
+var revealObs = new IntersectionObserver(function(entries){
   entries.forEach(function(entry){
     if(entry.isIntersecting){
       entry.target.classList.add('visible');
-      var bar = entry.target.querySelector('.gold-bar');
-      if(bar) bar.classList.add('visible');
-      revealObserver.unobserve(entry.target);
+      var bars = entry.target.querySelectorAll('.gold-bar');
+      bars.forEach(function(b){ b.classList.add('visible'); });
+      revealObs.unobserve(entry.target);
     }
   });
-},{threshold:0.12});
-document.querySelectorAll('.reveal').forEach(function(el){revealObserver.observe(el);});
-
-
+},{threshold:0, rootMargin:'0px 0px -40px 0px'});
+document.querySelectorAll('.reveal, .reveal-group').forEach(function(el){
+  revealObs.observe(el);
+});
 
 // ── STEP NUMBER BOUNCE ───────────────────────────────────────────────────────
-var stepObserver = new IntersectionObserver(function(entries){
+// threshold bajado de 0.5 → 0 para no bloquear scroll en móvil
+var stepObs = new IntersectionObserver(function(entries){
   entries.forEach(function(entry){
     if(entry.isIntersecting){
       entry.target.classList.add('visible');
-      stepObserver.unobserve(entry.target);
+      stepObs.unobserve(entry.target);
     }
   });
-},{threshold:0.5});
-document.querySelectorAll('.step-num').forEach(function(el){ stepObserver.observe(el); });
+},{threshold:0, rootMargin:'0px 0px -20px 0px'});
+document.querySelectorAll('.step-num').forEach(function(el){ stepObs.observe(el); });
 
 // ── 2. GOLD BAR REVEAL standalone ───────────────────────────────────────────
-var barObserver = new IntersectionObserver(function(entries){
+var barObs = new IntersectionObserver(function(entries){
   entries.forEach(function(entry){
-    if(entry.isIntersecting){ entry.target.classList.add('visible'); barObserver.unobserve(entry.target); }
+    if(entry.isIntersecting){ entry.target.classList.add('visible'); barObs.unobserve(entry.target); }
   });
-},{threshold:0.5});
-document.querySelectorAll('.gold-bar').forEach(function(el){ if(!el.closest('.reveal')) barObserver.observe(el); });
+},{threshold:0, rootMargin:'0px 0px -20px 0px'});
+document.querySelectorAll('.gold-bar').forEach(function(el){
+  if(!el.closest('.reveal')) barObs.observe(el);
+});
 
 // ── 3. STAT COUNTERS ────────────────────────────────────────────────────────
 function animateCounter(el){
   var target = parseInt(el.getAttribute('data-target'));
   var from = parseInt(el.getAttribute('data-start') || '0');
   var suffix = el.getAttribute('data-suffix') || '';
-  var duration = 1800;
+  var duration = 900;
   var startTs = null;
   function step(ts){
     if(!startTs) startTs = ts;
     var progress = Math.min((ts - startTs) / duration, 1);
-    var ease = 1 - Math.pow(1 - progress, 5);
+    var ease = 1 - Math.pow(1 - progress, 4);
     el.textContent = Math.round(from + ease * (target - from)) + suffix;
     if(progress < 1) requestAnimationFrame(step);
   }
   requestAnimationFrame(step);
 }
-var counterObserver = new IntersectionObserver(function(entries){
+var counterObs = new IntersectionObserver(function(entries){
   entries.forEach(function(entry){
     if(entry.isIntersecting){
       setTimeout(function(){
         entry.target.querySelectorAll('.stat-num').forEach(animateCounter);
-      }, 300);
-      counterObserver.unobserve(entry.target);
+      }, 200);
+      counterObs.unobserve(entry.target);
     }
   });
-},{threshold:0.4});
+},{threshold:0, rootMargin:'0px 0px -20px 0px'});
 var statsSection = document.querySelector('#stats-section');
-if(statsSection) counterObserver.observe(statsSection);
+if(statsSection) counterObs.observe(statsSection);
 
-// ── 4. HERO SCROLL DARKEN ───────────────────────────────────────────────────
+// ── 4. HERO: parallax suave + darken al scroll ───────────────────────────────
 var heroSection = document.getElementById('hero');
+var heroBg = document.getElementById('hero-bg');
 var heroDarken = document.getElementById('hero-darken');
+var ticking = false;
+function onHeroScroll(){
+  if(!heroSection) return;
+  var sy = window.scrollY;
+  var hh = heroSection.offsetHeight;
+  // Parallax: el fondo se mueve al 30% de la velocidad del scroll
+  if(heroBg) heroBg.style.transform = 'translateY(' + (sy * 0.28) + 'px)';
+  // Darken progresivo
+  if(heroDarken){
+    var progress = Math.min(sy / (hh * 0.7), 1);
+    heroDarken.style.opacity = progress * 0.55;
+  }
+  ticking = false;
+}
 window.addEventListener('scroll', function(){
-  if(!heroSection || !heroDarken) return;
-  var progress = Math.min(window.scrollY / (heroSection.offsetHeight * 0.75), 1);
-  heroDarken.style.opacity = progress;
+  if(!ticking){ requestAnimationFrame(onHeroScroll); ticking = true; }
 },{passive:true});
 
 // ── 5. FAB POP-IN after scroll ───────────────────────────────────────────────
