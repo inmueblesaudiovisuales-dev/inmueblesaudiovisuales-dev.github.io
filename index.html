@@ -504,14 +504,13 @@ document.addEventListener('keydown', function(e){
 </section>
 
 <!-- PAQUETES -->
-<section id="paquetes" class="py-20 md:py-24" style="background:#F9F7F4">
+<<section id="paquetes" class="py-20 md:py-24" style="background:#F9F7F4">
   <div class="max-w-[1240px] mx-auto px-6 md:px-8">
     <div class="text-center mb-8 reveal">
       <div class="gold-bar"></div>
       <h2 class="font-bold mb-4" style="font-size:clamp(24px,4vw,36px);letter-spacing:-.015em;color:#1C1C1E">Elige cómo quieres destacar en el mercado</h2>
       <p style="font-size:clamp(16px,2.5vw,22px);letter-spacing:-.01em;color:#9B9B9F;line-height:1.4">Selecciona el nivel de cobertura visual que tu propiedad necesita.</p>
     </div>
-    <!-- Tab selector -->
     <div class="flex justify-center mb-6 px-0">
       <div class="flex gap-1 bg-white rounded-full p-1 border border-[#E8E8EA] w-full max-w-sm">
         <button class="pkg-tab-btn active flex-1" onclick="switchPkg('residencial',this)">Paquetes<br>Residenciales</button>
@@ -520,14 +519,12 @@ document.addEventListener('keydown', function(e){
       </div>
     </div>
 
-    <!-- RESIDENCIAL -->
     <div id="pkg-residencial" style="display:grid;gap:20px;align-items:start;padding-top:0;margin-top:0">
       <div style="grid-column:1/-1;margin-bottom:16px;margin-top:0.5rem">
         <p class="font-black text-[#1C1C1E] mb-1" style="font-size:16px">Casas, departamentos, Airbnbs y quintas</p>
         <p style="font-size:14px;color:#9B9B9F;line-height:1.6">Ideal para propiedades que necesitan verse bien y empezar a generar interés desde el primer día. Para propiedades residenciales en venta o renta.</p>
       </div>
 
-      <!-- Esencial -->
       <div class="bg-white rounded-2xl border-2 border-[#E8E8EA] reveal reveal-delay-1 pkg-card-hover" style="box-shadow:0 6px 24px rgba(28,28,30,.06);display:grid;grid-template-rows:1fr auto auto auto">
         <div class="p-5 pb-4">
           <div class="inline-block border border-[#C9A84C]/50 text-[#C9A84C] rounded-full mb-3 font-bold uppercase" style="font-size:9px;letter-spacing:.1em;padding:2px 10px">3 MSI disponible</div>
@@ -552,7 +549,6 @@ document.addEventListener('keydown', function(e){
         </ul></div>
       </div>
 
-      <!-- Plus -->
       <div class="bg-white rounded-2xl border-2 border-[#C9A84C] relative reveal reveal-delay-2 pkg-card-hover" style="box-shadow:0 20px 60px rgba(201,168,76,.15);display:grid;grid-template-rows:1fr auto auto auto">
         <div style="position:absolute;top:-14px;left:0;right:0;text-align:center;z-index:2">
           <span style="display:inline-block;background:#C9A84C;color:#1C1C1E;border-radius:9999px;font-size:9px;font-weight:900;letter-spacing:.12em;text-transform:uppercase;padding:5px 14px;box-shadow:0 4px 12px rgba(201,168,76,.4)">Más Popular</span>
@@ -565,10 +561,10 @@ document.addEventListener('keydown', function(e){
           <div class="mt-1" style="font-size:11px;color:#9B9B9F">3 pagos de $2,500 MXN</div>
           <div class="mt-3" style="font-size:11px;color:#C9A84C;font-weight:500">✓ Entrega en 3 días hábiles</div>
           <ul class="mt-4 flex flex-col gap-2" style="list-style:none">
-            <li class="flex gap-2 items-start"><span class="gcheck" style="flex-shrink:0"><svg viewBox="0 0 12 12" width="10" height="10"><polyline points="2,6 5,9 10,3" stroke="#fff" stroke-width="1.8" fill="none" stroke-linecap="round"/></svg></span><span style="font-size:13px;font-weight:600;color:#1C1C1E">Todo lo del Esencial</span></li>
-            <li class="flex gap-2 items-start"><span class="gcheck" style="flex-shrink:0"><svg viewBox="0 0 12 12" width="10" height="10"><polyline points="2,6 5,9 10,3" stroke="#fff" stroke-width="1.8" fill="none" stroke-linecap="round"/></svg></span><span style="font-size:13px;font-weight:600;color:#1C1C1E">Recorrido virtual inmersivo</span></li>
-            <li class="flex gap-2 items-start"><span class="gcheck" style="flex-shrink:0"><svg viewBox="0 0 12 12" width="10" height="10"><polyline points="2,6 5,9 10,3" stroke="#fff" stroke-width="1.8" fill="none" stroke-linecap="round"/></svg></span><span style="font-size:13px;font-weight:600;color:#1C1C1E">Narración profesional con IA</span></li>
-            <li class="flex gap-2 items-start"><span class="gcheck" style="flex-shrink:0"><svg viewBox="0 0 12 12" width="10" height="10"><polyline points="2,6 5,9 10,3" stroke="#fff" stroke-width="1.8" fill="none" stroke-linecap="round"/></svg></span><span style="font-size:13px;font-weight:600;color:#1C1C1E">Videos para redes sociales</span></li>
+            <li class="flex gap-2 items-start"><span style="font-size:13px;font-weight:600;color:#9B9B9F;font-style:italic">Todo lo del Esencial, más:</span></li>
+            <li style="display:flex;align-items:center;gap:8px;"><span class="gcheck" style="flex-shrink:0;display:flex;align-items:center;"><svg viewBox="0 0 12 12" width="10" height="10"><polyline points="2,6 5,9 10,3" stroke="#fff" stroke-width="1.8" fill="none" stroke-linecap="round"/></svg></span><div style="display:flex;align-items:center;gap:6px;"><span style="font-size:13px;font-weight:600;color:#1C1C1E;display:flex;align-items:center;line-height:1;margin:0;">Recorrido virtual inmersivo</span><span style="display:flex;align-items:center;justify-content:center;background:rgba(201,168,76,0.15);border-radius:4px;padding:2px 6px;font-size:10px;font-weight:700;color:#C9A84C;line-height:1;letter-spacing:.03em;margin:0;">PLUS</span></div></li>
+            <li style="display:flex;align-items:center;gap:8px;"><span class="gcheck" style="flex-shrink:0;display:flex;align-items:center;"><svg viewBox="0 0 12 12" width="10" height="10"><polyline points="2,6 5,9 10,3" stroke="#fff" stroke-width="1.8" fill="none" stroke-linecap="round"/></svg></span><div style="display:flex;align-items:center;gap:6px;"><span style="font-size:13px;font-weight:600;color:#1C1C1E;display:flex;align-items:center;line-height:1;margin:0;">Narración profesional con IA</span><span style="display:flex;align-items:center;justify-content:center;background:rgba(201,168,76,0.15);border-radius:4px;padding:2px 6px;font-size:10px;font-weight:700;color:#C9A84C;line-height:1;letter-spacing:.03em;margin:0;">PLUS</span></div></li>
+            <li style="display:flex;align-items:center;gap:8px;"><span class="gcheck" style="flex-shrink:0;display:flex;align-items:center;"><svg viewBox="0 0 12 12" width="10" height="10"><polyline points="2,6 5,9 10,3" stroke="#fff" stroke-width="1.8" fill="none" stroke-linecap="round"/></svg></span><div style="display:flex;align-items:center;gap:6px;"><span style="font-size:13px;font-weight:600;color:#1C1C1E;display:flex;align-items:center;line-height:1;margin:0;">Videos para redes sociales</span><span style="display:flex;align-items:center;justify-content:center;background:rgba(201,168,76,0.15);border-radius:4px;padding:2px 6px;font-size:10px;font-weight:700;color:#C9A84C;line-height:1;letter-spacing:.03em;margin:0;">PLUS</span></div></li>
           </ul>
         </div>
         <div class="px-5 pb-4"><a href="https://wa.me/528127174207?text=Hola%2C%20me%20interesa%20el%20Paquete%20Plus%20Residencial%20%247%2C500" class="btn-gold" style="width:100%;justify-content:center;font-size:11px"><svg width="14" height="14" viewBox="0 0 24 24" fill="#1C1C1E"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>Solicitar · WhatsApp</a></div>
@@ -581,7 +577,6 @@ document.addEventListener('keydown', function(e){
         </ul></div>
       </div>
 
-      <!-- Premium -->
       <div class="bg-white rounded-2xl border-2 border-[#E8E8EA] reveal reveal-delay-3 pkg-card-hover" style="box-shadow:0 6px 24px rgba(28,28,30,.06);display:grid;grid-template-rows:1fr auto auto auto">
         <div class="p-5 pb-4">
           <div class="inline-block border border-[#C9A84C]/50 text-[#C9A84C] rounded-full mb-3 font-bold uppercase" style="font-size:9px;letter-spacing:.1em;padding:2px 10px">3 MSI disponible</div>
@@ -591,10 +586,10 @@ document.addEventListener('keydown', function(e){
           <div class="mt-1" style="font-size:11px;color:#9B9B9F">3 pagos de $3,000 MXN</div>
           <div class="mt-3" style="font-size:11px;color:#C9A84C;font-weight:500">✓ Entrega en 3 días hábiles</div>
           <ul class="mt-4 flex flex-col gap-2" style="list-style:none">
-            <li class="flex gap-2 items-start"><span class="gcheck" style="flex-shrink:0"><svg viewBox="0 0 12 12" width="10" height="10"><polyline points="2,6 5,9 10,3" stroke="#fff" stroke-width="1.8" fill="none" stroke-linecap="round"/></svg></span><span style="font-size:13px;font-weight:600;color:#1C1C1E">Todo lo del Plus</span></li>
-            <li class="flex gap-2 items-start"><span class="gcheck" style="flex-shrink:0"><svg viewBox="0 0 12 12" width="10" height="10"><polyline points="2,6 5,9 10,3" stroke="#fff" stroke-width="1.8" fill="none" stroke-linecap="round"/></svg></span><span style="font-size:13px;font-weight:600;color:#1C1C1E">Landing page propia</span></li>
-            <li class="flex gap-2 items-start"><span class="gcheck" style="flex-shrink:0"><svg viewBox="0 0 12 12" width="10" height="10"><polyline points="2,6 5,9 10,3" stroke="#fff" stroke-width="1.8" fill="none" stroke-linecap="round"/></svg></span><span style="font-size:13px;font-weight:600;color:#1C1C1E">Folleto digital PDF</span></li>
-            <li class="flex gap-2 items-start"><span class="gcheck" style="flex-shrink:0"><svg viewBox="0 0 12 12" width="10" height="10"><polyline points="2,6 5,9 10,3" stroke="#fff" stroke-width="1.8" fill="none" stroke-linecap="round"/></svg></span><span style="font-size:13px;font-weight:600;color:#1C1C1E">Video cómo llegar</span></li>
+            <li class="flex gap-2 items-start"><span style="font-size:13px;font-weight:600;color:#9B9B9F;font-style:italic">Todo lo del Plus, más:</span></li>
+            <li style="display:flex;align-items:center;gap:8px;"><span class="gcheck" style="flex-shrink:0;display:flex;align-items:center;"><svg viewBox="0 0 12 12" width="10" height="10"><polyline points="2,6 5,9 10,3" stroke="#fff" stroke-width="1.8" fill="none" stroke-linecap="round"/></svg></span><div style="display:flex;align-items:center;gap:6px;"><span style="font-size:13px;font-weight:600;color:#1C1C1E;display:flex;align-items:center;line-height:1;margin:0;">Landing page propia</span><span style="display:flex;align-items:center;justify-content:center;background:rgba(201,168,76,0.15);border-radius:4px;padding:2px 6px;font-size:10px;font-weight:700;color:#C9A84C;line-height:1;letter-spacing:.03em;margin:0;">PREMIUM</span></div></li>
+            <li style="display:flex;align-items:center;gap:8px;"><span class="gcheck" style="flex-shrink:0;display:flex;align-items:center;"><svg viewBox="0 0 12 12" width="10" height="10"><polyline points="2,6 5,9 10,3" stroke="#fff" stroke-width="1.8" fill="none" stroke-linecap="round"/></svg></span><div style="display:flex;align-items:center;gap:6px;"><span style="font-size:13px;font-weight:600;color:#1C1C1E;display:flex;align-items:center;line-height:1;margin:0;">Folleto digital PDF</span><span style="display:flex;align-items:center;justify-content:center;background:rgba(201,168,76,0.15);border-radius:4px;padding:2px 6px;font-size:10px;font-weight:700;color:#C9A84C;line-height:1;letter-spacing:.03em;margin:0;">PREMIUM</span></div></li>
+            <li style="display:flex;align-items:center;gap:8px;"><span class="gcheck" style="flex-shrink:0;display:flex;align-items:center;"><svg viewBox="0 0 12 12" width="10" height="10"><polyline points="2,6 5,9 10,3" stroke="#fff" stroke-width="1.8" fill="none" stroke-linecap="round"/></svg></span><div style="display:flex;align-items:center;gap:6px;"><span style="font-size:13px;font-weight:600;color:#1C1C1E;display:flex;align-items:center;line-height:1;margin:0;">Video cómo llegar</span><span style="display:flex;align-items:center;justify-content:center;background:rgba(201,168,76,0.15);border-radius:4px;padding:2px 6px;font-size:10px;font-weight:700;color:#C9A84C;line-height:1;letter-spacing:.03em;margin:0;">PREMIUM</span></div></li>
           </ul>
         </div>
         <div class="px-5 pb-4"><a href="https://wa.me/528127174207?text=Hola%2C%20me%20interesa%20el%20Paquete%20Premium%20Residencial%20%249%2C000" class="btn-gold" style="width:100%;justify-content:center;font-size:11px"><svg width="14" height="14" viewBox="0 0 24 24" fill="#1C1C1E"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>Solicitar · WhatsApp</a></div>
@@ -606,16 +601,12 @@ document.addEventListener('keydown', function(e){
           <li class="flex gap-3 items-start"><span class="gcheck"><svg viewBox="0 0 12 12" width="10" height="10"><polyline points="2,6 5,9 10,3" stroke="#fff" stroke-width="1.8" fill="none" stroke-linecap="round"/></svg></span><div><span style="font-size:13px;font-weight:600;color:#1C1C1E">Landing Page</span><p style="font-size:11px;color:#9B9B9F;margin:3px 0 0;line-height:1.5">Página web exclusiva para la propiedad con galería, video cinemático, recorrido virtual y formulario de contacto. Herramienta de ventas independiente de los portales.</p></div></li>
         </ul></div>
       </div>
-    </div><!-- /residencial -->
-
-    <!-- TERRENOS -->
-    <div id="pkg-terrenos" style="display:none;gap:20px;align-items:start;padding-top:0;margin-top:0">
+    </div><div id="pkg-terrenos" style="display:none;gap:20px;align-items:start;padding-top:0;margin-top:0">
       <div class="col-span-full mb-4" style="margin-top:0">
         <p class="font-black text-[#1C1C1E] mb-1" style="font-size:16px">Lotes, terrenos y desarrollos en preventa</p>
         <p style="font-size:14px;color:#9B9B9F;line-height:1.6">Contenido visual diseñado para resaltar ubicación, dimensiones y entorno del terreno, elevando su percepción de valor desde el primer vistazo.</p>
       </div>
 
-      <!-- T Esencial -->
       <div class="bg-white rounded-2xl border-2 border-[#E8E8EA] pkg-card-hover" style="box-shadow:0 6px 24px rgba(28,28,30,.06);display:grid;grid-template-rows:1fr auto auto auto">
         <div class="p-5 pb-4">
           <div class="inline-block border border-[#C9A84C]/50 text-[#C9A84C] rounded-full mb-3 font-bold uppercase" style="font-size:9px;letter-spacing:.1em;padding:2px 10px">3 MSI disponible</div>
@@ -642,7 +633,6 @@ document.addEventListener('keydown', function(e){
         </div>
       </div>
 
-      <!-- T Plus -->
       <div class="bg-white rounded-2xl border-2 border-[#C9A84C] relative pkg-card-hover" style="box-shadow:0 20px 60px rgba(201,168,76,.15);display:grid;grid-template-rows:1fr auto auto auto">
         <div style="position:absolute;top:-14px;left:0;right:0;text-align:center;z-index:2">
           <span style="display:inline-block;background:#C9A84C;color:#1C1C1E;border-radius:9999px;font-size:9px;font-weight:900;letter-spacing:.12em;text-transform:uppercase;padding:5px 14px;box-shadow:0 4px 12px rgba(201,168,76,.4)">Más Popular</span>
@@ -655,10 +645,10 @@ document.addEventListener('keydown', function(e){
           <div class="mt-1" style="font-size:11px;color:#9B9B9F">3 pagos de $1,833 MXN</div>
           <div class="mt-3" style="font-size:11px;color:#C9A84C;font-weight:500">✓ Entrega en 3 días hábiles</div>
           <ul class="mt-4 flex flex-col gap-2" style="list-style:none">
-            <li class="flex gap-2 items-start"><span class="gcheck" style="flex-shrink:0"><svg viewBox="0 0 12 12" width="10" height="10"><polyline points="2,6 5,9 10,3" stroke="#fff" stroke-width="1.8" fill="none" stroke-linecap="round"/></svg></span><span style="font-size:13px;font-weight:600;color:#1C1C1E">Todo lo del Esencial</span></li>
-            <li class="flex gap-2 items-start"><span class="gcheck" style="flex-shrink:0"><svg viewBox="0 0 12 12" width="10" height="10"><polyline points="2,6 5,9 10,3" stroke="#fff" stroke-width="1.8" fill="none" stroke-linecap="round"/></svg></span><span style="font-size:13px;font-weight:600;color:#1C1C1E">Visualización con IA</span></li>
-            <li class="flex gap-2 items-start"><span class="gcheck" style="flex-shrink:0"><svg viewBox="0 0 12 12" width="10" height="10"><polyline points="2,6 5,9 10,3" stroke="#fff" stroke-width="1.8" fill="none" stroke-linecap="round"/></svg></span><span style="font-size:13px;font-weight:600;color:#1C1C1E">Recorrido virtual aéreo</span></li>
-            <li class="flex gap-2 items-start"><span class="gcheck" style="flex-shrink:0"><svg viewBox="0 0 12 12" width="10" height="10"><polyline points="2,6 5,9 10,3" stroke="#fff" stroke-width="1.8" fill="none" stroke-linecap="round"/></svg></span><span style="font-size:13px;font-weight:600;color:#1C1C1E">Narración profesional con IA</span></li>
+            <li class="flex gap-2 items-start"><span style="font-size:13px;font-weight:600;color:#9B9B9F;font-style:italic">Todo lo del Esencial, más:</span></li>
+            <li style="display:flex;align-items:center;gap:8px;"><span class="gcheck" style="flex-shrink:0;display:flex;align-items:center;"><svg viewBox="0 0 12 12" width="10" height="10"><polyline points="2,6 5,9 10,3" stroke="#fff" stroke-width="1.8" fill="none" stroke-linecap="round"/></svg></span><div style="display:flex;align-items:center;gap:6px;"><span style="font-size:13px;font-weight:600;color:#1C1C1E;display:flex;align-items:center;line-height:1;margin:0;">Visualización con IA</span><span style="display:flex;align-items:center;justify-content:center;background:rgba(201,168,76,0.15);border-radius:4px;padding:2px 6px;font-size:10px;font-weight:700;color:#C9A84C;line-height:1;letter-spacing:.03em;margin:0;">PLUS</span></div></li>
+            <li style="display:flex;align-items:center;gap:8px;"><span class="gcheck" style="flex-shrink:0;display:flex;align-items:center;"><svg viewBox="0 0 12 12" width="10" height="10"><polyline points="2,6 5,9 10,3" stroke="#fff" stroke-width="1.8" fill="none" stroke-linecap="round"/></svg></span><div style="display:flex;align-items:center;gap:6px;"><span style="font-size:13px;font-weight:600;color:#1C1C1E;display:flex;align-items:center;line-height:1;margin:0;">Recorrido virtual aéreo</span><span style="display:flex;align-items:center;justify-content:center;background:rgba(201,168,76,0.15);border-radius:4px;padding:2px 6px;font-size:10px;font-weight:700;color:#C9A84C;line-height:1;letter-spacing:.03em;margin:0;">PLUS</span></div></li>
+            <li style="display:flex;align-items:center;gap:8px;"><span class="gcheck" style="flex-shrink:0;display:flex;align-items:center;"><svg viewBox="0 0 12 12" width="10" height="10"><polyline points="2,6 5,9 10,3" stroke="#fff" stroke-width="1.8" fill="none" stroke-linecap="round"/></svg></span><div style="display:flex;align-items:center;gap:6px;"><span style="font-size:13px;font-weight:600;color:#1C1C1E;display:flex;align-items:center;line-height:1;margin:0;">Narración profesional con IA</span><span style="display:flex;align-items:center;justify-content:center;background:rgba(201,168,76,0.15);border-radius:4px;padding:2px 6px;font-size:10px;font-weight:700;color:#C9A84C;line-height:1;letter-spacing:.03em;margin:0;">PLUS</span></div></li>
           </ul>
         </div>
         <div class="px-5 pb-4"><a href="https://wa.me/528127174207?text=Hola%2C%20me%20interesa%20el%20Paquete%20Plus%20Terreno%20%245%2C500" class="btn-gold" style="width:100%;justify-content:center;font-size:11px"><svg width="14" height="14" viewBox="0 0 24 24" fill="#1C1C1E"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>Solicitar · WhatsApp</a></div>
@@ -673,7 +663,6 @@ document.addEventListener('keydown', function(e){
         </div>
       </div>
 
-      <!-- T Premium -->
       <div class="bg-white rounded-2xl border-2 border-[#E8E8EA] pkg-card-hover" style="box-shadow:0 6px 24px rgba(28,28,30,.06);display:grid;grid-template-rows:1fr auto auto auto">
         <div class="p-5 pb-4">
           <div class="inline-block border border-[#C9A84C]/50 text-[#C9A84C] rounded-full mb-3 font-bold uppercase" style="font-size:9px;letter-spacing:.1em;padding:2px 10px">3 MSI disponible</div>
@@ -683,10 +672,10 @@ document.addEventListener('keydown', function(e){
           <div class="mt-1" style="font-size:11px;color:#9B9B9F">3 pagos de $2,333 MXN</div>
           <div class="mt-3" style="font-size:11px;color:#C9A84C;font-weight:500">✓ Entrega en 3 días hábiles</div>
           <ul class="mt-4 flex flex-col gap-2" style="list-style:none">
-            <li class="flex gap-2 items-start"><span class="gcheck" style="flex-shrink:0"><svg viewBox="0 0 12 12" width="10" height="10"><polyline points="2,6 5,9 10,3" stroke="#fff" stroke-width="1.8" fill="none" stroke-linecap="round"/></svg></span><span style="font-size:13px;font-weight:600;color:#1C1C1E">Todo lo del Plus</span></li>
-            <li class="flex gap-2 items-start"><span class="gcheck" style="flex-shrink:0"><svg viewBox="0 0 12 12" width="10" height="10"><polyline points="2,6 5,9 10,3" stroke="#fff" stroke-width="1.8" fill="none" stroke-linecap="round"/></svg></span><span style="font-size:13px;font-weight:600;color:#1C1C1E">Landing page propia</span></li>
-            <li class="flex gap-2 items-start"><span class="gcheck" style="flex-shrink:0"><svg viewBox="0 0 12 12" width="10" height="10"><polyline points="2,6 5,9 10,3" stroke="#fff" stroke-width="1.8" fill="none" stroke-linecap="round"/></svg></span><span style="font-size:13px;font-weight:600;color:#1C1C1E">Folleto digital PDF</span></li>
-            <li class="flex gap-2 items-start"><span class="gcheck" style="flex-shrink:0"><svg viewBox="0 0 12 12" width="10" height="10"><polyline points="2,6 5,9 10,3" stroke="#fff" stroke-width="1.8" fill="none" stroke-linecap="round"/></svg></span><span style="font-size:13px;font-weight:600;color:#1C1C1E">Video cómo llegar</span></li>
+            <li class="flex gap-2 items-start"><span style="font-size:13px;font-weight:600;color:#9B9B9F;font-style:italic">Todo lo del Plus, más:</span></li>
+            <li style="display:flex;align-items:center;gap:8px;"><span class="gcheck" style="flex-shrink:0;display:flex;align-items:center;"><svg viewBox="0 0 12 12" width="10" height="10"><polyline points="2,6 5,9 10,3" stroke="#fff" stroke-width="1.8" fill="none" stroke-linecap="round"/></svg></span><div style="display:flex;align-items:center;gap:6px;"><span style="font-size:13px;font-weight:600;color:#1C1C1E;display:flex;align-items:center;line-height:1;margin:0;">Landing page propia</span><span style="display:flex;align-items:center;justify-content:center;background:rgba(201,168,76,0.15);border-radius:4px;padding:2px 6px;font-size:10px;font-weight:700;color:#C9A84C;line-height:1;letter-spacing:.03em;margin:0;">PREMIUM</span></div></li>
+            <li style="display:flex;align-items:center;gap:8px;"><span class="gcheck" style="flex-shrink:0;display:flex;align-items:center;"><svg viewBox="0 0 12 12" width="10" height="10"><polyline points="2,6 5,9 10,3" stroke="#fff" stroke-width="1.8" fill="none" stroke-linecap="round"/></svg></span><div style="display:flex;align-items:center;gap:6px;"><span style="font-size:13px;font-weight:600;color:#1C1C1E;display:flex;align-items:center;line-height:1;margin:0;">Folleto digital PDF</span><span style="display:flex;align-items:center;justify-content:center;background:rgba(201,168,76,0.15);border-radius:4px;padding:2px 6px;font-size:10px;font-weight:700;color:#C9A84C;line-height:1;letter-spacing:.03em;margin:0;">PREMIUM</span></div></li>
+            <li style="display:flex;align-items:center;gap:8px;"><span class="gcheck" style="flex-shrink:0;display:flex;align-items:center;"><svg viewBox="0 0 12 12" width="10" height="10"><polyline points="2,6 5,9 10,3" stroke="#fff" stroke-width="1.8" fill="none" stroke-linecap="round"/></svg></span><div style="display:flex;align-items:center;gap:6px;"><span style="font-size:13px;font-weight:600;color:#1C1C1E;display:flex;align-items:center;line-height:1;margin:0;">Video cómo llegar</span><span style="display:flex;align-items:center;justify-content:center;background:rgba(201,168,76,0.15);border-radius:4px;padding:2px 6px;font-size:10px;font-weight:700;color:#C9A84C;line-height:1;letter-spacing:.03em;margin:0;">PREMIUM</span></div></li>
           </ul>
         </div>
         <div class="px-5 pb-4"><a href="https://wa.me/528127174207?text=Hola%2C%20me%20interesa%20el%20Paquete%20Premium%20Terreno%20%247%2C000" class="btn-gold" style="width:100%;justify-content:center;font-size:11px"><svg width="14" height="14" viewBox="0 0 24 24" fill="#1C1C1E"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>Solicitar · WhatsApp</a></div>
@@ -700,16 +689,12 @@ document.addEventListener('keydown', function(e){
           </ul>
         </div>
       </div>
-    </div><!-- /terrenos -->
-
-    <!-- SERVICIOS INDIVIDUALES -->
-    <div id="pkg-carta" style="display:none;gap:20px;align-items:start;padding-top:1rem">
+    </div><div id="pkg-carta" style="display:none;gap:20px;align-items:start;padding-top:1rem">
       <div class="col-span-full mb-2" style="margin-top:0.5rem">
         <p class="font-black text-[#1C1C1E] mb-2" style="font-size:20px">Servicios a la carta</p>
         <p style="font-size:14px;color:#9B9B9F;line-height:1.7">¿No necesitas el paquete completo? Elige solo lo que tu propiedad necesita y empieza a vender más rápido desde hoy.</p>
         <p class="mt-2" style="font-size:12px;color:#9B9B9F">Todos los precios en MXN.</p>
       </div>
-      <!-- 8 servicios individuales con descripciones exactas del catálogo -->
       <div class="bg-white rounded-2xl border-2 border-[#E8E8EA] overflow-hidden pkg-card-hover" style="box-shadow:0 6px 24px rgba(28,28,30,.06);display:grid;grid-template-rows:1fr auto auto"><div class="p-5 pb-4"><span class="material-symbols-outlined block mb-3" style="font-size:26px;color:#C9A84C">photo_camera</span><h3 class="font-black mb-2" style="font-size:17px;color:#1C1C1E">Fotografía Profesional</h3><p style="font-size:13px;line-height:1.6;color:#9B9B9F">35 a 50 imágenes en alta resolución con técnica HDR. Interiores y exteriores a nivel de piso.</p></div><div class="px-5 py-2"><div class="font-black mt-3" style="font-size:26px;letter-spacing:-.025em;color:#1C1C1E">$3,000 MXN</div></div><div class="px-5 pb-5"><a href="https://wa.me/528127174207?text=Hola%2C%20me%20interesa%20Fotograf%C3%ADa%20HDR%20(%243%2C000)" class="btn-gold" style="width:100%;justify-content:center;font-size:11px">Solicitar</a></div></div>
 
       <div class="bg-white rounded-2xl border-2 border-[#E8E8EA] overflow-hidden pkg-card-hover" style="box-shadow:0 6px 24px rgba(28,28,30,.06);display:grid;grid-template-rows:1fr auto auto"><div class="p-5 pb-4"><span class="material-symbols-outlined block mb-3" style="font-size:26px;color:#C9A84C">videocam</span><h3 class="font-black mb-2" style="font-size:17px;color:#1C1C1E">Video Cinemático Individual</h3><p style="font-size:13px;line-height:1.6;color:#9B9B9F">Clip de 30 a 60 seg con colorización profesional. Agrega tomas aéreas con drone por $1,500 adicionales.</p></div><div class="px-5 py-2"><div class="font-black mt-3" style="font-size:26px;letter-spacing:-.025em;color:#1C1C1E">$3,000 MXN</div></div><div class="px-5 pb-5"><a href="https://wa.me/528127174207?text=Hola%2C%20me%20interesa%20Video%20Cinem%C3%A1tico%20(%243%2C000)" class="btn-gold" style="width:100%;justify-content:center;font-size:11px">Solicitar</a></div></div>
@@ -725,9 +710,7 @@ document.addEventListener('keydown', function(e){
       <div class="bg-white rounded-2xl border-2 border-[#E8E8EA] overflow-hidden pkg-card-hover" style="box-shadow:0 6px 24px rgba(28,28,30,.06);display:grid;grid-template-rows:1fr auto auto"><div class="p-5 pb-4"><span class="material-symbols-outlined block mb-3" style="font-size:26px;color:#C9A84C">construction</span><h3 class="font-black mb-2" style="font-size:17px;color:#1C1C1E">Avance de Obra</h3><p style="font-size:13px;line-height:1.6;color:#9B9B9F">Cobertura con drone en visitas periódicas. Ángulos estandarizados para reportes de avance e inversores.</p></div><div class="px-5 py-2"><div class="font-black mt-3" style="font-size:26px;letter-spacing:-.025em;color:#1C1C1E">$3,500 MXN</div><div style="font-size:11px;color:#9B9B9F;margin-top:4px">Por visita</div></div><div class="px-5 pb-5"><a href="https://wa.me/528127174207?text=Hola%2C%20me%20interesa%20Avance%20de%20Obra%20(%243%2C500%2Fvisita)" class="btn-gold" style="width:100%;justify-content:center;font-size:11px">Solicitar</a></div></div>
 
       <div class="bg-white rounded-2xl border-2 border-[#E8E8EA] overflow-hidden pkg-card-hover" style="box-shadow:0 6px 24px rgba(28,28,30,.06);display:grid;grid-template-rows:1fr auto auto"><div class="p-5 pb-4"><span class="material-symbols-outlined block mb-3" style="font-size:26px;color:#C9A84C">straighten</span><h3 class="font-black mb-2" style="font-size:17px;color:#1C1C1E">Plano 3D + 2D</h3><p style="font-size:13px;line-height:1.6;color:#9B9B9F">Levantamiento digital de la propiedad con plano 2D y recorrido visual 3D. Entrega en PDF y JPG.</p></div><div class="px-5 py-2"><div class="font-black mt-3" style="font-size:26px;letter-spacing:-.025em;color:#1C1C1E">$3,500 MXN</div></div><div class="px-5 pb-5"><a href="https://wa.me/528127174207?text=Hola%2C%20me%20interesa%20Plano%203D%20%2B%202D%20(%243%2C500)" class="btn-gold" style="width:100%;justify-content:center;font-size:11px">Solicitar</a></div></div>
-    </div><!-- /carta -->
-
-  </div>
+    </div></div>
 </section>
 
 <!-- PREGUNTAS FRECUENTES -->
