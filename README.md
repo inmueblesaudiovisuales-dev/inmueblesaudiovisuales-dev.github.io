@@ -1,2 +1,0 @@
-# Marketing website UI kit
-
