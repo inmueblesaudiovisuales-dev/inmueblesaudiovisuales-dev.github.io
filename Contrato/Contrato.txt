@@ -1,0 +1,78 @@
+CONTRATO DE SERVICIOS AUDIOVISUALES INMOBILIARIOS
+Fecha: {{fechaContrato}}
+
+DATOS DEL CLIENTE
+Nombre: {{nombre}}
+Teléfono: {{telefono}}
+Correo: {{correo}}
+Agencia o Empresa: {{agencia}}
+
+DETALLES DEL PROYECTO
+Paquete Seleccionado: {{paquete}}
+Inversión Total: {{precio}}
+Anticipo Requerido (50%): {{anticipo}}
+Fecha de Producción: {{fechaSesion}}
+Dirección de la Propiedad: {{direccion}}
+Orientación del Material: {{orientacion}}
+Identidad Visual Requerida: {{identidadVisual}}
+
+TÉRMINOS Y CONDICIONES
+SERVICIOS DE MEDIA INMOBILIARIA
+
+1. Pre-producción y Planificación
+Para garantizar la máxima calidad y eficiencia en el servicio, el cliente deberá proporcionar la siguiente información al momento de la contratación:
+Ubicación de la propiedad: Enlace exacto de Google Maps, acompañado del nombre de la calle y el número exterior e interior. Se solicita, de manera preferente, una fotografía de la fachada como referencia visual para el equipo al momento de la llegada.
+Elementos de identidad visual: Cualquier texto, nombre del agente, datos de contacto o logotipos que deban integrarse en el material final deberán ser entregados al proveedor previo a la sesión. No se aceptarán adiciones de logotipos o textos una vez iniciada la fase de edición sin que esto genere un costo adicional.
+Requerimientos técnicos: Tipo y formato de contenido requerido (fotografía, video, drone, recorrido 360, formato vertical u horizontal) y referencias visuales de inspiración (opcional). En caso de no recibir referencias previas, el cliente acepta que el proyecto se ejecutará bajo el criterio y la dirección creativa exclusiva del proveedor.
+Especificaciones para Terrenos y Lotes: En el caso de terrenos o lotes baldíos, el cliente tiene la obligación de proporcionar documentación técnica (planos o levantamientos) y una referencia visual clara (screenshot de Google Maps con perímetro delineado) que permita identificar los límites exactos de la propiedad. El proveedor no se hace responsable por material capturado fuera de los límites reales si estos no fueron señalados con precisión. Cualquier re-grabación derivada de una identificación incorrecta por falta de información será considerada un nuevo servicio con un costo del 100%.
+
+2. Logística y Acceso a la Propiedad
+Gestión de Acceso: Es responsabilidad absoluta del cliente garantizar que el equipo de producción tenga libre acceso a la locación en la fecha y hora acordadas.
+Accesos Restringidos: En fraccionamientos privados o zonas que requieran código QR, invitación digital o registro previo, el cliente deberá gestionarlo y proporcionarlo al proveedor con la debida anticipación. Cualquier demora en el ingreso derivada de la falta de gestión de accesos se descontará del tiempo total asignado a la sesión.
+Tiempos de Espera: Se otorgará un periodo de tolerancia máximo de 20 minutos sobre la hora acordada. En caso de que el cliente o encargado demore más de este tiempo en otorgar el acceso al inmueble, se podrá aplicar un cargo extra por tiempo de espera o la sesión estará sujeta a cancelación sin derecho a reembolso del anticipo.
+
+3. Estado del Inmueble y Preparación
+Preparación de la Propiedad: La propiedad será documentada exactamente en las condiciones en las que se encuentre al momento de la llegada del equipo. El proveedor no realiza labores de limpieza, no oculta objetos personales ni reubica mobiliario pesado. El cliente es el único responsable de asegurar que el inmueble se encuentre impecable y listo para la grabación.
+Objetos Personales: En propiedades habitadas, es responsabilidad del cliente retirar previamente cualquier objeto de carácter personal (fotografías, documentos, artículos íntimos, etc.) que no desee que aparezca en el material. El proveedor no realizará retiro físico de objetos durante la sesión ni eliminación digital de los mismos en postproducción, salvo cotización adicional.
+Vehículos: Se solicita que al momento de la sesión no haya vehículos estacionados frente a la propiedad o en áreas que interfieran con la captura de fachada y tomas aéreas. El proveedor no se responsabiliza por la presencia de vehículos de terceros ajenos al inmueble.
+Iluminación y Cortinas: Para agilizar la sesión, se solicita que al momento de la llegada del equipo todas las luminarias del inmueble se encuentren encendidas y las persianas o cortinas abiertas, salvo indicación contraria del proveedor.
+Ocupantes del Inmueble: Durante la sesión, se solicita que todas las personas presentes en el inmueble, incluyendo niños, permanezcan concentradas en una sola área o habitación designada, con el fin de agilizar el flujo de trabajo y evitar interrupciones en la captura del material.
+Mascotas: Con el fin de salvaguardar la integridad del equipo técnico y evitar interferencias sonoras en el material, cualquier mascota deberá permanecer resguardada en un área cerrada o fuera del inmueble durante la totalidad de la sesión.
+
+4. Áreas Comunes y Amenidades
+Gestión de Permisos: La captura de imágenes o video en amenidades (tales como albercas, gimnasios, casas club o áreas verdes) está estrictamente sujeta a la autorización previa de la administración del condominio o fraccionamiento.
+Limitaciones: Es responsabilidad del cliente tramitar dichos permisos. Si al momento de la sesión el personal de seguridad prohíbe la grabación o el vuelo de drone en dichas áreas, el proveedor quedará eximido de toda responsabilidad respecto a la omisión de este material en la entrega final.
+
+5. Presencia de Agentes y Talento en Cámara
+Preparación Previa: Todo agente inmobiliario o presentador que vaya a aparecer en cámara deberá presentarse a la hora acordada debidamente arreglado (maquillaje, peinado y vestuario).
+Memorización de Guion: Es de carácter obligatorio que el talento cuente con su guion completamente memorizado y ensayado antes de iniciar. El proveedor no suministra equipo de teleprompter. Los retrasos excesivos originados por errores constantes de locución o falta de preparación afectarán el tiempo total de la sesión y podrán generar cargos adicionales por tiempo extraordinario.
+
+6. Ejecución, Drones y Restricciones
+Flujo de Trabajo: El flujo y orden de captura serán definidos enteramente por el proveedor bajo su criterio creativo y técnico. Si el cliente tiene preferencias o requerimientos específicos respecto al orden o enfoque de las tomas, deberá comunicarlos antes del inicio de la sesión. Una vez comenzada la grabación, no se aceptarán modificaciones estructurales al flujo de trabajo ni al material capturado.
+Vuelo de Drone: El servicio aéreo se encuentra estrictamente subordinado a las regulaciones locales y a las condiciones meteorológicas. Si el inmueble se ubica en una zona de restricción de vuelo o si el clima representa un riesgo (lluvia, vientos fuertes), la operación no se llevará a cabo por motivos de seguridad y legalidad, eximiendo al proveedor de responsabilidad.
+Limitaciones Generales: El proveedor no asume responsabilidad por elementos inestéticos en el entorno (cableado, obras aledañas) o condiciones externas ajenas a su control.
+
+7. Entregables, Edición y Revisiones
+Tiempos y Método de Entrega: El material finalizado será entregado de forma digital mediante un enlace de Google Drive, en un plazo de 3 días hábiles posteriores a la sesión. Es responsabilidad del cliente descargar los archivos a sus propios dispositivos a la brevedad.
+Archivos Originales: El servicio ampara de manera exclusiva la entrega del material final editado. Bajo ninguna circunstancia se proporcionarán archivos crudos (RAW), material de video sin editar o proyectos de software de edición.
+Retoque Digital y Postproducción: La edición estándar contempla únicamente la corrección de color y ajuste de iluminación. No se incluye limpieza digital profunda, tal como eliminación de cableado, remoción de vehículos, reparación virtual de desperfectos físicos o montaje virtual de mobiliario (Virtual Staging). Cualquier requerimiento de alteración digital de la realidad requerirá una cotización independiente.
+Locución (Voiceover) con Inteligencia Artificial: En caso de que el proyecto incluya una narración generada por IA, el cliente tendrá la obligación de enviar el guion final aprobado previo a la fase de edición. Si el cliente omite entregar dicho guion y delega la redacción y generación de voz al proveedor, el resultado final se considerará definitivo y no estará sujeto a modificaciones, cambios de redacción ni regrabaciones en posteriores rondas de revisión.
+Música para Redes Sociales: Los videos se entregan acompañados de música de biblioteca libre de derechos de autor (royalty-free). En caso de que el cliente desee emplear piezas musicales comerciales en tendencia, será su entera responsabilidad agregarlas directamente desde las plataformas digitales (Instagram o TikTok) al momento de su publicación.
+Rondas de Revisión: El servicio contempla un máximo de 2 rondas de correcciones menores (entendidas exclusivamente como la supresión de clips específicos o la modificación de textos en pantalla). Bajo ninguna circunstancia se aceptarán cambios estructurales o mayores, tales como re-edición completa del video, alteración del concepto creativo, cambio en la pista musical, reordenamiento drástico de tomas o modificaciones en la colorización. Toda solicitud que exceda la categoría de "corrección menor" será considerada una re-edición y requerirá la aprobación de un presupuesto adicional. Las solicitudes de revisión deberán enviarse invariablemente por escrito.
+
+8. Tarifas y Condiciones de Pago
+Para pagos mediante transferencia bancaria, se requiere un 50% de anticipo para agendar la sesión y el 50% restante deberá liquidarse al notificar que la primera versión está lista.
+En caso de que el cliente opte por el beneficio de Meses Sin Intereses (MSI) mediante tarjeta de crédito, se requerirá el pago del 100% del paquete en una sola exhibición a través del enlace de pago oficial de Inmuebles Audiovisuales previo a la sesión.
+No se enviarán enlaces de descarga definitiva en alta resolución ni se retirarán marcas de agua hasta que el servicio esté liquidado en su totalidad. El anticipo (o el pago total procesado para MSI) no es reembolsable en caso de cancelación; sin embargo, podrá aplicarse como crédito a una nueva fecha dentro de un periodo razonable, sujeto a disponibilidad.
+
+9. Horarios de Comunicación y Atención
+Disponibilidad: La comunicación con el cliente, así como la recepción de solicitudes, retroalimentación y envío de entregables, se llevará a cabo de manera exclusiva en días y horas hábiles (Lunes a Viernes de 9:00 a.m. a 6:00 p.m.). No se brindará atención en días festivos oficiales.
+Mensajes Fuera de Horario: Toda solicitud, mensaje o instrucción recibida fuera de los horarios establecidos, incluyendo fines de semana y días festivos, será considerada como recibida a primera hora del día hábil inmediato siguiente.
+
+10. Cancelaciones, Reagendamientos y Almacenamiento
+Cancelaciones: Las solicitudes de cambio de fecha notificadas con menos de 24 horas de anticipación causarán un cargo adicional por concepto de penalización. No aplicarán cargos si el reagendamiento obedece a condiciones climáticas adversas que imposibiliten la grabación.
+Almacenamiento en la Nube: Los archivos finales permanecerán alojados en Google Drive por un periodo máximo de 30 días naturales posteriores a la entrega. Transcurrido dicho plazo, el proveedor se reserva el derecho de eliminar los archivos sin previo aviso.
+Uso Promocional: El proveedor retiene los derechos para utilizar el contenido generado con fines promocionales, integración a su portafolio profesional y difusión en sus propias plataformas.
+
+11. Sobre la Experiencia del Servicio
+El servicio está diseñado para ofrecer una representación visual estratégica y de alto impacto de cada propiedad, optimizada para atraer compradores potenciales. Cada proyecto se desarrolla bajo un enfoque creativo y técnico definido, por lo que las decisiones de producción y edición buscan maximizar la calidad final y la efectividad comercial del contenido.
