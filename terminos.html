@@ -300,12 +300,11 @@
   }
 
   .clause ul li {
-    display: flex;
-    gap: 12px;
-    align-items: flex-start;
     font-size: 13.5px;
     line-height: 1.75;
     color: #444;
+    padding-left: 18px;
+    position: relative;
   }
 
   .clause ul li::before {
@@ -314,8 +313,9 @@
     height: 6px;
     background: var(--gold);
     border-radius: 50%;
-    flex-shrink: 0;
-    margin-top: 9px;
+    position: absolute;
+    left: 0;
+    top: 10px;
   }
 
   .clause strong {
@@ -447,7 +447,7 @@
       <ul>
         <li><strong>Ubicación de la propiedad:</strong> Enlace exacto de Google Maps, acompañado del nombre de la calle y el número exterior e interior. Se solicita, de manera preferente, una fotografía de la fachada como referencia visual para el equipo al momento de la llegada.</li>
         <li><strong>Elementos de identidad visual:</strong> Cualquier texto, nombre del agente, datos de contacto o logotipos que deban integrarse en el material final deberán ser entregados al proveedor previo a la sesión. No se aceptarán adiciones de logotipos o textos una vez iniciada la fase de edición sin que esto genere un costo adicional.</li>
-        <li><strong>Requerimientos técnicos:</strong> Tipo y formato de contenido requerido (fotografía, video, drone, recorrido 360, formato vertical u horizontal) y referencias visuales de inspiración (opcional). En caso de no recibir referencias previas, el cliente acepta que el proyecto se ejecutará bajo el criterio y la dirección creativa exclusiva del proveedor.</li>
+        <li><strong>Requerimientos técnicos:</strong> Tipo y formato de contenido requerido (fotografía, video, drone, recorrido virtual inmersivo, formato vertical u horizontal) y referencias visuales de inspiración (opcional). En caso de no recibir referencias previas, el cliente acepta que el proyecto se ejecutará bajo el criterio y la dirección creativa exclusiva del proveedor.</li>
         <li><strong>Especificaciones para Terrenos y Lotes:</strong> En el caso de terrenos o lotes baldíos, el cliente tiene la obligación de proporcionar documentación técnica (planos o levantamientos) y una referencia visual clara (screenshot de Google Maps con perímetro delineado) que permita identificar los límites exactos de la propiedad. El proveedor no se hace responsable por material capturado fuera de los límites reales si estos no fueron señalados con precisión. Cualquier re-grabación derivada de una identificación incorrecta por falta de información tendrá el costo completo del servicio original.</li>
       </ul>
     </article>
@@ -575,9 +575,7 @@
         <div class="clause-num">10</div>
         <h2>Cancelaciones, Reagendamientos y Almacenamiento</h2>
       </div>
-      <div class="highlight-box">
-        <strong>Cancelaciones:</strong> Las solicitudes de cambio de fecha notificadas con menos de 24 horas de anticipación causarán un cargo adicional equivalente al 25% del total del servicio contratado. No aplicarán cargos si el reagendamiento obedece a condiciones climáticas adversas que imposibiliten la grabación.
-      </div>
+      <p><strong>Cancelaciones:</strong> Las solicitudes de cambio de fecha notificadas con menos de 24 horas de anticipación causarán un cargo adicional equivalente al 25% del total del servicio contratado. No aplicarán cargos si el reagendamiento obedece a condiciones climáticas adversas que imposibiliten la grabación.</p>
       <p><strong>Almacenamiento en la Nube:</strong> Los archivos finales permanecerán alojados en Google Drive por un periodo máximo de 30 días naturales posteriores a la entrega. Transcurrido dicho plazo, el proveedor se reserva el derecho de eliminar los archivos sin previo aviso.</p>
     </article>
 
