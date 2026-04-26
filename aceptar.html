@@ -375,6 +375,65 @@
 
   .field-conditional.visible { display: block; }
 
+  .greeting {
+    font-size: 22px;
+    font-weight: 900;
+    color: var(--charcoal);
+    letter-spacing: -.02em;
+    margin-bottom: 4px;
+  }
+
+  .greeting span { color: var(--gold); }
+
+  .greeting-sub {
+    font-size: 13px;
+    color: var(--concrete);
+    margin-bottom: 24px;
+  }
+
+  .entregables-list {
+    margin-top: 14px;
+    padding-top: 14px;
+    border-top: 1px solid var(--border);
+  }
+
+  .entregables-title {
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: .12em;
+    text-transform: uppercase;
+    color: var(--concrete);
+    margin-bottom: 10px;
+  }
+
+  .entregables-list ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .entregables-list ul li {
+    font-size: 12px;
+    color: #555;
+    padding: 5px 0;
+    border-bottom: 1px solid var(--border);
+    display: flex;
+    align-items: flex-start;
+    gap: 8px;
+    line-height: 1.5;
+  }
+
+  .entregables-list ul li:last-child { border-bottom: none; }
+
+  .entregables-list ul li::before {
+    content: '';
+    width: 6px;
+    height: 6px;
+    background: var(--gold);
+    border-radius: 50%;
+    flex-shrink: 0;
+    margin-top: 5px;
+  }
 
   footer {
     text-align: center;
@@ -443,6 +502,12 @@
   <!-- FORMULARIO -->
   <div id="state-form">
 
+    <!-- Saludo personalizado -->
+    <div id="greeting-wrap">
+      <p class="greeting">Hola, <span id="txt-saludo">—</span>.</p>
+      <p class="greeting-sub">Revisa los detalles de tu sesión y completa tu información para generar el contrato.</p>
+    </div>
+
     <!-- Resumen del servicio -->
     <div class="card">
       <div class="service-header">
@@ -470,17 +535,18 @@
         <span class="service-row-label">Fecha de sesión</span>
         <span class="service-row-value" id="txt-fecha">—</span>
       </div>
+      <div class="entregables-list">
+        <p class="entregables-title">Incluido en tu paquete</p>
+        <ul id="txt-entregables"></ul>
+      </div>
     </div>
 
     <!-- Datos personales -->
     <div class="card">
       <p class="form-section-title">Tus datos</p>
 
-      <div class="field" id="field-nombre">
-        <label for="inp-nombre">Nombre completo *</label>
-        <input type="text" id="inp-nombre" placeholder="Como aparecerá en el contrato">
-        <span class="field-error">Este campo es obligatorio</span>
-      </div>
+      <!-- Campo oculto con el nombre (se envía al script pero no se muestra) -->
+      <input type="hidden" id="inp-nombre">
 
       <div class="field" id="field-correo">
         <label for="inp-correo">Correo electrónico *</label>
@@ -627,14 +693,78 @@
       // Llenar resumen
       document.getElementById('txt-paquete').textContent  = data.paquete;
       document.getElementById('txt-nombre').textContent   = data.nombre || '—';
-      document.getElementById('txt-precio').textContent   = data.precio;
-      document.getElementById('txt-anticipo').textContent = data.anticipo;
+      document.getElementById('txt-precio').textContent   = data.precio  || '—';
+      document.getElementById('txt-anticipo').textContent = data.anticipo || '—';
       document.getElementById('txt-fecha').textContent    = data.fecha;
 
-      // Pre-llenar nombre en el campo del formulario
-      if (data.nombre) {
-        document.getElementById('inp-nombre').value = data.nombre;
-      }
+      // Saludo personalizado
+      const nombreCorto = (data.nombre || '').split(' ')[0];
+      document.getElementById('txt-saludo').textContent = nombreCorto || 'bienvenido';
+
+      // Pre-llenar nombre en el campo oculto
+      document.getElementById('inp-nombre').value = data.nombre || '';
+
+      // Entregables
+      const entregablesMap = {
+        'Residencial Esencial': [
+          'Fotografía profesional (35–50 imágenes en alta resolución)',
+          'Video cinemático (30–60 segundos con colorización profesional y música)',
+          'Video y fotografía aérea con drone',
+          'Grabación de amenidades',
+        ],
+        'Residencial Plus': [
+          'Fotografía profesional (35–50 imágenes en alta resolución)',
+          'Video cinemático (30–60 segundos con colorización profesional y música)',
+          'Video y fotografía aérea con drone',
+          'Grabación de amenidades',
+          'Recorrido virtual inmersivo (hospedaje en la nube incluido)',
+          'Narración profesional con inteligencia artificial',
+          'Contenido para redes sociales (3 videos verticales)',
+        ],
+        'Residencial Premium': [
+          'Fotografía profesional (35–50 imágenes en alta resolución)',
+          'Video cinemático (30–60 segundos con colorización profesional y música)',
+          'Video y fotografía aérea con drone',
+          'Grabación de amenidades',
+          'Recorrido virtual inmersivo (hospedaje en la nube incluido)',
+          'Narración profesional con inteligencia artificial',
+          'Contenido para redes sociales (3 videos verticales)',
+          'Video cómo llegar (animación satelital)',
+          'Folleto digital PDF',
+          'Landing page propia para la propiedad',
+        ],
+        'Terreno Esencial': [
+          'Video cinemático aéreo (30–60 segundos)',
+          'Animación gráfica de perímetro con tracking 3D',
+          'Fotografía aérea con delimitado del terreno',
+          'Grabación de amenidades del fraccionamiento',
+        ],
+        'Terreno Plus': [
+          'Video cinemático aéreo (30–60 segundos)',
+          'Animación gráfica de perímetro con tracking 3D',
+          'Fotografía aérea con delimitado del terreno',
+          'Grabación de amenidades del fraccionamiento',
+          'Visualización de potencial con inteligencia artificial (render)',
+          'Recorrido virtual inmersivo aéreo',
+          'Narración profesional con inteligencia artificial',
+        ],
+        'Terreno Premium': [
+          'Video cinemático aéreo (30–60 segundos)',
+          'Animación gráfica de perímetro con tracking 3D',
+          'Fotografía aérea con delimitado del terreno',
+          'Grabación de amenidades del fraccionamiento',
+          'Visualización de potencial con inteligencia artificial (render)',
+          'Recorrido virtual inmersivo aéreo',
+          'Narración profesional con inteligencia artificial',
+          'Video cómo llegar (animación satelital)',
+          'Folleto digital PDF',
+          'Landing page propia para el terreno',
+        ],
+      };
+
+      const lista = entregablesMap[data.paquete] || [];
+      const ul = document.getElementById('txt-entregables');
+      ul.innerHTML = lista.map(e => `<li>${e}</li>`).join('');
 
       showState('state-form');
 
@@ -653,11 +783,10 @@
     let valid = true;
 
     const fields = [
-      { id: 'inp-nombre',    fieldId: 'field-nombre',      check: v => v.length > 1 },
-      { id: 'inp-correo',    fieldId: 'field-correo',      check: v => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v) },
-      { id: 'inp-telefono',  fieldId: 'field-telefono',    check: v => v.length >= 10 },
-      { id: 'inp-direccion', fieldId: 'field-direccion',   check: v => v.length > 4 },
-      { id: 'inp-mapas',     fieldId: 'field-mapas',       check: v => v.startsWith('http') },
+      { id: 'inp-correo',      fieldId: 'field-correo',      check: v => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v) },
+      { id: 'inp-telefono',    fieldId: 'field-telefono',    check: v => v.length >= 10 },
+      { id: 'inp-direccion',   fieldId: 'field-direccion',   check: v => v.length > 4 },
+      { id: 'inp-mapas',       fieldId: 'field-mapas',       check: v => v.startsWith('http') },
       { id: 'inp-orientacion', fieldId: 'field-orientacion', check: v => v !== '' },
     ];
 
