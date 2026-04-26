@@ -328,7 +328,54 @@
 
   @keyframes spin { to { transform: rotate(360deg); } }
 
-  /* ── FOOTER ── */
+  /* ── RADIO BUTTONS ── */
+  .radio-group {
+    display: flex;
+    gap: 12px;
+  }
+
+  .radio-option {
+    flex: 1;
+    position: relative;
+  }
+
+  .radio-option input[type="radio"] {
+    position: absolute;
+    opacity: 0;
+    width: 0;
+    height: 0;
+  }
+
+  .radio-option label {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 11px 14px;
+    border: 1.5px solid var(--border);
+    border-radius: 8px;
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--concrete);
+    cursor: pointer;
+    transition: all .2s;
+    text-transform: none;
+    letter-spacing: 0;
+  }
+
+  .radio-option input[type="radio"]:checked + label {
+    border-color: var(--gold);
+    color: var(--gold);
+    background: var(--gold-dim);
+  }
+
+  .field-conditional {
+    display: none;
+    margin-top: 14px;
+  }
+
+  .field-conditional.visible { display: block; }
+
+
   footer {
     text-align: center;
     padding: 32px 24px;
@@ -353,7 +400,7 @@
 <body>
 
 <header>
-  <img src="logo.svg" alt="Inmuebles Audiovisuales">
+  <img src="logo.svg" alt="Inmuebles Audiovisuales" style="filter:brightness(0) invert(1);">
 </header>
 
 <div class="center-wrap">
@@ -406,6 +453,10 @@
           <div class="service-label">Detalles de tu sesión</div>
           <div class="service-title" id="txt-paquete">—</div>
         </div>
+      </div>
+      <div class="service-row">
+        <span class="service-row-label">Cliente</span>
+        <span class="service-row-value" id="txt-nombre">—</span>
       </div>
       <div class="service-row">
         <span class="service-row-label">Inversión total</span>
@@ -465,6 +516,17 @@
         <span class="field-error">Ingresa el enlace de Google Maps</span>
       </div>
 
+      <div class="field">
+        <label for="inp-referencias">Referencias de cómo llegar (opcional)</label>
+        <textarea id="inp-referencias" placeholder="Entre calles, casa blanca, portón negro, etc."></textarea>
+      </div>
+
+    </div>
+
+    <!-- Producción -->
+    <div class="card">
+      <p class="form-section-title">Producción</p>
+
       <div class="field" id="field-orientacion">
         <label for="inp-orientacion">Orientación del video *</label>
         <select id="inp-orientacion">
@@ -477,10 +539,24 @@
       </div>
 
       <div class="field">
-        <label for="inp-identidad">Identidad visual</label>
-        <textarea id="inp-identidad" placeholder="Nombre del agente, datos de contacto o logo que deba aparecer en el material. Si no tienes, escribe 'Ninguno'."></textarea>
-        <p class="field-hint">Los logos puedes enviarlos por WhatsApp o Google Drive después.</p>
+        <label>¿Desea que sus datos aparezcan al final del video?</label>
+        <div class="radio-group">
+          <div class="radio-option">
+            <input type="radio" name="identidad-yn" id="identidad-si" value="si" onchange="toggleIdentidad()">
+            <label for="identidad-si">Sí</label>
+          </div>
+          <div class="radio-option">
+            <input type="radio" name="identidad-yn" id="identidad-no" value="no" onchange="toggleIdentidad()">
+            <label for="identidad-no">No</label>
+          </div>
+        </div>
+        <div class="field-conditional" id="field-identidad-detalle">
+          <label for="inp-identidad" style="margin-top:0">¿Qué datos desea incluir?</label>
+          <textarea id="inp-identidad" placeholder="Nombre, teléfono, correo, sitio web, etc."></textarea>
+          <p class="field-hint">El logo puede enviarlo por WhatsApp o Google Drive directamente a Bruno.</p>
+        </div>
       </div>
+
     </div>
 
     <!-- Términos -->
@@ -539,7 +615,8 @@
       const res  = await fetch(SCRIPT_URL + '?token=' + token);
       const data = await res.json();
 
-      if (data.error === 'Este enlace ya fue utilizado y ha expirado') {
+      if (data.error === 'Este enlace ya fue utilizado y ha expirado' ||
+          data.error === 'Este enlace ha expirado. Solicita uno nuevo a Bruno.') {
         showState('state-expired'); return;
       }
 
@@ -549,15 +626,26 @@
 
       // Llenar resumen
       document.getElementById('txt-paquete').textContent  = data.paquete;
+      document.getElementById('txt-nombre').textContent   = data.nombre || '—';
       document.getElementById('txt-precio').textContent   = data.precio;
       document.getElementById('txt-anticipo').textContent = data.anticipo;
       document.getElementById('txt-fecha').textContent    = data.fecha;
+
+      // Pre-llenar nombre en el campo del formulario
+      if (data.nombre) {
+        document.getElementById('inp-nombre').value = data.nombre;
+      }
 
       showState('state-form');
 
     } catch (err) {
       showState('state-invalid');
     }
+  }
+
+  function toggleIdentidad() {
+    const si = document.getElementById('identidad-si').checked;
+    document.getElementById('field-identidad-detalle').classList.toggle('visible', si);
   }
 
   async function submitForm() {
@@ -594,6 +682,12 @@
     btn.textContent = 'Generando contrato...';
 
     try {
+      const identidadYN  = document.querySelector('input[name="identidad-yn"]:checked');
+      const identidadVal = identidadYN ? identidadYN.value : 'no';
+      const identidadDetalle = identidadVal === 'si'
+        ? document.getElementById('inp-identidad').value.trim()
+        : 'No';
+
       const payload = {
         token      : currentToken,
         nombre     : document.getElementById('inp-nombre').value.trim(),
@@ -602,8 +696,9 @@
         agencia    : document.getElementById('inp-agencia').value.trim(),
         direccion  : document.getElementById('inp-direccion').value.trim(),
         mapas      : document.getElementById('inp-mapas').value.trim(),
+        referencias: document.getElementById('inp-referencias').value.trim(),
         orientacion: document.getElementById('inp-orientacion').value,
-        identidad  : document.getElementById('inp-identidad').value.trim(),
+        identidad  : identidadDetalle,
       };
 
       const res  = await fetch(SCRIPT_URL, {
