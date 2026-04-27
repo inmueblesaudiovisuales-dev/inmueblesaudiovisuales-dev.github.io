@@ -481,18 +481,7 @@
   }
 
   function buildTourEmbed(tourUrl) {
-    const id = getCloudpanoId(tourUrl);
-    if (!id) return '';
-    const snippet = `<div id="${id}"><script type="text/javascript" async\n  data-short="${id}"\n  data-path="tours"\n  data-is-self-hosted="false"\n  width="100%" height="500px"\n  src="https://app.cloudpano.com/public/shareScript.js">\n<\/script></div>`;
-    return `
-      <div class="tour-section">
-        <p class="section-title">Recorrido Virtual</p>
-        <div class="tour-code-block">
-          <p class="tour-code-label">Inserta el recorrido en tu sitio web</p>
-          <pre class="tour-code-pre" id="tour-snippet">${snippet.replace(/</g,'&lt;').replace(/>/g,'&gt;')}</pre>
-          <button class="tour-copy-btn" onclick="copySnippet()">Copiar código</button>
-        </div>
-      </div>`;
+    return '';
   }
 
   function injectTourScript(id) {}
