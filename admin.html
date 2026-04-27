@@ -634,6 +634,17 @@
     return ok;
   }
 
+  // ── CONVERTIR LINK DE DRIVE A LINK DIRECTO DE IMAGEN ──
+  function driveDirecto(url) {
+    if (!url) return "";
+    if (url.includes("uc?export=view")) return url;
+    const match = url.match(/\/file\/d\/([a-zA-Z0-9_-]+)/);
+    if (match) return `https://drive.google.com/uc?export=view&id=${match[1]}`;
+    const match2 = url.match(/[?&]id=([a-zA-Z0-9_-]+)/);
+    if (match2) return `https://drive.google.com/uc?export=view&id=${match2[1]}`;
+    return url;
+  }
+
   // ── GENERAR LINK ──
   function generarLink() {
     if (!validar()) {
@@ -646,7 +657,7 @@
 
     const nombre    = document.getElementById('inp-nombre').value.trim();
     const direccion = document.getElementById('inp-direccion').value.trim();
-    const portada   = document.getElementById('inp-portada').value.trim();
+    const portada   = driveDirecto(document.getElementById("inp-portada").value.trim());
     const drive     = document.getElementById('inp-drive').value.trim();
     const driveLabel = document.getElementById('inp-drive-label').value.trim() || 'Fotografía y video';
     const review    = document.getElementById('inp-review').value.trim();
