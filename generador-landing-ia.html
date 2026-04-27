@@ -1,0 +1,1060 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Generador de Landing Pages — Inmuebles Audiovisuales</title>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --gold: #C9A84C;
+    --gold-light: #D4B06A;
+    --onyx: #1C1C1E;
+    --white: #FAFAFA;
+    --gray: #9B9B9F;
+    --surface: #242426;
+    --surface2: #2C2C2E;
+    --border: #3A3A3C;
+    --text: #FAFAFA;
+    --text-muted: #9B9B9F;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: 'Montserrat', sans-serif;
+    background: var(--onyx);
+    color: var(--text);
+    min-height: 100vh;
+    font-size: 14px;
+  }
+
+  /* HEADER */
+  .header {
+    background: var(--onyx);
+    border-bottom: 1px solid var(--border);
+    padding: 0 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 56px;
+    position: sticky; top: 0; z-index: 100;
+  }
+  .header-brand {
+    display: flex; align-items: center; gap: 12px;
+  }
+  .header-logo {
+    width: 28px; height: 28px;
+    background: var(--gold);
+    border-radius: 6px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 14px; font-weight: 700; color: var(--onyx);
+  }
+  .header-title {
+    font-size: 13px; font-weight: 600; letter-spacing: 0.05em;
+    text-transform: uppercase;
+  }
+  .header-sub {
+    font-size: 11px; color: var(--text-muted); letter-spacing: 0.03em;
+  }
+  .header-badge {
+    background: var(--gold);
+    color: var(--onyx);
+    font-size: 10px; font-weight: 700;
+    padding: 3px 10px; border-radius: 20px;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+  }
+
+  /* LAYOUT */
+  .layout {
+    display: grid;
+    grid-template-columns: 280px 1fr;
+    min-height: calc(100vh - 56px);
+  }
+
+  /* SIDEBAR NAV */
+  .sidebar {
+    background: var(--surface);
+    border-right: 1px solid var(--border);
+    padding: 1.5rem 0;
+    position: sticky; top: 56px;
+    height: calc(100vh - 56px);
+    overflow-y: auto;
+  }
+  .nav-section-label {
+    font-size: 10px; font-weight: 700;
+    text-transform: uppercase; letter-spacing: 0.1em;
+    color: var(--text-muted);
+    padding: 0 1.25rem;
+    margin: 1.5rem 0 0.5rem;
+  }
+  .nav-section-label:first-child { margin-top: 0; }
+  .nav-item {
+    display: flex; align-items: center; gap: 10px;
+    padding: 9px 1.25rem;
+    cursor: pointer;
+    font-size: 13px;
+    color: var(--text-muted);
+    transition: all 0.15s;
+    border-left: 2px solid transparent;
+  }
+  .nav-item:hover { color: var(--text); background: var(--surface2); }
+  .nav-item.active { color: var(--gold); border-left-color: var(--gold); background: rgba(201,168,76,0.07); }
+  .nav-icon { font-size: 15px; width: 18px; text-align: center; flex-shrink: 0; }
+
+  /* MAIN CONTENT */
+  .main {
+    padding: 2rem;
+    overflow-y: auto;
+  }
+
+  /* PANELS */
+  .panel { display: none; }
+  .panel.active { display: block; }
+
+  .panel-header {
+    margin-bottom: 1.5rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid var(--border);
+  }
+  .panel-title {
+    font-size: 20px; font-weight: 600;
+    margin-bottom: 4px;
+  }
+  .panel-desc { font-size: 13px; color: var(--text-muted); line-height: 1.5; }
+
+  /* CARDS */
+  .card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 1.25rem;
+    margin-bottom: 1rem;
+  }
+  .card-title {
+    font-size: 11px; font-weight: 700;
+    text-transform: uppercase; letter-spacing: 0.08em;
+    color: var(--gold);
+    margin-bottom: 1rem;
+  }
+
+  /* FORM ELEMENTS */
+  .grid2 { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+  .grid3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 12px; }
+  .field { margin-bottom: 12px; }
+  .field:last-child { margin-bottom: 0; }
+  label {
+    display: block;
+    font-size: 11px; font-weight: 600;
+    text-transform: uppercase; letter-spacing: 0.06em;
+    color: var(--text-muted);
+    margin-bottom: 5px;
+  }
+  input[type="text"], input[type="email"], input[type="url"], input[type="number"],
+  select, textarea {
+    width: 100%;
+    background: var(--surface2);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    color: var(--text);
+    font-family: 'Montserrat', sans-serif;
+    font-size: 13px;
+    padding: 9px 12px;
+    outline: none;
+    transition: border-color 0.15s;
+  }
+  input:focus, select:focus, textarea:focus {
+    border-color: var(--gold);
+  }
+  select option { background: var(--surface2); }
+  textarea { resize: vertical; min-height: 80px; line-height: 1.5; }
+  input[type="color"] {
+    width: 36px; height: 36px; padding: 2px;
+    border-radius: 6px; cursor: pointer;
+    background: var(--surface2); border: 1px solid var(--border);
+  }
+  .color-row { display: flex; gap: 8px; align-items: center; }
+  .color-row input[type="text"] { flex: 1; }
+
+  /* FOTO URL LIST */
+  .foto-list { display: flex; flex-direction: column; gap: 6px; margin-top: 8px; }
+  .foto-row { display: flex; gap: 8px; align-items: center; }
+  .foto-row input { flex: 1; }
+  .btn-remove {
+    background: none; border: 1px solid var(--border);
+    color: var(--text-muted); border-radius: 6px;
+    width: 32px; height: 32px; cursor: pointer;
+    font-size: 16px; display: flex; align-items: center; justify-content: center;
+    flex-shrink: 0;
+    transition: all 0.15s;
+  }
+  .btn-remove:hover { border-color: #E24B4A; color: #E24B4A; }
+  .btn-add {
+    display: flex; align-items: center; gap: 6px;
+    background: none; border: 1px dashed var(--border);
+    color: var(--text-muted); border-radius: 6px;
+    padding: 7px 12px; cursor: pointer; font-size: 12px;
+    font-family: 'Montserrat', sans-serif;
+    transition: all 0.15s; width: 100%; margin-top: 6px;
+  }
+  .btn-add:hover { border-color: var(--gold); color: var(--gold); }
+
+  /* BUTTONS */
+  .btn-primary {
+    background: var(--gold); color: var(--onyx);
+    border: none; border-radius: 8px;
+    padding: 12px 28px; font-size: 13px; font-weight: 700;
+    font-family: 'Montserrat', sans-serif;
+    cursor: pointer; letter-spacing: 0.04em;
+    text-transform: uppercase;
+    transition: all 0.15s;
+  }
+  .btn-primary:hover { background: var(--gold-light); transform: translateY(-1px); }
+  .btn-primary:active { transform: translateY(0); }
+  .btn-sec {
+    background: var(--surface2); color: var(--text);
+    border: 1px solid var(--border); border-radius: 8px;
+    padding: 12px 24px; font-size: 13px; font-weight: 500;
+    font-family: 'Montserrat', sans-serif;
+    cursor: pointer; transition: all 0.15s;
+  }
+  .btn-sec:hover { border-color: var(--gray); }
+
+  /* INFO / NOTE */
+  .note {
+    background: rgba(201,168,76,0.08);
+    border: 1px solid rgba(201,168,76,0.25);
+    border-radius: 8px;
+    padding: 10px 14px;
+    font-size: 12px; color: var(--gold-light);
+    line-height: 1.5;
+    margin-bottom: 1rem;
+  }
+
+  /* GENERATE PANEL */
+  .checklist { display: flex; flex-direction: column; gap: 0; }
+  .check-item {
+    display: flex; align-items: center; gap: 12px;
+    padding: 10px 0;
+    border-bottom: 1px solid var(--border);
+    font-size: 13px;
+  }
+  .check-item:last-child { border-bottom: none; }
+  .check-dot {
+    width: 18px; height: 18px; border-radius: 50%;
+    background: var(--gold); flex-shrink: 0;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 9px; color: var(--onyx); font-weight: 800;
+  }
+  .gen-actions {
+    display: flex; gap: 12px; margin-top: 1.5rem; align-items: center;
+  }
+  .success-bar {
+    display: none;
+    background: rgba(63, 140, 80, 0.12);
+    border: 1px solid rgba(63, 140, 80, 0.35);
+    border-radius: 8px;
+    padding: 14px 18px;
+    font-size: 13px;
+    color: #6DC97B;
+    margin-top: 1rem;
+    align-items: center; gap: 12px;
+  }
+  .success-bar.show { display: flex; }
+
+  /* PREVIEW */
+  .preview-frame {
+    width: 100%; min-height: 500px;
+    border: 1px solid var(--border); border-radius: 10px;
+    background: white;
+  }
+
+  /* SCROLL */
+  ::-webkit-scrollbar { width: 6px; }
+  ::-webkit-scrollbar-track { background: transparent; }
+  ::-webkit-scrollbar-thumb { background: var(--border); border-radius: 3px; }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <div class="header-brand">
+    <div class="header-logo">IA</div>
+    <div>
+      <div class="header-title">Generador de Landing Pages</div>
+      <div class="header-sub">Inmuebles Audiovisuales · Uso interno</div>
+    </div>
+  </div>
+  <div class="header-badge">v1.0</div>
+</div>
+
+<div class="layout">
+
+  <!-- SIDEBAR -->
+  <nav class="sidebar">
+    <div class="nav-section-label">Propiedad</div>
+    <div class="nav-item active" onclick="showPanel('propiedad', this)">
+      <span class="nav-icon">🏠</span> Datos generales
+    </div>
+    <div class="nav-item" onclick="showPanel('descripcion', this)">
+      <span class="nav-icon">📝</span> Descripción y copy
+    </div>
+    <div class="nav-item" onclick="showPanel('caracteristicas', this)">
+      <span class="nav-icon">📐</span> Características
+    </div>
+
+    <div class="nav-section-label">Media</div>
+    <div class="nav-item" onclick="showPanel('fotos', this)">
+      <span class="nav-icon">🖼</span> Fotos
+    </div>
+    <div class="nav-item" onclick="showPanel('video', this)">
+      <span class="nav-icon">🎬</span> Video cinemático
+    </div>
+    <div class="nav-item" onclick="showPanel('tour', this)">
+      <span class="nav-icon">🔄</span> Recorrido virtual
+    </div>
+    <div class="nav-item" onclick="showPanel('mapa', this)">
+      <span class="nav-icon">📍</span> Ubicación y mapa
+    </div>
+
+    <div class="nav-section-label">Contacto</div>
+    <div class="nav-item" onclick="showPanel('agente', this)">
+      <span class="nav-icon">👤</span> Agente
+    </div>
+
+    <div class="nav-section-label">Diseño</div>
+    <div class="nav-item" onclick="showPanel('marca', this)">
+      <span class="nav-icon">🎨</span> Marca del cliente
+    </div>
+
+    <div class="nav-section-label">Salida</div>
+    <div class="nav-item" onclick="showPanel('generar', this)">
+      <span class="nav-icon">⚡</span> Generar y descargar
+    </div>
+  </nav>
+
+  <!-- MAIN -->
+  <main class="main">
+
+    <!-- PANEL: DATOS GENERALES -->
+    <div class="panel active" id="panel-propiedad">
+      <div class="panel-header">
+        <div class="panel-title">Datos generales</div>
+        <div class="panel-desc">Tipo de propiedad, operación, ubicación y precio.</div>
+      </div>
+      <div class="card">
+        <div class="card-title">Tipo y operación</div>
+        <div class="grid2">
+          <div class="field">
+            <label>Tipo de propiedad</label>
+            <select id="tipo">
+              <option value="Casa">Casa</option>
+              <option value="Departamento">Departamento</option>
+              <option value="Quinta / Salón de eventos">Quinta / Salón de eventos</option>
+              <option value="Airbnb / Renta vacacional">Airbnb / Renta vacacional</option>
+              <option value="Terreno">Terreno</option>
+              <option value="Local comercial">Local comercial</option>
+            </select>
+          </div>
+          <div class="field">
+            <label>Operación</label>
+            <select id="operacion">
+              <option value="en venta">En venta</option>
+              <option value="en renta">En renta</option>
+              <option value="renta vacacional">Renta vacacional</option>
+              <option value="en preventa">En preventa</option>
+            </select>
+          </div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-title">Ubicación</div>
+        <div class="field">
+          <label>Colonia / Zona</label>
+          <input type="text" id="colonia" placeholder="Ej: Valle Oriente">
+        </div>
+        <div class="grid2">
+          <div class="field">
+            <label>Municipio</label>
+            <input type="text" id="municipio" placeholder="Ej: San Pedro Garza García">
+          </div>
+          <div class="field">
+            <label>Estado</label>
+            <input type="text" id="estado" value="Nuevo León">
+          </div>
+        </div>
+        <div class="field">
+          <label>Dirección completa (para uso interno, no se muestra en la página)</label>
+          <input type="text" id="direccion_completa" placeholder="Calle, número, colonia">
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-title">Precio</div>
+        <div class="grid2">
+          <div class="field">
+            <label>Precio</label>
+            <input type="text" id="precio" placeholder="Ej: $4,200,000">
+          </div>
+          <div class="field">
+            <label>Moneda</label>
+            <select id="moneda">
+              <option value="MXN">MXN</option>
+              <option value="USD">USD</option>
+            </select>
+          </div>
+        </div>
+        <div class="field">
+          <label>Nota de precio (opcional)</label>
+          <input type="text" id="precio_nota" placeholder="Ej: Precio negociable, Acepta crédito hipotecario">
+        </div>
+      </div>
+    </div>
+
+    <!-- PANEL: DESCRIPCIÓN -->
+    <div class="panel" id="panel-descripcion">
+      <div class="panel-header">
+        <div class="panel-title">Descripción y copy</div>
+        <div class="panel-desc">El texto que aparece en la página. Escríbelo directamente, sin IA.</div>
+      </div>
+      <div class="card">
+        <div class="card-title">Titular principal (Hero)</div>
+        <div class="field">
+          <label>Headline (máx. 10 palabras, orientado al comprador)</label>
+          <input type="text" id="headline" placeholder="Ej: La vida que mereces, en Valle Oriente">
+        </div>
+        <div class="field">
+          <label>Subtítulo del hero</label>
+          <input type="text" id="subheadline" placeholder="Ej: Casa de 280 m² con acabados de primer nivel, lista para estrenar">
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-title">Descripción larga</div>
+        <div class="note">Escribe 2 o 3 párrafos en tono premium. Separa cada párrafo con una línea en blanco. Recuerda: voz plural, sin anglicismos, sin em dashes.</div>
+        <div class="field">
+          <textarea id="descripcion" style="min-height: 180px;" placeholder="Ej: Esta propiedad redefine el concepto de comodidad en una de las zonas más consolidadas de San Pedro. Cada espacio fue diseñado para maximizar la luz natural y la funcionalidad.&#10;&#10;La cocina abierta de granito importado se integra al área de estar, creando una continuidad que pocas propiedades en la zona ofrecen. Los acabados fueron seleccionados para durar décadas sin perder elegancia.&#10;&#10;El fraccionamiento cuenta con acceso controlado las 24 horas, alberca y áreas verdes que convierten cada día en una experiencia diferente."></textarea>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-title">Amenidades</div>
+        <div class="note">Una amenidad por línea. Se mostrarán como lista visual en la página.</div>
+        <div class="field">
+          <textarea id="amenidades" style="min-height: 120px;" placeholder="Alberca&#10;Gimnasio equipado&#10;Salón de usos múltiples&#10;Seguridad 24h&#10;Áreas verdes"></textarea>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-title">CTA de WhatsApp</div>
+        <div class="field">
+          <label>Texto del botón principal</label>
+          <input type="text" id="cta_texto" value="Quiero más información" placeholder="Ej: Agendar visita">
+        </div>
+        <div class="field">
+          <label>Mensaje pre-llenado en WhatsApp</label>
+          <input type="text" id="cta_wa_msg" value="Hola, me interesa la propiedad que vi en su página. ¿Pueden darme más información?" placeholder="Mensaje al hacer clic en WhatsApp">
+        </div>
+      </div>
+    </div>
+
+    <!-- PANEL: CARACTERÍSTICAS -->
+    <div class="panel" id="panel-caracteristicas">
+      <div class="panel-header">
+        <div class="panel-title">Características</div>
+        <div class="panel-desc">Datos técnicos que se muestran como tabla de especificaciones.</div>
+      </div>
+      <div class="card">
+        <div class="card-title">Superficie</div>
+        <div class="grid2">
+          <div class="field">
+            <label>Superficie construida (m²)</label>
+            <input type="text" id="sup_construida" placeholder="Ej: 280 m²">
+          </div>
+          <div class="field">
+            <label>Superficie de terreno (m²)</label>
+            <input type="text" id="sup_terreno" placeholder="Ej: 350 m²">
+          </div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-title">Distribución</div>
+        <div class="grid3">
+          <div class="field">
+            <label>Recámaras</label>
+            <input type="text" id="recamaras" placeholder="Ej: 3 + 1 servicio">
+          </div>
+          <div class="field">
+            <label>Baños</label>
+            <input type="text" id="banos" placeholder="Ej: 2.5">
+          </div>
+          <div class="field">
+            <label>Estacionamientos</label>
+            <input type="text" id="estacionamientos" placeholder="Ej: 2 techados">
+          </div>
+        </div>
+        <div class="grid3">
+          <div class="field">
+            <label>Niveles</label>
+            <input type="text" id="niveles" placeholder="Ej: 2">
+          </div>
+          <div class="field">
+            <label>Antigüedad</label>
+            <input type="text" id="antiguedad" placeholder="Ej: Nueva">
+          </div>
+          <div class="field">
+            <label>Mantenimiento mensual</label>
+            <input type="text" id="mantenimiento" placeholder="Ej: $2,800 MXN">
+          </div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-title">Extras personalizados</div>
+        <div class="note">Agrega hasta 6 características adicionales (clave: valor).</div>
+        <div id="extras-list"></div>
+        <button class="btn-add" onclick="addExtra()">+ Agregar característica</button>
+      </div>
+    </div>
+
+    <!-- PANEL: FOTOS -->
+    <div class="panel" id="panel-fotos">
+      <div class="panel-header">
+        <div class="panel-title">Fotos</div>
+        <div class="panel-desc">URLs de las imágenes entregadas al cliente (Google Drive, Dropbox, tu CDN). Mínimo 6 para galería óptima.</div>
+      </div>
+      <div class="note">Cada URL debe ser un enlace directo a la imagen (que termine en .jpg, .png o que sea el link de descarga directa de Drive). En Google Drive, cambia <code>/view</code> por <code>/uc?export=view&id=ID</code>.</div>
+      <div class="card">
+        <div class="card-title">URLs de fotos</div>
+        <div class="foto-list" id="foto-list"></div>
+        <button class="btn-add" onclick="addFoto()">+ Agregar foto</button>
+      </div>
+    </div>
+
+    <!-- PANEL: VIDEO -->
+    <div class="panel" id="panel-video">
+      <div class="panel-header">
+        <div class="panel-title">Video cinemático</div>
+        <div class="panel-desc">URL de YouTube o Vimeo para embeber el video en la página.</div>
+      </div>
+      <div class="card">
+        <div class="field">
+          <label>URL del video (YouTube o Vimeo)</label>
+          <input type="url" id="video_url" placeholder="https://www.youtube.com/watch?v=XXXXXXXXXXX">
+        </div>
+        <div class="field">
+          <label>Título de la sección de video</label>
+          <input type="text" id="video_titulo" value="Video cinemático" placeholder="Ej: Recorre la propiedad">
+        </div>
+      </div>
+    </div>
+
+    <!-- PANEL: TOUR -->
+    <div class="panel" id="panel-tour">
+      <div class="panel-header">
+        <div class="panel-title">Recorrido virtual</div>
+        <div class="panel-desc">URL del tour de CloudPano para embeber el recorrido 360°.</div>
+      </div>
+      <div class="card">
+        <div class="field">
+          <label>URL del tour CloudPano</label>
+          <input type="url" id="tour_url" placeholder="https://cloudpano.com/tours/XXXXXXX">
+        </div>
+        <div class="field">
+          <label>Título de la sección</label>
+          <input type="text" id="tour_titulo" value="Recorrido virtual 360°" placeholder="Ej: Explora cada espacio">
+        </div>
+      </div>
+    </div>
+
+    <!-- PANEL: MAPA -->
+    <div class="panel" id="panel-mapa">
+      <div class="panel-header">
+        <div class="panel-title">Ubicación y mapa</div>
+        <div class="panel-desc">Embed de Google Maps. En Google Maps, comparte → Insertar un mapa → copia la URL del src del iframe.</div>
+      </div>
+      <div class="card">
+        <div class="field">
+          <label>URL embed de Google Maps (solo el src del iframe)</label>
+          <input type="url" id="maps_url" placeholder="https://www.google.com/maps/embed?pb=...">
+        </div>
+        <div class="field">
+          <label>Descripción de la ubicación</label>
+          <input type="text" id="ubicacion_desc" placeholder="Ej: A 5 min de Av. Morones Prieto y hospitales del área">
+        </div>
+      </div>
+    </div>
+
+    <!-- PANEL: AGENTE -->
+    <div class="panel" id="panel-agente">
+      <div class="panel-header">
+        <div class="panel-title">Agente</div>
+        <div class="panel-desc">Datos de contacto del asesor responsable de la propiedad.</div>
+      </div>
+      <div class="card">
+        <div class="grid2">
+          <div class="field">
+            <label>Nombre completo</label>
+            <input type="text" id="agente_nombre" placeholder="Ej: Mariana López">
+          </div>
+          <div class="field">
+            <label>Agencia / Inmobiliaria</label>
+            <input type="text" id="agente_agencia" placeholder="Ej: ERA Inmobiliaria">
+          </div>
+        </div>
+        <div class="grid2">
+          <div class="field">
+            <label>WhatsApp (con código de país, sin +)</label>
+            <input type="text" id="agente_wa" placeholder="528112345678">
+          </div>
+          <div class="field">
+            <label>Correo electrónico</label>
+            <input type="email" id="agente_email" placeholder="agente@inmobiliaria.com">
+          </div>
+        </div>
+        <div class="grid2">
+          <div class="field">
+            <label>Teléfono directo (opcional)</label>
+            <input type="text" id="agente_tel" placeholder="81 1234 5678">
+          </div>
+          <div class="field">
+            <label>URL foto del agente (opcional)</label>
+            <input type="url" id="agente_foto" placeholder="https://...">
+          </div>
+        </div>
+        <div class="field">
+          <label>Especialidad o frase del agente (opcional)</label>
+          <input type="text" id="agente_bio" placeholder="Ej: Especialista en propiedades residenciales en Valle Oriente">
+        </div>
+      </div>
+    </div>
+
+    <!-- PANEL: MARCA -->
+    <div class="panel" id="panel-marca">
+      <div class="panel-header">
+        <div class="panel-title">Marca del cliente</div>
+        <div class="panel-desc">Si el cliente tiene identidad visual propia, configúrala aquí. Si lo dejas vacío, se aplica la paleta de Inmuebles Audiovisuales.</div>
+      </div>
+      <div class="card">
+        <div class="card-title">Identidad</div>
+        <div class="grid2">
+          <div class="field">
+            <label>URL del logo (PNG o SVG transparente)</label>
+            <input type="url" id="cliente_logo" placeholder="https://...">
+          </div>
+          <div class="field">
+            <label>Nombre del cliente / agencia</label>
+            <input type="text" id="cliente_nombre" placeholder="Ej: Grupo Inmobiliario Del Norte">
+          </div>
+        </div>
+        <div class="field">
+          <label>Fuente principal (Google Fonts, nombre exacto)</label>
+          <input type="text" id="cliente_font" placeholder="Ej: Playfair Display, Raleway, Poppins — dejar vacío = Montserrat">
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-title">Paleta de colores</div>
+        <div class="grid2">
+          <div class="field">
+            <label>Color dorado / acento</label>
+            <div class="color-row">
+              <input type="color" id="cp_gold" value="#C9A84C" oninput="syncHex('cp_gold','ch_gold')">
+              <input type="text" id="ch_gold" value="#C9A84C" oninput="syncPicker('ch_gold','cp_gold')">
+            </div>
+          </div>
+          <div class="field">
+            <label>Color oscuro / fondo hero</label>
+            <div class="color-row">
+              <input type="color" id="cp_dark" value="#1C1C1E" oninput="syncHex('cp_dark','ch_dark')">
+              <input type="text" id="ch_dark" value="#1C1C1E" oninput="syncPicker('ch_dark','cp_dark')">
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-title">Pie de página</div>
+        <div class="grid2">
+          <div class="field">
+            <label>Crédito de producción (footer)</label>
+            <input type="text" id="footer_credito" value="Producción audiovisual: Inmuebles Audiovisuales" placeholder="Dejar vacío para omitir">
+          </div>
+          <div class="field">
+            <label>Nombre del archivo HTML</label>
+            <input type="text" id="nombre_archivo" placeholder="Ej: casa-valle-oriente (sin .html)">
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- PANEL: GENERAR -->
+    <div class="panel" id="panel-generar">
+      <div class="panel-header">
+        <div class="panel-title">Generar y descargar</div>
+        <div class="panel-desc">El archivo HTML se genera en tu navegador y se descarga listo para Netlify Drop.</div>
+      </div>
+      <div class="card">
+        <div class="card-title">La landing incluirá</div>
+        <div class="checklist">
+          <div class="check-item"><div class="check-dot">✓</div> Hero con headline y precio</div>
+          <div class="check-item"><div class="check-dot">✓</div> Galería de fotos en grid responsivo</div>
+          <div class="check-item"><div class="check-dot">✓</div> Tabla de características</div>
+          <div class="check-item"><div class="check-dot">✓</div> Descripción premium (texto que escribiste)</div>
+          <div class="check-item"><div class="check-dot">✓</div> Video cinemático embebido (si pusiste URL)</div>
+          <div class="check-item"><div class="check-dot">✓</div> Recorrido virtual 360° (si pusiste URL)</div>
+          <div class="check-item"><div class="check-dot">✓</div> Sección de amenidades</div>
+          <div class="check-item"><div class="check-dot">✓</div> Mapa de ubicación (si pusiste URL)</div>
+          <div class="check-item"><div class="check-dot">✓</div> Card del agente con WhatsApp directo</div>
+          <div class="check-item"><div class="check-dot">✓</div> Botón flotante de WhatsApp</div>
+          <div class="check-item"><div class="check-dot">✓</div> Diseño responsive, dark y premium</div>
+          <div class="check-item"><div class="check-dot">✓</div> Paleta y tipografía del cliente aplicada</div>
+          <div class="check-item"><div class="check-dot">✓</div> SEO básico (meta title, description, og:image)</div>
+        </div>
+      </div>
+      <div class="note">Para publicar: entra a <strong>netlify.com/drop</strong>, arrastra el archivo HTML descargado y en 30 segundos tienes la URL pública.</div>
+      <div class="gen-actions">
+        <button class="btn-primary" onclick="generarHTML()">Generar y descargar HTML</button>
+        <button class="btn-sec" onclick="showPanel('propiedad', document.querySelector('.nav-item'))">Revisar datos</button>
+      </div>
+      <div class="success-bar" id="success-bar">
+        <span style="font-size:18px;">✓</span>
+        <div>
+          <div style="font-weight:600; margin-bottom:2px;">Landing generada con éxito</div>
+          <div style="font-size:12px; color: #6DC97B;">El archivo se descargó en tu carpeta de Descargas. Arrastra a netlify.com/drop para publicar.</div>
+        </div>
+      </div>
+    </div>
+
+  </main>
+</div>
+
+<script>
+// NAV
+function showPanel(name, el) {
+  document.querySelectorAll('.panel').forEach(p => p.classList.remove('active'));
+  document.querySelectorAll('.nav-item').forEach(n => n.classList.remove('active'));
+  document.getElementById('panel-' + name).classList.add('active');
+  el.classList.add('active');
+}
+
+// COLORS
+function syncHex(pickerId, hexId) {
+  document.getElementById(hexId).value = document.getElementById(pickerId).value;
+}
+function syncPicker(hexId, pickerId) {
+  const v = document.getElementById(hexId).value;
+  if (/^#[0-9A-Fa-f]{6}$/.test(v)) document.getElementById(pickerId).value = v;
+}
+
+// FOTOS
+let fotosCount = 0;
+function addFoto() {
+  const list = document.getElementById('foto-list');
+  const id = 'foto_' + (fotosCount++);
+  const div = document.createElement('div');
+  div.className = 'foto-row';
+  div.id = 'frow_' + id;
+  div.innerHTML = `<input type="url" id="${id}" placeholder="https://drive.google.com/uc?export=view&id=...">
+    <button class="btn-remove" onclick="removeFoto('frow_${id}')">×</button>`;
+  list.appendChild(div);
+}
+function removeFoto(id) { document.getElementById(id).remove(); }
+
+// EXTRAS
+let extrasCount = 0;
+function addExtra() {
+  const list = document.getElementById('extras-list');
+  if (list.children.length >= 6) return;
+  const id = extrasCount++;
+  const div = document.createElement('div');
+  div.className = 'grid2 field';
+  div.id = 'extra_' + id;
+  div.style.alignItems = 'end';
+  div.innerHTML = `
+    <div class="field" style="margin-bottom:0">
+      <label>Característica</label>
+      <input type="text" id="extra_k_${id}" placeholder="Ej: Cocina integral">
+    </div>
+    <div style="display:flex;gap:8px;align-items:center">
+      <div class="field" style="margin-bottom:0;flex:1">
+        <label>Valor</label>
+        <input type="text" id="extra_v_${id}" placeholder="Ej: Granito importado">
+      </div>
+      <button class="btn-remove" onclick="document.getElementById('extra_${id}').remove()" style="margin-top:18px">×</button>
+    </div>`;
+  list.appendChild(div);
+}
+
+// Init with some foto slots
+window.addEventListener('DOMContentLoaded', () => {
+  for (let i = 0; i < 6; i++) addFoto();
+});
+
+// HELPERS
+function g(id) { const el = document.getElementById(id); return el ? el.value.trim() : ''; }
+
+function getFotos() {
+  return Array.from(document.querySelectorAll('.foto-row input')).map(el => el.value.trim()).filter(Boolean);
+}
+function getExtras() {
+  const extras = [];
+  document.querySelectorAll('[id^="extra_k_"]').forEach(el => {
+    const idx = el.id.replace('extra_k_', '');
+    const k = el.value.trim();
+    const v = document.getElementById('extra_v_' + idx)?.value.trim();
+    if (k && v) extras.push({ k, v });
+  });
+  return extras;
+}
+
+function toYoutubeEmbed(url) {
+  if (!url) return '';
+  const m = url.match(/(?:youtube\.com\/watch\?v=|youtu\.be\/|youtube\.com\/embed\/)([^&\s?]+)/);
+  if (m) return 'https://www.youtube.com/embed/' + m[1];
+  if (url.includes('vimeo.com')) {
+    const vm = url.match(/vimeo\.com\/(\d+)/);
+    if (vm) return 'https://player.vimeo.com/video/' + vm[1];
+  }
+  return url;
+}
+
+// GENERATE
+function generarHTML() {
+  const gold = g('ch_gold') || '#C9A84C';
+  const dark = g('ch_dark') || '#1C1C1E';
+  const font = g('cliente_font') || 'Montserrat';
+  const fontUrl = encodeURIComponent(font.split(',')[0].trim()).replace(/%20/g, '+');
+  const logo = g('cliente_logo');
+  const clienteNombre = g('cliente_nombre');
+  const fotos = getFotos();
+  const extras = getExtras();
+  const videoEmbed = toYoutubeEmbed(g('video_url'));
+  const tourUrl = g('tour_url');
+  const mapsUrl = g('maps_url');
+  const amenidades = g('amenidades').split('\n').filter(Boolean);
+  const descripcionParrafos = g('descripcion').split('\n\n').filter(Boolean);
+  const agWa = g('agente_wa');
+  const ctaMsg = encodeURIComponent(g('cta_wa_msg') || 'Hola, me interesa la propiedad. ¿Me pueden dar más información?');
+  const precio = g('precio') ? g('precio') + ' ' + g('moneda') : '';
+  const footerCredito = g('footer_credito');
+
+  const fotoGallery = fotos.length ? `
+  <section id="galeria" style="padding:80px 0; background:#fff;">
+    <div style="max-width:1200px;margin:0 auto;padding:0 24px;">
+      <h2 style="font-family:'${font}',sans-serif;font-size:clamp(22px,3vw,32px);font-weight:600;color:${dark};margin-bottom:40px;text-align:center;">Galería de imágenes</h2>
+      <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:16px;">
+        ${fotos.map((url, i) => `<div style="overflow:hidden;border-radius:10px;aspect-ratio:4/3;${i===0 ? 'grid-column:span 2;grid-row:span 2;aspect-ratio:1;' : ''}">
+          <img src="${url}" alt="Foto ${i+1}" loading="lazy" style="width:100%;height:100%;object-fit:cover;transition:transform 0.4s ease;" onmouseover="this.style.transform='scale(1.04)'" onmouseout="this.style.transform='scale(1)'">
+        </div>`).join('')}
+      </div>
+    </div>
+  </section>` : '';
+
+  const specs = [];
+  if (g('sup_construida')) specs.push({ k: 'Superficie construida', v: g('sup_construida') });
+  if (g('sup_terreno')) specs.push({ k: 'Terreno', v: g('sup_terreno') });
+  if (g('recamaras')) specs.push({ k: 'Recámaras', v: g('recamaras') });
+  if (g('banos')) specs.push({ k: 'Baños', v: g('banos') });
+  if (g('estacionamientos')) specs.push({ k: 'Estacionamientos', v: g('estacionamientos') });
+  if (g('niveles')) specs.push({ k: 'Niveles', v: g('niveles') });
+  if (g('antiguedad')) specs.push({ k: 'Antigüedad', v: g('antiguedad') });
+  if (g('mantenimiento')) specs.push({ k: 'Mantenimiento', v: g('mantenimiento') });
+  extras.forEach(e => specs.push({ k: e.k, v: e.v }));
+
+  const specsSection = specs.length ? `
+  <section id="caracteristicas" style="padding:80px 0;background:#f5f5f5;">
+    <div style="max-width:1200px;margin:0 auto;padding:0 24px;">
+      <h2 style="font-family:'${font}',sans-serif;font-size:clamp(22px,3vw,32px);font-weight:600;color:${dark};margin-bottom:40px;text-align:center;">Características</h2>
+      <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:16px;">
+        ${specs.map(s => `<div style="background:#fff;border-radius:10px;padding:20px;border-top:3px solid ${gold};">
+          <div style="font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:0.08em;color:#999;margin-bottom:6px;">${s.k}</div>
+          <div style="font-size:18px;font-weight:600;color:${dark};font-family:'${font}',sans-serif;">${s.v}</div>
+        </div>`).join('')}
+      </div>
+    </div>
+  </section>` : '';
+
+  const descSection = descripcionParrafos.length ? `
+  <section id="descripcion" style="padding:80px 0;background:#fff;">
+    <div style="max-width:800px;margin:0 auto;padding:0 24px;">
+      <h2 style="font-family:'${font}',sans-serif;font-size:clamp(22px,3vw,32px);font-weight:600;color:${dark};margin-bottom:32px;text-align:center;">Descripción</h2>
+      ${descripcionParrafos.map(p => `<p style="font-size:16px;line-height:1.8;color:#444;margin-bottom:20px;">${p}</p>`).join('')}
+    </div>
+  </section>` : '';
+
+  const videoSection = videoEmbed ? `
+  <section id="video" style="padding:80px 0;background:${dark};">
+    <div style="max-width:1000px;margin:0 auto;padding:0 24px;">
+      <h2 style="font-family:'${font}',sans-serif;font-size:clamp(22px,3vw,32px);font-weight:600;color:#fff;margin-bottom:40px;text-align:center;">${g('video_titulo') || 'Video cinemático'}</h2>
+      <div style="position:relative;padding-bottom:56.25%;height:0;border-radius:12px;overflow:hidden;">
+        <iframe src="${videoEmbed}?rel=0&modestbranding=1" frameborder="0" allow="accelerometer;autoplay;clipboard-write;encrypted-media;gyroscope;picture-in-picture" allowfullscreen style="position:absolute;top:0;left:0;width:100%;height:100%;"></iframe>
+      </div>
+    </div>
+  </section>` : '';
+
+  const tourSection = tourUrl ? `
+  <section id="tour" style="padding:80px 0;background:#f5f5f5;">
+    <div style="max-width:1000px;margin:0 auto;padding:0 24px;">
+      <h2 style="font-family:'${font}',sans-serif;font-size:clamp(22px,3vw,32px);font-weight:600;color:${dark};margin-bottom:40px;text-align:center;">${g('tour_titulo') || 'Recorrido virtual 360°'}</h2>
+      <div style="position:relative;padding-bottom:56.25%;height:0;border-radius:12px;overflow:hidden;border:2px solid ${gold};">
+        <iframe src="${tourUrl}" frameborder="0" allowfullscreen allow="xr-spatial-tracking;gyroscope;accelerometer" style="position:absolute;top:0;left:0;width:100%;height:100%;"></iframe>
+      </div>
+    </div>
+  </section>` : '';
+
+  const amenSection = amenidades.length ? `
+  <section id="amenidades" style="padding:80px 0;background:#fff;">
+    <div style="max-width:1000px;margin:0 auto;padding:0 24px;">
+      <h2 style="font-family:'${font}',sans-serif;font-size:clamp(22px,3vw,32px);font-weight:600;color:${dark};margin-bottom:40px;text-align:center;">Amenidades</h2>
+      <div style="display:flex;flex-wrap:wrap;gap:12px;justify-content:center;">
+        ${amenidades.map(a => `<div style="background:#f5f5f5;border-radius:50px;padding:10px 22px;font-size:14px;font-weight:500;color:${dark};border-left:3px solid ${gold};">${a}</div>`).join('')}
+      </div>
+    </div>
+  </section>` : '';
+
+  const mapsSection = mapsUrl ? `
+  <section id="ubicacion" style="padding:80px 0;background:#f5f5f5;">
+    <div style="max-width:1000px;margin:0 auto;padding:0 24px;">
+      <h2 style="font-family:'${font}',sans-serif;font-size:clamp(22px,3vw,32px);font-weight:600;color:${dark};margin-bottom:16px;text-align:center;">Ubicación</h2>
+      ${g('ubicacion_desc') ? `<p style="text-align:center;color:#666;font-size:15px;margin-bottom:32px;">${g('ubicacion_desc')}</p>` : ''}
+      <div style="border-radius:12px;overflow:hidden;height:400px;border:2px solid ${gold}22;">
+        <iframe src="${mapsUrl}" width="100%" height="400" frameborder="0" style="border:0;" allowfullscreen loading="lazy"></iframe>
+      </div>
+    </div>
+  </section>` : '';
+
+  const agenteSection = `
+  <section id="agente" style="padding:80px 0;background:${dark};">
+    <div style="max-width:600px;margin:0 auto;padding:0 24px;text-align:center;">
+      <h2 style="font-family:'${font}',sans-serif;font-size:clamp(22px,3vw,32px);font-weight:600;color:#fff;margin-bottom:40px;">Habla con el asesor</h2>
+      <div style="background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.12);border-radius:16px;padding:40px 32px;">
+        ${g('agente_foto') ? `<img src="${g('agente_foto')}" alt="${g('agente_nombre')}" style="width:80px;height:80px;border-radius:50%;object-fit:cover;border:3px solid ${gold};margin-bottom:16px;">` : `<div style="width:80px;height:80px;border-radius:50%;background:${gold};display:flex;align-items:center;justify-content:center;font-size:28px;font-weight:700;color:${dark};margin:0 auto 16px;">${(g('agente_nombre')[0]||'A')}</div>`}
+        <div style="font-size:20px;font-weight:700;color:#fff;margin-bottom:4px;font-family:'${font}',sans-serif;">${g('agente_nombre') || 'Asesor inmobiliario'}</div>
+        ${g('agente_agencia') ? `<div style="font-size:13px;color:${gold};font-weight:500;margin-bottom:8px;">${g('agente_agencia')}</div>` : ''}
+        ${g('agente_bio') ? `<div style="font-size:13px;color:rgba(255,255,255,0.6);margin-bottom:24px;line-height:1.5;">${g('agente_bio')}</div>` : '<div style="margin-bottom:24px;"></div>'}
+        <div style="display:flex;flex-direction:column;gap:10px;">
+          ${agWa ? `<a href="https://wa.me/${agWa}?text=${ctaMsg}" target="_blank" style="display:flex;align-items:center;justify-content:center;gap:10px;background:${gold};color:${dark};text-decoration:none;padding:14px 28px;border-radius:8px;font-weight:700;font-size:14px;font-family:'${font}',sans-serif;">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="${dark}"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+            ${g('cta_texto') || 'Contactar por WhatsApp'}
+          </a>` : ''}
+          ${g('agente_email') ? `<a href="mailto:${g('agente_email')}" style="display:block;color:rgba(255,255,255,0.7);text-decoration:none;font-size:14px;padding:10px;">✉ ${g('agente_email')}</a>` : ''}
+          ${g('agente_tel') ? `<a href="tel:${g('agente_tel').replace(/\s/g,'')}" style="display:block;color:rgba(255,255,255,0.7);text-decoration:none;font-size:14px;padding:6px;">☎ ${g('agente_tel')}</a>` : ''}
+        </div>
+      </div>
+    </div>
+  </section>`;
+
+  const waFloat = agWa ? `
+  <a href="https://wa.me/${agWa}?text=${ctaMsg}" target="_blank"
+     style="position:fixed;bottom:28px;right:28px;z-index:999;background:#25D366;color:#fff;border-radius:50%;width:58px;height:58px;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 20px rgba(37,211,102,0.45);transition:transform 0.2s;"
+     onmouseover="this.style.transform='scale(1.1)'" onmouseout="this.style.transform='scale(1)'"
+     title="Contactar por WhatsApp">
+    <svg width="26" height="26" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+  </a>` : '';
+
+  const navLinks = [
+    fotos.length ? ['#galeria','Galería'] : null,
+    specs.length ? ['#caracteristicas','Características'] : null,
+    videoEmbed ? ['#video','Video'] : null,
+    tourUrl ? ['#tour','Recorrido 360°'] : null,
+    mapsUrl ? ['#ubicacion','Ubicación'] : null,
+    ['#agente','Contacto'],
+  ].filter(Boolean);
+
+  const ogImage = fotos[0] || '';
+  const metaTitle = [g('headline') || (g('tipo') + ' ' + g('operacion')), g('colonia'), g('municipio')].filter(Boolean).join(' — ');
+  const metaDesc = g('subheadline') || g('descripcion').split('\n')[0].substring(0, 160);
+
+  const html = `<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>${metaTitle}</title>
+<meta name="description" content="${metaDesc}">
+<meta property="og:title" content="${metaTitle}">
+<meta property="og:description" content="${metaDesc}">
+${ogImage ? `<meta property="og:image" content="${ogImage}">` : ''}
+<meta property="og:type" content="website">
+<link href="https://fonts.googleapis.com/css2?family=${fontUrl.replace(/%2B/g,'+')}:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;}
+body{font-family:'${font}',sans-serif;background:#fff;color:#222;}
+img{display:block;}
+a{text-decoration:none;}
+nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(28,28,30,0.95);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-bottom:1px solid rgba(201,168,76,0.2);padding:0 24px;height:60px;display:flex;align-items:center;justify-content:space-between;}
+.nav-brand{display:flex;align-items:center;gap:12px;}
+.nav-brand img{height:36px;object-fit:contain;}
+.nav-brand-name{font-size:13px;font-weight:600;color:#fff;letter-spacing:0.04em;}
+.nav-links{display:flex;gap:24px;list-style:none;}
+.nav-links a{font-size:12px;font-weight:500;color:rgba(255,255,255,0.65);letter-spacing:0.04em;transition:color 0.15s;text-transform:uppercase;}
+.nav-links a:hover{color:${gold};}
+@media(max-width:768px){.nav-links{display:none;}}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-brand">
+    ${logo ? `<img src="${logo}" alt="${clienteNombre || 'Logo'}">` : `<div style="width:32px;height:32px;background:${gold};border-radius:6px;display:flex;align-items:center;justify-content:center;font-weight:800;color:${dark};font-size:14px;">IA</div>`}
+    ${clienteNombre ? `<span class="nav-brand-name">${clienteNombre}</span>` : ''}
+  </div>
+  <ul class="nav-links">
+    ${navLinks.map(([href, label]) => `<li><a href="${href}">${label}</a></li>`).join('')}
+  </ul>
+  ${agWa ? `<a href="https://wa.me/${agWa}?text=${ctaMsg}" target="_blank" style="display:none;background:${gold};color:${dark};padding:8px 18px;border-radius:6px;font-size:12px;font-weight:700;letter-spacing:0.04em;text-transform:uppercase;@media(min-width:768px){display:block}">Contactar</a>` : ''}
+</nav>
+
+<!-- HERO -->
+<section style="min-height:100vh;background:${dark};display:flex;align-items:center;justify-content:center;padding:100px 24px 80px;position:relative;overflow:hidden;">
+  ${fotos[0] ? `<div style="position:absolute;inset:0;background:url('${fotos[0]}') center/cover no-repeat;opacity:0.22;"></div>` : ''}
+  <div style="position:absolute;inset:0;background:linear-gradient(135deg,${dark} 0%,transparent 70%);"></div>
+  <div style="position:relative;max-width:800px;text-align:center;">
+    ${precio ? `<div style="display:inline-block;background:${gold};color:${dark};font-size:12px;font-weight:800;letter-spacing:0.1em;text-transform:uppercase;padding:6px 18px;border-radius:30px;margin-bottom:24px;">${g('tipo')} · ${g('operacion')}</div>` : ''}
+    <h1 style="font-family:'${font}',sans-serif;font-size:clamp(32px,6vw,64px);font-weight:700;color:#fff;line-height:1.15;margin-bottom:16px;">${g('headline') || (g('tipo') + ' ' + g('operacion'))}</h1>
+    ${g('subheadline') ? `<p style="font-size:clamp(16px,2vw,20px);color:rgba(255,255,255,0.7);line-height:1.5;margin-bottom:32px;">${g('subheadline')}</p>` : ''}
+    <div style="display:flex;gap:16px;flex-wrap:wrap;justify-content:center;align-items:center;margin-bottom:40px;">
+      ${precio ? `<div style="font-size:clamp(24px,4vw,42px);font-weight:700;color:${gold};font-family:'${font}',sans-serif;">${precio}</div>` : ''}
+      ${g('precio_nota') ? `<div style="font-size:13px;color:rgba(255,255,255,0.5);border-left:1px solid rgba(255,255,255,0.2);padding-left:16px;">${g('precio_nota')}</div>` : ''}
+    </div>
+    ${g('colonia') ? `<div style="font-size:14px;color:rgba(255,255,255,0.5);letter-spacing:0.06em;text-transform:uppercase;margin-bottom:40px;">${[g('colonia'),g('municipio'),g('estado')].filter(Boolean).join(' · ')}</div>` : ''}
+    ${agWa ? `<a href="https://wa.me/${agWa}?text=${ctaMsg}" target="_blank" style="display:inline-flex;align-items:center;gap:10px;background:${gold};color:${dark};padding:16px 36px;border-radius:8px;font-size:14px;font-weight:800;letter-spacing:0.05em;text-transform:uppercase;font-family:'${font}',sans-serif;">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="${dark}"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+      ${g('cta_texto') || 'Quiero más información'}
+    </a>` : ''}
+  </div>
+</section>
+
+${fotoGallery}
+${specsSection}
+${descSection}
+${videoSection}
+${tourSection}
+${amenSection}
+${mapsSection}
+${agenteSection}
+
+<!-- FOOTER -->
+<footer style="background:#111;padding:32px 24px;text-align:center;">
+  <div style="font-size:12px;color:rgba(255,255,255,0.3);">
+    ${[g('colonia'),g('municipio'),g('estado')].filter(Boolean).join(', ')}
+    ${footerCredito ? ` &nbsp;·&nbsp; ${footerCredito}` : ''}
+  </div>
+</footer>
+
+${waFloat}
+
+</body>
+</html>`;
+
+  const blob = new Blob([html], { type: 'text/html;charset=utf-8' });
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement('a');
+  const filename = (g('nombre_archivo') || 'propiedad').replace(/\s+/g, '-').toLowerCase() + '.html';
+  a.href = url;
+  a.download = filename;
+  document.body.appendChild(a);
+  a.click();
+  document.body.removeChild(a);
+  URL.revokeObjectURL(url);
+
+  document.getElementById('success-bar').classList.add('show');
+  setTimeout(() => document.getElementById('success-bar').classList.remove('show'), 8000);
+}
+</script>
+</body>
+</html>
