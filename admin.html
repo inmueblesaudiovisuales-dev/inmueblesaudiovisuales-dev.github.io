@@ -499,7 +499,7 @@
       </div>
       <div class="field">
         <label class="field-label" for="inp-tour-label">Texto del botón</label>
-        <input type="text" id="inp-tour-label" placeholder="Tour virtual 360°" value="Tour virtual 360°">
+        <input type="text" id="inp-tour-label" placeholder="Recorrido Virtual Inmersivo" value="Recorrido Virtual Inmersivo">
       </div>
     </div>
 
@@ -664,7 +664,7 @@
       const tourLabel = document.getElementById('inp-tour-label').value.trim();
       if (tour) {
         p.set('tour', tour);
-        if (tourLabel && tourLabel !== 'Tour virtual 360°') p.set('tour_label', tourLabel);
+      if (tourLabel && tourLabel !== 'Recorrido Virtual Inmersivo') p.set('tour_label', tourLabel);
       }
     }
 
