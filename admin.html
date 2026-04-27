@@ -622,7 +622,7 @@
   const PASSWORD = 'ia2024';
 
   // URL base de la página de entrega — ajusta cuando subas al dominio
-  const BASE_URL = 'https://inmueblesaudiovisuales-dev.github.io/entrega.html';
+  const BASE_URL = 'https://inmueblesaudiovisuales.com/entrega.html';
 
   function verificarPassword() {
     const val = document.getElementById('inp-pass').value;
@@ -791,18 +791,7 @@
     }
 
     const urlLarga = `${BASE_URL}?${p.toString()}`;
-
-    // ── ACORTAR CON TINYURL ──
-    let urlFinal = urlLarga;
-    try {
-      const resp = await fetch(`https://tinyurl.com/api-create.php?url=${encodeURIComponent(urlLarga)}`);
-      if (resp.ok) {
-        const corto = await resp.text();
-        if (corto.startsWith('https://tinyurl.com')) urlFinal = corto.trim();
-      }
-    } catch(e) {
-      // Si falla TinyURL, usa el link largo igual
-    }
+    const urlFinal = urlLarga;
 
     btn.textContent = 'Generar link de entrega';
     btn.disabled = false;
