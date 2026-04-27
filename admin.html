@@ -464,8 +464,8 @@
 
     <div class="field">
       <label class="field-label" for="inp-portada">Foto de portada</label>
-      <input type="url" id="inp-portada" placeholder="https://... (link directo a imagen)">
-      <p class="field-hint">Pega el link directo a la foto que quieres usar como portada.</p>
+      <input type="text" id="inp-portada" placeholder="Pega el link de Drive de la foto">
+      <p class="field-hint">Pega el link de compartir de Drive, el admin lo convierte automáticamente.</p>
     </div>
 
     <hr class="section-sep">
@@ -551,14 +551,15 @@
 
     <hr class="section-sep">
 
-    <!-- Reseña -->
+
     <p class="section-label">Reseña de Google</p>
 
-    <div class="field">
-      <label class="field-label" for="inp-review">Link de Google Reviews</label>
-      <input type="url" id="inp-review" placeholder="https://g.page/r/...">
-      <p class="field-hint">Deja vacío si no quieres mostrar la sección de reseña.</p>
-    </div>
+    <label class="extras-toggle" for="chk-review">
+      <input type="checkbox" id="chk-review" checked>
+      <span class="extras-toggle-label">Incluir invitación a dejar reseña</span>
+    </label>
+
+    <input type="hidden" id="inp-review" value="https://g.page/r/CQTT-o3a_kVcEAE/review">
 
     <button class="btn-generar" onclick="generarLink()">Generar link de entrega</button>
 
@@ -660,7 +661,7 @@
     const portada   = driveDirecto(document.getElementById("inp-portada").value.trim());
     const drive     = document.getElementById('inp-drive').value.trim();
     const driveLabel = document.getElementById('inp-drive-label').value.trim() || 'Fotografía y video';
-    const review    = document.getElementById('inp-review').value.trim();
+    const review    = document.getElementById('chk-review').checked ? document.getElementById('inp-review').value : '';
 
     p.set('nombre', nombre);
     p.set('direccion', direccion);
