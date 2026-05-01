@@ -1055,16 +1055,29 @@ async function enviar() {
     d_especiales: g('d-especiales'),
   };
 
-  try {
-    await fetch(RECEPTOR_URL, {
-      method: 'POST',
-      mode: 'no-cors',
-      body: JSON.stringify(payload),
-    });
-    // Con no-cors no podemos leer la respuesta pero el POST llega a Apps Script
-  } catch (e) {
-    // Ignorar errores de red — la pantalla de gracias se muestra siempre
-  }
+  // Enviamos con un form oculto apuntando a un iframe oculto.
+  // Este método no tiene restricciones de CORS y funciona siempre con Apps Script.
+  const iframe = document.createElement('iframe');
+  iframe.name = 'receptor-iframe';
+  iframe.style.display = 'none';
+  document.body.appendChild(iframe);
+
+  const form = document.createElement('form');
+  form.method = 'POST';
+  form.action = RECEPTOR_URL;
+  form.target = 'receptor-iframe';
+  form.style.display = 'none';
+
+  const input = document.createElement('input');
+  input.type = 'hidden';
+  input.name = 'data';
+  input.value = JSON.stringify(payload);
+  form.appendChild(input);
+  document.body.appendChild(form);
+  form.submit();
+
+  // Esperar un momento antes de mostrar la pantalla de gracias
+  await new Promise(r => setTimeout(r, 1200));
 
   // Mostrar pantalla de gracias
   document.getElementById('s7').classList.remove('active');
