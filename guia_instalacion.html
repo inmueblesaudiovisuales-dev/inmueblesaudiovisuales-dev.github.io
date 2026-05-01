@@ -81,7 +81,7 @@ body {
   font-size: 9px; font-weight: 700; color: var(--muted2);
   display: flex; align-items: center; justify-content: center; flex-shrink: 0;
 }
-.sidebar-link.done .sidebar-link-num { background: var(--green-dim); border-color: var(--green); color: var(--green); }
+.sidebar-link.done .sidebar-link-num { background: rgba(22,163,74,.12); border-color: #15803D; color: #15803D; }
 
 /* ── Main ── */
 .main { flex: 1; min-width: 0; padding: 60px 48px 120px; max-width: 860px; }
@@ -243,10 +243,11 @@ body {
   font-size: 13px; line-height: 1.65;
 }
 .alert-icon { font-size: 16px; flex-shrink: 0; margin-top: 1px; }
-.alert.warn { background: rgba(251,146,60,.08); border: 1px solid rgba(251,146,60,.2); color: #FED7AA; }
-.alert.ok { background: var(--green-dim); border: 1px solid rgba(74,222,128,.2); color: #BBF7D0; }
-.alert.info { background: var(--blue-dim); border: 1px solid rgba(96,165,250,.2); color: #BFDBFE; }
-.alert.danger { background: var(--red-dim); border: 1px solid rgba(248,113,113,.2); color: #FECACA; }
+.alert.warn { background: rgba(234,88,12,.06); border: 1px solid rgba(234,88,12,.3); color: #92400E; }
+.alert strong { color: inherit; }
+.alert.ok { background: rgba(22,163,74,.07); border: 1px solid rgba(22,163,74,.3); color: #14532D; }
+.alert.info { background: rgba(37,99,235,.06); border: 1px solid rgba(37,99,235,.25); color: #1E3A5F; }
+.alert.danger { background: rgba(220,38,38,.06); border: 1px solid rgba(220,38,38,.25); color: #7F1D1D; }
 
 /* ── Checklist ── */
 .checklist { list-style: none; }
@@ -259,7 +260,7 @@ body {
 .checklist li::before {
   content: '○'; color: var(--border2); font-size: 14px; flex-shrink: 0; margin-top: 1px;
 }
-.checklist li.done::before { content: '✓'; color: var(--green); }
+.checklist li.done::before { content: '✓'; color: #15803D; }
 .checklist li strong { color: var(--text); font-weight: 600; }
 
 /* ── Tabla de archivos ── */
@@ -300,7 +301,7 @@ body {
 .screen-label { color: var(--muted2); font-size: 11px; width: 160px; flex-shrink: 0; }
 .screen-val { color: var(--text); font-family: 'JetBrains Mono', monospace; font-size: 11px; word-break: break-all; }
 .screen-val.accent { color: var(--accent); }
-.screen-val.green { color: var(--green); }
+.screen-val.green { color: #15803D; font-weight:600; }
 
 /* ── Progreso total ── */
 .progreso-total {
